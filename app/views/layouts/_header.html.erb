@@ -1,12 +1,12 @@
-<header class="navbar navbar-fixed-top">
+<header class="navbar navbar-static-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<%= link_to "sample app", '#', id: "logo" %>
+			<%= link_to (image_tag "http://inspeckd.s3.amazonaws.com/v13/logo2.png"), :id => "navbar-brand" %>
 			<nav>
 				<ul class="nav pull-right">
 					<li><%= link_to "Home",    '#' %></li>
 					<li><%= link_to "Help",    '#' %></li>
-					<li><%= link_to "Sign in", '#' %></li>
+					<li><%= link_to "Sign in", sign_in_path %></li>
 				</ul>
 			</nav>
 		</div>
