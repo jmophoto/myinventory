@@ -1,9 +1,52 @@
-$bodyBackground: white;
-$navbarHeight: 80px;
-$navbarBackground: white;
-@import "bootstrap";
+$navbar-height: 100px;
+$navbar-default-bg: white;
+$navbar-margin-bottom: 0px;
+$navbar-default-link-color: black;
+$navbar-default-link-hover-color: #8CC63F;
 
-body {
+@import "twitter/bootstrap";
+
+body {           
+    font-family: 'Noto Sans',Tahoma,'Lucida Grande','Lucida Sans Unicode',Helvetica,Arial,Verdana,sans-serif;
+    color: #333333;      
+    text-rendering: optimizeLegibility;
+}
+
+.navbar-brand {
+  padding-top: 25px;
+  padding-bottom: 20px;
+}
+
+nav {
+  
+  font-family: Arial;
+  text-transform: uppercase;
+  font-size:11px;
+  font-weight: bold;
+  
+  .btn-group-xs {
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+    
+  .btn {
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-size:11px;
+    padding: 2px 5px !important;
+    background-color: #eee;
+  }
+
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
   
 }
+
+.social-link img {
+  height: 25px;
+  margin: 4px 10px 0;
+}
+
 

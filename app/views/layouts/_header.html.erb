@@ -1,16 +1,31 @@
-<header class="navbar navbar-static-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<div class="navbar-text pull-left">
-				<%= link_to (image_tag "http://inspeckd.s3.amazonaws.com/v13/logo2.png", :class => "navbar-brand"), root_path %>
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+	  <div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+			</button>
+	    <%= link_to (image_tag "http://inspeckd.s3.amazonaws.com/v13/logo2.png", :class => "navbar-brand", :id => "nav-logo"), root_path %>
+	  </div>
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<div class="navbar-right">
+			  <ul class="nav navbar-nav">
+			    <li><%= link_to "Home", root_path %></li>
+			    <li><%= link_to "About Inspeckd", "#" %></li>
+					<li><%= link_to "Get Started", "#" %></li>
+					<li><%= link_to "Contact", "#" %></li>
+			  </ul>
+				<div class="btn-group btn-group-xs">
+					<button type="button" class="btn btn-default navbar-btn">Register For Free</button>
+					<button type="button" class="btn btn-default navbar-btn">User Login</button>
+				</div>
+				<%= link_to (image_tag 'http://inspeckd.s3.amazonaws.com/v13/fb.png'), "http://www.facebook.com/pages/Inspeckd/391294610963596?fref=ts", :class => "social-link" %>
 			</div>
-			<nav>
-				<ul class="nav pull-right">
-					<li><%= link_to "Home",    '#' %></li>
-					<li><%= link_to "Help",    '#' %></li>
-					<li><%= link_to "Sign in", sign_in_path %></li>
-				</ul>
-			</nav>
 		</div>
 	</div>
-</header>
+</nav>
+
+
+
