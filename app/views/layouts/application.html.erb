@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Inspeckd | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>Inspeckd | <%= yield(:title) %></title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	  <%= render :partial => 'layouts/ie_shim' %>
+	</head>
+	<body>
+		<%= render :partial => 'layouts/header' %>
 
-<%= yield %>
-
-</body>
+		<div class="container">
+			<%= yield %>
+			<%= render :partial => 'layouts/footer' %>
+		</div>
+	</body>
 </html>
