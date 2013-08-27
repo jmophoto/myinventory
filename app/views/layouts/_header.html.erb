@@ -1,7 +1,9 @@
 <header class="navbar navbar-static-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<%= link_to (image_tag "http://inspeckd.s3.amazonaws.com/v13/logo2.png"), :id => "navbar-brand" %>
+			<div class="navbar-text pull-left">
+				<%= link_to (image_tag "http://inspeckd.s3.amazonaws.com/v13/logo2.png", :class => "navbar-brand"), root_path %>
+			</div>
 			<nav>
 				<ul class="nav pull-right">
 					<li><%= link_to "Home",    '#' %></li>
