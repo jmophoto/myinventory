@@ -16,6 +16,7 @@ body {
 #main-content {
   min-height: 500px;
   border-top: 14px solid #0173A5;
+  padding-bottom: 40px;
   
   h1 {
   font-family: 'Open Sans';
@@ -69,6 +70,14 @@ footer {
 .social-link img {
   height: 25px;
   margin: 4px 10px 0;
+}
+
+.form-header {
+  font-size: 2.5em;
+  color: #999999;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  line-height: 2em;
 }
 
 

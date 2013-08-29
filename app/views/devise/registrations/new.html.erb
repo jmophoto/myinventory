@@ -4,38 +4,61 @@
 	<h1>Getting started is easy!</h1>
 	<div class="row">
 		<div class="col-md-6">
+			<div class="form-header">New Users Register For Free:</div> 
 			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 			  <%= devise_error_messages! %>
+			
+			  <div class="form-group">
+				  <div><%= f.label :first_name %><br />
+				  <%= f.email_field :first_name, :class => "form-control" %></div>
+				</div>
+				
+				<div class="form-group">
+			  	<div><%= f.label :last_name %><br />
+			  	<%= f.email_field :last_name, :class => "form-control"  %></div>
+				</div>
 
-			  <div><%= f.label :email %><br />
-			  <%= f.email_field :email, :autofocus => true %></div>
+			  <div class="form-group">
+					<div><%= f.label :email %><br />
+				  <%= f.email_field :email, :class => "form-control"  %></div>
+				</div>
 
-			  <div><%= f.label :password %><br />
-			  <%= f.password_field :password %></div>
+				<div class="form-group">  
+					<div><%= f.label :password %><br />
+			  	<%= f.password_field :password, :class => "form-control"  %></div>
+				</div>
+				
+				<div class="form-group">
+			  	<div><%= f.label :password_confirmation, "Confirmation" %><br />
+			  	<%= f.password_field :password_confirmation, :class => "form-control"  %></div>
+				</div>
 
-			  <div><%= f.label :password_confirmation %><br />
-			  <%= f.password_field :password_confirmation %></div>
-
-			  <div><%= f.submit "Sign up" %></div>
+			  <div><%= f.submit "Register", :class => "btn btn-primary pull-right" %></div>
 			<% end %>
-			<%= render "devise/shared/links" %>
 		</div>
-		<div class=".col-md-6">
-			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-			  <%= devise_error_messages! %>
+		<div class="col-md-6">
+			<div class="form-header">Have an Account? Log in:</div>
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+				<%= devise_error_messages! %>
+			
+				<div class="form-group">
+				  <div><%= f.label :email %><br />
+				  <%= f.email_field :email, :class => "form-control"  %></div>
+				</div>
 
-			  <div><%= f.label :email %><br />
-			  <%= f.email_field :email, :autofocus => true %></div>
+				<div class="form-group">
+				  <div><%= f.label :password %><br />
+				  <%= f.password_field :password, :class => "form-control"  %></div>
+				</div>
 
-			  <div><%= f.label :password %><br />
-			  <%= f.password_field :password %></div>
+				<div class="checkbox pull-left">
+				  <% if devise_mapping.rememberable? -%>
+				    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+				  <% end -%>
+				</div>
 
-			  <div><%= f.label :password_confirmation %><br />
-			  <%= f.password_field :password_confirmation %></div>
-
-			  <div><%= f.submit "Sign up" %></div>
+			  <div><%= f.submit "Log In", :class => "pull-right btn btn-primary"%></div>
 			<% end %>
-			<%= render "devise/shared/links" %>
 		</div>
 	</div>
 </div>
