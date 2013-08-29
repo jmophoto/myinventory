@@ -1,4 +1,6 @@
 Inspeckd::Application.routes.draw do
+  resources :properties
+
   devise_for :users
   get "static_pages/home"
   get "static_pages/about"

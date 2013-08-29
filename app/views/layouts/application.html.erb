@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <title>Inspeckd | <%= yield(:title) %></title>
-	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	  <%= csrf_meta_tags %>
-	  <%= render :partial => 'layouts/ie_shim' %>
-		<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
-	</head>
+	<%= render :partial => 'layouts/head_tags' %>
 	<body>
 		<%= render :partial => 'layouts/header' %>
-		<%= yield %>
+		<div id="main-content">
+			<div class="container">
+				<%= yield %>
+			</div>
+		</div>
 		<%= render :partial => 'layouts/footer' %>
 	</body>
 </html>
