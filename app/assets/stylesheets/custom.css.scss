@@ -80,4 +80,21 @@ footer {
   line-height: 2em;
 }
 
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .danger;
+}
+
+.alert-error {
+  @extend .alert-danger;
+}
+
 

@@ -19,8 +19,13 @@
 						<li><%= link_to "Contact", "#" %></li>
 				  </ul>
 					<div class="btn-group btn-group-xs">
-						<%= link_to "Register For Free", '#', class: "btn btn-default navbar-btn" %>
-						<%= link_to "User Login", '#', class: "btn btn-default navbar-btn" %>			
+						<% if signed_in? %>
+							<%= link_to 'Profile', '#', class: "btn btn-default navbar-btn"  %>	
+							<%= link_to 'Sign Out', signout_path, method: "delete", class: "btn btn-default navbar-btn"  %>	
+						<% else %>
+							<%= link_to "Register For Free", signup_path, class: "btn btn-default navbar-btn" %>
+							<%= link_to "Sign In", signin_path, class: "btn btn-default navbar-btn" %>
+						<% end %>
 					</div>
 					<%= link_to (image_tag 'http://inspeckd.s3.amazonaws.com/v13/fb.png'), "http://www.facebook.com/pages/Inspeckd/391294610963596?fref=ts", :class => "social-link" %>
 				</div>
@@ -28,6 +33,5 @@
 		</div>
 	</nav>
 </header>
-
 
 
