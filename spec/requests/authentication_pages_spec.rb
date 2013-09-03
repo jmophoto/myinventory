@@ -43,6 +43,59 @@ describe "Authentication" do
       
     end
       
+    describe "authorization" do
+      
+      describe "for non-signed-in users" do
+        let(:user) { FactoryGirl.create(:user) }
+        
+        describe "when attempting to visit a protected page" do
+          before do
+            visit profile_path
+            fill_in "Email", with: user.email
+            fill_in "Password", with: user.password
+            click_button "Sign In"
+          end
+          
+          describe "after signing in" do
+            it "should render the desired protected page" do
+              expect(page).to have_title('Profile')
+            end
+            
+          end
+             
+        end
+        
+        describe "in the Users controller" do
+          
+          describe "visting to edit page" do
+            before { visit edit_user_path(user) }
+            it { should have_title("Sign In") }
+          end
+          
+          describe "submitting to the update action" do
+            before { patch user_path(user) }
+            specify { expect(response).to redirect_to(signin_path) }
+          end
+        end
+        
+        describe "in the Properties controller" do
+          
+          describe "submitting to the create action" do
+            before { post properties_path }
+            specify { expect(response).to redirect_to(signin_path) }
+          end
+          
+          describe "submitting to the destroy action" do
+            before { delete property_path(FactoryGirl.create(:property)) }
+            specify{ expect(response).to redirect_to(signin_path) }
+          end
+          
+        end
+      
+      end
+      
+    end
+    
   end
 
 end

@@ -2,11 +2,10 @@
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
+		<%= render :partial => 'shared/flash_messages' %>
 		<div class="form-header">Have an Account? Log in:</div>
 		<%= form_for(:session, url: sessions_path) do |f| %>
-			<% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
+
 			<div class="form-group">
 			  <div><%= f.label :email %><br />
 			  <%= f.email_field :email, :class => "form-control"  %></div>

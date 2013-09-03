@@ -12,21 +12,11 @@
 		  </div>
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<div class="navbar-right">
-				  <ul class="nav navbar-nav">
-				    <li><%= link_to "Home", root_path %></li>
-				    <li><%= link_to "About Inspeckd", "#" %></li>
-						<li><%= link_to "Get Started", "#" %></li>
-						<li><%= link_to "Contact", "#" %></li>
-				  </ul>
-					<div class="btn-group btn-group-xs">
-						<% if signed_in? %>
-							<%= link_to 'Profile', '#', class: "btn btn-default navbar-btn"  %>	
-							<%= link_to 'Sign Out', signout_path, method: "delete", class: "btn btn-default navbar-btn"  %>	
-						<% else %>
-							<%= link_to "Register For Free", signup_path, class: "btn btn-default navbar-btn" %>
-							<%= link_to "Sign In", signin_path, class: "btn btn-default navbar-btn" %>
-						<% end %>
-					</div>
+					<% if signed_in? %>
+						<%= render :partial => 'layouts/user_links' %>
+					<% else %>
+				  	<%= render :partial => 'layouts/public_links' %>
+					<% end %>
 					<%= link_to (image_tag 'http://inspeckd.s3.amazonaws.com/v13/fb.png'), "http://www.facebook.com/pages/Inspeckd/391294610963596?fref=ts", :class => "social-link" %>
 				</div>
 			</div>

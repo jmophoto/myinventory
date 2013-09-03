@@ -6,4 +6,9 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
   end
+  
+  factory :property do
+    address "123 Main"
+    user
+  end
 end

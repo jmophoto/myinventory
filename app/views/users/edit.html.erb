@@ -1,8 +1,9 @@
-<% provide(:title, "Sign Up") %>
+<% provide(:title, "Profile") %>
 
 <div class="col-md-6 col-md-offset-3">
-	<div class="form-header">New Users Register For Free:</div>
+	<div class="form-header">Edit Your Profile:</div> 
 	<%= render :partial => 'shared/flash_messages' %>
+
 	<%= form_for(@user) do |f| %>
 		<%= render 'shared/error_messages' %>
 	
@@ -31,6 +32,6 @@
 	  	<%= f.password_field :password_confirmation, :class => "form-control"  %></div>
 		</div>
 
-	  <div><%= f.submit "Register", :class => "btn btn-primary pull-right" %></div>
+	  <div><%= f.submit "Update", :class => "btn btn-primary pull-right" %></div>
 	<% end %>
 </div>

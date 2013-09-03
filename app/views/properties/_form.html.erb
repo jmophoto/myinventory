@@ -1,0 +1,37 @@
+<%= form_for @property, :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% @property.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+	  <%= f.label :address, :class => "col-md-2 control-label" %>
+		<div class="col-md-10"><%= f.text_field :address, :class => "form-control" %></div>
+	</div>
+	
+	<div class="form-group">
+	  <%= f.label :city, :class => "col-md-2 control-label" %>
+		<div class="col-md-10"><%= f.text_field :address, :class => "form-control" %></div>
+	</div>
+	
+	<div class="form-group">
+	  <%= f.label :state, :class => "col-md-2 control-label" %>
+		<div class="col-md-10"><%= f.text_field :state, :class => "form-control" %></div>
+	</div>
+	<div class="form-group">
+	  <%= f.label :zip, :class => "col-md-2 control-label" %>
+		<div class="col-md-10"><%= f.text_field :zip, :class => "form-control" %></div>
+	</div>
+	
+
+  <div class="actions pull-right">
+    <%= f.submit "Add Property", :class => "btn btn-primary" %>
+  </div>
+<% end %>
