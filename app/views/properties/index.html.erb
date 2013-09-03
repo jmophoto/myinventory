@@ -11,6 +11,10 @@
     <% @properties.each do |property| %>
       <tr>
         <td><%= property.address %></td>
+				<td class="col-md-2 text-right">
+					<%= link_to 'Inspect', '#', :class => "btn btn-primary btn-xs" %>
+					<%= link_to 'Edit', edit_property_path(property), :class => "btn btn-success btn-xs" %>
+					<%= link_to 'Delete', property, method: :delete, confirm: "Are you sure?", :class => "btn btn-danger btn-xs" %>
       </tr>
     <% end %>
   </tbody>
