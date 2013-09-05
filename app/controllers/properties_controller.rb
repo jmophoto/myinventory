@@ -34,6 +34,7 @@ class PropertiesController < ApplicationController
   # PATCH/PUT /properties/1
   def update
     if @property.update(property_params)
+      @property.check_rooms(params[:property][:room_count])
       redirect_to @property, notice: 'Property was successfully updated.'
     else
       render action: 'edit'

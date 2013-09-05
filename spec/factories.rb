@@ -1,4 +1,5 @@
 FactoryGirl.define do
+  
   factory :user do
     first_name "Example"
     last_name "User"
@@ -11,4 +12,11 @@ FactoryGirl.define do
     name "Bachelor Arms"
     user
   end
+  
+  factory :room do
+    name "Bedroom"
+    room_type "bedroom"
+    property
+  end
+  
 end
