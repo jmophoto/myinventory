@@ -36,7 +36,7 @@
 		<div class="col-md-10"><%= f.text_field :zip, :class => "form-control" %></div>
 	</div>
 	
-	<% if !@property.new_record? %>
+	<% if @property.new_record? %>
 		<%= f.fields_for :room_count do |room_count| %>
 			<% room_list.each do |room| %>
 				<div class="form-group">
@@ -51,6 +51,7 @@
 			<% @property.rooms.each do |room| %>
 				<tr>
 					<td><%= room.name %></td>
+					<td><%= room.features %></td>
 				</tr>
 			<% end %>
 		</table>

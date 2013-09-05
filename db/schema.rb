@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905022444) do
+ActiveRecord::Schema.define(version: 20130905135413) do
 
   create_table "properties", force: true do |t|
     t.string   "address"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20130905022444) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "room_type"
+    t.text     "features"
   end
 
   add_index "rooms", ["property_id"], name: "index_rooms_on_property_id"
