@@ -12,11 +12,13 @@
 	    <div id="collapse<%= room.id %>" class="panel-collapse collapse">
 	      <div class="panel-body">
 					<% if room.features %>
-						<ul>
-							<% room.features.each do |feature| %>
-								<li><%= feature %></li>
-							<% end %>
-						</ul>
+						<div class="well col-md-3">
+							<ul class="list-group">
+								<% room.features.each do |feature| %>
+									<li class="list-group-item"><%= feature %></li>
+								<% end %>
+							</ul>
+						</div>
 					<% end %>
 	      </div>
 	    </div>
