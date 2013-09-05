@@ -23,8 +23,8 @@ class PropertiesController < ApplicationController
   # POST /properties
   def create
     @property = current_user.properties.build(property_params)
-
     if @property.save
+      @property.process_rooms(params[:property][:room_count])
       redirect_to @property, notice: 'Property was successfully created.'
     else
       render action: 'new'
@@ -54,6 +54,6 @@ class PropertiesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def property_params
-      params.require(:property).permit(:address, :city, :state, :zip)
+      params.require(:property).permit!
     end
 end

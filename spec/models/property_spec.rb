@@ -3,9 +3,10 @@ require 'spec_helper'
 describe Property do
   
   let(:user) { FactoryGirl.create(:user) }
-  before { @property = user.properties.build(address: "123 Main") }
+  before { @property = user.properties.build(name: "Bachelor Arms") }
   subject { @property }
   
+  it { should respond_to(:name) }
   it { should respond_to(:address) }
   it { should respond_to(:city) }
   it { should respond_to(:state) }

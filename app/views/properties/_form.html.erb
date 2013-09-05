@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="form-group">
+	  <%= f.label :name, :class => "col-md-2 control-label" %>
+		<div class="col-md-10"><%= f.text_field :name, :class => "form-control" %></div>
+	</div>
+
+  <div class="form-group">
 	  <%= f.label :address, :class => "col-md-2 control-label" %>
 		<div class="col-md-10"><%= f.text_field :address, :class => "form-control" %></div>
 	</div>
@@ -25,12 +30,23 @@
 	  <%= f.label :state, :class => "col-md-2 control-label" %>
 		<div class="col-md-10"><%= f.text_field :state, :class => "form-control" %></div>
 	</div>
+	
 	<div class="form-group">
 	  <%= f.label :zip, :class => "col-md-2 control-label" %>
 		<div class="col-md-10"><%= f.text_field :zip, :class => "form-control" %></div>
 	</div>
 	
-
+	<% if @property.new_record? %>
+		<%= f.fields_for :room_count do |room_count| %>
+			<% room_list.each do |room| %>
+				<div class="form-group">
+				  <%= room_count.label room.to_sym, "#{room.humanize.pluralize} ", :class => "col-md-2 control-label" %>
+					<div class="col-md-10"><%= room_count.text_field room.to_sym, :class => "form-control" %></div>
+				</div>
+			<% end %>
+		<% end %>
+	<% end %>
+	
   <div class="actions pull-right">
     <%= f.submit "Save Property", :class => "btn btn-primary" %>
   </div>
