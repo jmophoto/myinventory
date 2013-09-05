@@ -10,7 +10,11 @@ class Property < ActiveRecord::Base
   def process_rooms(room_count)
     if room_count
       room_count.each do |key, value|
-        value.to_i.times { self.rooms.create(name: key.humanize, room_type: key) }
+        if value.to_i == 1
+          self.rooms.create(name: key.humanize, room_type: key)
+        else
+          (1..value.to_i).collect { |x| self.rooms.create(name: "#{key.humanize} #{x}", room_type: key) }
+        end
       end
     end
   end
