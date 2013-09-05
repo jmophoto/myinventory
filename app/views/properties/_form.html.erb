@@ -41,7 +41,7 @@
 			<% room_list.each do |room| %>
 				<div class="form-group">
 				  <%= room_count.label room.to_sym, "#{room.humanize.pluralize} ", :class => "col-md-2 control-label" %>
-					<div class="col-md-10"><%= room_count.text_field room.to_sym, :class => "form-control", :value => "#{@property.rooms.type_count(room)}" %></div>
+					<div class="col-md-10"><%= room_count.text_field room.to_sym, :class => "form-control" %></div>
 				</div>
 			<% end %>
 		<% end %>
