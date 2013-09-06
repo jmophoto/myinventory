@@ -16,7 +16,7 @@
 							<% room.features.keys.each do |key| %>
 								<% room.features[key].each do |feature| %>
 									<li class="list-group-item">
-										<%= feature %>
+										<%= feature.humanize %>
 										<span class="remove-feature-button glyphicon glyphicon-remove pull-right"></span>
 									</li>
 								<% end %>
