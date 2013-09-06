@@ -17,7 +17,7 @@ class Room < ActiveRecord::Base
   def add_features
     self.features = base_features
     if room_type == "bedroom"
-      self.features.merge!(bedroom_features)
+      self.features.merge!(bedroom_features).merge!(window_features)
     elsif room_type == "bathroom"
       self.features.merge!(bathroom_features)
     elsif room_type == "kitchen"
@@ -42,7 +42,7 @@ class Room < ActiveRecord::Base
   end
   
   def window_features
-    { "kitchen" => ['windows', 'screens', 'blinds/drapes'] }
+    { "windows" => ['windows', 'screens', 'blinds/drapes'] }
   end
     
 end
