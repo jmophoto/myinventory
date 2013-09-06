@@ -12,21 +12,16 @@
 	    <div id="collapse<%= room.id %>" class="panel-collapse collapse">
 	      <div class="panel-body">
 					<% if room.features %>
-						<% room.features.keys.each do |key| %>
-							<div class="col-md-4">
-								<div class="well">
-									<legend><%= key.humanize %> Features</legend>
-									<ul class="list-group">
-										<% room.features[key].each do |feature| %>
-											<li class="list-group-item">
-												<%= feature %>
-												<span class="remove-feature-button glyphicon glyphicon-remove pull-right"></span>
-											</li>
-										<% end %>
-									</ul>
-								</div>
-							</div>
-						<% end %>
+						<ul class="list-group">
+							<% room.features.keys.each do |key| %>
+								<% room.features[key].each do |feature| %>
+									<li class="list-group-item">
+										<%= feature %>
+										<span class="remove-feature-button glyphicon glyphicon-remove pull-right"></span>
+									</li>
+								<% end %>
+							<% end %>
+						</ul>
 					<% end %>
 	      </div>
 	    </div>
@@ -35,7 +30,11 @@
 </div>
 
 <script>
-$(".glyphicon-minus, .glyphicon-plus").click(function(){
-    $(this).toggleClass("glyphicon-minus glyphicon-plus");
-});
+$('.room-panel').on('show.bs.collapse', function () {
+	$(this).find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+})
+
+$('.room-panel').on('hidden.bs.collapse', function () {
+	$(this).find('.glyphicon').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+})
 </script>

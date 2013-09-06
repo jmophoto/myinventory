@@ -25,7 +25,7 @@ class PropertiesController < ApplicationController
     @property = current_user.properties.build(property_params)
     if @property.save
       @property.process_rooms(params[:property][:room_count])
-      redirect_to @property, notice: 'Property was successfully created.'
+      redirect_to edit_property_path(@property), notice: 'Property was successfully created.'
     else
       render action: 'new'
     end
