@@ -1,0 +1,55 @@
+<%= form_for(@inspection, html: { class: "form-horizontal col-md-10 col-md-offset-1", role: "form" }) do |f| %>
+  <% if @inspection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inspection.errors.count, "error") %> prohibited this inspection from being saved:</h2>
+
+      <ul>
+      <% @inspection.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :inspection_type, :class => "col-md-2 control-label" %>
+		<div class="col-md-8">
+    	<%= f.select :inspection_type, inspection_types, {}, { :class => "form-control" } %>
+		</div>
+  </div>
+  <div class="form-group">
+    <%= f.label :unit, :class => "col-md-2 control-label" %>
+		<div class="col-md-8">
+    	<%= f.text_field :unit, :class => "form-control" %>
+		</div>
+  </div>
+  <div class="form-group">
+    <%= f.label :tenant, :class => "col-md-2 control-label" %>
+		<div class="col-md-8">
+    	<%= f.text_field :tenant, :class => "form-control" %>
+		</div>
+  </div>
+  <div class="form-group">
+    <%= f.label :inspected_by, :class => "col-md-2 control-label" %>
+		<div class="col-md-8">
+    	<%= f.text_field :inspected_by, :class => "form-control" %>
+		</div>
+  </div>
+  <div class="form-group">
+    <%= f.label :inspection_date, :class => "col-md-2 control-label" %>
+		<div class="col-md-8">
+    	<%= f.text_field :inspection_date, :class => "form-control", :data => { :behaviour => "datepicker" } %>
+		</div>
+  </div>
+  <div class="form-group">
+		<div class="col-md-10">
+    	<%= f.submit "Add Inspection", :class => "col-md-2 btn btn-success btn-sm pull-right" %>
+			<%= link_to "Cancel", inspections_path, :class => "col-md-2 btn btn-danger btn-sm pull-right" %>
+		</div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker();
+  })
+</script>

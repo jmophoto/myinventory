@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905135413) do
+ActiveRecord::Schema.define(version: 20130909023634) do
+
+  create_table "inspections", force: true do |t|
+    t.string   "inspection_type"
+    t.string   "unit"
+    t.string   "tenant"
+    t.string   "inspected_by"
+    t.datetime "inspection_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "properties", force: true do |t|
     t.string   "address"

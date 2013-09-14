@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
+gem 'bootstrap-datepicker-rails'
 gem 'bcrypt-ruby', '3.0.1'
 
 group :development, :test do

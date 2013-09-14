@@ -31,6 +31,8 @@ GEM
     arel (4.0.0)
     atomic (1.1.13)
     bcrypt-ruby (3.0.1)
+    bootstrap-datepicker-rails (1.1.1.7)
+      railties (>= 3.0)
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -159,6 +161,7 @@ PLATFORMS
 DEPENDENCIES
   anjlab-bootstrap-rails (>= 3.0.0.0)
   bcrypt-ruby (= 3.0.1)
+  bootstrap-datepicker-rails
   capybara (= 2.1.0)
   coffee-rails (= 4.0.0)
   factory_girl_rails (= 4.2.1)

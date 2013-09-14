@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inspection type:</strong>
+  <%= @inspection.inspection_type %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @inspection.unit %>
+</p>
+
+<p>
+  <strong>Tenant:</strong>
+  <%= @inspection.tenant %>
+</p>
+
+<p>
+  <strong>Inspected by:</strong>
+  <%= @inspection.inspected_by %>
+</p>
+
+<p>
+  <strong>Inspection date:</strong>
+  <%= @inspection.inspection_date %>
+</p>
+
+<%= link_to 'Edit', edit_inspection_path(@inspection) %> |
+<%= link_to 'Back', inspections_path %>
