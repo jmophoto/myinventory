@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+  <strong>Property Template:</strong>
+  <%= @inspection.property_id %>
+</p>
+
 <p>
   <strong>Inspection type:</strong>
   <%= @inspection.inspection_type %>
@@ -24,6 +30,8 @@
   <strong>Inspection date:</strong>
   <%= @inspection.inspection_date %>
 </p>
+
+<%= render 'inspected_rooms' %>
 
 <%= link_to 'Edit', edit_inspection_path(@inspection) %> |
 <%= link_to 'Back', inspections_path %>

@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909023634) do
+ActiveRecord::Schema.define(version: 20130914193059) do
+
+  create_table "inspected_features", force: true do |t|
+    t.string   "name"
+    t.string   "condition"
+    t.boolean  "clean"
+    t.boolean  "marks"
+    t.boolean  "damage"
+    t.string   "comment"
+    t.integer  "inspected_room_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "inspected_features", ["inspected_room_id"], name: "index_inspected_features_on_inspected_room_id"
+
+  create_table "inspected_rooms", force: true do |t|
+    t.string   "name"
+    t.integer  "inspection_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "inspected_rooms", ["inspection_id"], name: "index_inspected_rooms_on_inspection_id"
 
   create_table "inspections", force: true do |t|
     t.string   "inspection_type"
@@ -21,6 +44,11 @@ ActiveRecord::Schema.define(version: 20130909023634) do
     t.datetime "inspection_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.integer  "property_id"
   end
 
   create_table "properties", force: true do |t|

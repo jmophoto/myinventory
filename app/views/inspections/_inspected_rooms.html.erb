@@ -1,5 +1,5 @@
 <div class="panel-group" id="accordion">
-	<% @property.rooms.each do |room| %>
+	<% @inspection.inspected_rooms.each do |room| %>
 	  <div class="panel panel-default room-panel">
 	    <div class="panel-heading">
 	      <h4 class="panel-title">
@@ -11,12 +11,11 @@
 	    </div>
 	    <div id="collapse<%= room.id %>" class="panel-collapse collapse">
 	      <div class="panel-body">
-					<% if room.features %>
+					<% if room.inspected_features %>
 						<ul class="list-group">
-							<% room.features.each do |feature| %>
+							<% room.inspected_features.each do |feature| %>
 									<li class="list-group-item">
-										<%= feature.humanize %>
-										<span class="remove-feature-button glyphicon glyphicon-remove pull-right"></span>
+										<%= feature.name.humanize %>
 									</li>
 							<% end %>
 						</ul>

@@ -15,7 +15,7 @@
 				<td><%= property.city %></td>
 				<td><%= property.state %></td>
 				<td class="col-md-2 text-right">
-					<%= link_to 'Inspect', '#', :class => "btn btn-primary btn-xs" %>
+					<%= link_to 'Inspect', new_inspection_path(:property_id => property.id), :class => "btn btn-primary btn-xs" %>
 					<%= link_to 'Edit', edit_property_path(property), :class => "btn btn-success btn-xs" %>
 					<%= link_to 'Delete', property, method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger btn-xs" %>
       </tr>

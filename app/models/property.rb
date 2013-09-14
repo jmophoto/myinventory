@@ -1,6 +1,7 @@
 class Property < ActiveRecord::Base
   belongs_to :user
   has_many :rooms
+  has_many :inspections
   validates :user_id, presence: true
   
   attr_accessor :room_count
