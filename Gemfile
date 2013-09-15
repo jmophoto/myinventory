@@ -7,6 +7,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
