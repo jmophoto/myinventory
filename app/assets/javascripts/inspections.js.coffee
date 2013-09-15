@@ -4,12 +4,19 @@
 
 app = angular.module("Inspeckd", ["ngResource", "ng-rails-csrf"])
 
-@InspectionController = ("$scope", "$resource", $scope, $resource) ->
-  Room = $resource("/inspections/:inspection_id/inspected_rooms/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
-  $scope.rooms = Room.query({inspection_id: $scope.inspection_id})  
+app.factory "Room", ["$resource", ($resource) -> 
+  $resource("/inspections/:inspection_id/inspected_rooms/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
+]
   
-@FeatureController = ("$scope", "$resource", $scope, $resource) ->
-  Feature = $resource("/inspected_rooms/:inspected_room_id/inspected_features/:id", {inspected_room_id: "@inspected_room_id", id: "@id"}, {update: {method: "PUT"}})
+app.factory "Feature", ["$resource", ($resource) ->
+  $resource("/inspected_rooms/:inspected_room_id/inspected_features/:id", {inspected_room_id: "@inspected_room_id", id: "@id"}, {update: {method: "PUT"}})
+]
+
+@InspectionController = ["$scope", "Room", ($scope, Room) ->
+  $scope.rooms = Room.query({inspection_id: $scope.inspection_id})  
+]
+  
+@FeatureController = ["$scope", "Feature", ($scope, Feature) ->
   $scope.features = Feature.query({inspected_room_id: $scope.inspected_room_id})
   
   $scope.isClean = (feature) ->
@@ -39,4 +46,5 @@ app = angular.module("Inspeckd", ["ngResource", "ng-rails-csrf"])
     else
       feature.damage = true
     feature.$update()
+]
  
