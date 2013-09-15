@@ -11,15 +11,21 @@ class InspectedFeaturesController < ApplicationController
   end
 
   def create
-    respond_with InspectedFeature.create(params[:entry])
+    respond_with InspectedFeature.create(inspected_feature_params)
   end
 
   def update
-    respond_with InspectedFeature.update(params[:id], params[:entry])
+    respond_with InspectedFeature.update(params[:id], inspected_feature_params)
   end
 
   def destroy
     respond_with InspectedFeature.destroy(params[:id])
+  end
+  
+  private
+
+  def inspected_feature_params
+    params.require(:inspected_feature).permit!
   end
   
 end

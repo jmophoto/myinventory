@@ -2,18 +2,41 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-app = angular.module("Inspeckd", ["ngResource"])
+app = angular.module("Inspeckd", ["ngResource", "ng-rails-csrf"])
 
 @InspectionController = ($scope, $resource) ->
   Room = $resource("/inspections/:inspection_id/inspected_rooms/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
   $scope.rooms = Room.query({inspection_id: $scope.inspection_id})  
   
 @FeatureController = ($scope, $resource) ->
-  Feature = $resource("/inspections/17/inspected_rooms/:inspected_room_id/inspected_features/:id", {inspected_room_id: "@inspected_room_id", id: "@id"}, {update: {method: "PUT"}})
+  Feature = $resource("/inspected_rooms/:inspected_room_id/inspected_features/:id", {inspected_room_id: "@inspected_room_id", id: "@id"}, {update: {method: "PUT"}})
   $scope.features = Feature.query({inspected_room_id: $scope.inspected_room_id})
   
   $scope.isClean = (feature) ->
-    alert(feature.name)
-    feature.clean = true
+    if feature.clean == true
+      feature.clean = null
+    else
+      feature.clean = true
+    feature.$update()
+    
+  $scope.isDirty = (feature) ->
+    if feature.clean == false
+      feature.clean = null
+    else
+      feature.clean = false
+    feature.$update()
+    
+  $scope.hasMarks = (feature) ->
+    if feature.marks == true
+      feature.marks = false
+    else
+      feature.marks = true
+    feature.$update()
+    
+  $scope.hasDamage = (feature) ->
+    if feature.damage == true
+      feature.damage = false
+    else
+      feature.damage = true
     feature.$update()
  

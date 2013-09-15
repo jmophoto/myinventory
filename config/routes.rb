@@ -2,9 +2,10 @@ Inspeckd::Application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update]
   resources :properties
   resources :inspections do
-    resources :inspected_rooms do
-      resources :inspected_features
-    end
+    resources :inspected_rooms
+  end
+  resources :inspected_rooms do
+    resources :inspected_features
   end
   resources :sessions, only: [:new, :create, :destroy]
   

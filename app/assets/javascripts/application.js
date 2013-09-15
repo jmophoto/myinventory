@@ -17,4 +17,5 @@
 //= require bootstrap-datepicker
 //= require angular
 //= require angular-resource
+//= require ng-rails-csrf
 //= require_tree .
