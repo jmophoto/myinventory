@@ -10,12 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group">
-		<label class="col-md-2 control-label">Property ID</label>
-		<div class="col-md-1">
-    	<%= f.text_field :property_id, :class => "form-control" %>
-		</div>
-  </div>
+  <%= f.hidden_field :property_id %>
   <div class="form-group">
 		<label class="col-md-2 control-label">Address / Unit</label>
 		<div class="col-md-6">
@@ -57,13 +52,14 @@
   </div>
   <div class="form-group">
     <%= f.label :inspection_date, :class => "col-md-2 control-label" %>
-		<div class="col-md-8">
-    	<%= f.text_field :inspection_date, :class => "form-control", :data => { :behaviour => "datepicker" } %>
+		<div class="col-md-3 input-group" id="dp3">
+    	<%= f.text_field :date_string, :class => "form-control", :data => { :behaviour => "datepicker" }, :value => @inspection.inspection_date %>
+			<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 		</div>
   </div>
   <div class="form-group">
 		<div class="col-md-10">
-    	<%= f.submit "Add Inspection", :class => "col-md-2 btn btn-success btn-sm pull-right" %>
+    	<%= f.submit "Add Inspection", :class => "col-md-2 btn btn-success btn-sm pull-right btn-cancel" %>
 			<%= link_to "Cancel", inspections_path, :class => "col-md-2 btn btn-danger btn-sm pull-right" %>
 		</div>
   </div>
@@ -71,6 +67,6 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('[data-behaviour~=datepicker]').datepicker();
+    $('#dp3').datepicker({ autoclose: true });
   })
 </script>

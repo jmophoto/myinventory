@@ -44,6 +44,9 @@ class InspectionsController < ApplicationController
   # PATCH/PUT /inspections/1.json
   def update
     respond_to do |format|
+      if params[:inspection][:date_string]
+        @inspection.inspection_date = Date.strptime(params[:inspection][:date_string], "%m/%d/%Y")
+      end
       if @inspection.update(inspection_params)
         format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
         format.json { head :no_content }
@@ -72,6 +75,6 @@ class InspectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inspection_params
-      params.require(:inspection).permit(:inspection_type, :unit, :tenant, :inspected_by, :inspection_date, :address, :city, :state, :zip, :property_id)
+      params.require(:inspection).permit(:inspection_type, :unit, :tenant, :inspected_by, :inspection_date, :address, :city, :state, :zip, :property_id, :date_string)
     end
 end

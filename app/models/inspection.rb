@@ -1,5 +1,5 @@
 class Inspection < ActiveRecord::Base
-  attr_accessor :template
+  attr_accessor :template, :date_string
   
   has_many :inspected_rooms
   belongs_to :property
