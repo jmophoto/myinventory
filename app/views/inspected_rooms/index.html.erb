@@ -1,0 +1,25 @@
+<h1>Listing inspected_rooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inspected_rooms.each do |inspected_room| %>
+      <tr>
+        <td><%= link_to 'Show', inspected_room %></td>
+        <td><%= link_to 'Edit', edit_inspected_room_path(inspected_room) %></td>
+        <td><%= link_to 'Destroy', inspected_room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inspected room', new_inspected_room_path %>

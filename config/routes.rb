@@ -1,8 +1,11 @@
 Inspeckd::Application.routes.draw do
-  resources :inspections
-
   resources :users, only: [:new, :create, :edit, :update]
   resources :properties
+  resources :inspections do
+    resources :inspected_rooms do
+      resources :inspected_features
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   
   match '/signup',  to: 'users#new',            via: 'get'

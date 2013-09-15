@@ -1,29 +1,28 @@
-<div class="panel-group" id="accordion">
-	<% @inspection.inspected_rooms.each do |room| %>
-	  <div class="panel panel-default room-panel">
-	    <div class="panel-heading">
-	      <h4 class="panel-title">
-	        <a class="accordion-toggle room-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= room.id %>">
-						<span class="glyphicon glyphicon-plus"></span>
-					</a>
-	        <%= room.name %>
-	      </h4>
-	    </div>
-	    <div id="collapse<%= room.id %>" class="panel-collapse collapse">
-	      <div class="panel-body">
-					<% if room.inspected_features %>
-						<ul class="list-group">
-							<% room.inspected_features.each do |feature| %>
-									<li class="list-group-item">
-										<%= feature.name.humanize %>
-									</li>
-							<% end %>
-						</ul>
-					<% end %>
-	      </div>
-	    </div>
-	  </div>
-	<% end %>
+<div ng-init="inspection_id='<%= @inspection.id %>'">
+<div class="panel-group" id="accordion" ng-controller="InspectionController">
+	{{ rooms.first }}
+  <div class="panel panel-default room-panel" ng-repeat="room in rooms">
+		<div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle room-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ room.id }}">
+					<span class="glyphicon glyphicon-plus"></span>
+				</a>
+        {{ room.name }}
+      </h4>
+    </div>
+    <div id="collapse{{ room.id }}" class="panel-collapse collapse" ng-init="inspected_room_id=room.id">
+      <div class="panel-body" ng-controller="FeatureController">
+				<table class="table">
+					<tr ng-repeat="feature in features">
+						<td>{{ feature.name }}</td>
+						<td>{{ featute.clean }}</td>
+						<td><button ng-click="isClean(feature)">Clean</button></td>
+					</tr>
+				</table>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <script>

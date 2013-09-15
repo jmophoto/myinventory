@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
+//= require angular
+//= require angular-resource
 //= require_tree .

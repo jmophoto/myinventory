@@ -1,0 +1,17 @@
+<%= form_for(@inspected_feature) do |f| %>
+  <% if @inspected_feature.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inspected_feature.errors.count, "error") %> prohibited this inspected_feature from being saved:</h2>
+
+      <ul>
+      <% @inspected_feature.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

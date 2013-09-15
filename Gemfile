@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'angularjs-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'

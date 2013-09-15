@@ -1,0 +1,2 @@
+module InspectedFeaturesHelper
+end
