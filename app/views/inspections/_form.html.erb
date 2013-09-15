@@ -52,8 +52,8 @@
   </div>
   <div class="form-group">
     <%= f.label :inspection_date, :class => "col-md-2 control-label" %>
-		<div class="col-md-3 input-group" id="dp3">
-    	<%= f.text_field :date_string, :class => "form-control", :data => { :behaviour => "datepicker" }, :value => @inspection.inspection_date %>
+		<div class="col-md-3 input-group">
+    	<%= f.text_field :date_string, :class => "form-control datepicker", :data => { :behaviour => "datepicker" }, :value => @inspection.inspection_date %>
 			<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 		</div>
   </div>
@@ -67,6 +67,6 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('#dp3').datepicker({ autoclose: true });
+    $('.datepicker').datepicker({ autoclose: true });
   })
 </script>
