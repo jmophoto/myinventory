@@ -1,46 +1,46 @@
 <div ng-init="inspection_id='<%= @inspection.id %>'">
-<div class="panel-group" id="accordion" ng-controller="InspectionController">
-	{{ rooms.first }}
-  <div class="panel panel-default room-panel" ng-repeat="room in rooms">
-		<div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle room-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ room.id }}">
-					<span class="glyphicon glyphicon-plus"></span>
-				</a>
-        {{ room.name }}
-      </h4>
-    </div>
-    <div id="collapse{{ room.id }}" class="panel-collapse collapse" ng-init="inspected_room_id=room.id">
-      <div class="panel-body" ng-controller="FeatureController">
-				<table class="table table-bordered">
-					<tr ng-repeat="feature in features">
-						<td>{{ feature.name }}</td>
-						<td>
-							<button ng-click="isClean(feature)" type="button" 
-											ng-class="{'btn-success': feature.clean==true, 'btn-default': feature.clean==false || feature.clean==nil}" class="btn btn-sm">
-								<span class="glyphicon glyphicon-thumbs-up"></span> Clean
-							</button>
-							<button ng-click="isDirty(feature)" type="button" 
-											ng-class="{'btn-danger': feature.clean==false, 'btn-default': feature.clean==true || feature.clean==nil}" class="btn btn-default btn-sm">
-								<span class="glyphicon glyphicon-thumbs-down"></span> Dirty
-							</button>
-						</td>
-						<td>
-							<button ng-click="hasMarks(feature)" type="button" 
-											ng-class="{'btn-danger': feature.marks==true, 'btn-default': feature.marks == false || feature.clean==nil}" class="btn btn-default btn-sm">
-								<span class="glyphicon glyphicon-exclamation-sign"></span> Marks
-							</button>
-							<button ng-click="hasDamage(feature)" type="button"
-							 				ng-class="{'btn-danger': feature.damage==true, 'btn-default': feature.damage == false || feature.damage==nil}"class="btn btn-danger btn-sm">
-								<span class="glyphicon glyphicon-warning-sign"></span> Damage
-							</button>
-						</td>
-					</tr>
-				</table>
-      </div>
-    </div>
-  </div>
-</div>
+	<div class="panel-group" id="accordion" ng-controller="InspectionController">
+		{{ rooms.first }}
+	  <div class="panel panel-default room-panel" ng-repeat="room in rooms">
+			<div class="panel-heading">
+	      <h4 class="panel-title">
+	        <a class="accordion-toggle room-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ room.id }}">
+						<span class="glyphicon glyphicon-plus"></span>
+					</a>
+	        {{ room.name }}
+	      </h4>
+	    </div>
+	    <div id="collapse{{ room.id }}" class="panel-collapse collapse" ng-init="inspected_room_id=room.id">
+	      <div class="panel-body" ng-controller="FeatureController">
+					<table class="table table-bordered">
+						<tr ng-repeat="feature in features">
+							<td>{{ feature.name }}</td>
+							<td>
+								<button ng-click="isClean(feature)" type="button" 
+												ng-class="{'btn-success': feature.clean==true, 'btn-default': feature.clean==false || feature.clean==nil}" class="btn btn-sm">
+									<span class="glyphicon glyphicon-thumbs-up"></span> Clean
+								</button>
+								<button ng-click="isDirty(feature)" type="button" 
+												ng-class="{'btn-danger': feature.clean==false, 'btn-default': feature.clean==true || feature.clean==nil}" class="btn btn-sm">
+									<span class="glyphicon glyphicon-thumbs-down"></span> Dirty
+								</button>
+							</td>
+							<td>
+								<button ng-click="hasMarks(feature)" type="button" 
+												ng-class="{'btn-danger': feature.marks==true, 'btn-default': feature.marks == false || feature.marks==nil}" class="btn btn-sm">
+									<span class="glyphicon glyphicon-exclamation-sign"></span> Marks
+								</button>
+								<button ng-click="hasDamage(feature)" type="button"
+								 				ng-class="{'btn-danger': feature.damage==true, 'btn-default': feature.damage == false || feature.damage==nil}"class="btn btn-sm">
+									<span class="glyphicon glyphicon-warning-sign"></span> Damage
+								</button>
+							</td>
+						</tr>
+					</table>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </div>
 
 <script>
