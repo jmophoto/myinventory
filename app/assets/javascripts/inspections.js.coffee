@@ -46,5 +46,9 @@ app.factory "Feature", ["$resource", ($resource) ->
     else
       feature.damage = true
     feature.$update()
+    
+  $scope.addComment = (feature, comment) ->
+    feature.comment = comment
+    feature.$update()
 ]
  

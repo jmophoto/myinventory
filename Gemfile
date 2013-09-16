@@ -5,7 +5,7 @@ gem 'rails', '4.0.0'
 gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'bcrypt-ruby', '3.0.1'
-gem 'angularjs-rails'
+gem 'angularjs-rails', '1.0.8'
 gem 'ng-rails-csrf'
 
 group :development, :test do

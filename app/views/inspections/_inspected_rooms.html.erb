@@ -1,56 +1,53 @@
 <div ng-init="inspection_id='<%= @inspection.id %>'">
 	<div class="panel-group" id="accordion" ng-controller="InspectionController">
-		{{ rooms.first }}
-	  <div class="panel panel-default room-panel" ng-repeat="room in rooms">
-			<div class="panel-heading">
-	      <h4 class="panel-title">
-	        <a class="accordion-toggle room-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ room.id }}">
-						<span class="glyphicon glyphicon-plus"></span>
-					</a>
-	        {{ room.name }}
-	      </h4>
-	    </div>
-	    <div id="collapse{{ room.id }}" class="panel-collapse collapse" ng-init="inspected_room_id=room.id">
-	      <div class="panel-body" ng-controller="FeatureController">
-					<div class="list-group" id="room-feautres">
-						<div class="list-group-item" ng-repeat="feature in features">
-							<div class="row">
-							<h5 class="col-md-3 list-group-item-heading">{{ feature.name }}</h5>
-							<div class="col-md-2">
-								<button ng-click="isClean(feature)" type="button" 
-												ng-class="{'btn-success': feature.clean==true, 'btn-default': feature.clean==false || feature.clean==nil}" class="btn btn-sm">
-									<span class="glyphicon glyphicon-thumbs-up"></span> Clean
-								</button>
-								<button ng-click="isDirty(feature)" type="button" 
-												ng-class="{'btn-danger': feature.clean==false, 'btn-default': feature.clean==true || feature.clean==nil}" class="btn btn-sm">
-									<span class="glyphicon glyphicon-thumbs-down"></span> Dirty
-								</button>
-							</div>
-							<div class="col-md-2">
-								<button ng-click="hasMarks(feature)" type="button" 
-												ng-class="{'btn-danger': feature.marks==true, 'btn-default': feature.marks == false || feature.marks==nil}" class="btn btn-sm">
-									<span class="glyphicon glyphicon-exclamation-sign"></span> Marks
-								</button>
-								<button ng-click="hasDamage(feature)" type="button"
-								 				ng-class="{'btn-danger': feature.damage==true, 'btn-default': feature.damage == false || feature.damage==nil}"class="btn btn-sm">
-									<span class="glyphicon glyphicon-warning-sign"></span> Damage
-								</button>
-							</div>
-							</div>
+		<div class="panel panel-default" ng-repeat="room in rooms">
+		  <div class="room-heading panel-heading" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}">
+				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">{{ room.name }}</div>
+			</div>
+	  	<ul class="list-group panel-collapse collapse" ng-controller="FeatureController" id="room_{{ room.id }}">
+		    <li class="list-group-item" ng-repeat="feature in features">
+					<div class="row">
+						<h4 class="col-md-2">{{ feature.name }}</h4>
+						<div class="col-md-2">
+							<button ng-click="isClean(feature)" type="button" 
+											ng-class="{'btn-success': feature.clean==true, 'btn-default': feature.clean==false || feature.clean==nil}" class="btn btn-sm">
+								<span class="glyphicon glyphicon-thumbs-up"></span> Clean
+							</button>
+							<button ng-click="isDirty(feature)" type="button" 
+											ng-class="{'btn-danger': feature.clean==false, 'btn-default': feature.clean==true || feature.clean==nil}" class="btn btn-sm">
+								<span class="glyphicon glyphicon-thumbs-down"></span> Dirty
+							</button>
 						</div>
+						<div class="col-md-2">
+							<button ng-click="hasMarks(feature)" type="button" 
+											ng-class="{'btn-danger': feature.marks==true, 'btn-default': feature.marks == false || feature.marks==nil}" class="btn btn-sm">
+								<span class="glyphicon glyphicon-exclamation-sign"></span> Marks
+							</button>
+							<button ng-click="hasDamage(feature)" type="button"
+							 				ng-class="{'btn-danger': feature.damage==true, 'btn-default': feature.damage == false || feature.damage==nil}"class="btn btn-sm">
+								<span class="glyphicon glyphicon-warning-sign"></span> Damage
+							</button>
+						</div>
+						<form class="form-inline" role="form">
+							<div class="form-group col-md-5">
+						    <input type="text" ng-model="feature.comment" class="form-control">
+							</div>
+							<button type="submit" class="btn btn-success btn-sm"  ng-click="addComment(feature, feature.comment)">Save</button>
+					  </form>
 					</div>
-	      </div>
-	    </div>
-	  </div>
+				</li>
+		  </ul>
+		</div>
 	</div>
 </div>
 
 <script>
-$('.room-panel').on('show.bs.collapse', function () {
+$('.panel-collapse').on('shown.bs.collapse', function () {
+	alert("collapse");
 	$(this).find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
 })
 
-$('.room-panel').on('hidden.bs.collapse', function () {
+$('.panel-collapse').on('hidden.bs.collapse', function () {
 	$(this).find('.glyphicon').removeClass('glyphicon-minus').addClass('glyphicon-plus');
 })
 </script>
