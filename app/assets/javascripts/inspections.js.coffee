@@ -13,7 +13,13 @@ app.factory "Feature", ["$resource", ($resource) ->
 ]
 
 @InspectionController = ["$scope", "Room", ($scope, Room) ->
-  $scope.rooms = Room.query({inspection_id: $scope.inspection_id})  
+  $scope.rooms = Room.query({inspection_id: $scope.inspection_id})
+  
+  $scope.deleteRoom = (room, index) ->
+    confirmVariable = confirm('Are You Sure?')
+    if confirmVariable == true
+      room.$delete()
+      $scope.rooms.splice(index, 1);
 ]
   
 @FeatureController = ["$scope", "Feature", ($scope, Feature) ->
@@ -50,5 +56,11 @@ app.factory "Feature", ["$resource", ($resource) ->
   $scope.addComment = (feature, comment) ->
     feature.comment = comment
     feature.$update()
+    
+  $scope.deleteFeature = (feature, index) ->
+    confirmVariable = confirm('Are You Sure?')
+    if confirmVariable == true
+      feature.$delete()
+      $scope.features.splice(index, 1);
 ]
  

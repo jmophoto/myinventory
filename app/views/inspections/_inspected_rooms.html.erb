@@ -2,12 +2,15 @@
 	<div class="panel-group" id="accordion" ng-controller="InspectionController">
 		<div class="panel panel-default" ng-repeat="room in rooms">
 		  <div class="room-heading panel-heading" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}">
-				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">{{ room.name }}</div>
+				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">
+					{{ room.name }}
+					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoom(room,$index)">Remove</button>
+				</div>
 			</div>
 	  	<ul class="list-group panel-collapse collapse" ng-controller="FeatureController" id="room_{{ room.id }}">
 		    <li class="list-group-item" ng-repeat="feature in features">
 					<div class="row">
-						<h4 class="col-md-2">{{ feature.name }}</h4>
+						<h4 class="col-md-2 feature-name">{{ feature.name }}</h4>
 						<div class="col-md-2">
 							<button ng-click="isClean(feature)" type="button" 
 											ng-class="{'btn-success': feature.clean==true, 'btn-default': feature.clean==false || feature.clean==nil}" class="btn btn-sm">
@@ -30,10 +33,10 @@
 						</div>
 						<form class="form-inline" role="form">
 							<div class="form-group col-md-5">
-						    <input type="text" ng-model="feature.comment" class="form-control">
+						    <input type="text" ng-model="feature.comment" class="form-control" ng-change="addComment(feature, feature.comment)" placeholder="Comments">
 							</div>
-							<button type="submit" class="btn btn-success btn-sm"  ng-click="addComment(feature, feature.comment)">Save</button>
 					  </form>
+						<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature(feature,$index)" prompt="Are You Sure?">Remove</button>
 					</div>
 				</li>
 		  </ul>
