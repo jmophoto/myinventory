@@ -1,5 +1,29 @@
 <div ng-init="inspection_id='<%= @inspection.id %>'">
 	<div class="panel-group" id="accordion" ng-controller="InspectionController">
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+				<div class="panel-title">
+					<div class="row">
+						<div class="col-md-7 inspection-address">
+							<%= @inspection.address %>
+							<% if @inspection.unit %> #<%= @inspection.unit %><% end %>
+						</div>
+						<form class="add-room-form form-inline pull-right" role="form" ng-submit="addRoom()">
+						  <div class="form-group">
+						    <label class="sr-only" for="newRoomName">Name</label>
+						    <input type="text" class="form-control input-sm" id="newRoomName" placeholder="Room Name" ng-model="newRoom.name">
+						  </div>
+						  <div class="form-group">
+						    <label class="sr-only" for="newRoomType">Type</label>
+								<%= select_tag "Room Type", options_for_select([ ["Bedroom", "bedroom"], ["Bathroom", "bathroom"], ["Kitchen", "kitchen"] ]),
+										:class => "form-control input-sm", :"ng-model" => "newRoom.type", prompt: "Room Type" %>
+						  </div>
+						  <button type="submit" class="btn btn-sm btn-success">Add Room</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="panel panel-default" ng-repeat="room in rooms">
 		  <div class="room-heading panel-heading" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}">
 				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">
@@ -8,7 +32,7 @@
 				</div>
 			</div>
 	  	<ul class="list-group panel-collapse collapse" ng-controller="FeatureController" id="room_{{ room.id }}">
-		    <li class="list-group-item" ng-repeat="feature in features">
+		    <li class="list-group-item" ng-repeat="feature in room.inspected_features">
 					<div class="row">
 						<h4 class="col-md-2 feature-name">{{ feature.name }}</h4>
 						<div class="col-md-2">
@@ -36,7 +60,7 @@
 						    <input type="text" ng-model="feature.comment" class="form-control" ng-change="addComment(feature, feature.comment)" placeholder="Comments">
 							</div>
 					  </form>
-						<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature(feature,$index)" prompt="Are You Sure?">Remove</button>
+						<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature(feature,$index)">Remove</button>
 					</div>
 				</li>
 		  </ul>

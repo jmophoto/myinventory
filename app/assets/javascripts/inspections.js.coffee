@@ -14,53 +14,50 @@ app.factory "Feature", ["$resource", ($resource) ->
 
 @InspectionController = ["$scope", "Room", ($scope, Room) ->
   $scope.rooms = Room.query({inspection_id: $scope.inspection_id})
+    
+  $scope.addRoom = ->
+    room = Room.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
+    $scope.rooms.push(room)
+    $scope.newRoom = {}
   
   $scope.deleteRoom = (room, index) ->
     confirmVariable = confirm('Are You Sure?')
     if confirmVariable == true
       room.$delete()
-      $scope.rooms.splice(index, 1);
+      $scope.rooms.splice(index, 1)
 ]
   
 @FeatureController = ["$scope", "Feature", ($scope, Feature) ->
-  $scope.features = Feature.query({inspected_room_id: $scope.inspected_room_id})
-  
-  $scope.isClean = (feature) ->
-    if feature.clean == true
-      feature.clean = null
-    else
-      feature.clean = true
-    feature.$update()
-    
+
   $scope.isDirty = (feature) ->
     if feature.clean == false
       feature.clean = null
     else
       feature.clean = false
-    feature.$update()
+    Feature.update(feature)
     
   $scope.hasMarks = (feature) ->
     if feature.marks == true
       feature.marks = false
     else
       feature.marks = true
-    feature.$update()
+    Feature.update(feature)
     
   $scope.hasDamage = (feature) ->
     if feature.damage == true
       feature.damage = false
     else
       feature.damage = true
-    feature.$update()
+    Feature.update(feature)
     
   $scope.addComment = (feature, comment) ->
     feature.comment = comment
-    feature.$update()
+    Feature.update(feature)
     
   $scope.deleteFeature = (feature, index) ->
-    confirmVariable = confirm('Are You Sure?')
+    confirmVariable = confirm('Are you sure?')
     if confirmVariable == true
-      feature.$delete()
-      $scope.features.splice(index, 1);
+      Feature.delete(feature)
+      $scope.room.inspected_features.splice(index, 1);
 ]
  

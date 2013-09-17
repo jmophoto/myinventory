@@ -1,24 +1,67 @@
 class InspectedRoomsController < ApplicationController
-  respond_to :json
-  
+  before_action :set_inspected_room, only: [:show, :edit, :update, :destroy]
+
+  # GET /inspected_rooms
   def index
     inspection = Inspection.find(params[:inspection_id])
-    respond_with inspection.inspected_rooms.all
+    @inspected_rooms = inspection.inspected_rooms.load
+    respond_to do |format|
+      format.html
+      format.json { render :json => @inspected_rooms.to_json(:include => :inspected_features) }
+    end
   end
 
+  # GET /inspected_rooms/1
   def show
-    respond_with InspectedRoom.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render :json => @inspected_room.to_json(:include => :inspected_features) }
+    end
   end
 
+  # GET /inspected_rooms/new
+  def new
+    @inspected_room = InspectedRoom.new
+  end
+
+  # GET /inspected_rooms/1/edit
+  def edit
+  end
+
+  # POST /inspected_rooms
   def create
-    respond_with InspectedRoom.create(params[:entry])
+    @inspected_room = InspectedRoom.new(inspected_room_params)
+
+    if @inspected_room.save
+      redirect_to @inspected_room, notice: 'Inspected room was successfully created.'
+    else
+      render action: 'new'
+    end
   end
 
+  # PATCH/PUT /inspected_rooms/1
   def update
-    respond_with InspectedRoom.update(params[:id], params[:entry])
+    if @inspected_room.update(inspected_room_params)
+      redirect_to @inspected_room, notice: 'Inspected room was successfully updated.'
+    else
+      render action: 'edit'
+    end
   end
 
+  # DELETE /inspected_rooms/1
   def destroy
-    respond_with InspectedRoom.destroy(params[:id])
+    @inspected_room.destroy
+    redirect_to inspected_rooms_url, notice: 'Inspected room was successfully destroyed.'
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_inspected_room
+      @inspected_room = InspectedRoom.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def inspected_room_params
+      params.require(:inspected_room).permit!
+    end
 end

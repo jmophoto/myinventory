@@ -5,11 +5,19 @@ class InspectionsController < ApplicationController
   # GET /inspections.json
   def index
     @inspections = Inspection.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @inspections.to_json(:include => :inspected_rooms) }
+    end
   end
 
   # GET /inspections/1
   # GET /inspections/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json { render :json => @inspection.to_json(:include => :inspected_rooms) }
+    end
   end
 
   # GET /inspections/new

@@ -1,7 +1,7 @@
 class Inspection < ActiveRecord::Base
   attr_accessor :template, :date_string
   
-  has_many :inspected_rooms
+  has_many :inspected_rooms, -> { includes :inspected_features }
   belongs_to :property
   
   after_create :add_rooms
