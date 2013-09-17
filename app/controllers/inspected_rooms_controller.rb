@@ -33,7 +33,10 @@ class InspectedRoomsController < ApplicationController
     @inspected_room = InspectedRoom.new(inspected_room_params)
 
     if @inspected_room.save
-      redirect_to @inspected_room, notice: 'Inspected room was successfully created.'
+      respond_to do |format|
+        format.html redirect_to @inspected_room, notice: 'Inspected room was successfully created.'
+        format.json
+      end
     else
       render action: 'new'
     end
@@ -42,7 +45,10 @@ class InspectedRoomsController < ApplicationController
   # PATCH/PUT /inspected_rooms/1
   def update
     if @inspected_room.update(inspected_room_params)
-      redirect_to @inspected_room, notice: 'Inspected room was successfully updated.'
+      respond_to do |format|
+        format.html redirect_to @inspected_room, notice: 'Inspected room was successfully updated.'
+        format.json
+      end
     else
       render action: 'edit'
     end
@@ -51,7 +57,10 @@ class InspectedRoomsController < ApplicationController
   # DELETE /inspected_rooms/1
   def destroy
     @inspected_room.destroy
-    redirect_to inspected_rooms_url, notice: 'Inspected room was successfully destroyed.'
+    respond_to do |format|
+      format.html redirect_to inspected_rooms_url, notice: 'Inspected room was successfully destroyed.'
+      format.json
+    end
   end
 
   private
