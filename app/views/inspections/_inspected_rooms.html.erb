@@ -27,29 +27,31 @@
 		<div class="room-panel panel panel-default" ng-repeat="room in rooms">
 		  <div class="room-heading panel-heading">
 				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">
+					<form class="form-inline">
 					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}"></span>
-		      <span ng-hide="editing" ng-click="editing = true">{{ room.name }}</span>
-					<span ng-show="editing" class="form-inline" role="form">
+		      <span ng-hide="room.editing" ng-click="room.editing = true">{{ room.name }}</span>
+					<span ng-show="room.editing">
 						<div class="form-group">
 							<input type="text" class="form-control" ng-model="room.name">
 						</div>
-						<button class="btn btn-default btn-sm" type="submit" ng-click="editing = false; editRoom(room)">Save</button>
+						<button class="btn btn-default btn-sm" type="submit" ng-click="room.editing = false; editRoom(room)">Save</button>
 					</span>
 					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoom(room,$index)">
 						<span class="glyphicon glyphicon-trash"></span>
 					</button>
+					</form>
 				</div>
 			</div>
-	  	<table class="table-condensed table-responsive feature-table panel-collapse collapse" ng-controller="FeatureController" id="room_{{ room.id }}">
+	  	<table class="table-condensed table-responsive feature-table panel-collapse collapse in" ng-controller="FeatureController" id="room_{{ room.id }}">
 		    <tr ng-repeat="feature in room.inspected_features">
 					<td class="col-md-3">
-						<div class="feature-name" ng-hide="editing" ng-click="editing = true">{{ feature.name }}</div>
-						<div ng-show="editing" class="form-inline" role="form">
+						<div ng-hide="feature.editing" class="feature-name" ng-click="feature.editing = true">{{ feature.name }}</div>
+						<form ng-show="feature.editing" class="form-inline" role="form">
 							<div class="form-group">
 								<input type="text" class="form-control" ng-model="feature.name">
 							</div>
-							<button class="btn btn-default btn-sm" type="submit" ng-click="editing = false; editFeature(feature)">Save</button>
-						</div>
+							<button class="btn btn-default btn-sm" type="submit" ng-click="feature.editing = false; editFeature(feature)">Save</button>
+						</form>
 					</td>
 					<td class="col-md-2">
 						<div class="btn-group">	
@@ -96,11 +98,17 @@
 						</button>
 					</td>
 				</tr>
+				<tr>
+					<td>
+						<form class="form-inline" ng-submit="addFeature(room)">
+							<div class="form-group">
+								<input type="text" class="form-control" ng-model="newFeature.name" placeholder="New Feature" ng-submit="addFeature(room)">
+							</div>
+							<button class="btn btn-sm btn-default">Add</button>
+						</form>
+					</td>
+				</tr>
 		  </table>
 		</div>
 	</div>
 </div>
-
-<script>
-
-</script>

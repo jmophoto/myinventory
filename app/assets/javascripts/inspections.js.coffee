@@ -71,6 +71,11 @@ app.factory "Feature", ["$resource", ($resource) ->
     feature.condition = condition
     Feature.update(feature)
     
+  $scope.addFeature = (room) ->
+    feature = Feature.save({inspected_room_id: room.id, name: $scope.newFeature.name})
+    $scope.room.inspected_features.push(feature)
+    $scope.newFeature = {}
+    
   $scope.deleteFeature = (feature, index) ->
     confirmVariable = confirm('Are you sure?')
     if confirmVariable == true
