@@ -90,7 +90,9 @@
 						</button>
 					</td>
 					<td class="col-md-5">
-						<input type="text" ng-model="feature.comment" class="form-control" ng-change="addComment(feature, feature.comment)" placeholder="Comments">
+						<form class="form-inline">
+							<input type="text" ng-model="feature.comment" class="form-control" placeholder="Comments" ng-change="addComment(feature, feature.comment)">
+						</form>
 					</td>
 					<td class="col-md-1">
 						<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature(feature,$index)">
