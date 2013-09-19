@@ -16,6 +16,9 @@ app.factory "Feature", ["$resource", ($resource) ->
   $scope.rooms = Room.query({inspection_id: $scope.inspection_id})
     
   $scope.addRoom = ->
+    alert($scope.newRoom.name)
+    if $scope.newRoom.name == null
+      alert("Test")
     room = Room.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
     $scope.rooms.push(room)
     $scope.newRoom = {}
@@ -25,10 +28,20 @@ app.factory "Feature", ["$resource", ($resource) ->
     if confirmVariable == true
       room.$delete()
       $scope.rooms.splice(index, 1)
+      
+  $scope.editRoom = (room) ->
+    Room.update(room)
 ]
   
 @FeatureController = ["$scope", "Feature", ($scope, Feature) ->
 
+  $scope.isClean = (feature) ->
+    if feature.clean == true
+      feature.clean = null
+    else
+      feature.clean = true
+    Feature.update(feature)
+  
   $scope.isDirty = (feature) ->
     if feature.clean == false
       feature.clean = null
@@ -54,10 +67,16 @@ app.factory "Feature", ["$resource", ($resource) ->
     feature.comment = comment
     Feature.update(feature)
     
+  $scope.editFeature = (feature) ->
+    Feature.update(feature)
+    
+  $scope.setCondition = (feature, condition) ->
+    feature.condition = condition
+    Feature.update(feature)
+    
   $scope.deleteFeature = (feature, index) ->
     confirmVariable = confirm('Are you sure?')
     if confirmVariable == true
       Feature.delete(feature)
       $scope.room.inspected_features.splice(index, 1);
 ]
- 

@@ -34,8 +34,8 @@ class InspectedRoomsController < ApplicationController
 
     if @inspected_room.save
       respond_to do |format|
-        format.html redirect_to @inspected_room, notice: 'Inspected room was successfully created.'
-        format.json
+        format.html { redirect_to @inspected_room, notice: 'Inspected room was successfully created.' }
+        format.json { render :json => @inspected_room.to_json(:include => :inspected_features) }
       end
     else
       render action: 'new'
@@ -46,8 +46,8 @@ class InspectedRoomsController < ApplicationController
   def update
     if @inspected_room.update(inspected_room_params)
       respond_to do |format|
-        format.html redirect_to @inspected_room, notice: 'Inspected room was successfully updated.'
-        format.json
+        format.html { redirect_to @inspected_room, notice: 'Inspected room was successfully updated.' }
+        format.json { head :no_content }
       end
     else
       render action: 'edit'
@@ -58,8 +58,8 @@ class InspectedRoomsController < ApplicationController
   def destroy
     @inspected_room.destroy
     respond_to do |format|
-      format.html redirect_to inspected_rooms_url, notice: 'Inspected room was successfully destroyed.'
-      format.json
+      format.html { redirect_to inspected_rooms_url, notice: 'Inspected room was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

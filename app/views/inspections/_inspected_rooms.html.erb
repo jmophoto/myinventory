@@ -24,57 +24,79 @@
 				</div>
 			</div>
 		</div>
-		<div class="panel panel-default" ng-repeat="room in rooms">
-		  <div class="room-heading panel-heading" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}">
+		<div class="room-panel panel panel-default" ng-repeat="room in rooms">
+		  <div class="room-heading panel-heading">
 				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">
-					{{ room.name }}
+					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}"></span>
+		      <span ng-hide="editing" ng-click="editing = true">{{ room.name }}</span>
+					<span ng-show="editing" class="form-inline" role="form">
+						<div class="form-group">
+							<input type="text" class="form-control" ng-model="room.name">
+						</div>
+						<button class="btn btn-default btn-sm" type="submit" ng-click="editing = false; editRoom(room)">Save</button>
+					</span>
 					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoom(room,$index)">Remove</button>
 				</div>
 			</div>
-	  	<ul class="list-group panel-collapse collapse" ng-controller="FeatureController" id="room_{{ room.id }}">
-		    <li class="list-group-item" ng-repeat="feature in room.inspected_features">
-					<div class="row">
-						<h4 class="col-md-2 feature-name">{{ feature.name }}</h4>
-						<div class="col-md-2">
-							<button ng-click="isClean(feature)" type="button" 
-											ng-class="{'btn-success': feature.clean==true, 'btn-default': feature.clean==false || feature.clean==nil}" class="btn btn-sm">
-								<span class="glyphicon glyphicon-thumbs-up"></span> Clean
+	  	<table class="table-condensed table-responsive feature-table panel-collapse collapse in" ng-controller="FeatureController" id="room_{{ room.id }}">
+		    <tr ng-repeat="feature in room.inspected_features">
+					<td class="col-md-3">
+						<div class="feature-name" ng-hide="editing" ng-click="editing = true">{{ feature.name }}</div>
+						<div ng-show="editing" class="form-inline" role="form">
+							<div class="form-group">
+								<input type="text" class="form-control" ng-model="feature.name">
+							</div>
+							<button class="btn btn-default btn-sm" type="submit" ng-click="editing = false; editFeature(feature)">Save</button>
+						</div>
+					</td>
+					<td class="col-md-2">
+						<div class="btn-group">	
+							<button ng-click="setCondition(feature, 'poor')" type="button" 
+											ng-class="{'btn-primary': feature.condition=='poor', 'btn-default': feature.condition != 'poor' || feature.condition==nil}" 
+											class="btn btn-sm">Poor
+							</button>
+							<button ng-click="setCondition(feature, 'fair')" type="button" 
+											ng-class="{'btn-primary': feature.condition=='fair', 'btn-default': feature.condition != 'fair' || feature.condition==nil}" 
+											class="btn btn-sm">Fair
+							</button>
+							<button ng-click="setCondition(feature, 'good')" type="button" 
+											ng-class="{'btn-primary': feature.condition=='good', 'btn-default': feature.condition != 'good' || feature.condition==nil}" 
+											class="btn btn-sm">Good
+							</button>
+						</div>
+					</td>
+					<td class="col-md-3">
+						<div class="btn-group">
+							<button ng-click="isClean(feature, feature.name)" type="button" 
+											ng-class="{'btn-primary': feature.clean==true, 'btn-default': feature.clean==false || feature.clean==nil}" 
+											class="btn btn-sm">Clean
 							</button>
 							<button ng-click="isDirty(feature)" type="button" 
-											ng-class="{'btn-danger': feature.clean==false, 'btn-default': feature.clean==true || feature.clean==nil}" class="btn btn-sm">
-								<span class="glyphicon glyphicon-thumbs-down"></span> Dirty
+											ng-class="{'btn-primary': feature.clean==false, 'btn-default': feature.clean==true || feature.clean==nil}" 
+											class="btn btn-sm">Dirty
 							</button>
 						</div>
-						<div class="col-md-2">
-							<button ng-click="hasMarks(feature)" type="button" 
-											ng-class="{'btn-danger': feature.marks==true, 'btn-default': feature.marks == false || feature.marks==nil}" class="btn btn-sm">
-								<span class="glyphicon glyphicon-exclamation-sign"></span> Marks
-							</button>
-							<button ng-click="hasDamage(feature)" type="button"
-							 				ng-class="{'btn-danger': feature.damage==true, 'btn-default': feature.damage == false || feature.damage==nil}"class="btn btn-sm">
-								<span class="glyphicon glyphicon-warning-sign"></span> Damage
-							</button>
-						</div>
-						<form class="form-inline" role="form">
-							<div class="form-group col-md-5">
-						    <input type="text" ng-model="feature.comment" class="form-control" ng-change="addComment(feature, feature.comment)" placeholder="Comments">
-							</div>
-					  </form>
+						<button ng-click="hasMarks(feature)" type="button" 
+										ng-class="{'btn-primary': feature.marks==true, 'btn-default': feature.marks == false || feature.marks==nil}" 
+										class="btn btn-sm">Marks
+						</button>
+						<button ng-click="hasDamage(feature)" type="button"
+						 				ng-class="{'btn-primary': feature.damage==true, 'btn-default': feature.damage == false || feature.damage==nil}" 
+										class="btn btn-sm">Damage
+						</button>
+					</td>
+					<td class="col-md-5">
+						<input type="text" ng-model="feature.comment" class="form-control" ng-change="addComment(feature, feature.comment)" placeholder="Comments">
+					</td>
+					<td class="col-md-1">
 						<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature(feature,$index)">Remove</button>
-					</div>
-				</li>
-		  </ul>
+					</td>
+				</tr>
+		  </table>
 		</div>
 	</div>
 </div>
 
 <script>
-$('.panel-collapse').on('shown.bs.collapse', function () {
-	alert("collapse");
-	$(this).find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
-})
 
-$('.panel-collapse').on('hidden.bs.collapse', function () {
-	$(this).find('.glyphicon').removeClass('glyphicon-minus').addClass('glyphicon-plus');
-})
 </script>
