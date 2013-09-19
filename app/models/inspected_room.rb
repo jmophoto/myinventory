@@ -7,10 +7,10 @@ class InspectedRoom < ActiveRecord::Base
   
   def check_for_name
     if self.name.nil?
-      if !self.room_type.nil?
-        self.name = "New #{self.room_type.humanize}"
-      else
+      if self.room_type.nil? || self.room_type == "base"
         self.name = "New Room"
+      else
+        self.name = "New #{self.room_type.humanize}"
       end
     end
   end

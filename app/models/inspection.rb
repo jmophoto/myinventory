@@ -16,10 +16,12 @@ class Inspection < ActiveRecord::Base
   end
   
   def add_rooms
-    self.property.rooms.each do |room|
-      inspected_room = self.inspected_rooms.create!(name: room.name)
-      room.features.each do |feature|
-        inspected_room.inspected_features.create!(name: feature)
+    unless self.property.nil?
+      self.property.rooms.each do |room|
+        inspected_room = self.inspected_rooms.create!(name: room.name)
+        room.features.each do |feature|
+          inspected_room.inspected_features.create!(name: feature)
+        end
       end
     end
   end
