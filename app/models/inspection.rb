@@ -6,6 +6,8 @@ class Inspection < ActiveRecord::Base
   
   after_create :add_rooms
   
+  default_scope order('inspection_date DESC')
+  
   def create_from_template(property_id)
     property = Property.find(property_id)
     self.property_id = property_id

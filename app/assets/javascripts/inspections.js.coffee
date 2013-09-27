@@ -4,6 +4,10 @@
 
 app = angular.module("Inspeckd", ["ngResource", "ng-rails-csrf"])
 
+$(document).on('ready page:load', ->
+  angular.bootstrap(document, ['Inspeckd'])
+)
+
 app.factory "Room", ["$resource", ($resource) -> 
   $resource("/inspections/:inspection_id/inspected_rooms/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
 ]

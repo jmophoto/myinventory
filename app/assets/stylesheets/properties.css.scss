@@ -16,3 +16,28 @@
 .room-title {
   font-size: 18px;
 }
+
+.property-panel {
+  margin-bottom: 20px !important;
+}
+
+.property-heading-row {
+  line-height: 20px;
+  padding-right: 10px;
+}
+
+.property-inspections-table {
+  margin-bottom: 0px;
+}
+
+.property-inspections-table th {
+  font-weight: lighter;
+  color: #aaa;
+  border-bottom: none !important;
+}
+
+.show-inspections-link {
+  font-size: 12px;
+  color: #aaa;
+  text-decoration: none;
+}

@@ -1,4 +1,4 @@
-<div ng-init="inspection_id='<%= @inspection.id %>'">
+<div ng-init="inspection_id='<%= @inspection.id %>'" class="ng-cloak">
 	<div class="panel-group" id="accordion" ng-controller="InspectionController">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
@@ -42,7 +42,7 @@
 					</form>
 				</div>
 			</div>
-	  	<table class="table-condensed table-responsive feature-table panel-collapse collapse in" ng-controller="FeatureController" id="room_{{ room.id }}">
+	  	<table class="table-condensed table-responsive feature-table panel-collapse collapse" ng-controller="FeatureController" id="room_{{ room.id }}">
 		    <tr ng-repeat="feature in room.inspected_features">
 					<td class="col-md-3">
 						<div ng-hide="feature.editing" class="feature-name" ng-click="feature.editing = true">{{ feature.name }}</div>

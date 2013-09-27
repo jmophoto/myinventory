@@ -16,3 +16,7 @@
  .test {
    border: thin red solid;
  }
+ 
+ a:hover {
+   text-decoration: none !important;
+ }
