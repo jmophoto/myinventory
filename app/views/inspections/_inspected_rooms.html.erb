@@ -23,6 +23,10 @@
 					</div>
 				</div>
 			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" ng-submit="updateInspection()">
+					<%= @inspection.unit %>
+			</div>
 		</div>
 		<div class="room-panel panel panel-default" ng-repeat="room in rooms">
 		  <div class="room-heading panel-heading">

@@ -8,6 +8,10 @@ $(document).on('ready page:load', ->
   angular.bootstrap(document, ['Inspeckd'])
 )
 
+app.factory "Inspection", ["$resource", ($resource) -> 
+  $resource("/inspections/:inspection_id/", {inspection_id: "@id"}, {update: {method: "PUT"}})
+]
+
 app.factory "Room", ["$resource", ($resource) -> 
   $resource("/inspections/:inspection_id/inspected_rooms/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
 ]
@@ -16,8 +20,9 @@ app.factory "Feature", ["$resource", ($resource) ->
   $resource("/inspected_rooms/:inspected_room_id/inspected_features/:id", {inspected_room_id: "@inspected_room_id", id: "@id"}, {update: {method: "PUT"}})
 ]
 
-@InspectionController = ["$scope", "Room", ($scope, Room) ->
+@InspectionController = ["$scope", "Room", ($scope, Room, Inspection) ->
   $scope.rooms = Room.query({inspection_id: $scope.inspection_id})
+  $scope.inspection = Inspection.query({inspection_id: $scope.inspection_id})
     
   $scope.addRoom = ->
     room = Room.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
