@@ -4,7 +4,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties
   def index
-    @properties = Property.all
+    @properties = current_user.properties
   end
 
   # GET /properties/1
