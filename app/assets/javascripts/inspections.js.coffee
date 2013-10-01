@@ -22,7 +22,7 @@ app.factory "Feature", ["$resource", ($resource) ->
 
 @InspectionController = ["$scope", "Room", ($scope, Room, Inspection) ->
   $scope.rooms = Room.query({inspection_id: $scope.inspection_id})
-  $scope.inspection = Inspection.query({inspection_id: $scope.inspection_id})
+  # $scope.inspection = Inspection.query({inspection_id: $scope.inspection_id})
     
   $scope.addRoom = ->
     room = Room.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
