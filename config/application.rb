@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+ROOM_FEATURES = YAML.load(File.read(File.expand_path('../room_features.yml', __FILE__)))
+
 module Inspeckd
   class Application < Rails::Application
     

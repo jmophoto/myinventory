@@ -25,6 +25,7 @@ class PropertiesController < ApplicationController
     @property = current_user.properties.build(property_params)
     if @property.save
       @property.process_rooms(params[:property][:room_count])
+      @property.process_other_areas(params[:property][:other_areas])
       redirect_to edit_property_path(@property), notice: 'Property was successfully created.'
     else
       render action: 'new'
@@ -34,7 +35,6 @@ class PropertiesController < ApplicationController
   # PATCH/PUT /properties/1
   def update
     if @property.update(property_params)
-      # @property.check_rooms(params[:property][:room_count])
       redirect_to @property, notice: 'Property was successfully updated.'
     else
       render action: 'edit'

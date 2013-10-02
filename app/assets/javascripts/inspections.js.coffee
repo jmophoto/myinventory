@@ -1,7 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
 app = angular.module("Inspeckd", ["ngResource", "ng-rails-csrf"])
 
 $(document).on('ready page:load', ->
@@ -18,6 +14,10 @@ app.factory "Room", ["$resource", ($resource) ->
   
 app.factory "Feature", ["$resource", ($resource) ->
   $resource("/inspected_rooms/:inspected_room_id/inspected_features/:id", {inspected_room_id: "@inspected_room_id", id: "@id"}, {update: {method: "PUT"}})
+]
+
+app.factory "Property", ["$resource", ($resource) ->
+  $resource("/properties/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
 @InspectionController = ["$scope", "Room", ($scope, Room, Inspection) ->
@@ -40,7 +40,6 @@ app.factory "Feature", ["$resource", ($resource) ->
 ]
   
 @FeatureController = ["$scope", "Feature", ($scope, Feature) ->
-
   $scope.isClean = (feature) ->
     if feature.clean == true
       feature.clean = null
@@ -90,4 +89,8 @@ app.factory "Feature", ["$resource", ($resource) ->
     if confirmVariable == true
       Feature.delete(feature)
       $scope.room.inspected_features.splice(index, 1);
+]
+
+@PropertyController = ["$scope", "Property", ($scope, Property) ->
+  $scope.properties = Property.query()
 ]

@@ -11,43 +11,72 @@
     </div>
   <% end %>
 
+  <div class="actions col-md-12 text-right save-property-button">
+    <%= f.submit "Save Property", :class => "btn btn-primary" %>
+  </div>
+
   <div class="form-group">
 	  <%= f.label :name, :class => "col-md-2 control-label" %>
-		<div class="col-md-10"><%= f.text_field :name, :class => "form-control" %></div>
+		<div class="col-md-10"><%= f.text_field :name, :class => "form-control", :placeholder => "Name"  %></div>
 	</div>
 
   <div class="form-group">
 	  <%= f.label :address, :class => "col-md-2 control-label" %>
-		<div class="col-md-10"><%= f.text_field :address, :class => "form-control" %></div>
+		<div class="col-md-10"><%= f.text_field :address, :class => "form-control", :placeholder => "Address"  %></div>
 	</div>
 	
 	<div class="form-group">
-	  <%= f.label :city, :class => "col-md-2 control-label" %>
-		<div class="col-md-10"><%= f.text_field :city, :class => "form-control" %></div>
+	  <%= f.label :city, "City / State / Zip", :class => "col-md-2 control-label" %>
+		<div class="col-md-6"><%= f.text_field :city, :class => "form-control", :placeholder => "City" %></div>
+		<div class="col-md-2"><%= f.select :state, states, { :include_blank => "Select State" }, { :class => "form-control" } %></div>
+		<div class="col-md-2"><%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %></div>
 	</div>
 	
 	<div class="form-group">
-	  <%= f.label :state, :class => "col-md-2 control-label" %>
-		<div class="col-md-10"><%= f.text_field :state, :class => "form-control" %></div>
-	</div>
-	
-	<div class="form-group">
-	  <%= f.label :zip, :class => "col-md-2 control-label" %>
-		<div class="col-md-10"><%= f.text_field :zip, :class => "form-control" %></div>
-	</div>
-	
-	<% if @property.new_record? %>
-		<%= f.fields_for :room_count do |room_count| %>
-			<% room_list.each do |room| %>
-				<div class="form-group">
-				  <%= room_count.label room.to_sym, "#{room.humanize.pluralize} ", :class => "col-md-2 control-label" %>
-					<div class="col-md-10"><%= room_count.text_field room.to_sym, :class => "form-control" %></div>
+		<label class="col-md-2 control-label">Property Details</label>
+		<div class="col-md-10">
+			<% detail_list.each do |detail| %>
+				<div class="checkbox-inline">
+					<%= f.check_box :details, {:multiple => true}, detail, nil %>
+					<span class="detail-label"><%= detail %><span>
 				</div>
 			<% end %>
+		</div>
+	</div>
+	<% if @property.new_record? %>
+		<%= f.fields_for :room_count do |room_count| %>
+			<div class="form-group">
+				<label class="col-md-2 control-label">Number of Rooms</label>
+				<div id="room-count-row" class="col-md-10">
+						<% room_list.each do |room| %>
+							<div class="room-count-box col-md-2">
+								<%= room_count.text_field room.to_sym, :class => "form-control text-center" %>
+								<div class="text-center text-muted"><small><%= "#{room.titleize.pluralize}" %></small></div>
+							</div>
+						<% end %>
+				</div>
+			</div>
 		<% end %>
+		<%= f.fields_for :other_areas do |other_areas| %>
+			<div class="form-group">
+				<label class="col-md-2 control-label">Other Areas</label>
+				<div class="col-md-10">
+					<% area_list.each do |room| %>
+						<div class="checkbox-inline">
+							<%= other_areas.check_box room.to_sym, {:multiple => true}, 1, nil %>
+							<span class="detail-label"><%= room.titleize %><span>
+						</div>
+					<% end %>
+				</div>
+			</div>	
+		<% end %>	
+	<% else %>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Rooms</label>
+			<div class="col-md-10">
+				<%= render 'rooms' %>
+			</div>
+		</div>
 	<% end %>
 	
-  <div class="actions pull-right">
-    <%= f.submit "Save Property", :class => "btn btn-primary" %>
-  </div>
 <% end %>

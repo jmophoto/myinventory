@@ -1,0 +1,46 @@
+[
+  {
+    "name": "bedroom",
+    "features": ["Windows" , "Screens" , "Blinds" , "Walls" , "Baseboards" , "Light Fixtures" , "Closets / Shelves" , "Floors" , "Doors/Locks"]
+  },
+  {
+    "name": "bathroom",
+    "features": ["Tub / Shower" , "Toilet" , "Countertop" , "Sink" , "Cupboards / Shelves" , "Mirrors" , "Ceiling / Walls" , "Light Fixtures" , "Fans" , "Floors" , "Doors/Locks"]
+  },
+  {
+    "name": "kitchen",
+    "features": ["Fridge" , "Range / Oven" , "Cabinets / Shelves" , "Countertop" , "Sink" , "Ceiling / Walls / Baseboard" , "Light Fixtures" , "Floors" , "Windows" , "Blinds" , "Dishwasher" , "Doors/Locks" , "Garbage Disposal"]
+  },
+  {
+    "name": "living room",
+    "features": ["Windows" , "Screens" , "Blinds" , "Walls" , "Baseboards" , "Light Fixtures" , "Closets / Shelves" , "Floors" , "Doors/Locks"]
+  },
+  {
+    "name": "family room",
+    "features": ["Windows" , "Screens" , "Blinds" , "Walls" , "Baseboards" , "Light Fixtures" , "Closets / Shelves" , "Floors" , "Doors/Locks"]
+  },
+  {
+    "name": "laundry",
+    "features": ["Windows" , "Screens" , "Blinds" , "Walls" , "Baseboards" , "Light Fixtures" , "Closets / Shelves" , "Floors"]
+  },
+  {
+    "name": "office",
+    "features": ["Windows" , "Screens" , "Blinds" , "Walls" , "Baseboards" , "Light Fixtures" , "Closets / Shelves" , "Floors"]
+  },
+  {
+    "name": "entry",
+    "features": ["Windows" , "Screens" , "Blinds" , "Entry Door" , "Walls" , "Baseboards" , "Light Fixtures" , "Closets / Shelves" , "Floors"]
+  },
+  {
+    "name": "exterior",
+    "features": ["Landscape" , "Windows" , "Porch" , "Light Fixtures" , "Driveway" , "Exterior Facade / Walls"]
+  },
+  {
+    "name": "dining room",
+    "features": ["Windows" , "Screens" , "Blinds" , "Walls" , "Baseboards" , "Light Fixtures" , "Closets / Shelves" , "Floors" , "Doors/Locks"]
+  },
+  {
+    "name": "garage",
+    "features": ["Windows" , "Screens" , "Walls" , "Light Fixtures" , "Closets / Shelves" , "Floors" , "Doors/Locks"]
+  }
+]

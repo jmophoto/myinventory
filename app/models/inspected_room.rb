@@ -3,7 +3,7 @@ class InspectedRoom < ActiveRecord::Base
   has_many :inspected_features
   
   before_create :check_for_name
-  after_create :add_features
+  after_create :load_features
   
   def check_for_name
     if self.name.nil?
@@ -15,17 +15,9 @@ class InspectedRoom < ActiveRecord::Base
     end
   end
   
-  def add_features
-    if room_type == "bedroom"
-      features = base_features + bedroom_features
-    elsif room_type == "bathroom"
-      features = base_features + bathroom_features
-    elsif room_type == "kitchen"
-      features = base_features + kitchen_features
-    else
-      features = base_features
-    end
-    self.create_inspected_features(features)
+  def load_features
+    features = ROOM_FEATURES[self.room_type]['features'] unless ROOM_FEATURES[self.room_type].nil?
+    self.create_inspected_features(features) if features
   end
   
   def create_inspected_features(features)
@@ -34,23 +26,37 @@ class InspectedRoom < ActiveRecord::Base
     end
   end
   
-  def base_features
-    ['walls', 'baseboards', 'doors', 'floors', 'ceiling', 'light fixtures']
-  end
   
-  def bedroom_features
-    ['windows', 'screens', 'blinds/drapes', 'closets/shelves']
-  end
+  # def add_features
+  #   if room_type == "bedroom"
+  #     features = base_features + bedroom_features
+  #   elsif room_type == "bathroom"
+  #     features = base_features + bathroom_features
+  #   elsif room_type == "kitchen"
+  #     features = base_features + kitchen_features
+  #   else
+  #     features = base_features
+  #   end
+  #   self.create_inspected_features(features)
+  # end
   
-  def bathroom_features
-    ['tub/shower', 'toilet', 'countertop', 'sink', 'cabinets/shelves', 'mirrors', 'fan']
-  end
-  
-  def kitchen_features
-    ['fridge', 'range/oven', 'dishwasher', 'disposal', 'countertop', 'sink', 'cabinets/shelves']
-  end
-  
-  def window_features
-    ['windows', 'screens', 'blinds/drapes']
-  end
+  # def base_features
+  #     ['walls', 'baseboards', 'doors', 'floors', 'ceiling', 'light fixtures']
+  #   end
+  #   
+  #   def bedroom_features
+  #     ['windows', 'screens', 'blinds/drapes', 'closets/shelves']
+  #   end
+  #   
+  #   def bathroom_features
+  #     ['tub/shower', 'toilet', 'countertop', 'sink', 'cabinets/shelves', 'mirrors', 'fan']
+  #   end
+  #   
+  #   def kitchen_features
+  #     ['fridge', 'range/oven', 'dishwasher', 'disposal', 'countertop', 'sink', 'cabinets/shelves']
+  #   end
+  #   
+  #   def window_features
+  #   ['windows', 'screens', 'blinds/drapes']
+  # end
 end

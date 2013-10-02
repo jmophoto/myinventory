@@ -1,3 +1,56 @@
+bedroom:
+  features: ["Windows","Screens","Blinds","Walls","Baseboards","Light Fixtures","Closets / Shelves","Floors","Doors / Locks"]
+  is_room: true
+    
 bathroom:
-  toilet
+  features: ["Tub / Shower","Toilet","Countertop","Sink","Cupboards / Shelves","Mirrors","Ceiling / Walls","Light Fixtures","Fans","Floors","Doors / Locks"]
+  is_room: true
+
+kitchen:
+  features: ["Fridge","Range / Oven","Cabinets / Shelves","Countertop","Sink","Ceiling / Walls / Baseboard","Light Fixtures","Floors","Windows","Blinds","Dishwasher","Doors / Locks","Garbage Disposal"]
+  is_room: true
+
+dining_room:
+  features: ["Windows","Screens","Blinds","Walls","Baseboards","Light Fixtures","Closets / Shelves","Floors","Doors / Locks"]
+  is_room: true
+
+living_room:
+  features: ["Windows","Screens","Blinds","Walls","Baseboards","Light Fixtures","Closets / Shelves","Floors","Doors / Locks"]
+  is_room: true
   
+family_room:
+  features: ["Windows","Screens","Blinds","Walls","Baseboards","Light Fixtures","Closets / Shelves","Floors","Doors / Locks"]
+  is_room: true
+
+laundry:
+  features: ["Windows","Screens","Blinds","Walls","Baseboards","Light Fixtures","Closets / Shelves","Floors"]
+  is_room: true
+
+office:
+  features: ["Windows","Screens","Blinds","Walls","Baseboards","Light Fixtures","Closets / Shelves","Floors"]
+  is_room: true
+
+other:
+  features: ["Walls", "Floor", "Ceiling"]
+  is_room: true
+ 
+entry:
+  features: ["Windows","Screens","Blinds","Entry Door","Walls","Baseboards","Light Fixtures","Closets / Shelves","Floors"]
+  is_room: false
+  
+hallway:
+  features: ["Windows","Screens","Blinds","Walls","Baseboards","Light Fixtures","Closets / Shelves","Floors"]
+  is_room: false
+
+staircase:
+  features: ["Windows","Screens","Blinds","Walls","Baseboards","Light Fixtures","Closets / Shelves","Floors"]
+  is_room: false
+
+exterior:
+  features: ["Landscape","Windows","Porch","Light Fixtures","Driveway","Exterior Facade / Walls"]
+  is_room: false
+
+garage:
+  features: ["Windows","Screens","Walls","Light Fixtures","Closets / Shelves","Floors","Doors / Locks"]
+  is_room: false
+

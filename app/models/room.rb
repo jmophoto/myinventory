@@ -5,7 +5,7 @@ class Room < ActiveRecord::Base
   
   serialize :features
   
-  before_create :add_features
+  before_create :load_features
   
   scope :bedrooms, -> { where(room_type: "bedroom") }
   scope :bathrooms, -> { where(room_type: "bathrooms") }
@@ -24,6 +24,10 @@ class Room < ActiveRecord::Base
     else
       self.features = base_features
     end
+  end
+  
+  def load_features
+    self.features = ROOM_FEATURES[self.room_type]['features'] unless ROOM_FEATURES[self.room_type].nil?
   end
   
   def base_features
