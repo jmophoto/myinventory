@@ -4,7 +4,7 @@ class InspectionsController < ApplicationController
   # GET /inspections
   # GET /inspections.json
   def index
-    @inspections = Inspection.all
+    @inspections = current_user.inspections
     respond_to do |format|
       format.html
       format.json { render :json => @inspections.to_json(:include => :inspected_rooms) }
@@ -35,7 +35,7 @@ class InspectionsController < ApplicationController
   # POST /inspections
   # POST /inspections.json
   def create
-    @inspection = Inspection.new(inspection_params)
+    @inspection = current_user.inspections.build(inspection_params)
 
     respond_to do |format|
       if @inspection.save

@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   
   has_many :properties
+  has_many :inspections
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64

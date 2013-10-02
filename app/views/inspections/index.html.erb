@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Inspection type</th>
+			<th>Address</th>
       <th>Unit</th>
       <th>Tenant</th>
       <th>Inspected by</th>
@@ -18,6 +19,7 @@
     <% @inspections.each do |inspection| %>
       <tr>
         <td><%= inspection.inspection_type %></td>
+				<td><%= inspection.address %></td>
         <td><%= inspection.unit %></td>
         <td><%= inspection.tenant %></td>
         <td><%= inspection.inspected_by %></td>

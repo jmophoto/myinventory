@@ -3,6 +3,7 @@ class Inspection < ActiveRecord::Base
   
   has_many :inspected_rooms, -> { includes :inspected_features }
   belongs_to :property
+  belongs_to :user
   
   after_create :add_rooms
   

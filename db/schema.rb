@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130916214428) do
+ActiveRecord::Schema.define(version: 20131002134001) do
 
   create_table "inspected_features", force: true do |t|
     t.string   "name"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20130916214428) do
     t.string   "state"
     t.string   "zip"
     t.integer  "property_id"
+    t.integer  "user_id"
   end
 
   create_table "properties", force: true do |t|
