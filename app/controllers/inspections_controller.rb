@@ -17,6 +17,10 @@ class InspectionsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :json => @inspection.to_json(:include => :inspected_rooms) }
+      format.pdf do
+        pdf = InspectionPdf.new(@inspection)
+        send_data pdf.render, filename: "inspection_#{@inspection.id}", type: "application/pdf", disposition: "inline"
+      end
     end
   end
 
