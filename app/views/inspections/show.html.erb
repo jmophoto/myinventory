@@ -1,3 +1,7 @@
 <% provide(:title, "Show Inspection") %>
 
+<div class="btn-top">
+	<%= link_to "Show PDF", inspection_path(@inspection, format: "pdf"), class: "btn btn-primary btn-sm btn-save" %>
+</div>
+
 <%= render 'inspected_rooms' %>
