@@ -5,6 +5,7 @@ class Inspection < ActiveRecord::Base
   belongs_to :property
   belongs_to :user
   
+  before_save :parse_date
   after_create :add_rooms
   
   default_scope order('inspection_date DESC')
@@ -28,5 +29,20 @@ class Inspection < ActiveRecord::Base
       end
     end
   end
+  
+  def parse_date
+    unless self.date_string == ""
+      self.inspection_date = Date.strptime(self.date_string, '%m/%d/%Y')
+    end
+  end
+  
+  def full_address
+    full_address = self.address
+    full_address += " #" + self.unit unless self.unit.blank?
+    full_address += ", " + self.city unless self.city.blank?
+    full_address += ", " + self.state unless self.state.blank?
+    full_address += "  " + self.zip unless self.zip.blank?
+  end
     
+  
 end

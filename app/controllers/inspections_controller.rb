@@ -18,7 +18,7 @@ class InspectionsController < ApplicationController
       format.html
       format.json { render :json => @inspection.to_json(:include => :inspected_rooms) }
       format.pdf do
-        pdf = InspectionPdf.new(@inspection)
+        pdf = InspectionPdf.new(@inspection, view_context)
         send_data pdf.render, filename: "inspection_#{@inspection.id}", type: "application/pdf", disposition: "inline"
       end
     end
@@ -40,7 +40,6 @@ class InspectionsController < ApplicationController
   # POST /inspections.json
   def create
     @inspection = current_user.inspections.build(inspection_params)
-
     respond_to do |format|
       if @inspection.save
         format.html { redirect_to @inspection, notice: 'Inspection was successfully created.' }
@@ -56,9 +55,6 @@ class InspectionsController < ApplicationController
   # PATCH/PUT /inspections/1.json
   def update
     respond_to do |format|
-      if params[:inspection][:date_string]
-        @inspection.inspection_date = Date.strptime(params[:inspection][:date_string], "%m/%d/%Y")
-      end
       if @inspection.update(inspection_params)
         format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
         format.json { head :no_content }

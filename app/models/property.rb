@@ -29,20 +29,4 @@ class Property < ActiveRecord::Base
     end
   end
   
-  # def check_rooms(room_count)
-  #   if room_count
-  #    room_count.each do |key, value|
-  #      diff = value.to_i - self.rooms.type_count(key)
-  #      if diff > 1
-  #        (1..diff).collect { |x| self.rooms.create(name: "#{key.humanize} #{x}", room_type: key) }
-  #      elsif diff == 1
-  #        self.rooms.create(name: key.humanize, room_type: key)
-  #      elsif diff < 0
-  #        self.rooms.where(:room_type => key).slice!(diff)
-  #        self.save!
-  #      end     
-  #    end
-  #   end
-  # end
-
 end
