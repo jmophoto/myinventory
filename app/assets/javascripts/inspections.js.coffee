@@ -20,6 +20,10 @@ app.factory "Property", ["$resource", ($resource) ->
   $resource("/properties/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
+app.factory "Image", ["$resource", ($resource) ->
+  $resource("/images/:id", {id: "@id"}, {update: {method: "PUT"}})
+]
+
 @InspectionController = ["$scope", "Room", ($scope, Room, Inspection) ->
   $scope.rooms = Room.query({inspection_id: $scope.inspection_id})
   # $scope.inspection = Inspection.query({inspection_id: $scope.inspection_id})
@@ -93,4 +97,13 @@ app.factory "Property", ["$resource", ($resource) ->
 
 @PropertyController = ["$scope", "Property", ($scope, Property) ->
   $scope.properties = Property.query()
+]
+
+@ImageController = ["$scope", "Image", ($scope, Image) ->
+  $scope.images = Image.query()
+  
+  $scope.addImage = ->
+    image = Image.save({inspection_id: 1, asset: $scope.newImage.asset})
+    $scope.images.push(image)
+    $scope.newImage = {}
 ]

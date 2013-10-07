@@ -8,6 +8,7 @@ class InspectionPdf < Prawn::Document
     header_box
     address
     rooms
+    images
   end
   
   def logo_box
@@ -52,6 +53,12 @@ class InspectionPdf < Prawn::Document
     end
   end
   
+  def images
+    @inspection.images.each do |image_file|
+      image open("#{image_file.asset.url(:medium)}"), fit: [bounds.right, bounds.top]
+    end
+  end
+  
   def humanize(string)
       string.to_s.humanize
   end
@@ -77,5 +84,7 @@ class InspectionPdf < Prawn::Document
       ""
     end
   end
+  
+  
   
 end

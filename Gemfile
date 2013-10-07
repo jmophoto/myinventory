@@ -8,6 +8,9 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'angularjs-rails', '1.0.8'
 gem 'ng-rails-csrf'
 gem 'prawn', '1.0.0.rc2'
+gem 'rmagick'
+gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'

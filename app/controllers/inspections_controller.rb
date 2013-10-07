@@ -27,6 +27,7 @@ class InspectionsController < ApplicationController
   # GET /inspections/new
   def new
     @inspection = Inspection.new
+    @inspection.images.build
     if params[:property_id]
       @inspection.create_from_template(params[:property_id])
     end
@@ -34,6 +35,7 @@ class InspectionsController < ApplicationController
 
   # GET /inspections/1/edit
   def edit
+    @inspection.images.build unless @inspection.images.any?
   end
 
   # POST /inspections
@@ -83,6 +85,6 @@ class InspectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inspection_params
-      params.require(:inspection).permit(:inspection_type, :unit, :tenant, :inspected_by, :inspection_date, :address, :city, :state, :zip, :property_id, :date_string)
+      params.require(:inspection).permit!
     end
 end

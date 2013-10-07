@@ -1,4 +1,5 @@
 Inspeckd::Application.routes.draw do
+  resources :images
   resources :users, only: [:new, :create, :edit, :update]
   resources :properties
   resources :inspections do

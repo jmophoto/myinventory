@@ -1,69 +1,85 @@
-<%= form_for(@inspection, html: { class: "form-horizontal col-md-10 col-md-offset-1", role: "form" }) do |f| %>
-  <% if @inspection.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@inspection.errors.count, "error") %> prohibited this inspection from being saved:</h2>
-
-      <ul>
-      <% @inspection.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <%= f.hidden_field :property_id %>
-  <div class="form-group">
-		<label class="col-md-2 control-label">Address / Unit</label>
-		<div class="col-md-6">
-    	<%= f.text_field :address, :class => "form-control", :placeholder => "Address" %>
-		</div>
-		<div class="col-md-2">
-    	<%= f.text_field :unit, :class => "form-control", :placeholder => "Unit #" %>
-		</div>
-  </div>
-  <div class="form-group">
-		<label class="col-md-2 control-label">City / State / Zip</label>
-		<div class="col-md-4">
-    	<%= f.text_field :city, :class => "form-control", :placeholder => "City" %>
-		</div>
-		<div class="col-md-2">
-    	<%= f.text_field :state, :class => "form-control", :placeholder => "State" %>
-		</div>
-		<div class="col-md-2">
-    	<%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %>
-		</div>
-  </div>
-  <div class="form-group">
-    <%= f.label :inspection_type, :class => "col-md-2 control-label" %>
-		<div class="col-md-8">
-    	<%= f.select :inspection_type, inspection_types, {}, { :class => "form-control" } %>
-		</div>
-  </div>
-  <div class="form-group">
-    <%= f.label :tenant, :class => "col-md-2 control-label" %>
-		<div class="col-md-8">
-    	<%= f.text_field :tenant, :class => "form-control" %>
-		</div>
-  </div>
-  <div class="form-group">
-    <%= f.label :inspected_by, :class => "col-md-2 control-label" %>
-		<div class="col-md-8">
-    	<%= f.text_field :inspected_by, :class => "form-control" %>
-		</div>
-  </div>
-  <div class="form-group">
-    <%= f.label :inspection_date, :class => "col-md-2 control-label" %>
-		<div class="col-md-3 input-group">
-    	<%= f.text_field :date_string, :class => "form-control datepicker", :data => { :behaviour => "datepicker" }, :value => @inspection.inspection_date %>
-			<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-		</div>
-  </div>
-  <div class="form-group">
-		<div class="col-md-10">
-    	<%= f.submit "Start Inspection", :class => "col-md-2 btn btn-success btn-sm pull-right btn-cancel" %>
-			<%= link_to "Cancel", inspections_path, :class => "col-md-2 btn btn-danger btn-sm pull-right" %>
-		</div>
-  </div>
-<% end %>
+<div ng-init="inspection_id='<%= @inspection.id %>'" class="ng-cloak">
+	<%= form_for(@inspection, html: { class: "form-horizontal col-md-10 col-md-offset-1", role: "form" }) do |f| %>
+	  <% if @inspection.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@inspection.errors.count, "error") %> prohibited this inspection from being saved:</h2>
+	      <ul>
+	      <% @inspection.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	  <%= f.hidden_field :property_id %>
+	  <div class="form-group">
+			<label class="col-md-2 control-label">Address / Unit</label>
+			<div class="col-md-6">
+	    	<%= f.text_field :address, :class => "form-control", :placeholder => "Address" %>
+			</div>
+			<div class="col-md-2">
+	    	<%= f.text_field :unit, :class => "form-control", :placeholder => "Unit #" %>
+			</div>
+	  </div>
+	  <div class="form-group">
+			<label class="col-md-2 control-label">City / State / Zip</label>
+			<div class="col-md-4">
+	    	<%= f.text_field :city, :class => "form-control", :placeholder => "City" %>
+			</div>
+			<div class="col-md-2">
+	    	<%= f.text_field :state, :class => "form-control", :placeholder => "State" %>
+			</div>
+			<div class="col-md-2">
+	    	<%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %>
+			</div>
+	  </div>
+	  <div class="form-group">
+	    <%= f.label :inspection_type, :class => "col-md-2 control-label" %>
+			<div class="col-md-8">
+	    	<%= f.select :inspection_type, inspection_types, {}, { :class => "form-control" } %>
+			</div>
+	  </div>
+	  <div class="form-group">
+	    <%= f.label :tenant, :class => "col-md-2 control-label" %>
+			<div class="col-md-8">
+	    	<%= f.text_field :tenant, :class => "form-control" %>
+			</div>
+	  </div>
+	  <div class="form-group">
+	    <%= f.label :inspected_by, :class => "col-md-2 control-label" %>
+			<div class="col-md-8">
+	    	<%= f.text_field :inspected_by, :class => "form-control" %>
+			</div>
+	  </div>
+	  <div class="form-group">
+	    <%= f.label :inspection_date, :class => "col-md-2 control-label" %>
+			<div class="col-md-3 input-group">
+	    	<%= f.text_field :date_string, :class => "form-control datepicker", :data => { :behaviour => "datepicker" }, :value => @inspection.inspection_date %>
+				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+			</div>
+	  </div>
+	  <div class="form-group">
+			<%= f.fields_for :images do |builder| %>
+		    <%= builder.label :images, :class => "col-md-2 control-label" %>
+				<div class="col-md-8 image-form-box">
+					<% if builder.object.asset? %>
+						<div class="col-md-4 thumbnail img-thumb">
+							<%= image_tag builder.object.asset.url %>
+							<div class="img-caption"><%= builder.check_box :_destroy %> Remove</div>
+						</div>
+					<% else %>
+		    		<%= builder.file_field :asset, :class => "form-control file-field-control" %>
+					<% end %>
+				</div>
+			<% end %>
+	  </div>
+	  <div class="form-group">
+			<div class="col-md-10">
+	    	<%= f.submit :class => "col-md-2 btn btn-success btn-sm pull-right btn-cancel" %>
+				<%= link_to "Cancel", inspections_path, :class => "col-md-2 btn btn-danger btn-sm pull-right" %>
+			</div>
+	  </div>
+	<% end %>
+</div>
 
 <script type="text/javascript">
   $(document).ready(function(){
