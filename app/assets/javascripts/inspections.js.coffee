@@ -106,16 +106,17 @@ app.directive "fileupload", ->
     feature.condition = condition
     Feature.update(feature)
     
-  $scope.addFeature = (room) ->
+  $scope.addFeature = (room_index, room) ->
+    alert($scope.newFeature.name)
     feature = Feature.save({inspected_room_id: room.id, name: $scope.newFeature.name})
-    $scope.room.inspected_features.push(feature)
+    $scope.inspection.inspected_rooms[room_index].inspected_features.push(feature)
     $scope.newFeature = {}
     
-  $scope.deleteFeature = (feature, index) ->
-    confirmVariable = confirm('Are you sure?')
+  $scope.deleteFeature = (room_index, feature, index) ->
+    confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
       Feature.delete(feature)
-      $scope.room.inspected_features.splice(index, 1);
+      $scope.inspection.inspected_rooms[room_index].inspected_features.splice(index, 1);
       
 ]
 

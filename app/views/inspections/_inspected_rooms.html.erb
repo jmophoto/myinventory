@@ -96,16 +96,16 @@
 							</form>
 						</td>
 						<td class="col-md-1">
-							<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature(feature,$index)">
+							<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature($parent.$index,feature,$index)">
 								<span class="glyphicon glyphicon-trash"></span>
 							</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<form class="form-inline" ng-submit="addFeature(room)">
+							<form class="form-inline" ng-submit="addFeature($parent.$index,room)">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="New Feature" ng-submit="addFeature(room)">
+									<input type="text" class="form-control" ng-model="newFeature.name" placeholder="New Feature" ng-submit="addFeature($parent.$index,room)">
 								</div>
 								<button class="btn btn-sm btn-default">Add</button>
 							</form>
