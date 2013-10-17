@@ -1,5 +1,6 @@
 class Room < ActiveRecord::Base
   belongs_to :property
+  has_many :images, as: :imageable
   
   validates :property_id, presence: true
   

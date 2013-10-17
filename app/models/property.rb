@@ -2,6 +2,8 @@ class Property < ActiveRecord::Base
   belongs_to :user
   has_many :rooms
   has_many :inspections
+  has_many :images, as: :imageable
+  
   validates :user_id, presence: true
   
   attr_accessor :room_count, :other_areas, :detail_list

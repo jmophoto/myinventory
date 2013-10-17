@@ -7,7 +7,7 @@ class InspectionsController < ApplicationController
     @inspections = current_user.inspections
     respond_to do |format|
       format.html
-      format.json { render :json => @inspections.to_json(:include => :inspected_rooms) }
+      format.json { render json: @inspections, root: false }
     end
   end
 
@@ -16,7 +16,7 @@ class InspectionsController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render :json => @inspection.to_json(:include => :inspected_rooms) }
+      format.json { render :json => @inspection, root: false }
       format.pdf do
         pdf = InspectionPdf.new(@inspection, view_context)
         send_data pdf.render, filename: "inspection_#{@inspection.id}", type: "application/pdf", disposition: "inline"

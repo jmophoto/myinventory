@@ -1,11 +1,11 @@
-app = angular.module("Inspeckd", ["ngResource", "ng-rails-csrf"])
+app = angular.module("Inspeckd", ["ngResource", "ng-rails-csrf", "ngUpload"])
 
 $(document).on('ready page:load', ->
   angular.bootstrap(document, ['Inspeckd'])
 )
 
 app.factory "Inspection", ["$resource", ($resource) -> 
-  $resource("/inspections/:inspection_id/", {inspection_id: "@id"}, {update: {method: "PUT"}})
+  $resource("/inspections/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
 app.factory "Room", ["$resource", ($resource) -> 
@@ -24,25 +24,48 @@ app.factory "Image", ["$resource", ($resource) ->
   $resource("/images/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
-@InspectionController = ["$scope", "Room", ($scope, Room, Inspection) ->
-  $scope.rooms = Room.query({inspection_id: $scope.inspection_id})
-  # $scope.inspection = Inspection.query({inspection_id: $scope.inspection_id})
+app.directive "fileupload", ->
+  restrict: "EA"
+  template: "<form action='/images' ng-upload upload-options-enable-rails-csrf><input type='file' name='image[asset]' /><input type='submit' value='Upload' upload-submit='results(content, completed, room)'></input></form>"
+
+@InspectionController = ["$scope", "Room", "Inspection", "Image", ($scope, Room, Inspection, Image) ->
+  $scope.inspection = Inspection.get({id: $scope.inspection_id})
     
   $scope.addRoom = ->
     room = Room.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
-    $scope.rooms.push(room)
+    $scope.inspection.inspected_rooms.push(room)
     $scope.newRoom = {}
   
   $scope.deleteRoom = (room, index) ->
-    confirmVariable = confirm('Are You Sure?')
+    confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
-      room.$delete()
-      $scope.rooms.splice(index, 1)
+      Room.delete(room)
+      $scope.inspection.inspected_rooms.splice(index, 1)
       
   $scope.editRoom = (room) ->
     Room.update(room)
+    
+  $scope.addImage = (room) ->
+    image = Image.save({imageable_id: room.id, imageable_type: "InspectedRoom"})
+    $scope.newImage = {}
+
+  $scope.deleteImage = (room_index, image, index) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Image.delete(image)
+      $scope.inspection.inspected_rooms[room_index].images.splice(index, 1)
+
+  $scope.results = (content, completed, index) ->
+    if (completed)
+      $scope.uploading = false
+      $scope.inspection.inspected_rooms[index].images.push(content)
+    else
+      $scope.uploading = true
+      $scope.response = "Uploading..."
+  
 ]
   
+
 @FeatureController = ["$scope", "Feature", ($scope, Feature) ->
   $scope.isClean = (feature) ->
     if feature.clean == true
@@ -93,6 +116,7 @@ app.factory "Image", ["$resource", ($resource) ->
     if confirmVariable == true
       Feature.delete(feature)
       $scope.room.inspected_features.splice(index, 1);
+      
 ]
 
 @PropertyController = ["$scope", "Property", ($scope, Property) ->

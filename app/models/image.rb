@@ -1,6 +1,5 @@
 class Image < ActiveRecord::Base
-  belongs_to :inspection
-  belongs_to :user
+  belongs_to :imageable, polymorphic: true
   
   mount_uploader :asset, AssetUploader
 end

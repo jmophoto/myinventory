@@ -1,6 +1,7 @@
 class InspectedRoom < ActiveRecord::Base
   belongs_to :inspection
   has_many :inspected_features
+  has_many :images, as: :imageable
   
   before_create :check_for_name
   after_create :load_features

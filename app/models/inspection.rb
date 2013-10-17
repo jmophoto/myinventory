@@ -4,7 +4,7 @@ class Inspection < ActiveRecord::Base
   has_many :inspected_rooms, -> { includes :inspected_features }
   belongs_to :property
   belongs_to :user
-  has_many :images
+  has_many :images, as: :imageable
   
   accepts_nested_attributes_for :images, allow_destroy: true
   

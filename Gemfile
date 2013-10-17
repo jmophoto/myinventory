@@ -11,6 +11,7 @@ gem 'prawn', '1.0.0.rc2'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'

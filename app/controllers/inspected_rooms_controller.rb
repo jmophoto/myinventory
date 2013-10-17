@@ -7,7 +7,7 @@ class InspectedRoomsController < ApplicationController
     @inspected_rooms = inspection.inspected_rooms.load
     respond_to do |format|
       format.html
-      format.json { render :json => @inspected_rooms.to_json(:include => :inspected_features) }
+      format.json { render :json => @inspected_rooms }
     end
   end
 

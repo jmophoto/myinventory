@@ -10,8 +10,6 @@
   <thead>
     <tr>
 			<th></th>
-      <th>Inspection</th>
-      <th>User</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,8 +20,6 @@
     <% @images.each do |image| %>
       <tr>
 				<td><%= image.asset.url(:thumb) %>
-        <td><%= image.inspection %></td>
-        <td><%= image.user %></td>
         <td><%= link_to 'Show', image %></td>
         <td><%= link_to 'Edit', edit_image_path(image) %></td>
         <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>

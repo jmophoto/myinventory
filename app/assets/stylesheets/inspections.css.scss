@@ -36,3 +36,22 @@
 .add-room-form {
   margin-right: 15px;
 }
+
+.image-grid {
+  padding: 10px;
+}
+
+.image-grid .thumbnail {
+  margin: 5px;
+  height: 140px;
+  position: relative;
+}
+
+.image-grid .thumbnail .btn-image-delete {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.image-grid .thumbnail img {
+}

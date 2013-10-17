@@ -6,6 +6,7 @@ Inspeckd::Application.routes.draw do
     resources :inspected_rooms
   end
   resources :inspected_rooms do
+    resources :images
     resources :inspected_features
   end
   resources :sessions, only: [:new, :create, :destroy]

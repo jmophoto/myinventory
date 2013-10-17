@@ -11,6 +11,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -198,6 +200,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   angularjs-rails (= 1.0.8)
   anjlab-bootstrap-rails (>= 3.0.0.0)
   bcrypt-ruby (= 3.0.1)
