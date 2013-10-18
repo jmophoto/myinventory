@@ -1,4 +1,4 @@
-app = angular.module("Inspeckd", ["ngResource", "ng-rails-csrf", "ngUpload"])
+app = angular.module("Inspeckd", ["ngResource", "ng-rails-csrf", "ngUpload", "$strap.directives"])
 
 $(document).on('ready page:load', ->
   angular.bootstrap(document, ['Inspeckd'])
@@ -24,12 +24,12 @@ app.factory "Image", ["$resource", ($resource) ->
   $resource("/images/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
-app.directive "fileupload", ->
-  restrict: "EA"
-  template: "<form action='/images' ng-upload upload-options-enable-rails-csrf><input type='file' name='image[asset]' /><input type='submit' value='Upload' upload-submit='results(content, completed, room)'></input></form>"
-
 @InspectionController = ["$scope", "Room", "Inspection", "Image", ($scope, Room, Inspection, Image) ->
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
+  $scope.inspection_editing = true
+  
+  $scope.editInspection = (inspection) ->
+    Inspection.update(inspection)
     
   $scope.addRoom = ->
     room = Room.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
@@ -49,16 +49,30 @@ app.directive "fileupload", ->
     image = Image.save({imageable_id: room.id, imageable_type: "InspectedRoom"})
     $scope.newImage = {}
 
-  $scope.deleteImage = (room_index, image, index) ->
+  $scope.deleteRoomImage = (room_index, image, index) ->
     confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
       Image.delete(image)
       $scope.inspection.inspected_rooms[room_index].images.splice(index, 1)
+      
+  $scope.deleteInspectionImage = (image, index) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Image.delete(image)
+      $scope.inspection.images.splice(index, 1)
 
-  $scope.results = (content, completed, index) ->
+  $scope.addRoomImageResults = (content, completed, index) ->
     if (completed)
       $scope.uploading = false
       $scope.inspection.inspected_rooms[index].images.push(content)
+    else
+      $scope.uploading = true
+      $scope.response = "Uploading..."
+      
+  $scope.addInspectionImageResults = (content, completed) ->
+    if (completed)
+      $scope.uploading = false
+      $scope.inspection.images.push(content)
     else
       $scope.uploading = true
       $scope.response = "Uploading..."
@@ -132,3 +146,9 @@ app.directive "fileupload", ->
     $scope.images.push(image)
     $scope.newImage = {}
 ]
+
+
+app.value "$strapConfig",
+  datepicker:
+    format: "yyyy-mm-dd"
+

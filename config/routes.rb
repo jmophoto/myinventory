@@ -3,6 +3,7 @@ Inspeckd::Application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update]
   resources :properties
   resources :inspections do
+    resources :images
     resources :inspected_rooms
   end
   resources :inspected_rooms do

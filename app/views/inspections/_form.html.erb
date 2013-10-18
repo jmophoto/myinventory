@@ -53,7 +53,7 @@
 	  <div class="form-group">
 	    <%= f.label :inspection_date, :class => "col-md-2 control-label" %>
 			<div class="col-md-3 input-group">
-	    	<%= f.text_field :date_string, :class => "form-control datepicker", :data => { :behaviour => "datepicker" }, :value => @inspection.inspection_date %>
+	    	<%= f.text_field :inspection_date, :class => "form-control datepicker" %>
 				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 			</div>
 	  </div>
@@ -83,6 +83,9 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.datepicker').datepicker({ autoclose: true });
+    $('.datepicker').datepicker({
+			autoclose: true,
+			format: yyyy-mm-dd
+		});
   })
 </script>

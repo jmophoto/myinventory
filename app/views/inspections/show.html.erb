@@ -4,4 +4,146 @@
 	<%= link_to "Show PDF", inspection_path(@inspection, format: "pdf"), class: "btn btn-primary btn-sm btn-save" %>
 </div>
 
-<%= render 'inspected_rooms' %>
+<div ng-init="inspection_id='<%= @inspection.id %>'" class="ng-cloak">
+	<div class="panel-group" id="accordion" ng-controller="InspectionController">
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+				<div class="panel-title">
+					<div class="row">
+						<div class="col-md-7 inspection-address">
+							<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#inspection-details"></span>
+							<%= @inspection.address %>
+							<% unless @inspection.unit.blank? %> #<%= @inspection.unit %><% end %>
+						</div>
+						<form class="add-room-form form-inline pull-right" role="form" ng-submit="addRoom()">
+							<div class="form-group">
+						    <label class="sr-only" for="newRoomName">Type</label>
+								<input type="text" class="form-control" placeholder="Room Name (optional)" ng-model="newRoom.name">
+						  </div>
+						  <div class="form-group">
+						    <label class="sr-only" for="newRoomType">Type</label>
+								<%= select_tag "Room Type", options_for_select(full_list.collect{ |x| [x.titleize, x] }),
+										:class => "form-control input-sm", :"ng-model" => "newRoom.type", prompt: "Room Type" %>
+						  </div>
+						  <button type="submit" class="btn btn-sm btn-success">Add Room</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<%= render :partial => 'inspection_details' %>
+		</div>
+		<div class="room-panel panel panel-default" ng-repeat="room in inspection.inspected_rooms">
+		  <div class="room-heading panel-heading">
+				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">
+					<form class="form-inline">
+					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}"></span>
+		      <span ng-hide="room.editing" ng-click="room.editing = true">{{ room.name }}</span>
+					<span ng-show="room.editing">
+						<div class="form-group">
+							<input type="text" class="form-control" ng-model="room.name">
+						</div>
+						<button class="btn btn-default btn-sm" type="submit" ng-click="room.editing = false; editRoom(room)">Save</button>
+					</span>
+					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoom(room,$index)">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+					</form>
+				</div>
+			</div>
+			<div class="panel-collapse collapse" id="room_{{ room.id }}">
+		  	<table class="table-condensed table-responsive feature-table" ng-controller="FeatureController">
+			    <tr ng-repeat="feature in room.inspected_features">
+						<td class="col-md-3">
+							<div ng-hide="feature.editing" class="feature-name" ng-click="feature.editing = true">{{ feature.name }}</div>
+							<form ng-show="feature.editing" class="form-inline" role="form">
+								<div class="form-group">
+									<input type="text" class="form-control" ng-model="feature.name">
+								</div>
+								<button class="btn btn-default btn-sm" type="submit" ng-click="feature.editing = false; editFeature(feature)">Save</button>
+							</form>
+						</td>
+						<td class="col-md-2">
+							<div class="btn-group">	
+								<button ng-click="setCondition(feature, 'poor')" type="button" 
+												ng-class="{'btn-primary': feature.condition=='poor', 'btn-default': feature.condition != 'poor' || feature.condition==nil}" 
+												class="btn btn-sm">Poor
+								</button>
+								<button ng-click="setCondition(feature, 'fair')" type="button" 
+												ng-class="{'btn-primary': feature.condition=='fair', 'btn-default': feature.condition != 'fair' || feature.condition==nil}" 
+												class="btn btn-sm">Fair
+								</button>
+								<button ng-click="setCondition(feature, 'good')" type="button" 
+												ng-class="{'btn-primary': feature.condition=='good', 'btn-default': feature.condition != 'good' || feature.condition==nil}" 
+												class="btn btn-sm">Good
+								</button>
+							</div>
+						</td>
+						<td class="col-md-3">
+							<div class="btn-group">
+								<button ng-click="isClean(feature, feature.name)" type="button" 
+												ng-class="{'btn-primary': feature.clean==true, 'btn-default': feature.clean==false || feature.clean==nil}" 
+												class="btn btn-sm">Clean
+								</button>
+								<button ng-click="isDirty(feature)" type="button" 
+												ng-class="{'btn-primary': feature.clean==false, 'btn-default': feature.clean==true || feature.clean==nil}" 
+												class="btn btn-sm">Dirty
+								</button>
+							</div>
+							<button ng-click="hasMarks(feature)" type="button" 
+											ng-class="{'btn-primary': feature.marks==true, 'btn-default': feature.marks == false || feature.marks==nil}" 
+											class="btn btn-sm">Marks
+							</button>
+							<button ng-click="hasDamage(feature)" type="button"
+							 				ng-class="{'btn-primary': feature.damage==true, 'btn-default': feature.damage == false || feature.damage==nil}" 
+											class="btn btn-sm">Damage
+							</button>
+						</td>
+						<td class="col-md-5">
+							<form class="form-inline">
+								<input type="text" ng-model="feature.comment" class="form-control" placeholder="Comments" ng-change="addComment(feature, feature.comment)">
+							</form>
+						</td>
+						<td class="col-md-1">
+							<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature($parent.$index,feature,$index)">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<form class="form-inline" ng-submit="addFeature($parent.$index,room)">
+								<div class="form-group">
+									<input type="text" class="form-control" ng-model="newFeature.name" placeholder="New Feature" ng-submit="addFeature($parent.$index,room)">
+								</div>
+								<button class="btn btn-sm btn-default">Add</button>
+							</form>
+						</td>
+						<td></td>
+						<td></td>
+						<td>
+							<form action="/inspected_rooms/{{room.id}}/images" class="form-inline" ng-upload upload-options-enable-rails-csrf>
+								<div class="form-group">
+									<input type='hidden' name='image[imageable_id]' value='{{ room.id }}'>
+									<input type='hidden' name='image[imageable_type]' value='InspectedRoom'>
+									<input type='file' name='image[asset]'>
+								</div>
+								<button ng-show="uploading" class="btn btn-sm btn-default" disabled>Uploading</button>
+								<button ng-hide="uploading"class="btn btn-sm btn-default" upload-submit='addRoomImageResults(content, completed, $index)'>Add Image</button>
+							</form>
+						</td>
+					</tr>
+			  </table>
+				<div class="row image-grid">
+				  <div ng-repeat="image in room.images" class="col-md-2">
+				    <div class="thumbnail">
+				      <img ng-src="{{ image.asset.asset.thumb.url }}">
+							<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoomImage($parent.$index,image,$index)">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

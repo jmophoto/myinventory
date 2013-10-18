@@ -1,0 +1,85 @@
+<div class="panel-collapse collapse in" id="inspection-details">
+	<div class="panel-body">
+		<form class="form-horizontal">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-6 control-label">Inspection Type</label>
+						<div class="col-md-6">
+							<select class="form-control disabled" ng-model="inspection.inspection_type" ng-disabled="inspection_editing">
+								<% inspection_types.each do |type| %>
+									<option><%= type %></option>
+								<% end %>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-6 control-label">Tenant</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control disabled" ng-model="inspection.tenant" ng-disabled="inspection_editing" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-6 control-label">Inspected By</label>
+						<div class="col-md-6">
+							<input type="text" class="form-control disabled" ng-model="inspection.inspected_by" ng-disabled="inspection_editing" />
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-6 control-label">Inspection Date</label>
+						<div class="col-md-6 input-group">
+							<input type="text" class="form-control disabled" ng-model="inspection.inspection_date" ng-disabled="inspection_editing" bs-datepicker>
+							<span class="input-group-btn" data-toggle="datepicker">
+								<button class="btn btn-default btn-calendar" type="button" ng-disabled="inspection_editing">
+									<span class="glyphicon glyphicon-calendar">
+								</button>
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-6 control-label">Report Date</label>
+						<div class="col-md-6 input-group">
+							<input type="text" class="form-control disabled" ng-model="inspection.report_date" ng-disabled="inspection_editing" bs-datepicker>
+							<span class="input-group-btn" data-toggle="datepicker">
+								<button class="btn btn-default btn-calendar" type="button" ng-disabled="inspection_editing">
+									<span class="glyphicon glyphicon-calendar">
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<button ng-show="inspection_editing" class="btn-edit-toggle btn btn-default btn-sm pull-right" ng-click="inspection_editing = !inspection_editing">Edit</button>
+					<button ng-hide="inspection_editing" class="btn-edit-toggle btn btn-default btn-sm pull-right" type="submit" ng-click="inspection_editing = !inspection_editing; editInspection(inspection)">Save</button>
+				</div>
+			</div>
+		</form>
+		<form action="/inspections/{{ inspection.id }}/images" class="form-inline" ng-upload upload-options-enable-rails-csrf>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<input type='hidden' name='image[imageable_id]' value='{{ inspection.id }}'>
+						<input type='hidden' name='image[imageable_type]' value='Inspection'>
+						<input type='file' name='image[asset]'>
+					</div>
+					<button ng-show="uploading" class="btn btn-sm btn-default" disabled>Uploading</button>
+					<button ng-hide="uploading"class="btn btn-sm btn-default" upload-submit='addInspectionImageResults(content, completed)'>Add Image</button>
+				</div>
+			</div>
+		</form>
+		<div class="row image-grid">
+		  <div ng-repeat="image in inspection.images" class="col-md-2">
+		    <div class="thumbnail">
+		      <img ng-src="{{ image.asset.asset.thumb.url }}">
+					<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteInspectionImage(image,$index)">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>

@@ -8,7 +8,7 @@ class Inspection < ActiveRecord::Base
   
   accepts_nested_attributes_for :images, allow_destroy: true
   
-  before_save :parse_date
+  # before_save :parse_date
   after_create :add_rooms
   
   default_scope order('inspection_date DESC')
@@ -34,8 +34,10 @@ class Inspection < ActiveRecord::Base
   end
   
   def parse_date
-    unless self.date_string == ""
-      self.inspection_date = Date.strptime(self.date_string, '%m/%d/%Y')
+    if self.date_string
+      unless self.date_string == ""
+        self.inspection_date = Date.strptime(self.date_string, '%m/%d/%Y')
+      end
     end
   end
   
