@@ -26,7 +26,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-5">
 					<div class="form-group">
 						<label class="col-md-6 control-label">Inspection Date</label>
 						<div class="col-md-6 input-group">
@@ -53,8 +53,8 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<button ng-show="inspection_editing" class="btn-edit-toggle btn btn-default btn-sm pull-right" ng-click="inspection_editing = !inspection_editing">Edit</button>
-					<button ng-hide="inspection_editing" class="btn-edit-toggle btn btn-default btn-sm pull-right" type="submit" ng-click="inspection_editing = !inspection_editing; editInspection(inspection)">Save</button>
+					<button ng-show="inspection_editing" class="btn-edit-toggle btn btn-success btn-sm pull-right" ng-click="inspection_editing = !inspection_editing">Edit</button>
+					<button ng-hide="inspection_editing" class="btn-edit-toggle btn btn-success btn-sm pull-right" type="submit" ng-click="inspection_editing = !inspection_editing; editInspection(inspection)">Save</button>
 				</div>
 			</div>
 		</form>
@@ -66,8 +66,8 @@
 						<input type='hidden' name='image[imageable_type]' value='Inspection'>
 						<input type='file' name='image[asset]'>
 					</div>
-					<button ng-show="uploading" class="btn btn-sm btn-default" disabled>Uploading</button>
-					<button ng-hide="uploading"class="btn btn-sm btn-default" upload-submit='addInspectionImageResults(content, completed)'>Add Image</button>
+					<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
+					<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addInspectionImageResults(content, completed)'>Add Image</button>
 				</div>
 			</div>
 		</form>
