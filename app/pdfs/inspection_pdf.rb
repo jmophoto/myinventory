@@ -8,7 +8,7 @@ class InspectionPdf < Prawn::Document
     header_box
     address
     rooms
-    images
+    property_images
     room_images
   end
   
@@ -60,26 +60,26 @@ class InspectionPdf < Prawn::Document
     end
   end
   
-  def images
+  def property_images
     text "Property Images", size: 25, align: :center
     stroke do
       stroke_color "EEEEEE"
       horizontal_rule
     end
     move_down 20
-    image_urls = @inspection.images.map(&:asset_url)
     y_index = cursor
     width = bounds.right/3
     height = bounds.right/3
-    image_urls.in_groups_of(3) do |image_row|
+    @inspection.images.in_groups_of(3).map do |image_row|
       image_row.each_with_index do |image_file, index|
         bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
-          if image_file
-            image open(image_file), fit: [width-20, height-20], position: :center
+          if image_file && image_file.asset
+            image open(image_file.asset.url(:small)), fit: [width-20, height-20], position: :center
+            text_box "#{image_file.comment}", at: [cursor, cursor-10], width: width-20, height: 50, overflow: :shrink_to_fit
           end
         end
       end
-      y_index -= height
+      y_index -= height + 50
     end
   end
   
@@ -97,15 +97,16 @@ class InspectionPdf < Prawn::Document
         y_index = cursor
         width = bounds.right/3
         height = bounds.right/3
-        image_urls.in_groups_of(3) do |image_row|
+        room.images.in_groups_of(3).map do |image_row|
           image_row.each_with_index do |image_file, index|
             bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
-              if image_file
-                image open(image_file), fit: [width-20, height-20], position: :center
+              if image_file && image_file.asset
+                image open(image_file.asset.url(:small)), fit: [width-20, height-20], position: :center
+                text_box "#{image_file.comment}", at: [cursor, cursor-10], width: width-20, height: 50, overflow: :shrink_to_fit
               end
             end
           end
-          y_index -= height
+          y_index -= height + 50
         end
       end
     end

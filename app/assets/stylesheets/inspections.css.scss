@@ -43,14 +43,22 @@
 
 .image-grid .thumbnail {
   margin: 5px;
-  height: 140px;
+  height: 150px;
   position: relative;
 }
 
 .image-grid .thumbnail .btn-image-delete {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
+  right: -5px;
+  top: -5px;
+  opacity: .50;
+}
+
+.image-grid .thumbnail .btn-image-delete:hover {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  opacity: .80;
 }
 
 #inspection-details .disabled {

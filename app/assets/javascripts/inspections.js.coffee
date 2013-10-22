@@ -76,6 +76,10 @@ app.factory "Image", ["$resource", ($resource) ->
     else
       $scope.uploading = true
       $scope.response = "Uploading..."
+      
+  $scope.addImageComment = (image, comment) ->
+    image.comment = comment
+    Image.update(image)
   
 ]
   

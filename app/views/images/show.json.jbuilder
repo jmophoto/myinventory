@@ -1,1 +1,1 @@
-json.extract! @image, :id, :asset
+json.extract! @image, :id, :asset, :comment
