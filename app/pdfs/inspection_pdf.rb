@@ -33,16 +33,17 @@ class InspectionPdf < Prawn::Document
     font_size(18) do
       text @inspection.full_address
     end
+    move_down 40
   end
 
   def rooms
-    move_down 20
     @inspection.inspected_rooms.each do |room|
       text room.name, size: 25, align: :center
       stroke do
-        stroke_color "AAAAAA"
+        stroke_color "EEEEEE"
         horizontal_rule
       end
+      move_down 20
       features = [["Feature", "Condition", "Cleanliness", "Marks & Damage", "Comments"]]
       features += room.inspected_features.map{|x| [humanize(x.name), humanize(x.condition), true_to_clean(x.clean), marks_and_damage(x.marks, x.damage), x.comment]}
       font_size(10) do
@@ -59,7 +60,7 @@ class InspectionPdf < Prawn::Document
   end
   
   def images
-    text "Inspection Images", size: 25, align: :center
+    text "Property Images", size: 25, align: :center
     stroke do
       stroke_color "EEEEEE"
       horizontal_rule
@@ -68,42 +69,44 @@ class InspectionPdf < Prawn::Document
     image_urls = @inspection.images.map(&:asset_url)
     y_index = cursor
     width = bounds.right/3
-    height = 100
+    height = bounds.right/3
     image_urls.in_groups_of(3) do |image_row|
       image_row.each_with_index do |image_file, index|
         bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
           if image_file
-            image open(image_file), fit: [width, height]
+            image open(image_file), fit: [width-20, height-20], position: :center
           end
         end
       end
       y_index -= height
     end
-    move_down 20
   end
   
   def room_images
-    move_down 20
     @inspection.inspected_rooms.each do |room|
       if room.images.any?
-        text room.name, size: 15
-        move_down 10
-        image_urls = room.images.map(&:asset_url)
+        start_new_page
+        text "#{room.name} Images", size: 25, align: :center
+        stroke do
+          stroke_color "EEEEEE"
+          horizontal_rule
+        end
+        move_down 20
+        image_urls = room.images.map(&:small_url)
         y_index = cursor
         width = bounds.right/3
-        height = 100
+        height = bounds.right/3
         image_urls.in_groups_of(3) do |image_row|
           image_row.each_with_index do |image_file, index|
             bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
               if image_file
-                image open(image_file), fit: [width, height]
+                image open(image_file), fit: [width-20, height-20], position: :center
               end
             end
           end
           y_index -= height
         end
       end
-      move_down 20
     end
   end
   
