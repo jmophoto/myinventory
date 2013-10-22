@@ -9,6 +9,7 @@ class InspectionPdf < Prawn::Document
     address
     rooms
     images
+    room_images
   end
   
   def logo_box
@@ -37,7 +38,11 @@ class InspectionPdf < Prawn::Document
   def rooms
     move_down 20
     @inspection.inspected_rooms.each do |room|
-      text room.name, size: 15
+      text room.name, size: 25, align: :center
+      stroke do
+        stroke_color "AAAAAA"
+        horizontal_rule
+      end
       features = [["Feature", "Condition", "Cleanliness", "Marks & Damage", "Comments"]]
       features += room.inspected_features.map{|x| [humanize(x.name), humanize(x.condition), true_to_clean(x.clean), marks_and_damage(x.marks, x.damage), x.comment]}
       font_size(10) do
@@ -49,13 +54,56 @@ class InspectionPdf < Prawn::Document
           columns(4).width = 200
         end
       end
-      move_down 40
+      start_new_page
     end
   end
   
   def images
-    @inspection.images.each do |image_file|
-      image open("#{image_file.asset.url(:medium)}"), fit: [bounds.right, bounds.top]
+    text "Inspection Images", size: 25, align: :center
+    stroke do
+      stroke_color "EEEEEE"
+      horizontal_rule
+    end
+    move_down 20
+    image_urls = @inspection.images.map(&:asset_url)
+    y_index = cursor
+    width = bounds.right/3
+    height = 100
+    image_urls.in_groups_of(3) do |image_row|
+      image_row.each_with_index do |image_file, index|
+        bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
+          if image_file
+            image open(image_file), fit: [width, height]
+          end
+        end
+      end
+      y_index -= height
+    end
+    move_down 20
+  end
+  
+  def room_images
+    move_down 20
+    @inspection.inspected_rooms.each do |room|
+      if room.images.any?
+        text room.name, size: 15
+        move_down 10
+        image_urls = room.images.map(&:asset_url)
+        y_index = cursor
+        width = bounds.right/3
+        height = 100
+        image_urls.in_groups_of(3) do |image_row|
+          image_row.each_with_index do |image_file, index|
+            bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
+              if image_file
+                image open(image_file), fit: [width, height]
+              end
+            end
+          end
+          y_index -= height
+        end
+      end
+      move_down 20
     end
   end
   
@@ -84,7 +132,6 @@ class InspectionPdf < Prawn::Document
       ""
     end
   end
-  
   
   
 end
