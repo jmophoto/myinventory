@@ -23,6 +23,7 @@ class InspectionPdf < Prawn::Document
       move_down 10
       font_size(12)
       table([["Inspection Date:","#{@inspection.inspection_date}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
+      table([["Report Date:","#{@inspection.report_date}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
       table([["Inspection Type:","#{@inspection.inspection_type }" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
       table([["Inspected By:","#{@inspection.inspected_by}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [], :padding => 10 })
     end
