@@ -1,16 +1,20 @@
 <% provide(:title, "Inspections") %>
+<div class="row">
+	<div class="col-md-4 pull-left form-header">My Inspections</div>
+	<div class="col-md-2 col-md-offest-8 pull-right">
+		<%= link_to 'Add Inspection', new_inspection_path, :class => "btn btn-primary" %>
+	</div>
+</div>
 
-<table class="table table-hover">
+<table class="table table-hover table-striped">
   <thead>
     <tr>
-      <th>Inspection type</th>
 			<th>Address</th>
       <th>Unit</th>
       <th>Tenant</th>
+      <th>Type</th>
       <th>Inspected by</th>
       <th>Inspection date</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -18,20 +22,17 @@
   <tbody>
     <% @inspections.each do |inspection| %>
       <tr>
-        <td><%= inspection.inspection_type %></td>
 				<td><%= inspection.address %></td>
         <td><%= inspection.unit %></td>
         <td><%= inspection.tenant %></td>
+        <td><%= inspection.inspection_type %></td>
         <td><%= inspection.inspected_by %></td>
         <td><%= inspection.inspection_date %></td>
-        <td><%= link_to 'Show', inspection %></td>
-        <td><%= link_to 'Edit', edit_inspection_path(inspection) %></td>
-        <td><%= link_to 'Destroy', inspection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td class="text-right">
+					<%= link_to 'Show', inspection, :class => "btn btn-success btn-xs" %>
+					<%= link_to 'Delete', inspection, method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger btn-xs" %>
+				</td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Inspection', new_inspection_path %>

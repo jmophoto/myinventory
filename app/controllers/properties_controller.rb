@@ -35,7 +35,7 @@ class PropertiesController < ApplicationController
   # PATCH/PUT /properties/1
   def update
     if @property.update(property_params)
-      redirect_to @property, notice: 'Property was successfully updated.'
+      redirect_to properties_path, notice: 'Property was successfully updated.'
     else
       render action: 'edit'
     end
