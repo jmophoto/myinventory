@@ -24,7 +24,11 @@ app.factory "Image", ["$resource", ($resource) ->
   $resource("/images/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
-@InspectionController = ["$scope", "Room", "Inspection", "Image", ($scope, Room, Inspection, Image) ->
+app.factory "Detail", ["$resource", ($resource) ->
+  $resource("/inspection_details/:id", {id: "@id"}, {update: {method: "PUT"}})
+]
+
+@InspectionController = ["$scope", "Room", "Inspection", "Image", "Detail", ($scope, Room, Inspection, Image, Detail) ->
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
   $scope.inspection_editing = true
   
@@ -80,7 +84,32 @@ app.factory "Image", ["$resource", ($resource) ->
   $scope.addImageComment = (image, comment) ->
     image.comment = comment
     Image.update(image)
+    
+  $scope.setDetailStatus = (detail, status) ->
+    if detail.status == status
+      detail.status = null
+    else
+      detail.status = status
+    Detail.update(detail)
+    
+  $scope.addDetailComment = (detail, comment) ->
+    detail.comment = comment
+    Detail.update(detail)
   
+  $scope.addDetail = ->
+    new_detail = Detail.save({inspection_id: $scope.inspection_id, name: $scope.newDetail.name})
+    $scope.inspection.inspection_details.push(new_detail)
+    $scope.newDetail = {}
+    
+  
+  $scope.editDetail = (detail) ->
+    Detail.update(detail)
+    
+  $scope.deleteDetail = (detail, index) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Detail.delete(detail)
+      $scope.inspection.inspection_details.splice(index, 1)
 ]
   
 
@@ -125,7 +154,6 @@ app.factory "Image", ["$resource", ($resource) ->
     Feature.update(feature)
     
   $scope.addFeature = (room_index, room) ->
-    alert($scope.newFeature.name)
     feature = Feature.save({inspected_room_id: room.id, name: $scope.newFeature.name})
     $scope.inspection.inspected_rooms[room_index].inspected_features.push(feature)
     $scope.newFeature = {}

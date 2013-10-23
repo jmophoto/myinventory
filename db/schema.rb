@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131022184955) do
+ActiveRecord::Schema.define(version: 20131023163410) do
 
   create_table "images", force: true do |t|
     t.integer  "inspection_id"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 20131022184955) do
 
   add_index "inspected_rooms", ["inspection_id"], name: "index_inspected_rooms_on_inspection_id"
 
+  create_table "inspection_details", force: true do |t|
+    t.string   "name"
+    t.string   "status"
+    t.integer  "inspection_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "comment"
+  end
+
+  add_index "inspection_details", ["inspection_id"], name: "index_inspection_details_on_inspection_id"
+
   create_table "inspections", force: true do |t|
     t.string   "inspection_type"
     t.string   "unit"
@@ -67,6 +78,7 @@ ActiveRecord::Schema.define(version: 20131022184955) do
     t.integer  "user_id"
     t.string   "inspection_date_string"
     t.date     "report_date"
+    t.text     "details"
   end
 
   create_table "properties", force: true do |t|

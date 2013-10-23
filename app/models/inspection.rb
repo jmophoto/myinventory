@@ -2,14 +2,18 @@ class Inspection < ActiveRecord::Base
   attr_accessor :template, :date_string
   
   has_many :inspected_rooms, -> { includes :inspected_features }
+  has_many :inspection_details
   belongs_to :property
   belongs_to :user
   has_many :images, as: :imageable
+  
+  serialize :details, Hash
   
   accepts_nested_attributes_for :images, allow_destroy: true
   
   # before_save :parse_date
   after_create :add_rooms
+  after_create :add_details
   
   default_scope order('inspection_date DESC')
   
@@ -29,6 +33,14 @@ class Inspection < ActiveRecord::Base
         room.features.each do |feature|
           inspected_room.inspected_features.create!(name: feature)
         end
+      end
+    end
+  end
+  
+  def add_details
+    unless self.property.nil?
+      self.property.details.each do |detail|
+        self.inspection_details.create!(name: detail)
       end
     end
   end

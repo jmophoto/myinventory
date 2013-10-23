@@ -58,31 +58,5 @@
 				</div>
 			</div>
 		</form>
-		<legend>Images</legend>
-		<form action="/inspections/{{ inspection.id }}/images" class="form-inline" ng-upload upload-options-enable-rails-csrf>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="form-group">
-						<input type='hidden' name='image[imageable_id]' value='{{ inspection.id }}'>
-						<input type='hidden' name='image[imageable_type]' value='Inspection'>
-						<input type='file' name='image[asset]'>
-					</div>
-					<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
-					<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addInspectionImageResults(content, completed)'>Add Image</button>
-				</div>
-			</div>
-		</form>
-		<div class="row image-grid">
-		  <div ng-repeat="image in inspection.images" class="col-md-2">
-		    <div class="thumbnail">
-		      <img ng-src="{{ image.asset.asset.thumb.url }}">
-					<input type="text" ng-model="image.comment" class="image-comment form-control" 
-														 placeholder="Comments" ng-change="addImageComment(image, image.comment)">
-					<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteInspectionImage(image,$index)">
-						<span class="glyphicon glyphicon-trash"></span>
-					</button>
-		    </div>
-		  </div>
-		</div>
 	</div>
 </div>

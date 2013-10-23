@@ -47,7 +47,6 @@ class InspectedRoomsController < ApplicationController
     if @inspected_room.update(inspected_room_params)
       respond_to do |format|
         format.html { redirect_to @inspected_room, notice: 'Inspected room was successfully updated.' }
-        format.json { head :no_content }
       end
     else
       render action: 'edit'

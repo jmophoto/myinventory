@@ -25,7 +25,7 @@ module ApplicationHelper
   end
   
   def detail_list
-    ['CO detector', 'Smoke detector', 'Keys', 'Water shutoff', 'Fire extinguisher']
+    ['CO Detector', 'Smoke Detector', 'Keys', 'Water Shutoff', 'Fire Extinguisher']
   end
   
   def inspection_types 
