@@ -7,6 +7,7 @@ class InspectionPdf < Prawn::Document
     logo_box
     header_box
     address
+    details
     rooms
     property_images
     room_images
@@ -37,7 +38,29 @@ class InspectionPdf < Prawn::Document
     move_down 40
   end
 
+  def details
+    text "Property Details", size: 25, align: :center
+    stroke do
+      stroke_color "EEEEEE"
+      horizontal_rule
+    end
+    move_down 20
+    details = [["Feature", "Status", "Comments"]]
+    details += @inspection.inspection_details.map{|x| [x.name, humanize(x.status), x.comment]}
+    font_size(10) do
+      table(details, :width => bounds.right, :row_colors => ["EEEEEE", "FFFFFF"], :header => true) do
+        cells.borders = [:bottom]
+        cells.padding = [10, 5, 10, 5]
+        row(0).font_style = :bold
+        row(0).columns(2).align = :center
+        columns(1).align = :center
+        columns(2).width = 300
+      end
+    end
+  end
+  
   def rooms
+    start_new_page
     @inspection.inspected_rooms.each do |room|
       text room.name, size: 25, align: :center
       stroke do
@@ -52,6 +75,7 @@ class InspectionPdf < Prawn::Document
           cells.borders = [:bottom]
           cells.padding = [10, 5, 10, 5]
           row(0).font_style = :bold
+          row(0).columns(4).align = :center
           columns(1..3).align = :center
           columns(4).width = 200
         end
