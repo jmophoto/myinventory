@@ -53,7 +53,7 @@ class InspectionPdf < Prawn::Document
         cells.padding = [10, 5, 10, 5]
         row(0).font_style = :bold
         row(0).columns(2).align = :center
-        columns(1).align = :center
+        # columns(1).align = :center
         columns(2).width = 300
       end
     end
@@ -76,7 +76,7 @@ class InspectionPdf < Prawn::Document
           cells.padding = [10, 5, 10, 5]
           row(0).font_style = :bold
           row(0).columns(4).align = :center
-          columns(1..3).align = :center
+          # columns(1..3).align = :center
           columns(4).width = 200
         end
       end
