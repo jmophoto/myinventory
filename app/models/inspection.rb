@@ -38,7 +38,7 @@ class Inspection < ActiveRecord::Base
   end
   
   def add_details
-    unless self.property.nil?
+    if !self.property.nil? && !self.property.details.nil?
       self.property.details.each do |detail|
         self.inspection_details.create!(name: detail)
       end
