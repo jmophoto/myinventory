@@ -1,7 +1,7 @@
 <div class="panel-collapse collapse" id="property-details">
-	<table class="table-condensed table-responsive feature-table">
-		<tr ng-repeat="detail in inspection.inspection_details">
-			<td class="col-md-4">
+	<div class="panel-body">
+		<div class="row" ng-repeat="detail in inspection.inspection_details">
+			<div class="col-md-2 property-detail-item">
 				<form class="form-inline">
 					<span ng-hide="detail.editing" class="feature-name" ng-click="detail.editing = true">{{ detail.name }}</span>
 					<span ng-show="detail.editing">
@@ -11,8 +11,8 @@
 						<button class="btn btn-default btn-sm" type="submit" ng-click="detail.editing = false; editDetail(detail)">Save</button>
 					</span>
 				</form>
-			</td>
-			<td class="col-md-3">
+			</div>
+			<div class="col-md-3 property-detail-item">
 				<div class="btn-group">
 					<button ng-click="setDetailStatus(detail, 'present')" type="button" 
 									ng-class="{'btn-primary': detail.status=='present', 'btn-default': detail.status != 'present' || detail.status==nil}" 
@@ -27,27 +27,27 @@
 									class="btn btn-sm">Missing
 					</button>
 				</div>
-			</td>
-			<td class="col-md-5">
+			</div>
+			<div class="col-md-5 property-detail-item">
 				<form class="form-inline">
 					<input type="text" ng-model="detail.comment" class="form-control" placeholder="Comments" ng-change="addDetailComment(detail, detail.comment)">
 				</form>
-			</td>
-			<td class="col-md-1">
+			</div>
+			<div class="col-md-1 property-detail-item">
 				<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteDetail(detail,$index)">
 					<span class="glyphicon glyphicon-trash"></span>
 				</button>
-			</td>
-		</tr>
-		<tr>
-			<td>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 property-detail-item">
 				<form class="form-inline" ng-submit="addDetail()">
 					<div class="form-group">
 						<input type="text" class="form-control" ng-model="newDetail.name" placeholder="New Detail" ng-submit="addDetail()">
 					</div>
-					<button class="btn btn-sm btn-default">Add</button>
+					<button class="btn btn-sm btn-default pull-right">Add</button>
 				</form>
-			</td>
-		</tr>
-	</table>
+			</div>
+		</div>
+	</div>
 </div>
