@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023163410) do
+ActiveRecord::Schema.define(version: 20131030215046) do
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "images", force: true do |t|
     t.integer  "inspection_id"
@@ -81,6 +87,14 @@ ActiveRecord::Schema.define(version: 20131023163410) do
     t.text     "details"
   end
 
+  create_table "memberships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.string   "membership_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "properties", force: true do |t|
     t.string   "address"
     t.string   "city"
@@ -105,6 +119,14 @@ ActiveRecord::Schema.define(version: 20131023163410) do
   end
 
   add_index "rooms", ["property_id"], name: "index_rooms_on_property_id"
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name"

@@ -5,13 +5,16 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 } if :password
   
   before_save { email.downcase! }
   before_create :create_remember_token
   
   has_many :properties
   has_many :inspections
+  
+  belongs_to :account
+  
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64
