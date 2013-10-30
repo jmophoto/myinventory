@@ -1,0 +1,31 @@
+#contactPage {
+  border-top: 14px solid #0173A5;
+  padding: 30px;
+  font-size: 16px;
+}
+
+#contactForm
+{
+    display: block;
+    overflow: hidden;
+    float: right;
+    width: 44%;
+    padding: 2em;
+    margin-left: 4em;
+    background-color: #F1F1F1;
+    border: 2px solid #DDDDDD;
+}
+
+#contactInfo
+{
+    display: block;
+    overflow: hidden;
+}
+
+.contact-header {
+  font-size: 2.0em;
+  color: #999999;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  line-height: 2em;
+}

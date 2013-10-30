@@ -1,2 +1,67 @@
 <% provide(:title, "Contact") %>
-Contact
+<div id="contactForm">
+        <div class="xForm">
+            <form id="mainForm" method="POST" action="action.ajx?action=contact" onsubmit="return false;">
+                <div class="xContent">
+                    <p>
+                        <b>Contact us online:</b>
+                    </p>
+                    <fieldset>
+                        <label>Your Name:</label>
+                        <span class="scFieldText"><input type="text" name="fld_name" value="" /></span>
+                        <label>Phone Number:</label>
+                        <span class="scFieldText"><input type="text" name="fld_phone" value="" /></span>
+                        <label>Email Address:</label>
+                        <span class="scFieldText"><input type="text" name="fld_email" value="" /></span>
+                        <label>Comments (Optional):</label>
+                        <span class="scFieldText">
+                            <textarea cols="" rows="3" name="fld_comment"></textarea>
+                        </span>
+                        <input type="hidden" name="fld_form" value="<?php echo $xApp->title; ?>" />
+                    </fieldset>
+                </div>
+                <div class="xContent">
+                    <div id="mainFormValidate"></div>
+                </div>
+
+                <div class="xContent mt">
+                    <button onclick="$('#mainFormValidate').html('<div id=\'mainFormValidate\' style=\'opacity: 1;\'><div class=\'xValProbs\'><div class=\'scCheck\'>Loading. Please wait...</div></div></div>'); xAjaxSubmit('mainForm'); return false;" type="submit">Submit Request</button>
+                </div>
+            </form>
+        </div>
+</div>
+
+<div id="contactInfo">
+
+    <h1>Contact</h1>
+
+    <p>
+        We want to help you anyway we can.
+        If you need assistance using Inspeckd,
+        want to tell us how we can make Inspeckd better,
+        or just need to talk with another person,
+        feel free to use the easiest contact method:
+    </p>
+
+    <div class="contact-header">Location</div>
+
+    <p>
+
+        Inspeckd is proudly located and operated in Salt Lake City, UT.
+    </p>
+
+
+    <div class="contact-header">Email</div>
+    <p>
+        <a href="mailto:info@inspeckd.com">info@inspeckd.com</a> (Nate is the guy who will get your email)
+    </p>
+
+    <div class="contact-header">Phone</div>
+    <p>
+        Hours: from 9:00-5:00 MST
+        <br />
+        <b>801.449.1172</b>
+    </p>
+
+
+ </div>

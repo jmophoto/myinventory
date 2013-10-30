@@ -4,12 +4,14 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+    render :layout => 'about'
   end
   
   def signup
   end
   
   def contact
+    render :layout => 'contact'
   end
   
   def profile

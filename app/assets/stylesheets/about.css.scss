@@ -1,0 +1,144 @@
+#aboutTop
+{
+    border-top: 14px solid #0173A5;
+    display: block;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+#aboutTop  .inSec
+{
+    padding: 30px;
+}
+
+#aboutTopLeft
+{
+    display: block;
+    overflow: hidden;
+    float: left;
+    width: 436px;
+    margin-right: 6%;
+    padding: 1em;
+    padding-left: 10%;
+}
+
+#aboutTopLeft p:first-child
+{
+    display: block;
+    overflow: hidden;
+    font-size: 1.6em;
+}
+
+#aboutTopRight
+{
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+#aboutTopRight img
+{
+    width: 400px;
+}
+
+
+
+#aboutMid
+{
+    display: block;
+    overflow: hidden;
+    padding: 30px;
+    background-color: #F1F1F1;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    text-align: center;
+    font-size: 16px;
+}
+
+#aboutMid *
+{
+    color: #0173a5;
+}
+
+
+#aboutMid p
+{
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+
+#aboutMid p:first-child
+{
+    font-size: 1.6em;
+}
+
+#aboutMid  .inSec
+{
+}
+
+
+
+
+
+#aboutItems
+{
+    display: block;
+    overflow: hidden;
+}
+
+#aboutItems  .inSec
+{
+    padding-bottom: 5em;
+}
+
+
+.aboutItem
+{
+    display: block;
+    overflow: hidden;
+    float: left;
+    width: 50%;
+    margin-top: 3em;
+    font-size: 16px;
+}
+
+.aboutItem:first-child
+{
+}
+
+.aboutItemImage
+{
+    display: block;
+    overflow: hidden;
+    float: left;
+    width: 25%;
+    margin-right: 3%;
+    margin-top: 10px;
+}
+
+.aboutItemImage img
+{
+    width: 100%;
+}
+
+.aboutItemInfo
+{
+    display: block;
+    overflow: hidden;
+    margin-right: 10%;
+}
+
+
+.aboutItemInfo p
+{
+    margin-top: .5em;
+}
+
+.aboutItemInfo p:first-child
+{
+    font-weight: 100;
+    font-size: 1.4em;
+}
+
