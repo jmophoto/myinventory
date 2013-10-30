@@ -7,7 +7,6 @@
 			<div class="container">
 				<div class="row">
 					<div id="contactInfo" class="col-md-5 col-md-offset-1">
-			    	<h1>Contact</h1>
 						<p>
 							We want to help you anyway we can.
 							If you need assistance using Inspeckd,
@@ -31,8 +30,30 @@
 						</p>
 					</div>
 					<div class="col-md-4 col-md-offset-1">
-	          <div class="well">
-							
+	          <div class="well clearfix message-well" ng-controller="MessageController">
+							<div ng-hide="messageSent">
+							<legend class="text-center">Contact Us</legend>
+							<form ng-submit="sendMessage()" role="form">
+								<div class="form-group">
+									<input type="text" class="form-control" ng-model="newMessage.name" placeholder="Your Name">
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control" ng-model="newMessage.email" placeholder="Your Email" required>
+								</div>
+								<div class="form-group">
+									<textarea type="text" class="form-control" ng-model="newMessage.content" placeholder="Your Message" rows="8"></textarea>
+								</div>
+								<button type="submit" class="btn btn-sm btn-success pull-right">Send Message</button>
+							</form>
+							</div>
+							<div ng-show="messageSent">
+								<legend class="text-center">Contact Us</legend>
+								<div class="message-sent">
+									<p>Thank you for contacting Inspeckd!</p>
+									<p>Your message has been sent and we will respond as soon as possible.</p>
+								</div>
+								<button class="btn btn-sm btn-default pull-right" ng-click="messageSent = !messageSent">Reset Form</button>
+							</div>
 						</div>
 	        </div>
 				</div>

@@ -13,6 +13,7 @@ Inspeckd::Application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :inspection_details
+  resources :messages
   
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

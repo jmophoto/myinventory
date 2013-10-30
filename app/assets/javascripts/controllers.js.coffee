@@ -28,13 +28,17 @@ app.factory "Detail", ["$resource", ($resource) ->
   $resource("/inspection_details/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
+app.factory "Message", ["$resource", ($resource) ->
+  $resource("/messages/:id", {id: "@id"}, {update: {methid: "PUT"}})
+]
+
 @InspectionController = ["$scope", "Room", "Inspection", "Image", "Detail", ($scope, Room, Inspection, Image, Detail) ->
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
   $scope.inspection_editing = true
   
   $scope.editInspection = (inspection) ->
     Inspection.update(inspection)
-    
+  
   $scope.addRoom = ->
     room = Room.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
     $scope.inspection.inspected_rooms.push(room)
@@ -45,53 +49,53 @@ app.factory "Detail", ["$resource", ($resource) ->
     if confirmVariable == true
       Room.delete(room)
       $scope.inspection.inspected_rooms.splice(index, 1)
-      
+  
   $scope.editRoom = (room) ->
     Room.update(room)
-    
+  
   $scope.addImage = (room) ->
     image = Image.save({imageable_id: room.id, imageable_type: "InspectedRoom"})
     $scope.newImage = {}
-
+  
   $scope.deleteRoomImage = (room_index, image, index) ->
     confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
       Image.delete(image)
       $scope.inspection.inspected_rooms[room_index].images.splice(index, 1)
-      
+  
   $scope.deleteInspectionImage = (image, index) ->
     confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
       Image.delete(image)
       $scope.inspection.images.splice(index, 1)
-
+  
   $scope.addRoomImageResults = (content, completed, index) ->
     if (completed)
       $scope.uploading = false
       $scope.inspection.inspected_rooms[index].images.push(content)
     else
       $scope.uploading = true
-      $scope.response = "Uploading..."
-      
+      $scope.response = "Uploading..." 
+  
   $scope.addInspectionImageResults = (content, completed) ->
     if (completed)
       $scope.uploading = false
       $scope.inspection.images.push(content)
     else
       $scope.uploading = true
-      $scope.response = "Uploading..."
-      
+      $scope.response = "Uploading..." 
+  
   $scope.addImageComment = (image, comment) ->
     image.comment = comment
     Image.update(image)
-    
+  
   $scope.setDetailStatus = (detail, status) ->
     if detail.status == status
       detail.status = null
     else
       detail.status = status
     Detail.update(detail)
-    
+  
   $scope.addDetailComment = (detail, comment) ->
     detail.comment = comment
     Detail.update(detail)
@@ -100,16 +104,16 @@ app.factory "Detail", ["$resource", ($resource) ->
     new_detail = Detail.save({inspection_id: $scope.inspection_id, name: $scope.newDetail.name})
     $scope.inspection.inspection_details.push(new_detail)
     $scope.newDetail = {}
-    
   
   $scope.editDetail = (detail) ->
     Detail.update(detail)
-    
+  
   $scope.deleteDetail = (detail, index) ->
     confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
       Detail.delete(detail)
       $scope.inspection.inspection_details.splice(index, 1)
+  
 ]
   
 
@@ -166,17 +170,14 @@ app.factory "Detail", ["$resource", ($resource) ->
       
 ]
 
-@PropertyController = ["$scope", "Property", ($scope, Property) ->
-  $scope.properties = Property.query()
-]
-
-@ImageController = ["$scope", "Image", ($scope, Image) ->
-  $scope.images = Image.query()
+@MessageController = ["$scope", "Message", ($scope, Message) ->
+  $scope.messageSent = false
   
-  $scope.addImage = ->
-    image = Image.save({inspection_id: 1, asset: $scope.newImage.asset})
-    $scope.images.push(image)
-    $scope.newImage = {}
+  $scope.sendMessage = ->
+    message = Message.save({name: $scope.newMessage.name, email: $scope.newMessage.email, content: $scope.newMessage.content})
+    $scope.newMessage = {}
+    $scope.messageSent = true
+  
 ]
 
 

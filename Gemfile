@@ -12,6 +12,7 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'
 gem 'active_model_serializers'
+gem 'active_attr'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
