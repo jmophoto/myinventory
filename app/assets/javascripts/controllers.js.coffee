@@ -32,6 +32,14 @@ app.factory "Message", ["$resource", ($resource) ->
   $resource("/messages/:id", {id: "@id"}, {update: {methid: "PUT"}})
 ]
 
+app.factory "User", ["$resource", ($resource) -> 
+  $resource("/users/:id", {id: "@id"}, {update: {method: "PUT"}})
+]
+
+app.factory "Account", ["$resource", ($resource) ->
+  $resource("/users/:user_id/accounts/:id", {user_id: "@user_id", id: "@id"}, {update: {method: "PUT"}})
+]
+
 @InspectionController = ["$scope", "Room", "Inspection", "Image", "Detail", ($scope, Room, Inspection, Image, Detail) ->
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
   $scope.inspection_editing = true
@@ -116,7 +124,6 @@ app.factory "Message", ["$resource", ($resource) ->
   
 ]
   
-
 @FeatureController = ["$scope", "Feature", ($scope, Feature) ->
   $scope.isClean = (feature) ->
     if feature.clean == true
@@ -180,6 +187,32 @@ app.factory "Message", ["$resource", ($resource) ->
   
 ]
 
+@UserController = ["$scope", "User", "Account", ($scope, User, Account) ->
+  $scope.user = User.get({id: $scope.userId})
+  
+  $scope.editUser = (user) ->
+    User.update(user)
+    Account.update(user.account)
+  
+]
+
+@AccountController = ["$scope", "User", "Account", "Image", ($scope, User, Account, Image) ->
+  $scope.account = Account.get({user_id: $scope.userId, id: $scope.accountId})
+  
+  $scope.addLogoResults = (content, completed) ->
+    if (completed)
+      $scope.uploading = false
+      $scope.account.logo = content
+    else
+      $scope.uploading = true
+      $scope.response = "Uploading..."
+      
+  $scope.deleteLogo = (image) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Image.delete(image)
+      $scope.account.logo = null
+]
 
 app.value "$strapConfig",
   datepicker:

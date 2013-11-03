@@ -1,6 +1,8 @@
 Inspeckd::Application.routes.draw do
   resources :images
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users do
+    resources :accounts
+  end
   resources :properties
   resources :inspections do
     resources :images
@@ -14,6 +16,10 @@ Inspeckd::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :inspection_details
   resources :messages
+  resources :accounts do
+    resources :images
+  end
+    
   
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
   before_action :signed_in_user, except: [:new, :create]
   # before_action :correct_user, only: [:edit, :update]
   
   def show
+    render json: @user, root: false
   end
   
   def new
@@ -27,17 +29,20 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile Updated"
       sign_in @user
-      redirect_to profile_path
+      render json: @user, root: false
     else
       render 'edit'
     end
   end
   
   private
+    def set_user
+      @user = User.find(params[:id])
+    end
+  
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit!
     end
     
     def correct_user

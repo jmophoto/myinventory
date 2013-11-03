@@ -15,7 +15,11 @@ class InspectionPdf < Prawn::Document
   
   def logo_box
     bounding_box([bounds.left, bounds.top], width: 300) do
-      image "#{Rails.root}/app/assets/images/logo.png"
+      if @inspection.user.account.logo.nil?
+        image "#{Rails.root}/app/assets/images/logo.png"
+      else
+        image open(@inspection.user.account.logo.asset.url(:medium)), fit: [300, 75], position: :center
+      end
     end
   end
   
@@ -57,10 +61,10 @@ class InspectionPdf < Prawn::Document
         columns(2).width = 300
       end
     end
+    move_down 40
   end
   
   def rooms
-    start_new_page
     @inspection.inspected_rooms.each do |room|
       text room.name, size: 25, align: :center
       stroke do
@@ -80,7 +84,25 @@ class InspectionPdf < Prawn::Document
           columns(4).width = 200
         end
       end
-      start_new_page
+      if room.images.any?
+        move_down 20
+        image_urls = room.images.map(&:small_url)
+        y_index = cursor
+        width = bounds.right/3
+        height = bounds.right/3
+        room.images.in_groups_of(3).map do |image_row|
+          image_row.each_with_index do |image_file, index|
+            bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
+              if image_file && image_file.asset
+                image open(image_file.asset.url(:small)), fit: [width-20, height-20], position: :center
+                text_box "#{image_file.comment}", at: [cursor, cursor-10], width: width-20, height: 50, overflow: :shrink_to_fit
+              end
+            end
+          end
+          y_index -= height + 50
+        end
+      end
+      move_down 40
     end
   end
   

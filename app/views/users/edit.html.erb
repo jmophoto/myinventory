@@ -1,34 +1,69 @@
 <% provide(:title, "Profile") %>
-
-<div class="col-md-6 col-md-offset-3">
-	<div class="form-header">Edit Your Profile:</div> 
-	<%= render :partial => 'shared/flash_messages' %>
-
-	<%= form_for(@user) do |f| %>
-		<%= render 'shared/error_messages' %>
-	
-	  <div class="form-group">
-		  <div><%= f.label :first_name %><br />
-		  <%= f.text_field :first_name, :class => "form-control" %></div>
+<div ng-init="userId=<%= current_user.id %>;accountId=<%= current_user.account.id %>">
+	<div class="row" ng-controller="UserController">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="form-header">Your Profile</div>
+			<form class="form-horizontal clearfix" ng-submit="editUser(user)">
+				<div class="form-group">
+				  <label class="col-md-4 control-label">First Name</label>
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.first_name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Last Name</label>
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.last_name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Email</label>
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.email">
+					</div>
+				</div>
+				<div class="col-md-6 col-md-offset-4">
+					<button type="submit" class="btn btn-sm btn-success pull-right">Save</button>
+				</div>
+			</form>
 		</div>
-		
-		<div class="form-group">
-	  	<div><%= f.label :last_name %><br />
-	  	<%= f.text_field :last_name, :class => "form-control"  %></div>
-		</div>
-
-	  <div class="form-group">
-			<div><%= f.label :email %><br />
-		  <%= f.email_field :email, :class => "form-control"  %></div>
-		</div>
-		
-		<%= fields_for :account do |builder| %>
-			<div class="form-group">
-				<div><%= f.label :name %><br />
-			  <%= builder.text_field :name, :class => "form-control"  %></div>
+	</div>
+	<div class="row" ng-controller="AccountController">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="form-header">Company Info</div>
+			<form action="/accounts/{{ account.id }}/images" class="form-horizontal" ng-upload upload-options-enable-rails-csrf>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Company</label>
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="account.name">
+					</div>
+				</div>
+				<div ng-hide="account.logo">
+					<div class="form-group">
+						<label class="col-md-4 control-label">Logo</label>
+						<div class="col-md-6">
+							<input type='hidden' name='image[imageable_id]' value='{{ account.id }}'>
+							<input type='hidden' name='image[imageable_type]' value='Account'>
+							<input type='file' name='image[asset]'>
+						</div>
+						<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
+						<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addLogoResults(content, completed)'>Add Image</button>
+					</div>
+				</div>
+			</form>
+			<div ng-show="account.logo">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="col-md-4 control-label">Logo</label>
+						<div class="logo-thumbnail thumbnail col-md-4">
+				      <img ng-src="{{ account.logo.asset.asset.thumb.url }}">
+							<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteLogo(account.logo)">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+				    </div>
+					</div>
+				</form>
 			</div>
-		<% end %>
-
-	  <div><%= f.submit "Update", :class => "btn btn-primary pull-right" %></div>
-	<% end %>
+		</div>
+	</div>
 </div>
