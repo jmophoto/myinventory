@@ -4,7 +4,7 @@ class Property < ActiveRecord::Base
   has_many :inspections
   has_many :images, as: :imageable
   
-  validates :user_id, presence: true
+  # validates :user_id, presence: true
   
   attr_accessor :room_count, :other_areas, :detail_list
   
