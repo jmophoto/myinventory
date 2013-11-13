@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'active_model_serializers'
 gem 'active_attr'
+gem 'pg'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
@@ -39,6 +40,5 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
 end

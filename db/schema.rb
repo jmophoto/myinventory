@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104002038) do
+ActiveRecord::Schema.define(version: 20131113040821) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20131104002038) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "asset"
+    t.text     "asset",          limit: 255
     t.integer  "imageable_id"
     t.string   "imageable_type"
-    t.string   "comment"
+    t.text     "comment",        limit: 255
   end
 
   add_index "images", ["inspection_id"], name: "index_images_on_inspection_id"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20131104002038) do
     t.boolean  "clean"
     t.boolean  "marks"
     t.boolean  "damage"
-    t.string   "comment"
+    t.text     "comment",           limit: 255
     t.integer  "inspected_room_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20131104002038) do
     t.integer  "inspection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "comment"
+    t.text     "comment",       limit: 255
   end
 
   add_index "inspection_details", ["inspection_id"], name: "index_inspection_details_on_inspection_id"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(version: 20131104002038) do
     t.string   "remember_token"
     t.integer  "account_id"
     t.integer  "legacy_id"
+    t.integer  "customer_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
