@@ -9,11 +9,13 @@ class User < ActiveRecord::Base
   
   before_save { email.downcase! }
   before_create :create_remember_token
+  after_create :create_subscription
   
   has_many :properties
   has_many :inspections
   
   belongs_to :account
+  has_one :subscription
   
   accepts_nested_attributes_for :account
   
@@ -27,6 +29,10 @@ class User < ActiveRecord::Base
   
   def validate_password?
     password.present? || password_confirmation.present?
+  end
+  
+  def create_subscription
+    create_subscription!(start_date: Date.today, end_date: Date.today + 2.weeks)
   end
   
   private

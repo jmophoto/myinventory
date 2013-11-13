@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113040821) do
+ActiveRecord::Schema.define(version: 20131113154838) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -24,14 +27,14 @@ ActiveRecord::Schema.define(version: 20131113040821) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "asset",          limit: 255
+    t.text     "asset"
     t.integer  "imageable_id"
     t.string   "imageable_type"
-    t.text     "comment",        limit: 255
+    t.text     "comment"
   end
 
-  add_index "images", ["inspection_id"], name: "index_images_on_inspection_id"
-  add_index "images", ["user_id"], name: "index_images_on_user_id"
+  add_index "images", ["inspection_id"], name: "index_images_on_inspection_id", using: :btree
+  add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
 
   create_table "inspected_features", force: true do |t|
     t.string   "name"
@@ -39,13 +42,13 @@ ActiveRecord::Schema.define(version: 20131113040821) do
     t.boolean  "clean"
     t.boolean  "marks"
     t.boolean  "damage"
-    t.text     "comment",           limit: 255
+    t.text     "comment"
     t.integer  "inspected_room_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "inspected_features", ["inspected_room_id"], name: "index_inspected_features_on_inspected_room_id"
+  add_index "inspected_features", ["inspected_room_id"], name: "index_inspected_features_on_inspected_room_id", using: :btree
 
   create_table "inspected_rooms", force: true do |t|
     t.string   "name"
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 20131113040821) do
     t.string   "room_type"
   end
 
-  add_index "inspected_rooms", ["inspection_id"], name: "index_inspected_rooms_on_inspection_id"
+  add_index "inspected_rooms", ["inspection_id"], name: "index_inspected_rooms_on_inspection_id", using: :btree
 
   create_table "inspection_details", force: true do |t|
     t.string   "name"
@@ -63,10 +66,10 @@ ActiveRecord::Schema.define(version: 20131113040821) do
     t.integer  "inspection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "comment",       limit: 255
+    t.text     "comment"
   end
 
-  add_index "inspection_details", ["inspection_id"], name: "index_inspection_details_on_inspection_id"
+  add_index "inspection_details", ["inspection_id"], name: "index_inspection_details_on_inspection_id", using: :btree
 
   create_table "inspections", force: true do |t|
     t.string   "inspection_type"
@@ -109,7 +112,7 @@ ActiveRecord::Schema.define(version: 20131113040821) do
     t.string   "description"
   end
 
-  add_index "properties", ["user_id"], name: "index_properties_on_user_id"
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
 
   create_table "rooms", force: true do |t|
     t.string   "name"
@@ -120,15 +123,19 @@ ActiveRecord::Schema.define(version: 20131113040821) do
     t.text     "features"
   end
 
-  add_index "rooms", ["property_id"], name: "index_rooms_on_property_id"
+  add_index "rooms", ["property_id"], name: "index_rooms_on_property_id", using: :btree
 
   create_table "subscriptions", force: true do |t|
     t.integer  "user_id"
-    t.integer  "account_id"
-    t.string   "status"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "subscription_id"
+    t.string   "subscription_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -143,7 +150,7 @@ ActiveRecord::Schema.define(version: 20131113040821) do
     t.integer  "customer_id"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end
