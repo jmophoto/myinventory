@@ -1,11 +1,3 @@
-PATH
-  remote: ../braintree-rails
-  specs:
-    braintree-rails (1.2.2)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      braintree (>= 2.16.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,6 +43,10 @@ GEM
       railties (>= 3.0)
     braintree (2.26.0)
       builder (>= 2.0.0)
+    braintree-rails (1.2.2)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      braintree (>= 2.16.0)
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -220,7 +216,7 @@ DEPENDENCIES
   anjlab-bootstrap-rails (>= 3.0.0.0)
   bcrypt-ruby (= 3.0.1)
   bootstrap-datepicker-rails
-  braintree-rails!
+  braintree-rails
   capybara (= 2.1.0)
   carrierwave
   coffee-rails (= 4.0.0)
