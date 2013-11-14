@@ -40,6 +40,10 @@ app.factory "Account", ["$resource", ($resource) ->
   $resource("/users/:user_id/accounts/:id", {user_id: "@user_id", id: "@id"}, {update: {method: "PUT"}})
 ]
 
+app.factory "PaymentMethod", ["$resource", ($resource) ->
+  $resource("/payment_method/:id", {id: "@id"}, {update: {method: "PUT"}})
+]
+
 @InspectionController = ["$scope", "Room", "Inspection", "Image", "Detail", ($scope, Room, Inspection, Image, Detail) ->
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
   $scope.inspection_editing = true
@@ -212,6 +216,11 @@ app.factory "Account", ["$resource", ($resource) ->
     if confirmVariable == true
       Image.delete(image)
       $scope.account.logo = null
+]
+
+@PaymentMethodController = ["$scope", "PaymentMethod", ($scope, PaymentMethod) ->
+  $scope.payment_methods = PaymentMethod.query()
+  
 ]
 
 app.value "$strapConfig",

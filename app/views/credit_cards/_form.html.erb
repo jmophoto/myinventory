@@ -1,0 +1,59 @@
+<%= form_for @credit_card, :url => user_customer_credit_cards_path(@user), html: { class: "form-horizontal", id: "braintree-form" } do |f| %>
+	<% if @credit_card.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@credit_card.errors.count, "error") %> prohibited this credit_card from being saved:</h2>
+
+	    <ul>
+	    <% @credit_card.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	<div class="form-group">
+		<label class="col-md-4 control-label">Number</label>
+		<div class="col-md-6">
+			<input type="text" size="20" autocomplete="off" data-encrypted-name="[credit_card][number]" class="form-control"/>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-4 control-label">CVV</label>
+		<div class="col-md-6">
+	  	<input type="text" size="20" autocomplete="off" data-encrypted-name="[credit_card][cvv]" class="form-control"/>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-4 control-label">Exipration Month</label>
+		<div class="col-md-6">
+	  	<%= f.text_field :expiration_month, class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-4 control-label">Exipration Year</label>
+		<div class="col-md-6">
+	  	<%= f.text_field :expiration_year, class: "form-control" %>
+		</div>
+	</div>
+	<%= f.fields_for :billing_address, @credit_card.billing_address do |ba| %>
+		<div class="form-group">
+			<label class="col-md-4 control-label">Street Address</label>
+			<div class="col-md-6">
+		  	<%= ba.text_field :street_address, class: "form-control" %>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-4 control-label">Street Address</label>
+			<div class="col-md-6">
+		  	<%= ba.text_field :postal_code, class: "form-control" %>
+			</div>
+		</div>
+	<% end %>
+	<%= f.submit "Save", class: "btn btn-sm btn-success pull-right" %>
+<% end %>
+
+<% content_for :javascript do %> 
+  <script type="text/javascript">
+		var braintree = Braintree.create("MIIBCgKCAQEAqu1rnHeirm6hDVentjrRLwwltkxuQAg9csrZJohasyHcc2tHIQWTqHzzGE09RJ5oUA7d2IxZQSoryi9Rjfxx666NGekwep472j3QjL8OsovMtNhbT6WmOniStIv0ievbAM2ZBuumvmt8tutk6tD+fVYzodZu6UOUktNzQ7VArJKMrnnbLkyMJfNbhq0u2dgmMmth/YmazmrnV8MesYaP8xXFVhVqLHB1BmYe6/gtfne6N9eV4G791Eks/AywwHKXza5jbnquhkhhXLFtDk3GJ5lSCgyfggROR7aOmR1RT9aFLtzaqirm0iqQaqFZ2rr1DcHx/fwoAK2a6kKE/4/rbQIDAQAB")
+		braintree.onSubmitEncryptForm('braintree-form');
+	</script>
+<% end %>

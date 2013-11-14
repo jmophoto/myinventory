@@ -1,0 +1,79 @@
+<% provide(:title, "Account") %>
+<div class="row" ng-controller="PaymentMethodController">
+	<table class="table-striped col-md-6">
+		{{ payment_methods }}
+		<thead>
+			<th>Cardholder Name</th>
+			<th>Exipration Date</th>
+			<th>Card Ending In</th>
+		</thead>
+		<tbody>
+			<% @user.payment_methods.each do |pm| %>
+				<tr>
+					<td><%= pm.cardholder_name %></td>
+					<td><%= pm.expiration_date.strftime("%m/%Y") %></td>
+					<td><%= pm.last_four %></td>
+				</tr>
+			<% end %>
+		<tbody>
+	</table>
+	<div class="col-md-6">
+		<legend>Add New Card</legend>
+			<%= form_for @customer, :url => user_customer_path(@user), html: { class: "form-horizontal", id: "braintree-form" } do |f| %>
+				<%= f.fields_for :credit_card do |cc| %>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Name on Card</label>
+						<div class="col-md-6">
+							<%= cc.text_field :cardholder_name, class: "form-control", value: "Jason Olson" %>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Number</label>
+						<div class="col-md-6">
+					  	<input type="text" size="20" autocomplete="off" data-encrypted-name="customer[credit_card][number]" class="form-control" value="4111111111111111"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">CVV</label>
+						<div class="col-md-6">
+					  	<input type="text" size="20" autocomplete="off" data-encrypted-name="customer[credit_card][cvv]" class="form-control" value="123"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Expiration Month</label>
+						<div class="col-md-6">
+					  	<%= cc.text_field :expiration_month, class: "form-control", value: "09" %>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Exipration Year</label>
+						<div class="col-md-6">
+					  	<%= cc.text_field :expiration_year, class: "form-control", value: "2016" %>
+						</div>
+					</div>
+					<%= cc.fields_for :billing_address do |ba| %>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Street Address</label>
+							<div class="col-md-6">
+						  	<%= ba.text_field :street_address, class: "form-control", value: "123 Main" %>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Postal Code</label>
+							<div class="col-md-6">
+						  	<%= ba.text_field :postal_code, class: "form-control", value: "84651" %>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+				<%= f.submit "Save", class: "btn btn-sm btn-success pull-right" %>
+			<% end %>	
+	</div>
+</div>
+
+<% content_for :javascript do %> 
+  <script type="text/javascript">
+		var braintree = Braintree.create("MIIBCgKCAQEAqu1rnHeirm6hDVentjrRLwwltkxuQAg9csrZJohasyHcc2tHIQWTqHzzGE09RJ5oUA7d2IxZQSoryi9Rjfxx666NGekwep472j3QjL8OsovMtNhbT6WmOniStIv0ievbAM2ZBuumvmt8tutk6tD+fVYzodZu6UOUktNzQ7VArJKMrnnbLkyMJfNbhq0u2dgmMmth/YmazmrnV8MesYaP8xXFVhVqLHB1BmYe6/gtfne6N9eV4G791Eks/AywwHKXza5jbnquhkhhXLFtDk3GJ5lSCgyfggROR7aOmR1RT9aFLtzaqirm0iqQaqFZ2rr1DcHx/fwoAK2a6kKE/4/rbQIDAQAB")
+		braintree.onSubmitEncryptForm('braintree-form');
+	</script>
+<% end %>

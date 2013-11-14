@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = current_user
+    @subscription = BraintreeRails::Subscription.new
   end
   
   def update

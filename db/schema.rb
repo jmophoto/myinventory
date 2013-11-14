@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113154838) do
+ActiveRecord::Schema.define(version: 20131114181034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,13 +90,18 @@ ActiveRecord::Schema.define(version: 20131113154838) do
     t.text     "details"
   end
 
-  create_table "memberships", force: true do |t|
+  create_table "payment_methods", force: true do |t|
     t.integer  "user_id"
-    t.integer  "account_id"
-    t.string   "membership_type"
+    t.string   "last_four"
+    t.string   "token"
+    t.datetime "expiration_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cardholder_name"
+    t.boolean  "default"
   end
+
+  add_index "payment_methods", ["user_id"], name: "index_payment_methods_on_user_id", using: :btree
 
   create_table "properties", force: true do |t|
     t.string   "address"
@@ -133,6 +138,7 @@ ActiveRecord::Schema.define(version: 20131113154838) do
     t.string   "subscription_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "plan_id"
   end
 
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
@@ -147,7 +153,6 @@ ActiveRecord::Schema.define(version: 20131113154838) do
     t.string   "remember_token"
     t.integer  "account_id"
     t.integer  "legacy_id"
-    t.integer  "customer_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

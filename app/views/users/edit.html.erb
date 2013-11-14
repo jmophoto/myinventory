@@ -1,5 +1,5 @@
 <% provide(:title, "Profile") %>
-<div ng-init="userId=<%= current_user.id %>;accountId=<%= current_user.account.id %>">
+<div ng-init="userId=<%= current_user.id %>">
 	<div class="row" ng-controller="UserController">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="form-header">Your Profile</div>
@@ -70,8 +70,15 @@
 		<div class="col-md-6 col-md-offset-3">
 			<div class="form-header">Subscription Info</div>
 			<div>
-				<%= current_user.subscription.end_date %>
+
 			</div>
 		</div>
 	</div>
 </div>
+
+<% content_for :javascript do %> 
+  <script type="text/javascript">
+		var braintree = Braintree.create("MIIBCgKCAQEAqu1rnHeirm6hDVentjrRLwwltkxuQAg9csrZJohasyHcc2tHIQWTqHzzGE09RJ5oUA7d2IxZQSoryi9Rjfxx666NGekwep472j3QjL8OsovMtNhbT6WmOniStIv0ievbAM2ZBuumvmt8tutk6tD+fVYzodZu6UOUktNzQ7VArJKMrnnbLkyMJfNbhq0u2dgmMmth/YmazmrnV8MesYaP8xXFVhVqLHB1BmYe6/gtfne6N9eV4G791Eks/AywwHKXza5jbnquhkhhXLFtDk3GJ5lSCgyfggROR7aOmR1RT9aFLtzaqirm0iqQaqFZ2rr1DcHx/fwoAK2a6kKE/4/rbQIDAQAB")
+		braintree.onSubmitEncryptForm('braintree-form');
+	</script>
+<% end %>

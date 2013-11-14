@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="form-header">Credit Card Info</div>
+		<div>
+			<%= form_for @credit_card, url: user_customer_credit_cards_path(@user), 
+																 html: { class: "form-horizontal", id: "braintree-credit-card-form" } do |f| %>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Number</label>
+					<div class="col-md-6">
+				  	<input type="text" size="20" autocomplete="off" data-encrypted-name="[credit_card][number]" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">CVV</label>
+					<div class="col-md-6">
+				  	<input type="text" size="20" autocomplete="off" data-encrypted-name="[credit_card][cvv]" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Exipration Month</label>
+					<div class="col-md-6">
+				  	<%= f.text_field :expiration_month, class: "form-control" %>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Exipration Year</label>
+					<div class="col-md-6">
+				  	<%= f.text_field :expiration_year, class: "form-control" %>
+					</div>
+				</div>
+				<%= f.fields_for :billing_address, @credit_card.billing_address do |ba| %>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Street Address</label>
+						<div class="col-md-6">
+					  	<%= ba.text_field :street_address, class: "form-control" %>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Street Address</label>
+						<div class="col-md-6">
+					  	<%= ba.text_field :postal_code, class: "form-control" %>
+						</div>
+					</div>
+				<% end %>
+				<%= f.submit "Save", class: "btn btn-sm btn-success pull-right" %>
+			<% end %>
+		</div>
+	</div>
+</div>

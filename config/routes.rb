@@ -2,7 +2,13 @@ Inspeckd::Application.routes.draw do
   resources :images
   resources :users do
     resources :accounts
+    resource :customer do
+      resources :credit_cards
+      resource :subscription
+    end
   end
+  resources :credit_cards
+  resources :payment_methods
   resources :properties
   resources :inspections do
     resources :images
@@ -16,9 +22,9 @@ Inspeckd::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :inspection_details
   resources :messages
-  resources :accounts do
-    resources :images
-  end
+  # resources :accounts do
+  #   resources :images
+  # end
     
   
   match '/signup',  to: 'users#new',            via: 'get'
@@ -29,6 +35,7 @@ Inspeckd::Application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
   get '/profile', to: 'users#edit'
+  get '/account', to: 'subscriptions#show'
 
   root 'static_pages#home'
 end
