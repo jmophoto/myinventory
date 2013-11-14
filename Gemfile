@@ -14,7 +14,7 @@ gem 'fog'
 gem 'active_model_serializers'
 gem 'active_attr'
 gem 'pg'
-gem 'braintree-rails', path: '../braintree-rails'
+gem 'braintree-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
