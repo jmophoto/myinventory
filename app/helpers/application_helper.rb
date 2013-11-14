@@ -32,6 +32,87 @@ module ApplicationHelper
     ['Move-In', 'Move-Out', 'Periodical', 'Drive-By', 'Other']
   end
   
+  def month_select
+    [
+      ['1 - January', '01'], 
+      ['2 - February', '02'], 
+      ['3 - March', '03'], 
+      ['4 - April', '04'], 
+      ['5 - May', '05'],
+      ['6 - June', '06'],
+      ['7 - July', '07'],
+      ['8 - August', '08'],
+      ['9 - September', '09'],
+      ['10 - October', '10'],
+      ['11 - November', '11'],
+      ['12 - December', '12'],
+    ]
+  end
+  
+  def year_select
+    (Date.today.year..(Date.today+10.years).year).to_a    
+  end
+  
+  def state_abbreviations
+    [ "AK",
+      "AL", 
+      "AR", 
+      "AS", 
+      "AZ", 
+      "CA", 
+      "CO", 
+      "CT", 
+      "DC", 
+      "DE", 
+      "FL", 
+      "GA", 
+      "GU", 
+      "HI", 
+      "IA", 
+      "ID", 
+      "IL", 
+      "IN", 
+      "KS", 
+      "KY", 
+      "LA", 
+      "MA", 
+      "MD", 
+      "ME", 
+      "MI", 
+      "MN", 
+      "MO", 
+      "MS", 
+      "MT", 
+      "NC", 
+      "ND", 
+      "NE", 
+      "NH", 
+      "NJ", 
+      "NM", 
+      "NV", 
+      "NY", 
+      "OH", 
+      "OK", 
+      "OR", 
+      "PA", 
+      "PR", 
+      "RI", 
+      "SC", 
+      "SD", 
+      "TN", 
+      "TX", 
+      "UT", 
+      "VA", 
+      "VI", 
+      "VT", 
+      "WA", 
+      "WI", 
+      "WV", 
+      "WY"
+    ]
+  end
+      
+  
   def states
     [ "Alaska", 
       "Alabama", 

@@ -20,8 +20,8 @@ class CustomersController < ApplicationController
 
     if @customer.save
       @user.update_attributes(customer_id: @customer.id)
-      credit_card = @customer.credit_cards[0]
-      @user.payment_methods.create!(token:  credit_card.token, last_four: credit_card.last_4, expiration_date: Date.new(cc.expiration_year.to_i, cc.expiration_month.to_i, -1), cardholder_name: credit_card.cardholder_name) unless credit_card.nil?
+      cc = @customer.credit_cards[0]
+      @user.payment_methods.create!(token:  cc.token, last_four: cc.last_4, expiration_date: Date.new(cc.expiration_year.to_i, cc.expiration_month.to_i, -1), cardholder_name: cc.cardholder_name) unless cc.nil?
       redirect_to account_path and return
     else
       render action: 'new'

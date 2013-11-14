@@ -41,7 +41,7 @@ app.factory "Account", ["$resource", ($resource) ->
 ]
 
 app.factory "PaymentMethod", ["$resource", ($resource) ->
-  $resource("/payment_method/:id", {id: "@id"}, {update: {method: "PUT"}})
+  $resource("/payment_methods/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
 @InspectionController = ["$scope", "Room", "Inspection", "Image", "Detail", ($scope, Room, Inspection, Image, Detail) ->
@@ -220,6 +220,12 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
 
 @PaymentMethodController = ["$scope", "PaymentMethod", ($scope, PaymentMethod) ->
   $scope.payment_methods = PaymentMethod.query()
+  
+  $scope.deletePaymentMethod = (pm,index) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      PaymentMethod.delete(pm)
+      $scope.payment_methods.splice(index, 1);
   
 ]
 
