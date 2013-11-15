@@ -14,7 +14,7 @@ gem 'fog'
 gem 'active_model_serializers'
 gem 'active_attr'
 gem 'pg'
-gem 'braintree-rails', path: "vendor"
+gem 'braintree-rails', path: "vendor/braintree-rails"
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'

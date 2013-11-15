@@ -1,5 +1,5 @@
 PATH
-  remote: vendor
+  remote: vendor/braintree-rails
   specs:
     braintree-rails (1.2.2)
       activemodel (>= 3.0)
