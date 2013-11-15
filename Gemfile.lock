@@ -1,5 +1,6 @@
-PATH
-  remote: vendor/braintree-rails
+GIT
+  remote: git://github.com/jmophoto/braintree-rails.git
+  revision: d5f3682008bef724ed4689c96d6933567f6f5a67
   specs:
     braintree-rails (1.2.2)
       activemodel (>= 3.0)
