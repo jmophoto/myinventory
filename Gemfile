@@ -17,10 +17,8 @@ gem 'pg'
 gem 'braintree-rails'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.7'
   gem 'rspec-rails', '2.13.1'
   gem 'quiet_assets'
-  gem 'mysql2'
 end
 
 group :test do
