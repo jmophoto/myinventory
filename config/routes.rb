@@ -22,9 +22,13 @@ Inspeckd::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :inspection_details
   resources :messages
-  # resources :accounts do
-  #   resources :images
-  # end
+  resources :accounts do
+    resources :images
+  end
+  
+  post '/create_new_subscription', to: 'braintree#create_new_subscription'
+  get 'braintree_notification', :to => 'braintree#verify'
+  post 'braintree_notification', :to => 'braintree#notify'
     
   
   match '/signup',  to: 'users#new',            via: 'get'
@@ -35,7 +39,6 @@ Inspeckd::Application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
   get '/profile', to: 'users#edit'
-  get '/account', to: 'subscriptions#show'
 
   root 'static_pages#home'
 end

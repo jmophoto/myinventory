@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114210112) do
+ActiveRecord::Schema.define(version: 20131117025119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 20131114210112) do
     t.datetime "updated_at"
     t.string   "cardholder_name"
     t.boolean  "default"
+    t.string   "masked_number"
+    t.boolean  "is_default"
   end
 
   add_index "payment_methods", ["user_id"], name: "index_payment_methods_on_user_id", using: :btree
@@ -139,6 +141,10 @@ ActiveRecord::Schema.define(version: 20131114210112) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "plan_id"
+    t.string   "status"
+    t.datetime "next_billing_date"
+    t.decimal  "next_billing_period_amount"
+    t.string   "payment_method_token"
   end
 
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
@@ -154,6 +160,7 @@ ActiveRecord::Schema.define(version: 20131114210112) do
     t.integer  "account_id"
     t.integer  "legacy_id"
     t.string   "customer_id"
+    t.string   "phone_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

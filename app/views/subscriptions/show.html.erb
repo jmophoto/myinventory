@@ -1,63 +1,117 @@
 <% provide(:title, "Account") %>
-<div class="row" ng-controller="PaymentMethodController">
-	<table class="table-striped col-md-8">
-		<thead>
-			<th>Cardholder Name</th>
-			<th class="text-center">Exipration Date</th>
-			<th class="text-center">Card Ending In</th>
-			<th><th>
-		</thead>
-		<tbody>
-				<tr ng-repeat="pm in payment_methods">
-					<td>{{ pm.cardholder_name }}</td>
-					<td class="text-center">{{ pm.expiration_date | date:'MM/yyyy' }}</td>
-					<td class="text-center">{{ pm.last_four }}</td>
-					<td>
-						<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deletePaymentMethod(pm,$index)">
-							<span class="glyphicon glyphicon-trash"></span>
-						</button>
-					</td>
-				</tr>
-		<tbody>
-	</table>
-	<div class="col-md-4">
-		<legend class="text-center">Add New Card</legend>
-			<%= form_for @customer, :url => user_customer_path(@user), html: { id: "braintree-form" } do |f| %>
-				<%= f.fields_for :credit_card do |cc| %>
-					<div class="form-group col-md-12">
-							<%= cc.text_field :cardholder_name, class: "form-control", placeholder: "Name on Card" %>
-					</div>
-					<div class="form-group col-md-8">
-					  <input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][number]" class="form-control" value="4111111111111111"/>
-					</div>
-					<div class="form-group col-md-4">
-					  <input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][cvv]" class="form-control" value="123"/>
-					</div>
-					<div class="form-group  col-md-6">
-					  <%= cc.select :expiration_month, month_select, {}, { class: "form-control" } %>
-					</div>
-					<div class="form-group col-md-6">
-					  <%= cc.select :expiration_year, year_select, {}, { class: "form-control" } %>
-					</div>
-					<%= cc.fields_for :billing_address do |ba| %>
-						<div class="form-group col-md-12">
-						  <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address" %>
-						</div>
-						<div class="form-group col-md-5">
-						  <%= ba.text_field :locality, class: "form-control", placeholder: "City" %>
-						</div>
-						<div class="form-group col-md-3">
-						  <%= ba.select :region, state_abbreviations, {}, { class: "form-control" } %>
-						</div>
-						<div class="form-group col-md-4">
-						  <%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip" %>
-						</div>
-					<% end %>
-				<% end %>
-				<%= f.submit "Add", class: "btn btn-sm btn-success pull-right" %>
-			<% end %>	
+
+<div class="col-md-8">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">Account Status</div>
+		</div>
+		<div class="panel-body">
+			<strong class="col-md-6">Subscription Type:</strong>
+			<div class="col-md-6"><%= @user.subscription.subscription_type.humanize %></div>
+			<strong class="col-md-6">Subscription Expires:</strong>
+			<div class="col-md-6"><%= @user.subscription.end_date %></div>
+			<% if @user.subscription.payment_method %>
+				<strong class="col-md-6">Cardholder Name:</strong>
+				<div class="col-md-6"><%= @user.subscription.payment_method.cardholder_name if @user.subscription.payment_method %></div>
+				<strong class="col-md-6">Next Billing Date:</strong>
+				<div class="col-md-6"><%= @user.subscription.next_billing_date %></div>
+				<strong class="col-md-6">Card Ending In:</strong>
+				<div class="col-md-6"><%= @user.subscription.payment_method.last_four if @user.subscription.payment_method %></div>
+				<strong class="col-md-6">Next Billing Amount:</strong>
+				<div class="col-md-6"><%= number_to_currency(@user.subscription.next_billing_period_amount) %></div>
+				<strong class="col-md-6">Card Expiration:</strong>
+				<div class="col-md-6"><%= @user.subscription.payment_method.expiration_date if @user.subscription.payment_method %></div>
+			<% end %>
+		</div>
 	</div>
 </div>
+<div class="col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">Account Status</div>
+		</div>
+		<div class="panel-body">
+			<strong class="col-md-8">Type:</strong>
+			<div class="col-md-4"><%= @user.subscription.subscription_type.humanize %></div>
+			<strong class="col-md-8">Next Billing Date:</strong>
+			<div class="col-md-4"><%= @user.subscription.next_billing_date %></div>
+			<strong class="col-md-8">Next Billing Amount:</strong>
+			<div class="col-md-4"><%= number_to_currency(@user.subscription.next_billing_period_amount) %></div>
+		</div>
+	</div>
+	<div class="panel panel-default" ng-controller="PaymentMethodController">
+	  <div class="panel-heading">
+			<div class="panel-title">Payment Methods</div>
+		</div>
+		<table class="table">
+			<tr ng-repeat="pm in payment_methods" ng-class="{ 'expired': isExpired(pm) }">
+				<td><span class="glyphicon" ng-class="{ 'glyphicon-ok': pm.is_default  }"></span></td>
+				<td>{{ pm.masked_number }}</td>
+				<td class="text-center">{{ pm.expiration_date | date:'MM/yyyy' }}</td>
+				<td>
+					<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deletePaymentMethod(pm,$index)">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+			<div class="panel-title">Add New Card</div>
+		</div>
+		<div class="panel-body add-card-panel">
+			<%= form_for :customer, :url => create_new_subscription_path(@user), html: { id: "braintree-form" } do |f| %>
+				<%= f.fields_for :credit_card do |cc| %>
+					<div class="form-group">
+							<%= cc.text_field :cardholder_name, class: "form-control", placeholder: "Name on Card" %>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-8">
+					  	<input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][number]" 
+								class="form-control" value="4111111111111111"/>
+						</div>
+						<div class="col-md-4">
+							<input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][cvv]" class="form-control" value="123"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+					  	<%= cc.select :expiration_month, month_select, {}, { class: "form-control" } %>
+						</div>
+						<div class="col-md-6">
+					 		<%= cc.select :expiration_year, year_select, {}, { class: "form-control" } %>
+						</div>
+					</div>
+					<%= cc.fields_for :billing_address do |ba| %>
+						<div class="form-group">
+						  <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address" %>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-6">
+						  	<%= ba.text_field :locality, class: "form-control", placeholder: "City" %>
+							</div>
+							<div class="col-md-3">
+								<%= ba.select :region, state_abbreviations, {}, { class: "form-control" } %>
+							</div>
+							<div class="col-md-3">
+								<%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip" %>
+							</div>
+						</div>
+					<% end %>
+					<div class="form-group">
+						<%= cc.fields_for :options do |opt| %>
+							<div class="col-md-8 col-md-offset-2">
+								<%= opt.check_box :make_default %> Set as default card
+							</div>
+						<% end %>
+						<%= f.submit "Add", class: "btn btn-sm btn-success pull-right" %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>	
 <% content_for :javascript do %> 
   <script type="text/javascript">
 		var braintree = Braintree.create("MIIBCgKCAQEAqu1rnHeirm6hDVentjrRLwwltkxuQAg9csrZJohasyHcc2tHIQWTqHzzGE09RJ5oUA7d2IxZQSoryi9Rjfxx666NGekwep472j3QjL8OsovMtNhbT6WmOniStIv0ievbAM2ZBuumvmt8tutk6tD+fVYzodZu6UOUktNzQ7VArJKMrnnbLkyMJfNbhq0u2dgmMmth/YmazmrnV8MesYaP8xXFVhVqLHB1BmYe6/gtfne6N9eV4G791Eks/AywwHKXza5jbnquhkhhXLFtDk3GJ5lSCgyfggROR7aOmR1RT9aFLtzaqirm0iqQaqFZ2rr1DcHx/fwoAK2a6kKE/4/rbQIDAQAB")

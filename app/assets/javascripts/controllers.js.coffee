@@ -196,7 +196,6 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
   
   $scope.editUser = (user) ->
     User.update(user)
-    Account.update(user.account)
   
 ]
 
@@ -220,6 +219,9 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
 
 @PaymentMethodController = ["$scope", "PaymentMethod", ($scope, PaymentMethod) ->
   $scope.payment_methods = PaymentMethod.query()
+  
+  $scope.isExpired = (pm) ->
+    new Date() > new Date(pm.expiration_date)
   
   $scope.deletePaymentMethod = (pm,index) ->
     confirmVariable = confirm("Are you sure?")
