@@ -25,6 +25,8 @@ Inspeckd::Application.routes.draw do
   resources :accounts do
     resources :images
   end
+  resources :addresses
+  resources :companies
   
   post '/create_new_subscription', to: 'braintree#create_new_subscription'
   get 'braintree_notification', :to => 'braintree#verify'

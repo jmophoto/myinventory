@@ -36,6 +36,14 @@ app.factory "User", ["$resource", ($resource) ->
   $resource("/users/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
+app.factory "Address", ["$resource", ($resource) -> 
+  $resource("/addresses/:id", {id: "@id"}, {update: {method: "PUT"}})
+]
+
+app.factory "Company", ["$resource", ($resource) -> 
+  $resource("/companies/:id", {id: "@id"}, {update: {method: "PUT"}})
+]
+
 app.factory "Account", ["$resource", ($resource) ->
   $resource("/users/:user_id/accounts/:id", {user_id: "@user_id", id: "@id"}, {update: {method: "PUT"}})
 ]
@@ -191,11 +199,18 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
   
 ]
 
-@UserController = ["$scope", "User", "Account", ($scope, User, Account) ->
+@UserController = ["$scope", "User", "Company", "Address", ($scope, User, Company, Address) ->
   $scope.user = User.get({id: $scope.userId})
   
   $scope.editUser = (user) ->
     User.update(user)
+    Address.update(user.address)
+    $scope.editUserForm.$dirty=false 
+    
+  $scope.editCompany = (user) ->
+    Company.update(user.company)
+    Address.update(user.company.address)
+    $scope.editCompanyForm.$dirty = false
   
 ]
 

@@ -1,71 +1,108 @@
 <% provide(:title, "Profile") %>
-<div class="col-md-8" ng-init="userId=<%= current_user.id %>">
-	<form class="panel panel-default" ng-controller="UserController" ng-submit="editUser(user);editUserForm.$dirty=false" name="editUserForm">
-		<div class="panel-heading clearfix">
-			<div class="panel-title">
-				Personal Profile
-				<button ng-show="editUserForm.$dirty" type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
-			</div>
-		</div>
-		<div class="panel-body">
-			<div class="form-group row">
-				<div class="col-md-6">
-			  	<input class="form-control" ng-model="user.first_name" placeholder="First Name">
-				</div>
-				<div class="col-md-6">
-			  	<input class="form-control" ng-model="user.last_name" placeholder="Last Name">
+<div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>">
+	<div ng-controller="UserController">
+		<form class="panel panel-default" ng-submit="editUser(user)" name="editUserForm">
+			<div class="panel-heading clearfix">
+				<div class="panel-title">
+					Personal Profile
+					<button ng-show="editUserForm.$dirty" type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
 				</div>
 			</div>
-			<div class="form-group row">
-				<div class="col-md-6">
-			  	<input class="form-control" ng-model="user.email" placeholder="Email">
-				</div>
-				<div class="col-md-6">
-			  	<input class="form-control" ng-model="user.phone_number" placeholder="Phone Number">
-				</div>
-			</div>
-		</div>
-	</form>
-	<div class="panel panel-default" ng-controller="AccountController">
-		{{ account }}
-		<div class="panel-heading">
-			<div class="panel-title">Company Profile</div>
-		</div>
-		<div class="panel-body">
-			<form action="/accounts/{{ account.id }}/images" class="form-horizontal" ng-upload upload-options-enable-rails-csrf>
-				<div class="form-group">
-					<label class="col-md-4 control-label">Company</label>
+			<div class="panel-body">
+				<div class="form-group row">
 					<div class="col-md-6">
-				  	<input class="form-control" ng-model="account.name">
+				  	<input class="form-control" ng-model="user.first_name" placeholder="First Name">
+					</div>
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.last_name" placeholder="Last Name">
 					</div>
 				</div>
-				<div ng-hide="account.logo">
-					<div class="form-group">
-						<label class="col-md-4 control-label">Logo</label>
-						<div class="col-md-6">
-							<input type='hidden' name='image[imageable_id]' value='{{ account.id }}'>
-							<input type='hidden' name='image[imageable_type]' value='Account'>
-							<input type='file' name='image[asset]'>
-						</div>
-						<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
-						<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addLogoResults(content, completed)'>Add Image</button>
+				<div class="form-group row">
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.email" placeholder="Email">
+					</div>
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.phone_number" placeholder="Phone Number">
 					</div>
 				</div>
-			</form>
-			<div ng-show="account.logo">
-				<form class="form-horizontal">
-					<div class="form-group">
-						<label class="col-md-4 control-label">Logo</label>
-						<div class="logo-thumbnail thumbnail col-md-4">
-				      <img ng-src="{{ account.logo.asset.asset.thumb.url }}">
-							<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteLogo(account.logo)">
-								<span class="glyphicon glyphicon-trash"></span>
-							</button>
-				    </div>
+				<div class="form-group row">
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.address.street1" placeholder="Street Address" name="street">
 					</div>
-				</form>
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.address.street2" placeholder="Apt/Suite/Dept">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.address.city" placeholder="City">
+					</div>
+					<div class="col-md-3">
+						<select class="form-control" ng-model="user.address.state" ng-options="state for state in stateList">
+							<option value="">Select State</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+				  	<input class="form-control" ng-model="user.address.zip" placeholder="Zip">
+					</div>
+				</div>
 			</div>
-		</div>
+		</form>
+		<form class="panel panel-default" ng-submit="editCompany(user)" name="editCompanyForm">
+			<div class="panel-heading">
+				<div class="panel-title">
+					Company Profile
+					<button ng-show="editCompanyForm.$dirty" type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="form-group row">
+					<div class="col-md-12">
+				  	<input class="form-control" ng-model="user.company.title" placeholder="Title">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.company.email" placeholder="Email">
+					</div>
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.company.phone_number" placeholder="Phone Number">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.company.address.street1" placeholder="Street Address" name="street">
+					</div>
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.company.address.street2" placeholder="Apt/Suite/Dept">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-6">
+				  	<input class="form-control" ng-model="user.company.address.city" placeholder="City">
+					</div>
+					<div class="col-md-3">
+						<select class="form-control" ng-model="user.company.address.state" ng-options="state for state in stateList">
+							<option value="">Select State</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+				  	<input class="form-control" ng-model="user.company.address.zip" placeholder="Zip">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-6">
+						<ng-form action="/accounts/{{ account.id }}/images" class="form-horizontal" ng-upload upload-options-enable-rails-csrf>
+					  	<input type='hidden' name='image[imageable_id]' value='{{ user.company.id }}'>
+							<input type='hidden' name='image[imageable_type]' value='Company'>
+							<input type='file' name='image[asset]'>
+							<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
+							<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addLogoResults(content, completed)'>Add Image</button>
+						</ng-form>
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
 <div class="col-md-4">
@@ -131,13 +168,13 @@
 						  <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address" %>
 						</div>
 						<div class="form-group row">
-							<div class="col-md-6">
+							<div class="col-md-5">
 						  	<%= ba.text_field :locality, class: "form-control", placeholder: "City" %>
 							</div>
 							<div class="col-md-3">
 								<%= ba.select :region, state_abbreviations, {}, { class: "form-control" } %>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip" %>
 							</div>
 						</div>

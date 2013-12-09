@@ -9,16 +9,20 @@ class User < ActiveRecord::Base
   
   before_save { email.downcase! }
   before_create :create_remember_token
-  after_create :create_new_subscription
+  after_create :set_up_new_user
   
   has_many :properties
   has_many :inspections
   has_many :payment_methods
   
   belongs_to :account
+  has_one :company
   has_one :subscription
+  has_one :address, as: :addressable
   
   accepts_nested_attributes_for :account
+  accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :company
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64
@@ -32,8 +36,10 @@ class User < ActiveRecord::Base
     password.present? || password_confirmation.present?
   end
   
-  def create_new_subscription
-    create_subscription!(start_date: Date.today, end_date: Date.today + 2.weeks)
+  def set_up_new_user
+    create_subscription!(start_date: Date.today, end_date: Date.today + 2.weeks, subscription_type: "free")
+    create_company!
+    create_address!
   end
   
   def customer
