@@ -7,15 +7,6 @@ GIT
       activesupport (>= 3.0)
       braintree (>= 2.16.0)
 
-GIT
-  remote: git://github.com/jmophoto/mil-mailboxer.git
-  revision: 341616a5212a887f613020a790e34194b2375fa7
-  specs:
-    mailboxer (0.10.3)
-      carrierwave (>= 0.5.8)
-      foreigner (>= 0.9.1)
-      rails (> 3.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,8 +92,6 @@ GEM
       net-ssh (>= 2.1.3)
       nokogiri (~> 1.5)
       ruby-hmac
-    foreigner (1.6.0)
-      activerecord (>= 3.0.0)
     formatador (0.2.4)
     hashery (2.1.1)
     hike (1.2.3)
@@ -238,7 +227,6 @@ DEPENDENCIES
   fog
   jbuilder (= 1.0.2)
   jquery-rails (= 2.2.1)
-  mailboxer!
   ng-rails-csrf
   pg
   prawn (= 1.0.0.rc2)
