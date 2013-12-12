@@ -16,6 +16,7 @@ gem 'active_model_serializers'
 gem 'active_attr'
 gem 'pg'
 gem 'braintree-rails', :github => 'jmophoto/braintree-rails'
+gem 'mailboxer', :github => 'jmophoto/mil-mailboxer'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
