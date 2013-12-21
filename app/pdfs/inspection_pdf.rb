@@ -15,10 +15,10 @@ class InspectionPdf < Prawn::Document
   
   def logo_box
     bounding_box([bounds.left, bounds.top], width: 300) do
-      if @inspection.user.company.logo.nil?
+      if @inspection.user.account.logo.nil?
         image "#{Rails.root}/app/assets/images/logo.png"
       else
-        image open(@inspection.user.company.logo.asset.url(:medium)), fit: [300, 75], position: :center
+        image open(@inspection.user.account.logo.asset.url(:medium)), fit: [300, 75], position: :center
       end
     end
   end
