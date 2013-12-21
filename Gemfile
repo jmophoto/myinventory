@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
 gem 'bootstrap-datepicker-rails'
-gem 'bcrypt-ruby', '3.0.1'
-gem 'angularjs-rails', '1.0.8'
+gem 'bcrypt-ruby'
+gem 'angularjs-rails', '1.2.5'
 gem 'ng-rails-csrf'
 gem 'prawn', '1.0.0.rc2'
 gem 'rmagick'
@@ -28,9 +28,9 @@ group :test do
   gem 'factory_girl_rails', '4.2.1'
 end
 
-gem 'sass-rails', '4.0.0'
+gem 'sass-rails', '4.0.1'
 gem 'uglifier', '2.1.1'
-gem 'coffee-rails', '4.0.0'
+gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '2.2.1'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
