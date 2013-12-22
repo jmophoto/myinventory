@@ -1,0 +1,88 @@
+<div class="col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">Account Status</div>
+		</div>
+		<div class="panel-body">
+			<strong class="col-md-8">Inspections per Month:</strong>
+			<div class="col-md-4"><%= @user.subscription.plan.inspections_per_month %></div>
+			<strong class="col-md-8">Next Billing Date:</strong>
+			<div class="col-md-4"><%= @user.subscription.next_billing_date %></div>
+			<strong class="col-md-8">Next Billing Amount:</strong>
+			<div class="col-md-4"><%= number_to_currency(@user.subscription.next_billing_period_amount) %></div>
+		</div>
+	</div>
+	<div class="panel panel-default" ng-controller="PaymentMethodController">
+	  <div class="panel-heading">
+			<div class="panel-title">Payment Methods</div>
+		</div>
+		<table class="table">
+			<tr ng-repeat="pm in payment_methods" ng-class="{ 'expired': isExpired(pm) }">
+				<td ng-hide="pm.is_default"><a href="" class="glyphicon glyphicon-star-empty" ng-click="pm.is_default = true;makeDefault(pm)"></a></td>
+				<td ng-show="pm.is_default"><span class="glyphicon glyphicon-star success"></span></td>
+				<td>{{ pm.masked_number }}</td>
+				<td class="text-center">{{ pm.expiration_date | date:'MM/yyyy' }}</td>
+				<td>
+					<button ng-disabled="pm.is_default" class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deletePaymentMethod(pm,$index)">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+			<div class="panel-title">Add New Card</div>
+		</div>
+		<div class="panel-body add-card-panel">
+			<%= form_for :customer, :url => add_card_path(@user), html: { id: "braintree-form" } do |f| %>
+				<%= f.fields_for :credit_card do |cc| %>
+					<div class="form-group">
+							<%= cc.text_field :cardholder_name, class: "form-control", placeholder: "Name on Card" %>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-8">
+					  	<input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][number]" 
+								class="form-control" value="4111111111111111"/>
+						</div>
+						<div class="col-md-4">
+							<input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][cvv]" class="form-control" value="123"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+					  	<%= cc.select :expiration_month, month_select, {}, { class: "form-control" } %>
+						</div>
+						<div class="col-md-6">
+					 		<%= cc.select :expiration_year, year_select, {}, { class: "form-control" } %>
+						</div>
+					</div>
+					<%= cc.fields_for :billing_address do |ba| %>
+						<div class="form-group">
+						  <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address" %>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-5">
+						  	<%= ba.text_field :locality, class: "form-control", placeholder: "City" %>
+							</div>
+							<div class="col-md-3">
+								<%= ba.select :region, state_abbreviations, {}, { class: "form-control" } %>
+							</div>
+							<div class="col-md-4">
+								<%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip" %>
+							</div>
+						</div>
+					<% end %>
+					<div class="form-group">
+						<%= cc.fields_for :options do |opt| %>
+							<div class="col-md-8 col-md-offset-2">
+								<%= opt.check_box :make_default %> Set as default card
+							</div>
+						<% end %>
+						<%= f.submit "Add", class: "btn btn-sm btn-success pull-right" %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

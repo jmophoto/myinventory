@@ -3,6 +3,8 @@ class PaymentMethod < ActiveRecord::Base
   
   before_destroy :delete_from_braintree
   
+  default_scope { order('expiration_date') }
+  
   def delete_from_braintree
     begin
       pm = BraintreeRails::CreditCard.find(token)
@@ -10,4 +12,5 @@ class PaymentMethod < ActiveRecord::Base
     rescue
     end
   end
+  
 end

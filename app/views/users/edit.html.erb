@@ -1,197 +1,117 @@
 <% provide(:title, "Profile") %>
 <div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>">
 	<div ng-controller="UserController">
-		<form class="panel panel-default" ng-submit="editUser(user)" name="editUserForm">
-			<div class="panel-heading clearfix">
-				<div class="panel-title">
-					Personal Profile
-					<button ng-show="editUserForm.$dirty" type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
+		<form ng-submit="editUser(user)" name="editUserForm">
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix">
+					<div class="panel-title">
+						Personal Profile
+						<button ng-show="editUserForm.$dirty" type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row">
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.first_name" placeholder="First Name">
+						</div>
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.last_name" placeholder="Last Name">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.email" placeholder="Email">
+						</div>
+						<div class="col-md-6">
+							<input type="tel" class="form-control" ng-model="user.phone_number" placeholder="Phone Number">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.address.street1" placeholder="Street Address" name="street">
+						</div>
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.address.street2" placeholder="Apt/Suite/Dept">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.address.city" placeholder="City">
+						</div>
+						<div class="col-md-3">
+							<select class="form-control" ng-model="user.address.state" ng-options="state for state in stateList">
+								<option value="">Select State</option>
+							</select>
+						</div>
+						<div class="col-md-3">
+							<input class="form-control" ng-model="user.address.zip" placeholder="Zip">
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="panel-body">
-				<div class="form-group row">
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.first_name" placeholder="First Name">
-					</div>
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.last_name" placeholder="Last Name">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="panel-title">
+						Company Profile
+						<button ng-show="editCompanyForm.$dirty" type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
 					</div>
 				</div>
-				<div class="form-group row">
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.email" placeholder="Email">
+				<div class="panel-body">
+					<div class="form-group row">
+						<div class="col-md-12">
+							<input class="form-control" ng-model="user.company.title" placeholder="Title">
+						</div>
 					</div>
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.phone_number" placeholder="Phone Number">
+					<div class="form-group row">
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.company.email" placeholder="Email">
+						</div>
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.company.phone_number" placeholder="Phone Number">
+						</div>
 					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.address.street1" placeholder="Street Address" name="street">
+					<div class="form-group row">
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.company.address.street1" placeholder="Street Address" name="street">
+						</div>
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.company.address.street2" placeholder="Apt/Suite/Dept">
+						</div>
 					</div>
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.address.street2" placeholder="Apt/Suite/Dept">
+					<div class="form-group row">
+						<div class="col-md-6">
+							<input class="form-control" ng-model="user.company.address.city" placeholder="City">
+						</div>
+						<div class="col-md-3">
+							<select class="form-control" ng-model="user.company.address.state" ng-options="state for state in stateList">
+								<option value="">Select State</option>
+							</select>
+						</div>
+						<div class="col-md-3">
+							<input class="form-control" ng-model="user.company.address.zip" placeholder="Zip">
+						</div>
 					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.address.city" placeholder="City">
-					</div>
-					<div class="col-md-3">
-						<select class="form-control" ng-model="user.address.state" ng-options="state for state in stateList">
-							<option value="">Select State</option>
-						</select>
-					</div>
-					<div class="col-md-3">
-				  	<input class="form-control" ng-model="user.address.zip" placeholder="Zip">
-					</div>
-				</div>
-			</div>
-		</form>
-		<form class="panel panel-default" ng-submit="editCompany(user)" name="editCompanyForm">
-			<div class="panel-heading">
-				<div class="panel-title">
-					Company Profile
-					<button ng-show="editCompanyForm.$dirty" type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
-				</div>
-			</div>
-			<div class="panel-body">
-				<div class="form-group row">
-					<div class="col-md-12">
-				  	<input class="form-control" ng-model="user.company.title" placeholder="Title">
-					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.company.email" placeholder="Email">
-					</div>
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.company.phone_number" placeholder="Phone Number">
-					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.company.address.street1" placeholder="Street Address" name="street">
-					</div>
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.company.address.street2" placeholder="Apt/Suite/Dept">
-					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-md-6">
-				  	<input class="form-control" ng-model="user.company.address.city" placeholder="City">
-					</div>
-					<div class="col-md-3">
-						<select class="form-control" ng-model="user.company.address.state" ng-options="state for state in stateList">
-							<option value="">Select State</option>
-						</select>
-					</div>
-					<div class="col-md-3">
-				  	<input class="form-control" ng-model="user.company.address.zip" placeholder="Zip">
-					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-md-6">
-						<ng-form action="/accounts/{{ account.id }}/images" class="form-horizontal" ng-upload upload-options-enable-rails-csrf>
-					  	<input type='hidden' name='image[imageable_id]' value='{{ user.company.id }}'>
-							<input type='hidden' name='image[imageable_type]' value='Company'>
-							<input type='file' name='image[asset]'>
-							<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
-							<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addLogoResults(content, completed)'>Add Image</button>
-						</ng-form>
+					<div class="form-group row">
+						<div class="col-md-6">
+							<ng-form action="/accounts/{{ account.id }}/images" class="form-horizontal" ng-upload upload-options-enable-rails-csrf>
+								<input type='hidden' name='image[imageable_id]' value='{{ user.company.id }}'>
+								<input type='hidden' name='image[imageable_type]' value='Company'>
+								<input type='file' name='image[asset]'>
+								<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
+								<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addLogoResults(content, completed)'>Add Image</button>
+							</ng-form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</form>
 	</div>
 </div>
-<div class="col-md-4">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<div class="panel-title">Account Status</div>
-		</div>
-		<div class="panel-body">
-			<strong class="col-md-8">Type:</strong>
-			<div class="col-md-4"><%= @user.subscription.subscription_type.humanize %></div>
-			<strong class="col-md-8">Next Billing Date:</strong>
-			<div class="col-md-4"><%= @user.subscription.next_billing_date %></div>
-			<strong class="col-md-8">Next Billing Amount:</strong>
-			<div class="col-md-4"><%= number_to_currency(@user.subscription.next_billing_period_amount) %></div>
-		</div>
-	</div>
-	<div class="panel panel-default" ng-controller="PaymentMethodController">
-	  <div class="panel-heading">
-			<div class="panel-title">Payment Methods</div>
-		</div>
-		<table class="table">
-			<tr ng-repeat="pm in payment_methods" ng-class="{ 'expired': isExpired(pm) }">
-				<td><span class="glyphicon" ng-class="{ 'glyphicon-ok': pm.is_default  }"></span></td>
-				<td>{{ pm.masked_number }}</td>
-				<td class="text-center">{{ pm.expiration_date | date:'MM/yyyy' }}</td>
-				<td>
-					<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deletePaymentMethod(pm,$index)">
-						<span class="glyphicon glyphicon-trash"></span>
-					</button>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-			<div class="panel-title">Add New Card</div>
-		</div>
-		<div class="panel-body add-card-panel">
-			<%= form_for :customer, :url => create_new_subscription_path(@user), html: { id: "braintree-form" } do |f| %>
-				<%= f.fields_for :credit_card do |cc| %>
-					<div class="form-group">
-							<%= cc.text_field :cardholder_name, class: "form-control", placeholder: "Name on Card" %>
-					</div>
-					<div class="form-group row">
-						<div class="col-md-8">
-					  	<input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][number]" 
-								class="form-control" value="4111111111111111"/>
-						</div>
-						<div class="col-md-4">
-							<input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][cvv]" class="form-control" value="123"/>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-md-6">
-					  	<%= cc.select :expiration_month, month_select, {}, { class: "form-control" } %>
-						</div>
-						<div class="col-md-6">
-					 		<%= cc.select :expiration_year, year_select, {}, { class: "form-control" } %>
-						</div>
-					</div>
-					<%= cc.fields_for :billing_address do |ba| %>
-						<div class="form-group">
-						  <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address" %>
-						</div>
-						<div class="form-group row">
-							<div class="col-md-5">
-						  	<%= ba.text_field :locality, class: "form-control", placeholder: "City" %>
-							</div>
-							<div class="col-md-3">
-								<%= ba.select :region, state_abbreviations, {}, { class: "form-control" } %>
-							</div>
-							<div class="col-md-4">
-								<%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip" %>
-							</div>
-						</div>
-					<% end %>
-					<div class="form-group">
-						<%= cc.fields_for :options do |opt| %>
-							<div class="col-md-8 col-md-offset-2">
-								<%= opt.check_box :make_default %> Set as default card
-							</div>
-						<% end %>
-						<%= f.submit "Add", class: "btn btn-sm btn-success pull-right" %>
-					</div>
-				<% end %>
-			<% end %>
-		</div>
-	</div>
-</div>	
+<% if @user.subscription.subscription_type == "free" %>
+	<%= render :partial => 'free_account' %>
+<% else %>
+	<%= render :partial => 'active_account' %>
+<% end %>
 <% content_for :javascript do %> 
   <script type="text/javascript">
 		var braintree = Braintree.create("MIIBCgKCAQEAqu1rnHeirm6hDVentjrRLwwltkxuQAg9csrZJohasyHcc2tHIQWTqHzzGE09RJ5oUA7d2IxZQSoryi9Rjfxx666NGekwep472j3QjL8OsovMtNhbT6WmOniStIv0ievbAM2ZBuumvmt8tutk6tD+fVYzodZu6UOUktNzQ7VArJKMrnnbLkyMJfNbhq0u2dgmMmth/YmazmrnV8MesYaP8xXFVhVqLHB1BmYe6/gtfne6N9eV4G791Eks/AywwHKXza5jbnquhkhhXLFtDk3GJ5lSCgyfggROR7aOmR1RT9aFLtzaqirm0iqQaqFZ2rr1DcHx/fwoAK2a6kKE/4/rbQIDAQAB")

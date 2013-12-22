@@ -1,0 +1,57 @@
+<div class="col-md-4">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+			<div class="panel-title">Upgrade Subscription</div>
+		</div>
+		<div class="panel-body add-card-panel">
+			<%= form_for :customer, :url => create_new_subscription_path(@user), html: { id: "braintree-form" } do |f| %>
+				<%= f.fields_for :credit_card do |cc| %>
+					<div class="form-group">
+						<%= fields_for :subscription do |sub| %>
+							<%= sub.select :plan_id, Plan.all.collect{|x| [x.description, x.plan_id]}, {}, { class: "form-control" }  %>
+						<% end %>
+					</div>
+					<div class="form-group">
+							<%= cc.text_field :cardholder_name, class: "form-control", placeholder: "Name on Card" %>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-8">
+					  	<input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][number]" 
+								class="form-control" value="4111111111111111"/>
+						</div>
+						<div class="col-md-4">
+							<input type="text" autocomplete="off" data-encrypted-name="customer[credit_card][cvv]" class="form-control" value="123"/>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+					  	<%= cc.select :expiration_month, month_select, {}, { class: "form-control" } %>
+						</div>
+						<div class="col-md-6">
+					 		<%= cc.select :expiration_year, year_select, {}, { class: "form-control" } %>
+						</div>
+					</div>
+					<%= cc.fields_for :billing_address do |ba| %>
+						<div class="form-group">
+						  <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address" %>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-5">
+						  	<%= ba.text_field :locality, class: "form-control", placeholder: "City" %>
+							</div>
+							<div class="col-md-3">
+								<%= ba.select :region, state_abbreviations, {}, { class: "form-control" } %>
+							</div>
+							<div class="col-md-4">
+								<%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip" %>
+							</div>
+						</div>
+					<% end %>
+					<div class="form-group">
+						<%= f.submit "Add", class: "btn btn-sm btn-success pull-right" %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

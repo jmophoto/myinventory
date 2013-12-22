@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117220423) do
+ActiveRecord::Schema.define(version: 20131222002731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,16 @@ ActiveRecord::Schema.define(version: 20131117220423) do
 
   add_index "payment_methods", ["user_id"], name: "index_payment_methods_on_user_id", using: :btree
 
+  create_table "plans", force: true do |t|
+    t.string   "title"
+    t.decimal  "price",                 precision: 8, scale: 2
+    t.integer  "inspections_per_month"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.string   "plan_id"
+  end
+
   create_table "properties", force: true do |t|
     t.string   "address"
     t.string   "city"
@@ -164,11 +174,11 @@ ActiveRecord::Schema.define(version: 20131117220423) do
     t.string   "subscription_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "plan_id"
     t.string   "status"
     t.datetime "next_billing_date"
     t.decimal  "next_billing_period_amount"
     t.string   "payment_method_token"
+    t.integer  "plan_id"
   end
 
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
