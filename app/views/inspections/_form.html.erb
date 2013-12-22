@@ -1,4 +1,4 @@
-<div ng-init="inspection_id='<%= @inspection.id %>'" class="ng-cloak">
+<div ng-init="inspection_id='<%= @inspection.id %>'">
 	<%= form_for(@inspection, html: { class: "form-horizontal col-md-10 col-md-offset-1", role: "form" }) do |f| %>
 	  <% if @inspection.errors.any? %>
 	    <div id="error_explanation">
@@ -82,10 +82,5 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('.datepicker').datepicker({
-			autoclose: true,
-			format: "yyyy-mm-dd"
-		});
-  })
+    $('.datepicker').datepicker();
 </script>

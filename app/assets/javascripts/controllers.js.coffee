@@ -1,5 +1,9 @@
 app = angular.module("Inspeckd", ["ngRoute", "ngResource", "ng-rails-csrf", "ngUpload", "$strap.directives"])
 
+$(document).on('ready page:load', ->
+  angular.bootstrap('body', ['Inspeckd'])
+)
+
 app.factory "Inspection", ["$resource", ($resource) -> 
   $resource("/inspections/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]

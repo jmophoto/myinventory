@@ -4,7 +4,7 @@
 	<%= link_to "Show PDF", inspection_path(@inspection, format: "pdf"), class: "btn btn-primary btn-sm btn-save", target: "_blank" %>
 </div>
 
-<div ng-init="inspection_id='<%= @inspection.id %>'" class="ng-cloak">
+<div ng-init="inspection_id='<%= @inspection.id %>'">
 	<div class="panel-group" id="accordion" ng-controller="InspectionController">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
