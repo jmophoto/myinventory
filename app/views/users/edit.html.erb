@@ -1,7 +1,7 @@
 <% provide(:title, "Profile") %>
 <div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>">
 	<div ng-controller="UserController">
-		<ng-form ng-submit="editUser(user)" name="editUserForm">
+		<form ng-submit="editUser(user)" name="editUserForm">
 			<div class="panel panel-default">
 				<div class="panel-heading clearfix">
 					<div class="panel-title">
@@ -93,7 +93,7 @@
 					</div>
 				</div>
 			</div>
-		</ng-form>
+		</form>
 		<div class="panel panel-default" ng-controller="ImageController">
 			<div class="panel-heading">
 				<div class="panel-title">Company Logo</div>
