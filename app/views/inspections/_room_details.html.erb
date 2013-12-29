@@ -69,16 +69,26 @@
 				</form>
 			</div>
 		</div>
-		<div class="row room-detail-item">
-			<form action="/inspected_rooms/{{room.id}}/images" class="form-inline" ng-upload upload-options-enable-rails-csrf>
-				<div class="form-group col-md-4">
-					<input type='hidden' name='image[imageable_id]' value='{{ room.id }}'>
+		<div class="row">
+			<div ng-controller="ImageController" class="col-md-2">
+				<form ng-upload="uploadRoomImage(content)" action="/images" upload-options-enable-rails-csrf>
+					<span ng-show="uploadStatus == 'nofile'" class="btn btn-success fileinput-button">
+						<i class="glyphicon glyphicon-plus"></i>
+						<span>Select an image to upload</span>
+						<input type="file" name="image[asset]" onchange="angular.element(this).scope().setFiles(this)">
+					</span>
+					<input type='hidden' name='image[imageable_id]' value='{{room.id}}'>
 					<input type='hidden' name='image[imageable_type]' value='InspectedRoom'>
-					<input type='file' name='image[asset]'>
-				</div>
-				<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
-				<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addRoomImageResults(content, completed, $index)'>Add Image</button>
-			</form>
+					<button ng-show="uploadStatus == 'uploading'" class="btn btn-warning" disabled>
+						<i class="glyphicon glyphicon-cloud-upload"></i>
+						<span>Uploading {{ files[0].name }}</span>
+					</button>
+					<button ng-show="uploadStatus == 'hasfile'" class="btn btn-success" upload-submit ng-click="startUpload()">
+						<i class="glyphicon glyphicon-arrow-up"></i>
+						<span>Upload {{ files[0].name }}</span>
+					</button>
+				</form>
+			</div>
 		</div>
 		<div class="row room-detail-item image-grid">
 		  <div ng-repeat="image in room.images" class="col-md-2">

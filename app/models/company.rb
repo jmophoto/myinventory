@@ -1,7 +1,8 @@
 class Company < ActiveRecord::Base
   belongs_to :users
   has_one :address, as: :addressable
-  has_one :logo, as: :imageable, class_name: "Image"
+  has_many :images, as: :imageable
+  has_one :logo, class_name: "Image"
   
   after_create :set_up_new_company
   

@@ -1,25 +1,33 @@
 <div class="panel-collapse collapse" id="inspection-images">
 	<div class="panel-body">
-		<form action="/inspections/{{ inspection.id }}/images" class="form-inline" ng-upload upload-options-enable-rails-csrf>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="form-group">
-						<input type='hidden' name='image[imageable_id]' value='{{ inspection.id }}'>
-						<input type='hidden' name='image[imageable_type]' value='Inspection'>
-						<input type='file' name='image[asset]'>
-					</div>
-					<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
-					<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addInspectionImageResults(content, completed)'>Add Image</button>
-				</div>
+		<div class="row">
+			<div ng-controller="ImageController" class="col-md-2">
+				<form ng-upload="uploadInspectionImage(content)" action="/images" upload-options-enable-rails-csrf>
+					<span ng-show="uploadStatus == 'nofile'" class="btn btn-success fileinput-button">
+						<i class="glyphicon glyphicon-plus"></i>
+						<span>Select Image to Upload</span>
+						<input type="file" name="image[asset]" onchange="angular.element(this).scope().setFiles(this)">
+					</span>
+					<input type='hidden' name='image[imageable_id]' value='{{inspection.id}}'>
+					<input type='hidden' name='image[imageable_type]' value='Inspection'>
+					<button ng-show="uploadStatus == 'uploading'" class="btn btn-warning" disabled>
+						<i class="glyphicon glyphicon-cloud-upload"></i>
+						<span>Uploading {{ files[0].name }}</span>
+					</button>
+					<button ng-show="uploadStatus == 'hasfile'" class="btn btn-success" upload-submit ng-click="startUpload()">
+						<i class="glyphicon glyphicon-arrow-up"></i>
+						<span>Upload {{ files[0].name }}</span>
+					</button>
+				</form>
 			</div>
-		</form>
-		<div class="row image-grid">
+		</div>
+		<div class="row room-detail-item image-grid">
 		  <div ng-repeat="image in inspection.images" class="col-md-2">
 		    <div class="thumbnail">
 		      <img ng-src="{{ image.asset.asset.thumb.url }}">
 					<input type="text" ng-model="image.comment" class="image-comment form-control" 
 														 placeholder="Comments" ng-change="addImageComment(image, image.comment)">
-					<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteInspectionImage(image,$index)">
+					<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoomImage($parent.$index,image,$index)">
 						<span class="glyphicon glyphicon-trash"></span>
 					</button>
 		    </div>

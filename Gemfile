@@ -32,6 +32,8 @@ gem 'sass-rails', '4.0.1'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '2.2.1'
+gem 'jquery-ui-rails'
+gem 'jquery-fileupload-rails'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
 

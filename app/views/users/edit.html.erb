@@ -1,7 +1,7 @@
 <% provide(:title, "Profile") %>
 <div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>">
 	<div ng-controller="UserController">
-		<form ng-submit="editUser(user)" name="editUserForm">
+		<ng-form ng-submit="editUser(user)" name="editUserForm">
 			<div class="panel panel-default">
 				<div class="panel-heading clearfix">
 					<div class="panel-title">
@@ -91,20 +91,46 @@
 							<input class="form-control" ng-model="user.company.address.zip" placeholder="Zip">
 						</div>
 					</div>
-					<div class="form-group row">
-						<div class="col-md-6">
-							<ng-form action="/accounts/{{ account.id }}/images" class="form-horizontal" ng-upload upload-options-enable-rails-csrf>
-								<input type='hidden' name='image[imageable_id]' value='{{ user.company.id }}'>
-								<input type='hidden' name='image[imageable_type]' value='Company'>
-								<input type='file' name='image[asset]'>
-								<button ng-show="uploading" class="btn btn-sm btn-warning" disabled>Uploading</button>
-								<button ng-hide="uploading"class="btn btn-sm btn-success" upload-submit='addLogoResults(content, completed)'>Add Image</button>
-							</ng-form>
-						</div>
-					</div>
 				</div>
 			</div>
-		</form>
+		</ng-form>
+		<div class="panel panel-default" ng-controller="ImageController">
+			<div class="panel-heading">
+				<div class="panel-title">Company Logo</div>
+			</div>
+			<div class="panel-body">
+				<div class="row" ng-hide="user.company.logo">
+					<div class="col-md-2">
+						<form ng-upload="uploadCompanyImage(content)" action="/images" upload-options-enable-rails-csrf>
+							<span ng-show="uploadStatus == 'nofile'" class="btn btn-success fileinput-button">
+								<i class="glyphicon glyphicon-plus"></i>
+								<span>Select an image to upload</span>
+								<input type="file" name="image[asset]" onchange="angular.element(this).scope().setFiles(this)">
+							</span>
+							<input type='hidden' name='image[imageable_id]' value='{{user.company.id}}'>
+							<input type='hidden' name='image[imageable_type]' value='Company'>
+							<input type='hidden' name='image[company_id]' value='{{user.company.id}}'>
+							<button ng-show="uploadStatus == 'uploading'" class="btn btn-warning" disabled>
+								<i class="glyphicon glyphicon-cloud-upload"></i>
+								<span>Uploading {{ files[0].name }}</span>
+							</button>
+							<button ng-show="uploadStatus == 'hasfile'" class="btn btn-success" upload-submit ng-click="startUpload()">
+								<i class="glyphicon glyphicon-arrow-up"></i>
+								<span>Upload {{ files[0].name }}</span>
+							</button>
+						</form>
+					</div>
+				</div>
+				<div class="row " ng-show="user.company.logo">
+			    <div class="thumbnail logo-thumbnail">
+			      <img ng-src="{{ user.company.logo.asset.asset.url }}">
+						<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteLogo(user.company.logo)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+			    </div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <% if @user.subscription.subscription_type == "free" %>

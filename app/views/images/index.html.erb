@@ -1,9 +1,23 @@
 <h1>Listing images</h1>
 
-<%= form_for Image.new do |i| %>
-	<%= i.file_field :asset %>
-	<%= i.submit %>
-<% end %>
+<div ng-controller="MyCtrl">
+  <input type="text" ng-model="myModelObj">
+  <input type="file" ng-file-select="onFileSelect($files)" >
+</div>
+
+
+<div id="fileupload" ng-controller='TestCtrl'>
+  <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
+      <i class="glyphicon glyphicon-plus"></i>
+      <span>Add files...</span>
+      <input type="file" name="image[asset]" multiple ng-disabled="disabled">
+  </span>
+  <table class="table table-striped files ng-cloak">
+		<tr data-ng-repeat="file in fileList" data-ng-class="{'processing': file.$processing()}">
+			<td>{{ file.name }}</td>
+		</tr>
+	</table>
+</div>
 
 
 <table>
