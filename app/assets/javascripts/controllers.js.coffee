@@ -246,7 +246,7 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
     if confirmVariable == true
       PaymentMethod.delete(pm)
       $scope.payment_methods.splice(index, 1)
-		
+
   $scope.makeDefault = (pm) ->
     confirmVariable = confirm("Make this card the default payment method?")
     if confirmVariable == true
@@ -255,43 +255,41 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
 
 ]
 
-
 @ImageController = ["$scope", "Image", ($scope, Image) ->
-	$scope.uploadStatus = "nofile"
-		
-	$scope.setFiles = (element) ->
-		$scope.uploadStatus = "hasfile"
-		$scope.$apply ($scope) ->
-			$scope.files = []
-			i = 0
-			while i < element.files.length
-				$scope.files.push element.files[i]
-				i++
-	
-	$scope.startUpload = ->
-		$scope.uploadStatus = "uploading"
-	
-	$scope.deleteLogo = (image) ->
-		confirmVariable = confirm("Are you sure?")
-		if confirmVariable == true
-			Image.delete(image)
-			$scope.user.company.logo = null
-	
-	$scope.uploadRoomImage = (content) ->
-		$scope.uploadStatus = "nofile"
-		$scope.files = []
-		$scope.room.images.push(content)
-		
-	$scope.uploadInspectionImage = (content) ->
-		$scope.uploadStatus = "nofile"
-		$scope.files = []
-		$scope.inspection.images.push(content)
-		
-	$scope.uploadCompanyImage = (content) ->
-		$scope.uploadStatus = "nofile"
-		$scope.files = []
-		$scope.user.company.logo = content
-
+  $scope.uploadStatus = "nofile"
+    
+  $scope.setFiles = (element) ->
+    $scope.uploadStatus = "hasfile"
+    $scope.$apply ($scope) ->
+      $scope.files = []
+      i = 0
+      while i < element.files.length
+        $scope.files.push element.files[i]
+        i++
+  
+  $scope.startUpload = ->
+    $scope.uploadStatus = "uploading"
+  
+  $scope.deleteLogo = (image) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Image.delete(image)
+      $scope.user.company.logo = null
+  
+  $scope.uploadRoomImage = (content) ->
+    $scope.uploadStatus = "nofile"
+    $scope.files = []
+    $scope.room.images.push(content)
+    
+  $scope.uploadInspectionImage = (content) ->
+    $scope.uploadStatus = "nofile"
+    $scope.files = []
+    $scope.inspection.images.push(content)
+    
+  $scope.uploadCompanyImage = (content) ->
+    $scope.uploadStatus = "nofile"
+    $scope.files = []
+    $scope.user.company.logo = content
 ]
 
 app.value "$strapConfig",

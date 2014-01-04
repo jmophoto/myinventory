@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
   after_create :set_up_new_company
   
   def set_up_new_company
-    create_address!
+    create_address!(country: "USA")
   end
   
 end

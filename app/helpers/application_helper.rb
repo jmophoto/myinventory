@@ -184,5 +184,21 @@ module ApplicationHelper
       "West Virginia", 
       "Wyoming"]
     end
+    
+    def providences 
+      ["British Columbia", 
+      "Ontario", 
+      "Newfoundland/Labrador", 
+      "Nova Scotia", 
+      "Prince Edward Island", 
+      "New Brunswick", 
+      "Quebec", 
+      "Manitoba", 
+      "Saskatchewan", 
+      "Alberta", 
+      "Northwest Territories", 
+      "Nunavut",
+      "Yukon Territory"]
+    end
   
 end

@@ -1,5 +1,5 @@
 <% provide(:title, "Profile") %>
-<div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>">
+<div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>;providenceList=<%= providences %>">
 	<div ng-controller="UserController">
 		<form ng-submit="editUser(user)" name="editUserForm">
 			<div class="panel panel-default">
@@ -35,16 +35,27 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<input class="form-control" ng-model="user.address.city" placeholder="City">
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-4" ng-hide="user.address.country=='Canada'">
 							<select class="form-control" ng-model="user.address.state" ng-options="state for state in stateList">
 								<option value="">Select State</option>
 							</select>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-4" ng-show="user.address.country=='Canada'">
+							<select class="form-control" ng-model="user.address.state" ng-options="providence for providence in providenceList">
+								<option value="">Select Providence</option>
+							</select>
+						</div>
+						<div class="col-md-2">
 							<input class="form-control" ng-model="user.address.zip" placeholder="Zip">
+						</div>
+						<div class="col-md-2">
+							<select class="form-control" ng-model="user.address.country">
+								<option value="USA">USA</option>
+								<option value="Canada">Canada</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -79,16 +90,27 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<input class="form-control" ng-model="user.company.address.city" placeholder="City">
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-4" ng-hide="user.company.address.country=='Canada'">
 							<select class="form-control" ng-model="user.company.address.state" ng-options="state for state in stateList">
 								<option value="">Select State</option>
 							</select>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-4" ng-show="user.company.address.country=='Canada'">
+							<select class="form-control" ng-model="user.company.address.state" ng-options="providence for providence in providenceList">
+								<option value="">Select Providence</option>
+							</select>
+						</div>
+						<div class="col-md-2">
 							<input class="form-control" ng-model="user.company.address.zip" placeholder="Zip">
+						</div>
+						<div class="col-md-2">
+							<select class="form-control" ng-model="user.company.address.country">
+								<option value="USA">USA</option>
+								<option value="Canada">Canada</option>
+							</select>
 						</div>
 					</div>
 				</div>
