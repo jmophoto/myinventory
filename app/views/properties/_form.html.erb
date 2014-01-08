@@ -28,7 +28,7 @@
 	<div class="form-group">
 	  <%= f.label :city, "City / State / Zip", :class => "col-md-2 control-label" %>
 		<div class="col-md-6"><%= f.text_field :city, :class => "form-control", :placeholder => "City" %></div>
-		<div class="col-md-2"><%= f.select :state, states, { :include_blank => "Select State" }, { :class => "form-control" } %></div>
+		<div class="col-md-2"><%= f.select :state, states+providences, { :include_blank => "Select State" }, { :class => "form-control" } %></div>
 		<div class="col-md-2"><%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %></div>
 	</div>
 	
