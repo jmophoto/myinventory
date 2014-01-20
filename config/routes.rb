@@ -9,7 +9,9 @@ Inspeckd::Application.routes.draw do
   end
   resources :credit_cards
   resources :payment_methods
-  resources :properties
+  resources :properties do
+    resources :rooms
+  end
   resources :inspections do
     resources :images
     resources :inspected_rooms

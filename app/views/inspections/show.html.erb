@@ -1,9 +1,7 @@
 <% provide(:title, "Show Inspection") %>
-
 <div class="btn-top">
 	<%= link_to "Show PDF", inspection_path(@inspection, format: "pdf"), class: "btn btn-primary btn-sm btn-save", target: "_blank" %>
 </div>
-
 <div ng-init="inspection_id='<%= @inspection.id %>'">
 	<div class="panel-group" id="accordion" ng-controller="InspectionController">
 		<div class="panel panel-default">
@@ -40,15 +38,6 @@
 				</div>
 			</div>
 			<%= render :partial => 'property_details' %>
-		</div>
-		<div class="room-panel panel panel-default">
-		  <div class="room-heading panel-heading">
-				<div class="room-title panel-titlepanel-title">
-					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#inspection-images"></span>
-					Inspection Images
-				</div>
-			</div>
-			<%= render :partial => 'inspection_images' %>
 		</div>
 		<div class="room-panel panel panel-default" ng-repeat="room in inspection.inspected_rooms">
 		  <div class="room-heading panel-heading">

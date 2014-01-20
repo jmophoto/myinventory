@@ -1,2 +1,76 @@
 <% provide(:title, "Edit Property") %>
-<%= render 'form' %>
+<div class="col-md-10 col-md-offset-1" 
+     ng-init="propertyId=<%= @property.id %>;
+              stateList=<%= states %>;
+              providenceList=<%= providences %>;
+              detailList=<%= detail_list %>;
+              roomList=<%= room_list %>">
+	<div ng-controller="PropertyController">
+		<form ng-submit="editProperty(property)" name="editPropertyForm" class="form-horizontal">
+			<div class="form-group row">
+				<div class="col-md-12">
+					<input class="form-control" ng-model="property.name" placeholder="Name">
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-md-8">
+					<input class="form-control" ng-model="property.address.street1" placeholder="Street">
+				</div>
+				<div class="col-md-4">
+					<input class="form-control" ng-model="property.address.street2" placeholder="Apt/Suite">
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-md-5">
+					<input class="form-control" ng-model="property.address.city" placeholder="City">
+				</div>
+				<div class="col-md-3" ng-hide="property.address.country=='Canada'">
+					<select class="form-control" ng-model="property.address.state" ng-options="state for state in stateList">
+						<option value="">Select State</option>
+					</select>
+				</div>
+				<div class="col-md-3" ng-show="property.address.country=='Canada'">
+					<select class="form-control" ng-model="property.address.state" ng-options="providence for providence in providenceList">
+						<option value="">Select Providence</option>
+					</select>
+				</div>
+				<div class="col-md-2">
+					<input class="form-control" ng-model="property.address.zip" placeholder="Zip">
+				</div>
+				<div class="col-md-2">
+					<select class="form-control" ng-model="property.address.country">
+						<option value="USA">USA</option>
+						<option value="Canada">Canada</option>
+					</select>
+				</div>
+			</div>
+			<span ng-repeat="detail in detailList">
+        <button ng-click="addDetailToProperty(detail)" type="button" 
+  							ng-class="{'btn-primary': checkForDetail(property.details,detail), 'btn-default': !checkForDetail(property.details,detail)}" 
+  							class="btn btn-sm">{{ detail }}
+  			</button>
+      </span>
+  		<div class="room-panel panel panel-default" ng-repeat="room in property.rooms">
+  		  <div class="room-heading panel-heading">
+  				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">
+  					<form class="form-inline">
+  					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}"></span>
+  		      <span ng-hide="room.editing" ng-click="room.editing = true">{{ room.name }}</span>
+  					<span ng-show="room.editing">
+  						<div class="form-group">
+  							<input type="text" class="form-control" ng-model="room.name">
+  						</div>
+  						<button class="btn btn-default btn-sm" type="submit" ng-click="room.editing = false; editRoom(room)">Save</button>
+  					</span>
+  					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoom(room,$index)">
+  						<span class="glyphicon glyphicon-trash"></span>
+  					</button>
+  					</form>
+  				</div>
+  			</div>
+  			<%= render :partial => 'room_details' %>
+  		</div>
+      <button type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
+    </form>
+  </div>
+</div>

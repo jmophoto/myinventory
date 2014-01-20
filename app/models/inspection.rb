@@ -6,10 +6,12 @@ class Inspection < ActiveRecord::Base
   belongs_to :property
   belongs_to :user
   has_many :images, as: :imageable
+  has_one :address, as: :addressable
   
   serialize :details, Hash
   
   accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :address
   
   # before_save :parse_date
   after_create :add_rooms
@@ -20,10 +22,7 @@ class Inspection < ActiveRecord::Base
   def create_from_template(property_id)
     property = Property.find(property_id)
     self.property_id = property_id
-    self.address = property.address
-    self.city = property.city
-    self.state = property.state
-    self.zip = property.zip
+    self.address = property.address.dup
   end
   
   def add_rooms

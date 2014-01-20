@@ -1,4 +1,95 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+<div ng-init="propertyId='<%= @property.id %>';stateList=<%= states %>;providenceList=<%= providences %>;detailList=<%= detail_list %>;">
+	<div class="panel-group" id="accordion" ng-controller="PropertyController">
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+				<div class="panel-title">
+					<div class="row">
+						<div class="col-md-7 inspection-address">
+							<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#property-details"></span>
+    		      <span ng-hide="property.editing" ng-click="property.editing = true">{{ property.name }}</span>
+    					<span ng-show="property.editing" class="form-inline">
+    						<div class="form-group">
+    							<input type="text" class="form-control col-md-2" ng-model="property.name">
+    						</div>
+    						<button class="btn btn-default btn-sm" type="submit" ng-click="property.editing = false; editProperty(property)">Save</button>
+    					</span>
+						</div>
+						<form class="add-room-form form-inline pull-right" role="form" ng-submit="addRoom()">
+							<div class="form-group">
+						    <label class="sr-only" for="newRoomName">Type</label>
+								<input type="text" class="form-control" placeholder="Room Name (optional)" ng-model="newRoom.name">
+						  </div>
+						  <div class="form-group">
+						    <label class="sr-only" for="newRoomType">Type</label>
+								<%= select_tag "Room Type", options_for_select(full_list.collect{ |x| [x.titleize, x] }),
+										:class => "form-control input-sm", :"ng-model" => "newRoom.type", prompt: "Room Type" %>
+						  </div>
+						  <button type="submit" class="btn btn-sm btn-success">Add Room</button>
+						</form>
+					</div>
+				</div>
+      </div>
+      <div class="panel-collapse collapse" id="property-details">
+      	<form class="panel-body" ng-submit="editProperty(property)" name="editPropertyForm">
+    			<div class="form-group row">
+    				<div class="col-md-8">
+    					<input class="form-control" ng-model="property.address.street1" placeholder="Street">
+    				</div>
+    				<div class="col-md-4">
+    					<input class="form-control" ng-model="property.address.street2" placeholder="Apt/Suite">
+    				</div>
+    			</div>
+    			<div class="form-group row">
+    				<div class="col-md-5">
+    					<input class="form-control" ng-model="property.address.city" placeholder="City">
+    				</div>
+    				<div class="col-md-3" ng-hide="property.address.country=='Canada'">
+    					<select class="form-control" ng-model="property.address.state" ng-options="state for state in stateList">
+    						<option value="">Select State</option>
+    					</select>
+    				</div>
+    				<div class="col-md-3" ng-show="property.address.country=='Canada'">
+    					<select class="form-control" ng-model="property.address.state" ng-options="providence for providence in providenceList">
+    						<option value="">Select Providence</option>
+    					</select>
+    				</div>
+    				<div class="col-md-2">
+    					<input class="form-control" ng-model="property.address.zip" placeholder="Zip">
+    				</div>
+    				<div class="col-md-2">
+    					<select class="form-control" ng-model="property.address.country">
+    						<option value="USA">USA</option>
+    						<option value="Canada">Canada</option>
+    					</select>
+    				</div>
+    			</div>
+          <div class="form-group row" ng-show="editPropertyForm.$dirty">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-sm btn-success pull-right">Save Changes</button>
+            </div>
+          </div>
+        </form>
+      </div>
+		</div>
+		<div class="room-panel panel panel-default" ng-repeat="room in property.rooms">
+		  <div class="room-heading panel-heading">
+				<div class="room-title panel-title" ng-init="room_id=room.id">
+					<form class="form-inline">
+					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}"></span>
+		      <span ng-hide="room.editing" ng-click="room.editing = true">{{ room.name }}</span>
+					<span ng-show="room.editing">
+						<div class="form-group">
+							<input type="text" class="form-control" ng-model="room.name">
+						</div>
+						<button class="btn btn-default btn-sm" type="submit" ng-click="room.editing = false; editRoom(room)">Save</button>
+					</span>
+					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoom(room,$index)">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+					</form>
+				</div>
+			</div>
+			<%= render :partial => 'room_details' %>
+		</div>
+	</div>
+</div>

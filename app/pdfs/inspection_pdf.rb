@@ -37,7 +37,7 @@ class InspectionPdf < Prawn::Document
   def address
     move_down(20)
     font_size(18) do
-      text @inspection.full_address
+      text @inspection.address.full_address
     end
     move_down 40
   end

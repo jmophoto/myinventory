@@ -11,27 +11,29 @@
 	    </div>
 	  <% end %>
 	  <%= f.hidden_field :property_id %>
-	  <div class="form-group">
-			<label class="col-md-2 control-label">Address / Unit</label>
-			<div class="col-md-6">
-	    	<%= f.text_field :address, :class => "form-control", :placeholder => "Address" %>
-			</div>
-			<div class="col-md-2">
-	    	<%= f.text_field :unit, :class => "form-control", :placeholder => "Unit #" %>
-			</div>
-	  </div>
-	  <div class="form-group">
-			<label class="col-md-2 control-label">City / State / Zip</label>
-			<div class="col-md-4">
-	    	<%= f.text_field :city, :class => "form-control", :placeholder => "City" %>
-			</div>
-			<div class="col-md-2">
-	    	<%= f.text_field :state, :class => "form-control", :placeholder => "State" %>
-			</div>
-			<div class="col-md-2">
-	    	<%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %>
-			</div>
-	  </div>
+    <%= f.fields_for :address do |address| %>
+  	  <div class="form-group">
+  			<label class="col-md-2 control-label">Address / Unit</label>
+  			<div class="col-md-6">
+  	    	<%= address.text_field :street1, :class => "form-control", :placeholder => "Address" %>
+  			</div>
+  			<div class="col-md-2">
+  	    	<%= address.text_field :street2, :class => "form-control", :placeholder => "Unit #" %>
+  			</div>
+  	  </div>
+  	  <div class="form-group">
+  			<label class="col-md-2 control-label">City / State / Zip</label>
+  			<div class="col-md-4">
+  	    	<%= address.text_field :city, :class => "form-control", :placeholder => "City" %>
+  			</div>
+  			<div class="col-md-2">
+  	    	<%= address.text_field :state, :class => "form-control", :placeholder => "State" %>
+  			</div>
+  			<div class="col-md-2">
+  	    	<%= address.text_field :zip, :class => "form-control", :placeholder => "Zip" %>
+  			</div>
+  	  </div>
+    <% end %>
 	  <div class="form-group">
 	    <%= f.label :inspection_type, :class => "col-md-2 control-label" %>
 			<div class="col-md-8">
@@ -56,21 +58,6 @@
 	    	<%= f.text_field :inspection_date, :class => "form-control datepicker" %>
 				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 			</div>
-	  </div>
-	  <div class="form-group">
-			<%= f.fields_for :images do |builder| %>
-		    <%= builder.label :images, :class => "col-md-2 control-label" %>
-				<div class="col-md-8 image-form-box">
-					<% if builder.object.asset? %>
-						<div class="col-md-4 thumbnail img-thumb">
-							<%= image_tag builder.object.asset.url %>
-							<div class="img-caption"><%= builder.check_box :_destroy %> Remove</div>
-						</div>
-					<% else %>
-		    		<%= builder.file_field :asset, :class => "form-control file-field-control" %>
-					<% end %>
-				</div>
-			<% end %>
 	  </div>
 	  <div class="form-group">
 			<div class="col-md-10">

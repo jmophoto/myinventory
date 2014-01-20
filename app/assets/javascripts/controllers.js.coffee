@@ -8,8 +8,12 @@ app.factory "Inspection", ["$resource", ($resource) ->
   $resource("/inspections/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
-app.factory "Room", ["$resource", ($resource) -> 
+app.factory "InspectedRoom", ["$resource", ($resource) -> 
   $resource("/inspections/:inspection_id/inspected_rooms/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
+]
+
+app.factory "Room", ["$resource", ($resource) -> 
+  $resource("/properties/:property_id/rooms/:id", {property_id: "@property_id", id: "@id"}, {update: {method: "PUT"}})
 ]
 
 app.factory "Feature", ["$resource", ($resource) ->
@@ -52,26 +56,25 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
   $resource("/payment_methods/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
-@InspectionController = ["$scope", "Room", "Inspection", "Image", "Detail", ($scope, Room, Inspection, Image, Detail) ->
+@InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", ($scope, InspectedRoom, Inspection, Image, Detail) ->
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
-  $scope.inspection_editing = true
 
   $scope.editInspection = (inspection) ->
     Inspection.update(inspection)
 
   $scope.addRoom = ->
-    room = Room.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
+    room = InspectedRoom.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
     $scope.inspection.inspected_rooms.push(room)
     $scope.newRoom = {}
 
   $scope.deleteRoom = (room, index) ->
     confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
-      Room.delete(room)
+      InspectedRoom.delete(room)
       $scope.inspection.inspected_rooms.splice(index, 1)
 
   $scope.editRoom = (room) ->
-    Room.update(room)
+    InspectedRoom.update(room)
 
   $scope.addImage = (room) ->
     image = Image.save({imageable_id: room.id, imageable_type: "InspectedRoom"})
@@ -134,6 +137,98 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
       Detail.delete(detail)
       $scope.inspection.inspection_details.splice(index, 1)
 
+]
+
+@PropertyController = ["$scope", "Property", "Address", "Room", ($scope, Property, Address, Room) ->
+  $scope.properties = Property.query()
+  $scope.property = Property.get({id: $scope.propertyId})
+  $scope.room_list = [{name:'Bedroom',type:'bedroom'},
+                      {name:'Bathroom',type:'bathroom'},
+                      {name:'Kitchen',type:'kitchen'},
+                      {name:'Dining Room',type:'dining_room'},
+                      {name:'Living Room',type:'living_room'},
+                      {name:'Family Room',type:'family_room'},
+                      {name:'Laundry',type:'laundry'},
+                      {name:'Office',type:'office'}]
+  $scope.area_list = [{name:'Entry',type:'entry'},
+                      {name:'Hallway',type:'hallway'},
+                      {name:'Staircase',type:'staircase'},
+                      {name:'Garage',type:'garage'},
+                      {name:'Exterior',type:'exterior'}]
+  $scope.propertyDetailList ||= []
+  $scope.propertyAreaList ||= []
+  $scope.countryList = ['USA','Canada']
+  
+  $scope.checkForDetail = (scope,detail) ->
+    scope.indexOf(detail) > -1
+    
+  $scope.checkForArea = (scope,area) ->
+    scope.indexOf(area) > -1
+    
+  $scope.addDetailToProperty = (detail) ->
+    if $scope.property.details is null
+      $scope.property.details = [detail]
+    else
+      index = $scope.property.details.indexOf(detail)
+      if index == -1
+        $scope.property.details.push(detail)
+      else
+        $scope.property.details.splice(index,1)
+      
+  $scope.addDetailToList = (detail) ->
+    if $scope.propertyDetailList is undefined
+      $scope.propertyDetailList = [detail]
+    else
+      index = $scope.propertyDetailList.indexOf(detail)
+      if index == -1
+        $scope.propertyDetailList.push(detail)
+      else
+        $scope.propertyDetailList.splice(index,1)
+        
+  $scope.addAreaToList = (area) ->
+    if $scope.propertyAreaList is undefined
+      $scope.propertyAreaList = [area]
+    else
+      index = $scope.propertyAreaList.indexOf(area)
+      if index == -1
+        $scope.propertyAreaList.push(area)
+      else
+        $scope.propertyAreaList.splice(index,1)
+       
+  $scope.createProperty = ->
+    $scope.newProperty.details = $scope.propertyDetailList
+    $scope.newProperty.room_count = $scope.room_list
+    $scope.newProperty.other_areas = $scope.propertyAreaList
+    property = Property.save($scope.newProperty)
+    $scope.properties.push(property)
+    $("#newPropertyModal").modal('hide')
+    $scope.newProperty = {}
+    
+  $scope.editProperty = (property) ->
+    Property.update(property)
+    Address.update(property.address)
+    $scope.editPropertyForm.$dirty=false
+    
+  $scope.deleteProperty = (property,index) ->
+    confirmVariable = confirm(index)
+    if confirmVariable == true
+      Property.delete(property)
+      $scope.properties.splice(index, 1)
+
+  $scope.addRoom = ->
+    alert($scope.propertyId)
+    room = Room.save({property_id: $scope.propertyId, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
+    $scope.property.rooms.push(room)
+    $scope.newRoom = {}
+    
+  $scope.deleteRoom = (room, index) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Room.delete(room)
+      $scope.property.rooms.splice(index, 1)
+
+  $scope.editRoom = (room) ->
+    Room.update(room)
 ]
 
 @FeatureController = ["$scope", "Feature", ($scope, Feature) ->

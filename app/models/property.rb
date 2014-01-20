@@ -3,6 +3,7 @@ class Property < ActiveRecord::Base
   has_many :rooms
   has_many :inspections
   has_many :images, as: :imageable
+  has_one :address, as: :addressable
   
   # validates :user_id, presence: true
   
@@ -11,13 +12,15 @@ class Property < ActiveRecord::Base
   serialize :room_count, Hash
   serialize :details
   
+  accepts_nested_attributes_for :address
+  
   def process_rooms(room_count)
     if room_count
-      room_count.each do |key, value|
-        if value.to_i == 1
-          self.rooms.create(name: key.humanize, room_type: key)
+      room_count.each do |room|
+        if room['count'].to_i == 1
+          self.rooms.create(name: room['name'], room_type: room['type'])
         else
-          (1..value.to_i).collect { |x| self.rooms.create(name: "#{key.humanize} #{x}", room_type: key) }
+          (1..room['count'].to_i).collect { |x| self.rooms.create(name: "#{room['name']} #{x}", room_type: room['type']) }
         end
       end
     end

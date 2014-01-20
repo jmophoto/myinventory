@@ -1,59 +1,53 @@
 <% provide(:title, "Properties") %>
-<div class="row">
-	<div class="col-md-4 pull-left form-header">My Properties</div>
-	<div class="col-md-2 col-md-offest-8 pull-right">
-		<%= link_to 'Add Property', new_property_path, :class => "btn btn-primary" %>
-	</div>
-</div>
-<div class="panel-group" id="propertyAccordion">
-	<% @properties.each do |property| %>
-		<div class="property-panel panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<div class="property-heading-row row">
-						<div class="col-md-4">
-							<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#propertyAccordion" href="#property_<%= property.id %>"></span>
-							<%= property.name %>
-						</div>
-						<div class="col-md-4"><%= full_address(property) %></div>
-						<div class="pull-right">
-							<%= link_to 'Inspect', new_inspection_path(:property_id => property.id), :class => "btn btn-primary btn-xs" %>
-							<%= link_to 'Edit', edit_property_path(property), :class => "btn btn-success btn-xs" %>
-							<%= link_to 'Delete', property, method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger btn-xs" %>
-						</div>
-					</div>
-				</h4>
-			</div>
-			<div id="property_<%= property.id %>" class="panel-collapse collapse">
-				<% if property.inspections.any? %>
-					<table class="table table-hover property-inspections-table">
-						<thead>
-							<tr class="inspecton-table-header">
-								<th>Type</th>
-								<th class="text-center">Unit #</th>
-								<th>Tenant</th>
-								<th>Inspected by</th>
-								<th class="text-center">Inspection Date</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<% property.inspections.each do |inspection| %>
-								<tr>
-									<td><%= inspection.inspection_type %></td>
-									<td class="text-center"><%= inspection.unit %></td>
-									<td><%= inspection.tenant %></td>
-									<td><%= inspection.inspected_by %></td>
-									<td class="text-center"><%= inspection.inspection_date %></td>
-									<td class="text-right">
-										<%= link_to "View", inspection, :class => "btn btn-xs btn-primary" %>
-									</td>
-								</tr>
-							<% end %>
-						</tbody>
-					</table>
-				<% end %>
-			</div>
-		</div>
-  <% end %>
+<div class="col-md-10 col-md-offset-1" ng-init="stateList=<%= states %>;providenceList=<%= providences %>;detailList=<%= detail_list %>;">
+  <div ng-controller="PropertyController">
+    <div class="row">
+    	<div class="col-md-8 pull-left form-header">My Properties</div>
+    	<div class="col-md-2 col-md-offest-8 pull-right">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#newPropertyModal">
+          Add Property
+        </button>
+    	</div>
+    </div>
+    <div class="panel-group" id="propertyAccordion">
+  		<div class="property-panel panel panel-default" ng-repeat="property in properties">
+  			<div class="panel-heading">
+  				<h4 class="panel-title">
+  					<div class="property-heading-row row">
+  						<div class="col-md-3">
+  							<span class="btn-toggle glyphicon glyphicon-plus" 
+                data-toggle="collapse" data-parent="#propertyAccordion" href="#property_{{ property.id }}"></span>
+  							{{ property.name }}
+  						</div>
+  						<div class="col-md-6">{{ property.address.full_address }}</div>
+  						<div class="pull-right">
+                <a class="btn btn-primary btn-xs" ng-href="/properties/{{property.id}}">Edit</a>
+                <a class="btn btn-success btn-xs" ng-href="/inspections/new?property_id={{property.id}}">Inspect</a>
+                <a class="btn btn-danger btn-xs" href="" ng-click="deleteProperty(property,$index)">Delete</a>
+  						</div>
+  					</div>
+  				</h4>
+  			</div>
+  		</div>
+    </div>
+    <div id="newPropertyModal" class="modal fade">
+  		<form ng-submit="createProperty()" class="form-horizontal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">New Property</h4>
+            </div>
+            <div class="modal-body">
+              <%= render "new_property_modal" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success">Add Property</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

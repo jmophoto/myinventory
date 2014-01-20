@@ -9,7 +9,7 @@ class Room < ActiveRecord::Base
   before_create :load_features
   
   scope :bedrooms, -> { where(room_type: "bedroom") }
-  scope :bathrooms, -> { where(room_type: "bathrooms") }
+  scope :bathrooms, -> { where(room_type: "bathroom") }
   
   def self.type_count(type)
     where(room_type: type).count

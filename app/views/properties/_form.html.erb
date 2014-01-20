@@ -1,82 +1,64 @@
-<%= form_for @property, :html => { :class => 'form-horizontal' } do |f| %>
-  <% if @property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
-
-      <ul>
-      <% @property.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions col-md-12 text-right save-property-button">
-    <%= f.submit "Save Property", :class => "btn btn-primary" %>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label :name, :class => "col-md-2 control-label" %>
-		<div class="col-md-10"><%= f.text_field :name, :class => "form-control", :placeholder => "Name"  %></div>
-	</div>
-
-  <div class="form-group">
-	  <%= f.label :address, :class => "col-md-2 control-label" %>
-		<div class="col-md-10"><%= f.text_field :address, :class => "form-control", :placeholder => "Address"  %></div>
-	</div>
-	
-	<div class="form-group">
-	  <%= f.label :city, "City / State / Zip", :class => "col-md-2 control-label" %>
-		<div class="col-md-6"><%= f.text_field :city, :class => "form-control", :placeholder => "City" %></div>
-		<div class="col-md-2"><%= f.select :state, states+providences, { :include_blank => "Select State" }, { :class => "form-control" } %></div>
-		<div class="col-md-2"><%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %></div>
-	</div>
-	
-	<div class="form-group">
-		<label class="col-md-2 control-label">Property Details</label>
-		<div class="col-md-10">
-			<% detail_list.each do |detail| %>
-				<div class="checkbox-inline">
-					<%= f.check_box :details, {:multiple => true}, detail, nil %>
-					<span class="detail-label"><%= detail %><span>
-				</div>
-			<% end %>
-		</div>
-	</div>
-	<% if @property.new_record? %>
-		<%= f.fields_for :room_count do |room_count| %>
-			<div class="form-group">
-				<label class="col-md-2 control-label">Number of Rooms</label>
-				<div id="room-count-row" class="col-md-10">
-						<% room_list.each do |room| %>
-							<div class="room-count-box col-md-2">
-								<%= room_count.text_field room.to_sym, :class => "form-control text-center" %>
-								<div class="text-center text-muted"><small><%= "#{room.titleize.pluralize}" %></small></div>
-							</div>
-						<% end %>
-				</div>
-			</div>
-		<% end %>
-		<%= f.fields_for :other_areas do |other_areas| %>
-			<div class="form-group">
-				<label class="col-md-2 control-label">Other Areas</label>
+<div class="col-md-10 col-md-offset-1" ng-init="stateList=<%= states %>;providenceList=<%= providences %>;detailList=<%= detail_list %>;roomList=<%= room_list %>">
+	<div ng-controller="PropertyController">
+		<form ng-submit="createProperty()" class="form-horizontal">
+			<div class="form-group row">
+        <label class="col-md-2 control-label">Name</label>
 				<div class="col-md-10">
-					<% area_list.each do |room| %>
-						<div class="checkbox-inline">
-							<%= other_areas.check_box room.to_sym, {:multiple => true}, 1, nil %>
-							<span class="detail-label"><%= room.titleize %><span>
-						</div>
-					<% end %>
+					<input class="form-control" ng-model="newProperty.name" placeholder="Name">
 				</div>
-			</div>	
-		<% end %>	
-	<% else %>
-		<div class="form-group">
-			<label class="col-md-2 control-label">Rooms</label>
-			<div class="col-md-10">
-				<%= render 'rooms' %>
 			</div>
-		</div>
-	<% end %>
-	
-<% end %>
+			<div class="form-group row">
+        <label class="col-md-2 control-label">Address / Unit</label>
+				<div class="col-md-7">
+					<input class="form-control" ng-model="newProperty.address_attributes.street1" placeholder="Street">
+				</div>
+				<div class="col-md-3">
+					<input class="form-control" ng-model="newProperty.address_attributes.street2" placeholder="Apt/Suite">
+				</div>
+			</div>
+			<div class="form-group row">
+        <label class="col-md-2 control-label">City / State / Zip</label>
+				<div class="col-md-4">
+					<input class="form-control" ng-model="newProperty.address_attributes.city" placeholder="City">
+				</div>
+				<div class="col-md-2" ng-hide="newProperty.address_attributes.country=='Canada'">
+					<select class="form-control" ng-model="newProperty.address_attributes.state" ng-options="state for state in stateList">
+						<option value="">State</option>
+					</select>
+				</div>
+				<div class="col-md-2" ng-show="newProperty.address_attributes.country=='Canada'">
+					<select class="form-control" ng-model="newProperty.address_attributes.state" ng-options="providence for providence in providenceList">
+						<option value="">Providence</option>
+					</select>
+				</div>
+				<div class="col-md-2">
+					<input class="form-control" ng-model="newProperty.address_attributes.zip" placeholder="Zip">
+				</div>
+				<div class="col-md-2">
+					<select class="form-control" ng-model="newProperty.address_attributes.country" ng-options="country for country in countryList">
+						<option value="">Country</option>
+					</select>
+				</div>
+			</div>
+      <div class="form-group row">
+        <label class="col-md-2 control-label">Details</label>
+        <div class="col-md-10">
+    			<span ng-repeat="detail in detailList">
+            <button ng-click="addDetailToList(detail)" type="button" 
+      							ng-class="{'btn-primary': checkForDetail(propertyDetailList,detail), 'btn-default': !checkForDetail(propertyDetailList,detail)}" 
+      							class="btn btn-sm">{{ detail }}
+      			</button>
+          </span>
+        </div>
+      </div>
+  		<div class="form-group row">
+        <label class="col-md-2 control-label">Room Count</label>
+  			<div class="room-count-box col-md-2" ng-repeat="room in room_list">
+          <input type="text" ng-model="room.count" class="form-control">
+  				<div class="text-center text-muted"><small>{{ room.name }}</small></div>
+  			</div>
+  		</div>
+      <button type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
+    </form>
+  </div>
+</div>
