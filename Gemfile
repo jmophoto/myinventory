@@ -15,7 +15,7 @@ gem 'fog'
 gem 'active_model_serializers'
 gem 'active_attr'
 gem 'pg'
-gem 'braintree-rails', :github => 'jmophoto/braintree-rails'
+gem 'braintree-rails'#, :github => 'jmophoto/braintree-rails'
 
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
