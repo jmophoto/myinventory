@@ -9,7 +9,7 @@ set :repo_url, 'git@github.com:jmophoto/inspeckd.git'
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/home/inspeckd'
-set :user, "root"
+set :user, 'root'
 set :ssh_options, { :forward_agent => true }
 
 # Default value for :scm is :git
