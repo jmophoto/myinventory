@@ -17,12 +17,14 @@ gem 'active_attr'
 gem 'pg'
 gem 'braintree-rails'#, :github => 'jmophoto/braintree-rails'
 
-# Use Capistrano for deployment
-gem 'capistrano', group: :development
-
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
   gem 'quiet_assets'
+  gem 'capistrano', '~> 3.0'
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rvm'
+  gem 'capistrano-nginx-unicorn', require: false
 end
 
 group :test do
