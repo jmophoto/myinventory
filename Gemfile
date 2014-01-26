@@ -15,7 +15,7 @@ gem 'fog'
 gem 'active_model_serializers'
 gem 'active_attr'
 gem 'pg'
-gem 'braintree-rails'#, :github => 'jmophoto/braintree-rails'
+gem 'braintree-rails', :github => 'jmophoto/braintree-rails'
 gem 'unicorn', '4.7.0'
 
 group :development, :test do
