@@ -24,8 +24,8 @@
 		</select>
 	</div>
 	<div class="col-md-2" ng-show="newProperty.address_attributes.country=='Canada'">
-		<select class="form-control" ng-model="newProperty.address_attributes.state" ng-options="providence for providence in providenceList">
-			<option value="">Providence</option>
+		<select class="form-control" ng-model="newProperty.address_attributes.state" ng-options="province for province in provinceList">
+			<option value="">Province</option>
 		</select>
 	</div>
 	<div class="col-md-2">

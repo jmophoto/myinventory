@@ -1,4 +1,4 @@
-<div class="col-md-10 col-md-offset-1" ng-init="stateList=<%= states %>;providenceList=<%= providences %>;detailList=<%= detail_list %>;roomList=<%= room_list %>">
+<div class="col-md-10 col-md-offset-1" ng-init="stateList=<%= states %>;provinceList=<%= provinces %>;detailList=<%= detail_list %>;roomList=<%= room_list %>">
 	<div ng-controller="PropertyController">
 		<form ng-submit="createProperty()" class="form-horizontal">
 			<div class="form-group row">
@@ -27,8 +27,8 @@
 					</select>
 				</div>
 				<div class="col-md-2" ng-show="newProperty.address_attributes.country=='Canada'">
-					<select class="form-control" ng-model="newProperty.address_attributes.state" ng-options="providence for providence in providenceList">
-						<option value="">Providence</option>
+					<select class="form-control" ng-model="newProperty.address_attributes.state" ng-options="province for province in provinceList">
+						<option value="">province</option>
 					</select>
 				</div>
 				<div class="col-md-2">

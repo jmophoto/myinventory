@@ -1,5 +1,5 @@
 <% provide(:title, "Profile") %>
-<div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>;providenceList=<%= providences %>">
+<div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>;provinceList=<%= provinces %>">
 	<div ng-controller="UserController">
 		<form ng-submit="editUser(user)" name="editUserForm">
 			<div class="panel panel-default">
@@ -44,8 +44,8 @@
 							</select>
 						</div>
 						<div class="col-md-4" ng-show="user.address.country=='Canada'">
-							<select class="form-control" ng-model="user.address.state" ng-options="providence for providence in providenceList">
-								<option value="">Select Providence</option>
+							<select class="form-control" ng-model="user.address.state" ng-options="province for province in provinceList">
+								<option value="">Select Province</option>
 							</select>
 						</div>
 						<div class="col-md-2">
@@ -99,8 +99,8 @@
 							</select>
 						</div>
 						<div class="col-md-4" ng-show="user.company.address.country=='Canada'">
-							<select class="form-control" ng-model="user.company.address.state" ng-options="providence for providence in providenceList">
-								<option value="">Select Providence</option>
+							<select class="form-control" ng-model="user.company.address.state" ng-options="province for province in provinceList">
+								<option value="">Select Province</option>
 							</select>
 						</div>
 						<div class="col-md-2">

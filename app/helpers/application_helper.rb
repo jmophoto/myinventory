@@ -185,7 +185,7 @@ module ApplicationHelper
       "Wyoming"]
     end
     
-    def providences 
+    def provinces
       ["British Columbia", 
       "Ontario", 
       "Newfoundland/Labrador", 

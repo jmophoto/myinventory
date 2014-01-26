@@ -1,4 +1,4 @@
-<div ng-init="propertyId='<%= @property.id %>';stateList=<%= states %>;providenceList=<%= providences %>;detailList=<%= detail_list %>;">
+<div ng-init="propertyId='<%= @property.id %>';stateList=<%= states %>;provinceList=<%= provinces %>;detailList=<%= detail_list %>;">
 	<div class="panel-group" id="accordion" ng-controller="PropertyController">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
@@ -49,8 +49,8 @@
     					</select>
     				</div>
     				<div class="col-md-3" ng-show="property.address.country=='Canada'">
-    					<select class="form-control" ng-model="property.address.state" ng-options="providence for providence in providenceList">
-    						<option value="">Select Providence</option>
+    					<select class="form-control" ng-model="property.address.state" ng-options="province for province in provinceList">
+    						<option value="">Select Province</option>
     					</select>
     				</div>
     				<div class="col-md-2">

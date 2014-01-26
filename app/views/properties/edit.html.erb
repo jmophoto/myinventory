@@ -2,7 +2,7 @@
 <div class="col-md-10 col-md-offset-1" 
      ng-init="propertyId=<%= @property.id %>;
               stateList=<%= states %>;
-              providenceList=<%= providences %>;
+              provinceList=<%= provinces %>;
               detailList=<%= detail_list %>;
               roomList=<%= room_list %>">
 	<div ng-controller="PropertyController">
@@ -30,8 +30,8 @@
 					</select>
 				</div>
 				<div class="col-md-3" ng-show="property.address.country=='Canada'">
-					<select class="form-control" ng-model="property.address.state" ng-options="providence for providence in providenceList">
-						<option value="">Select Providence</option>
+					<select class="form-control" ng-model="property.address.state" ng-options="province for province in provinceList">
+						<option value="">Select Province</option>
 					</select>
 				</div>
 				<div class="col-md-2">
