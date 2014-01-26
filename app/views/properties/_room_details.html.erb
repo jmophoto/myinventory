@@ -1,22 +1,22 @@
-<div class="panel-collapse collapse" id="room_{{ room.id }}" ng-controller="FeatureController">
-  <div class="panel-body">
-		<form class="form-inline pull-right" ng-submit="addFeature($parent.$index,room)">
-			<div class="form-group">
-				<input type="text" class="form-control" ng-model="newFeature.name" placeholder="New Feature" ng-submit="addFeature($parent.$index,room)">
-			</div>
-			<button class="btn btn-sm btn-default">Add</button>
-		</form>
-	</div>
-  <table class="table table-hover">
-    <tr ng-repeat="feature in room.features">
-			<td class="col-md-11 room-detail-item">
-        {{ feature }}
-			</td>
-			<td class="col-md-1 room-detail-item">
-				<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature($parent.$index,feature,$index)">
+<div class="panel-collapse collapse" id="room_{{ room.id }}"> 
+	<div class="panel-body">
+    <div class="row" ng-repeat="feature in room.features">
+			<div class="col-md-10 room-detail-item">{{ feature }}</div>
+			<div class="col-md-2 room-detail-item">
+				<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteFeature(feature,$index,$parent.$index)">
 					<span class="glyphicon glyphicon-trash"></span>
 				</button>
-			</td>
-		</tr>
-  </table>
+			</div>
+    </div>
+		<div class="row">
+			<div class="col-md-3 room-detail-item">
+				<form class="form-inline" ng-submit="addFeature($index)">
+					<div class="form-group">
+						<input type="text" class="form-control" ng-model="newFeature.name" placeholder="New Feature">
+					</div>
+					<button class="btn btn-sm btn-success pull-right">Add</button>
+				</form>
+			</div>
+		</div>
+  </div>
 </div>

@@ -159,6 +159,7 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
   $scope.propertyDetailList ||= []
   $scope.propertyAreaList ||= []
   $scope.countryList = ['USA','Canada']
+  $scope.newFeature = {}
   
   $scope.checkForDetail = (scope,detail) ->
     scope.indexOf(detail) > -1
@@ -215,7 +216,6 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
     if confirmVariable == true
       Property.delete(property)
       $scope.properties.splice(index, 1)
-
   $scope.addRoom = ->
     room = Room.save({property_id: $scope.propertyId, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
     $scope.property.rooms.push(room)
@@ -229,6 +229,19 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
 
   $scope.editRoom = (room) ->
     Room.update(room)
+    
+  $scope.addFeature = (index) ->
+    if $scope.property.rooms[index].features is null
+      $scope.property.rooms[index].features = [$scope.newFeature.name]
+    else
+      $scope.property.rooms[index].features.push($scope.newFeature.name)
+    Room.update($scope.property.rooms[index])
+    $scope.newFeature = {}
+    
+  $scope.deleteFeature = (feature,index,room_index) ->
+    $scope.property.rooms[room_index].features.splice(index,1)
+    Room.update($scope.property.rooms[room_index])
+    
 ]
 
 @FeatureController = ["$scope", "Feature", ($scope, Feature) ->
