@@ -44,6 +44,7 @@ Inspeckd::Application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
   get '/profile', to: 'users#edit'
+  get '/support', to: 'static_pages#support'
 
   root 'static_pages#home'
 end

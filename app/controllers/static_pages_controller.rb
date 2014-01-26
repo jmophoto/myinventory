@@ -20,4 +20,7 @@ class StaticPagesController < ApplicationController
   
   def properties
   end
+  
+  def support
+  end
 end
