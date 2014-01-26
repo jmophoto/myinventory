@@ -216,7 +216,6 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
       $scope.properties.splice(index, 1)
 
   $scope.addRoom = ->
-    alert($scope.propertyId)
     room = Room.save({property_id: $scope.propertyId, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
     $scope.property.rooms.push(room)
     $scope.newRoom = {}
