@@ -4,10 +4,18 @@ class AddressesController < ApplicationController
   # GET /addresses
   def index
     @addresses = Address.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @addresses, root: false }
+    end
   end
 
   # GET /addresses/1
   def show
+    respond_to do |format|
+      format.html
+      format.json { render :json => @addresses, root: false }
+    end
   end
 
   # GET /addresses/new

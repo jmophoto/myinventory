@@ -21,4 +21,10 @@ class Address < ActiveRecord::Base
     full_address += "  #{self.zip}" unless self.zip.nil?
   end
   
+  def street_address
+    full_address = ""
+    full_address += "#{self.street1}," unless self.street1.nil?
+    full_address += " #{self.street2}" unless self.street2.blank?
+  end
+  
 end

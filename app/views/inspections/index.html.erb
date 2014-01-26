@@ -1,35 +1,30 @@
 <% provide(:title, "Inspections") %>
-<div class="row">
-	<div class="col-md-4 pull-left form-header">My Inspections</div>
+<div class="col-md-12" ng-init="stateList=<%= states %>;providenceList=<%= providences %>;detailList=<%= detail_list %>;">
+  <div ng-controller="InspectionController">
+    <div class="row">
+    	<div class="col-md-8 pull-left form-header">My Inspections</div>
+    </div>
+    <div class="panel-group" id="inspectionAccordion">
+  		<div class="property-panel panel panel-default" ng-repeat="inspection in inspections">
+  			<div class="panel-heading">
+  				<h4 class="panel-title">
+  					<div class="property-heading-row row">
+  						<div class="col-md-4">
+  							<span class="btn-toggle glyphicon glyphicon-plus" 
+                data-toggle="collapse" data-parent="#inspectionAccordion" href="#inspection_{{ inspection.id }}"></span>
+  							{{ inspection.address.street_address }}
+  						</div>
+  						<div class="col-md-4">
+  							{{ inspection.inspection_date | date:'mediumDate' }}
+  						</div>
+  						<div class="pull-right">
+                <a class="btn btn-primary btn-xs" ng-href="/inspections/{{inspection.id}}">Show</a>
+                <a class="btn btn-danger btn-xs" href="" ng-click="deleteInspection(inspection,$index)">Delete</a>
+  						</div>
+  					</div>
+  				</h4>
+  			</div>
+  		</div>
+    </div>
+  </div>
 </div>
-
-<table class="table table-hover table-striped">
-  <thead>
-    <tr>
-			<th>Address</th>
-      <th>Unit</th>
-      <th>Tenant</th>
-      <th>Type</th>
-      <th>Inspected by</th>
-      <th>Inspection date</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @inspections.each do |inspection| %>
-      <tr>
-				<td><%= inspection.address %></td>
-        <td><%= inspection.unit %></td>
-        <td><%= inspection.tenant %></td>
-        <td><%= inspection.inspection_type %></td>
-        <td><%= inspection.inspected_by %></td>
-        <td><%= inspection.inspection_date %></td>
-				<td class="text-right">
-					<%= link_to 'Show', inspection, :class => "btn btn-success btn-xs" %>
-					<%= link_to 'Delete', inspection, method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger btn-xs" %>
-				</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

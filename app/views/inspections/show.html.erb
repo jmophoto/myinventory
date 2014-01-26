@@ -10,8 +10,7 @@
 					<div class="row">
 						<div class="col-md-7 inspection-address">
 							<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#inspection-details"></span>
-							<%= @inspection.address %>
-							<% unless @inspection.unit.blank? %> #<%= @inspection.unit %><% end %>
+							{{ inspection.address.street_address }}
 						</div>
 						<form class="add-room-form form-inline pull-right" role="form" ng-submit="addRoom()">
 							<div class="form-group">

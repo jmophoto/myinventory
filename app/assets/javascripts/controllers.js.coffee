@@ -57,6 +57,7 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
 ]
 
 @InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", ($scope, InspectedRoom, Inspection, Image, Detail) ->
+  $scope.inspections = Inspection.query()
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
 
   $scope.editInspection = (inspection) ->
