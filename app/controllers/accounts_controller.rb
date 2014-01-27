@@ -25,7 +25,7 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
 
     if @account.save
-      redirect_to @account, notice: 'Account was successfully created.'
+      redirect_to @account
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1
   def update
     if @account.update(account_params)
-      redirect_to @account, notice: 'Account was successfully updated.'
+      redirect_to @account
     else
       render action: 'edit'
     end
@@ -43,7 +43,7 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1
   def destroy
     @account.destroy
-    redirect_to accounts_url, notice: 'Account was successfully destroyed.'
+    redirect_to accounts_url
   end
 
   private

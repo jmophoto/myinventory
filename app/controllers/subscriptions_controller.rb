@@ -26,7 +26,7 @@ class SubscriptionsController < ApplicationController
 
     if @subscription.save
       @user.create_subscription(subscription_id: @subscription.id, end_date: Date.parse(@subscription.paid_through_date), plan_id: @subscription.plan_id)
-      redirect_to profile_path, notice: 'Subscription was successfully created.'
+      redirect_to profile_path
     else
       render action: 'new'
     end
@@ -35,7 +35,7 @@ class SubscriptionsController < ApplicationController
   # PATCH/PUT /subscriptions/1
   def update
     if @subscription.update(subscription_params)
-      redirect_to @subscription, notice: 'Subscription was successfully updated.'
+      redirect_to @subscription
     else
       render action: 'edit'
     end
@@ -44,7 +44,7 @@ class SubscriptionsController < ApplicationController
   # DELETE /subscriptions/1
   def destroy
     @subscription.destroy
-    redirect_to subscriptions_url, notice: 'Subscription was successfully destroyed.'
+    redirect_to subscriptions_url
   end
 
   private

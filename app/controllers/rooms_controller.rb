@@ -34,7 +34,7 @@ class RoomsController < ApplicationController
 
     if @room.save
       respond_to do |format|
-        format.html { redirect_to @room, notice: 'Room was successfully created.' }
+        format.html { redirect_to @room }
         format.json { render :json => @room.to_json }
       end
     else
@@ -46,7 +46,7 @@ class RoomsController < ApplicationController
   def update
     if @room.update(room_params)
       respond_to do |format|
-        format.html { redirect_to @room, notice: 'Room was successfully updated.' }
+        format.html { redirect_to @room }
       end
     else
       render action: 'edit'
@@ -57,7 +57,7 @@ class RoomsController < ApplicationController
   def destroy
     @room.destroy
     respond_to do |format|
-      format.html { redirect_to rooms_url, notice: 'Room was successfully destroyed.' }
+      format.html { redirect_to rooms_url }
       format.json { head :no_content }
     end
   end

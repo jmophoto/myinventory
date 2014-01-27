@@ -40,10 +40,14 @@ class AddressesController < ApplicationController
 
   # PATCH/PUT /addresses/1
   def update
-    if @address.update(address_params)
-      redirect_to @address, notice: 'Address was successfully updated.'
-    else
-      render action: 'edit'
+    respond_to do |format|
+      if @address.update(address_params)
+        format.html { redirect_to @address, notice: 'Address was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @address.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -42,6 +42,7 @@ class InspectionDetailsController < ApplicationController
     if @inspection_detail.update(inspection_detail_params)
       respond_to do |format|
         format.html { redirect_to @inspection_detail, notice: 'Inspection detail was successfully updated.' }
+        format.json { head :no_content }
       end
     else
       render action: 'edit'
@@ -51,7 +52,10 @@ class InspectionDetailsController < ApplicationController
   # DELETE /inspection_details/1
   def destroy
     @inspection_detail.destroy
-    redirect_to inspection_details_url, notice: 'Inspection detail was successfully destroyed.'
+    respond_to do |format|
+      format.html { redirect_to inspection_details_url, notice: 'Inspection detail was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private

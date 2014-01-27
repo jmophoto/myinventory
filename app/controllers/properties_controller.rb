@@ -53,7 +53,7 @@ class PropertiesController < ApplicationController
   # DELETE /properties/1
   def destroy
     @property.destroy
-    redirect_to properties_url, notice: 'Property was successfully destroyed.'
+    redirect_to properties_url
   end
 
   private
