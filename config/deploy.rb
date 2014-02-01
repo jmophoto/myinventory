@@ -3,6 +3,7 @@ lock '3.1.0'
 
 set :application, 'inspeckd'
 set :repo_url, 'git@github.com:jmophoto/inspeckd.git'
+set :branch, 'inspeckd'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
