@@ -29,9 +29,9 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/inspeckd"
       sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_inspeckd"
-      run "mkdir -p #{shared_path}/config"
-      put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
-      puts "Now edit the config files in #{shared_path}."
+      # run "mkdir -p #{shared_path}/config"
+      # put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
+      # puts "Now edit the config files in #{shared_path}."
     end
   end
   after "deploy:check", "deploy:setup_config"
