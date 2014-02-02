@@ -36,12 +36,12 @@ namespace :deploy do
   end
   after "deploy:check", "deploy:setup_config"
 
-  task :symlink_config do
-    on roles(:app), in: :sequence, wait: 5 do
-      run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    end
-  end
-  after :finished, "deploy:symlink_config"
+  # task :symlink_config do
+  #   on roles(:app), in: :sequence, wait: 5 do
+  #     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  #   end
+  # end
+  # after :finished, "deploy:symlink_config"
 
   desc "Make sure local git is in sync with remote."
   task :check_revision do
