@@ -1,15 +1,15 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'inspeckd'
+set :application, 'myinventory'
 set :repo_url, 'git@github.com:jmophoto/inspeckd.git'
-set :branch, 'inspeckd'
+set :branch, 'myinventory'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/inspeckd'
+set :deploy_to, '/home/myinventory'
 set :user, 'root'
 set :ssh_options, { :forward_agent => true }
 
@@ -27,8 +27,8 @@ namespace :deploy do
 
   task :setup_config do
     on roles(:app), in: :sequence, wait: 5 do
-      sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/inspeckd"
-      sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_inspeckd"
+      sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/myinventory"
+      sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_myinventory"
       # run "mkdir -p #{shared_path}/config"
       # put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
       # puts "Now edit the config files in #{shared_path}."
