@@ -1,5 +1,5 @@
 <header>
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+	<nav class="navbar navbar-default" role="navigation">
 	  <div class="container">
 		  <div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -8,20 +8,15 @@
 		      <span class="icon-bar"></span>
 		      <span class="icon-bar"></span>
 				</button>
-		    <%= link_to (image_tag "http://inspeckd.s3.amazonaws.com/v13/logo2.png", :class => "navbar-brand", :id => "nav-logo"), root_path %>
-		  </div>
-			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<div class="navbar-right">
-					<% if signed_in? %>
-						<%= render :partial => 'layouts/user_links' %>
-					<% else %>
-				  	<%= render :partial => 'layouts/public_links' %>
-					<% end %>
-					<%= link_to (image_tag 'http://inspeckd.s3.amazonaws.com/v13/fb.png'), "http://www.facebook.com/pages/Inspeckd/391294610963596?fref=ts", :class => "social-link" %>
-				</div>
-			</div>
-		</div>
-	</nav>
+        <ul class="nav navbar-nav navbar-right">
+        	<li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "About Inspeckd", about_path %></li>
+        	<li><%= link_to "Get Started", signup_path %></li>
+        	<li><%= link_to "Contact", contact_path %></li>
+        </ul>
+  		</div>
+  	</nav>
+		<%= link_to (image_tag "mi_logo.tif", :class => "navbar-brand", :id => "nav-logo"), root_path %>
 </header>
 
 

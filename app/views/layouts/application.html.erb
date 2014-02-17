@@ -3,23 +3,10 @@
 	<%= render :partial => 'layouts/head_tags' %>
 	<body>
 		<%= render :partial => 'layouts/header' %>
-		<div id="main-content">
-			<% if signed_in? %>
-				<% if current_user.subscription.subscription_type == "free" %>
-					<div class="alert alert-info container text-center">
-						Welcome to Inspeckd. You have <%= distance_of_time_in_words_to_now(current_user.subscription.end_date) %> left in your trial period.
-						<%= link_to "Click here to upgrade.", profile_path, class: "alert-link" %>
-					</div>
-				<% end %>
-			<% end %>
-			<div class="container">
-				<%= yield %>
-			</div>
+		<div class="container">
+			<%= yield %>
 		</div>
 		<%= render :partial => 'layouts/footer' %>
-		<div class="container">
-			<%= debug(params) if Rails.env.development? %>
-		</div>
 		<%= yield :javascript %>
 	</body>
 </html>
