@@ -1,3 +1,4 @@
+@import 'colors';
 #homepage {
   
   #homepage-top {
@@ -21,10 +22,10 @@
   }
   
   #homepage-tagline {
-    color: rgb(255,255,224);
+    color: $lightyellow;
     text-align: center;
     padding: 40px 60px;
-    background-color: rgb(155,189,190);
+    background-color: $sagegreen;
     .tagline-title {
       font-size: 2em;
     }
@@ -40,16 +41,16 @@
   .homepage-block {
     padding: 20px 40px;
     text-align: center;
-    color: #5F7FB0;
+    color: $skyblue;
     span {
       min-height: 180px;
     }
     .head {
       font-weight: bold;
-      color: #A37053;
+      color: $sandstone
     }
     .body {
-      color: #A37053;
+      color: $sandstone;
       font-size: .8em;
     }
   }
