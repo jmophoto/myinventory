@@ -22,15 +22,16 @@
   }
   
   #homepage-tagline {
-    color: $lightyellow;
     text-align: center;
     padding: 40px 60px;
     background-color: $sagegreen;
     .tagline-title {
-      font-size: 2em;
+      font-size: 2.2em;
+      color: $lightyellow;
     }
     .tagline-body {
-      font-size: 1.6em;
+      font-size: 1.2em;
+      color: white;
     }
   }
   
@@ -47,7 +48,8 @@
     }
     .head {
       font-weight: bold;
-      color: $sandstone
+      color: $sandstone;
+      font-size: 1.2em;
     }
     .body {
       color: $sandstone;
