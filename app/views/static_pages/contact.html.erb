@@ -1,5 +1,5 @@
 <% provide(:title, "Contact") %>
-<div id="contactPage">
+<div class="static-page">
 	<div class="container">
 		<div class="row">
 			<div id="contactInfo" class="col-md-5 col-md-offset-1">
@@ -40,7 +40,7 @@
 								<textarea type="text" name="content" ng-model="newMessage.content" class="form-control" 
 																											placeholder="Your Message" rows="8" required></textarea>
 							</div>
-							<button type="submit" ng-disabled="!contactForm.$valid" class="btn btn-sm btn-success pull-right">Send Message</button>
+							<button type="submit" ng-disabled="!contactForm.$valid" class="btn btn-sm btn-primary pull-right">Send Message</button>
 						</form>
 					</div>
 					<div ng-show="messageSent">

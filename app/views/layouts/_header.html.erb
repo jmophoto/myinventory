@@ -1,4 +1,4 @@
-<header id="homepage-top">
+<header>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -9,15 +9,16 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-      <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
         	<li><%= link_to "home", root_path %></li>
           <li><%= link_to "about mi", about_path %></li>
         	<li><%= link_to "get started", signup_path %></li>
         	<li><%= link_to "contact", contact_path %></li>
         </ul>
-        <%= image_tag 'mi_logo_white.png', class: 'mi-logo navbar-right' %>
       </div>
+      <%= image_tag 'mi_logo_white.png', class: 'mi-logo pull-right' %>
+    </div>
   </nav>
 </header>
 

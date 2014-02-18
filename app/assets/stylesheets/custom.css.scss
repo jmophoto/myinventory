@@ -15,26 +15,31 @@ body {
 }
 
 header {
-  background-color: $sandstone;
-  height: 140px;
+  background-color: $skyblue;
+  height: 100px;
   font-size: 1.4em;
-  .navbar-nav {
-    margin-top: 55px;
-    line-height: 120px;
+  nav {
+    padding-top: 20px;
+    font-size: 1em;
+  }
+  .mi-logo {
+    position: absolute;
+    right: 200px;
+    top: 10px;
+    height: 80px;
   }
 }
 
-.mi-logo {
-  margin-left: 20px;
-  height: 120px;
+section {
+
 }
+
 
 footer {
   text-align: center;
-  width: 100%;
   height: 40px;
   color: white;
-  background-color: $sandstone;
+  background-color: $sandstone !important;
   line-height: 40px;
 }
 

@@ -4,12 +4,14 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+    render :layout => 'static_page'
   end
   
   def signup
   end
   
   def contact
+    render :layout => 'static_page'
     @message = Message.new
   end
   
