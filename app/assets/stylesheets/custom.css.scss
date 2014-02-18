@@ -4,7 +4,7 @@ $navbar-margin-bottom: 0px;
 $navbar-border-color: white;
 $navbar-default-link-color: white;
 $navbar-default-link-hover-color: $lightyellow;
-$brand-primary: #5F7FB0;
+$brand-primary: $skyblue;
 
 @import "twitter/bootstrap";
 
@@ -15,10 +15,9 @@ body {
 }
 
 header {
-  background-color: #A37053;
+  background-color: $sandstone;
   height: 140px;
   font-size: 1.4em;
-//  border-bottom: 10px solid #5F7FB0;
   .navbar-nav {
     margin-top: 55px;
     line-height: 120px;
