@@ -8,7 +8,8 @@
     background-size: 100%;
     color: #FABC89;
     nav {
-      font-size: 1.4em;
+      margin-top: -40px;
+      font-size: 1em;
     }
   }
   
@@ -17,6 +18,19 @@
     position: absolute;
     right: 40px;
     top: 40px;
+  }
+  
+  #homepage-tagline {
+    color: rgb(255,255,224);
+    text-align: center;
+    padding: 40px 60px;
+    background-color: rgb(155,189,190);
+    .tagline-title {
+      font-size: 2em;
+    }
+    .tagline-body {
+      font-size: 1.6em;
+    }
   }
   
   section {
