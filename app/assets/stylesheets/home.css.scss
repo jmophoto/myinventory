@@ -1,12 +1,15 @@
 #homepage {
   
-  header {
+  #homepage-top {
     height: 520px;
     background-color: none;
     background-image: image-url("mi_background.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     color: #FABC89;
+    nav {
+      font-size: 1.4em;
+    }
   }
   
   .hompage_logo {
@@ -35,11 +38,6 @@
       color: #A37053;
       font-size: .8em;
     }
-  }
-  
-  footer {
-    height: 40px;
-    background-color: #A37053;
   }
   
 }

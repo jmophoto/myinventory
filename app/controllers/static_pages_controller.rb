@@ -4,7 +4,6 @@ class StaticPagesController < ApplicationController
   end
 
   def about
-    render :layout => 'about'
   end
   
   def signup
@@ -12,7 +11,6 @@ class StaticPagesController < ApplicationController
   
   def contact
     @message = Message.new
-    render :layout => 'contact'
   end
   
   def profile

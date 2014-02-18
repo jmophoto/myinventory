@@ -3,15 +3,27 @@
 	<%= render :partial => 'layouts/head_tags' %>
 	<body id="homepage">
     <header id="homepage-top">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            	<li><%= link_to "home", root_path %></li>
+              <li><%= link_to "about mi", about_path %></li>
+            	<li><%= link_to "get started", signup_path %></li>
+            	<li><%= link_to "contact", contact_path %></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <%= image_tag 'mi_logo_white.png', class: 'hompage_logo' %>
-      <div class="container">
-        <ul class="nav navbar-nav">
-        	<li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "About Inspeckd", about_path %></li>
-        	<li><%= link_to "Get Started", signup_path %></li>
-        	<li><%= link_to "Contact", contact_path %></li>
-        </ul>
-      </div>
     </header>
     <section id="homepage-main">
       <div class="container">

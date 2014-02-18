@@ -1,10 +1,10 @@
 $navbar-height: 100px;
-$navbar-default-bg: white;
+$navbar-default-bg: rgba(0,0,0,0);
 $navbar-margin-bottom: 0px;
-$navbar-border-color: black;
-$navbar-default-link-color: black;
-$navbar-default-link-hover-color: black;
-$navbar-default-link-color: #FABC89;
+$navbar-border-color: white;
+$navbar-default-link-color: white;
+$navbar-default-link-color: white;
+$brand-primary: #5F7FB0;
 
 @import "twitter/bootstrap";
 
@@ -14,62 +14,29 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-#main-content {
-  min-height: 500px;
-  border-top: 14px solid #0173A5;
-  padding-top:20px;
-  padding-bottom: 40px;
-  
-  h1 {
-  font-family: 'Open Sans';
-  font-weight: bold;
+header {
+  background-color: #A37053;
+  height: 140px;
+  font-size: 1.4em;
+  border-bottom: 10px solid #5F7FB0;
+  .navbar-nav {
+    margin-top: 55px;
+    line-height: 120px;
   }
-  
 }
 
-.navbar-brand {
-  height: 200px;
-  padding-top: 25px;
-  padding-bottom: 20px;
+.mi-logo {
+  margin-left: 20px;
+  height: 120px;
 }
 
 footer {
   text-align: center;
   width: 100%;
-  height: 140px;
+  height: 40px;
   color: white;
-  background-color: #333;
+  background-color: #A37053;
   line-height: 40px;
-}
-
-.social-link img {
-  height: 25px;
-  margin: 4px 10px 0;
-}
-
-.form-header {
-  font-size: 2.5em;
-  color: #999999;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: lighter;
-  line-height: 2em;
-}
-
-#error_explanation {
-  color: #f00;
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
-  }
-}
-
-.field_with_errors {
-  @extend .control-group;
-  @extend .danger;
-}
-
-.alert-error {
-  @extend .alert-danger;
 }
 
 
