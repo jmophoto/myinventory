@@ -3,7 +3,9 @@
 	<%= render :partial => 'layouts/head_tags' %>
 	<body>
 		<%= render :partial => 'layouts/header' %>
-		<%= yield %>
+		<div id="main-container">
+      <%= yield %>
+    </div>
 		<%= render :partial => 'layouts/footer' %>
 		<%= yield :javascript %>
 	</body>

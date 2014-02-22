@@ -1,8 +1,8 @@
-<% provide(:title, "Inspections") %>
+<% provide(:title, "Inventories") %>
 <div class="col-md-12" ng-init="stateList=<%= states %>;provinceList=<%= provinces %>;detailList=<%= detail_list %>;">
   <div ng-controller="InspectionController">
     <div class="row">
-    	<div class="col-md-8 pull-left form-header">My Inspections</div>
+    	<div class="col-md-8 pull-left form-header">My Inventories</div>
     </div>
     <div class="panel-group" id="inspectionAccordion">
   		<div class="property-panel panel panel-default" ng-repeat="inspection in inspections">

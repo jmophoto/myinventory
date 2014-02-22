@@ -1,4 +1,4 @@
-<% provide(:title, "Show Inspection") %>
+<% provide(:title, "Show Inventory") %>
 <div class="btn-top">
 	<%= link_to "Show PDF", inspection_path(@inspection, format: "pdf"), class: "btn btn-primary btn-sm btn-save", target: "_blank" %>
 </div>
@@ -10,7 +10,7 @@
 					<div class="row">
 						<div class="col-md-7 inspection-address">
 							<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#inspection-details"></span>
-							{{ inspection.address.street_address }}
+							{{ inspection.address.full_address }}
 						</div>
 						<form class="add-room-form form-inline pull-right" role="form" ng-submit="addRoom()">
 							<div class="form-group">
@@ -28,15 +28,6 @@
 				</div>
 			</div>
 			<%= render :partial => 'inspection_details' %>
-		</div>
-		<div class="room-panel panel panel-default">
-		  <div class="room-heading panel-heading">
-				<div class="room-title panel-titlepanel-title">
-					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#property-details"></span>
-					Property Details
-				</div>
-			</div>
-			<%= render :partial => 'property_details' %>
 		</div>
 		<div class="room-panel panel panel-default" ng-repeat="room in inspection.inspected_rooms">
 		  <div class="room-heading panel-heading">

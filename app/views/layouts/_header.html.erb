@@ -9,14 +9,25 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <% if current_user %>
         <ul class="nav navbar-nav">
-        	<li><%= link_to "home", root_path %></li>
-          <li><%= link_to "about mi", about_path %></li>
-        	<li><%= link_to "get started", signup_path %></li>
-        	<li><%= link_to "contact", contact_path %></li>
+          <li><%= link_to "properties", properties_path %></li>
+          <li><%= link_to "inventories", inspections_path %></li>
+        	<li><%= link_to "profile", profile_path %></li>
+        	<li><%= link_to "support", support_path %></li>
+          <li><%= link_to 'sign out', signout_path, method: "delete" %></li>
         </ul>
-      </div>
+      <% else %>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          	<li><%= link_to "home", root_path %></li>
+            <li><%= link_to "about mi", about_path %></li>
+          	<li><%= link_to "get started", signup_path %></li>
+          	<li><%= link_to "contact", contact_path %></li>
+            <li><%= link_to "sign in", signin_path %></li>
+          </ul>
+        </div>
+      <% end %>
       <%= image_tag 'mi_logo_white.png', class: 'mi-logo pull-right' %>
     </div>
   </nav>

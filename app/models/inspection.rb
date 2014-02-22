@@ -15,7 +15,7 @@ class Inspection < ActiveRecord::Base
   
   # before_save :parse_date
   after_create :add_rooms
-  after_create :add_details
+  # after_create :add_details
   
   default_scope order('inspection_date DESC')
   
@@ -29,9 +29,9 @@ class Inspection < ActiveRecord::Base
     unless self.property.nil?
       self.property.rooms.each do |room|
         inspected_room = self.inspected_rooms.create!(name: room.name)
-        room.features.each do |feature|
-          inspected_room.inspected_features.create!(name: feature)
-        end
+        # room.features.each do |feature|
+        #   inspected_room.inspected_features.create!(name: feature)
+        # end
       end
     end
   end

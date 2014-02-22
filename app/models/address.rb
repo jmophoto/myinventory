@@ -14,17 +14,19 @@ class Address < ActiveRecord::Base
   
   def full_address
     full_address = ""
-    full_address += "#{self.street1}," unless self.street1.nil?
-    full_address += " #{self.street2}," unless self.street2.blank?
-    full_address += " #{self.city}," unless self.city.nil?
-    full_address += " #{self.state}" unless self.state.nil?
+    full_address += "#{self.street1}" unless self.street1.nil?
+    full_address += ", #{self.street2}" unless self.street2.blank?
+    full_address += ", #{self.city}" unless self.city.nil?
+    full_address += ", #{self.state}" unless self.state.nil?
     full_address += "  #{self.zip}" unless self.zip.nil?
+    full_address
   end
   
   def street_address
     full_address = ""
-    full_address += "#{self.street1}," unless self.street1.nil?
-    full_address += " #{self.street2}" unless self.street2.blank?
+    full_address += "#{self.street1}" unless self.street1.blank?
+    full_address += ", #{self.street2}" unless self.street2.blank?
+    full_address
   end
   
 end

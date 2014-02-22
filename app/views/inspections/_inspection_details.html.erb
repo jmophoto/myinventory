@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label class="col-md-6 control-label">Inspection Type</label>
+						<label class="col-md-6 control-label">Inventory Type</label>
 						<div class="col-md-6">
 							<select class="form-control disabled" ng-model="inspection.inspection_type" ng-disabled="inspection_editing">
 								<% inspection_types.each do |type| %>
@@ -14,13 +14,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-6 control-label">Tenant</label>
-						<div class="col-md-6">
-							<input type="text" class="form-control disabled" ng-model="inspection.tenant" ng-disabled="inspection_editing" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-md-6 control-label">Inspected By</label>
+						<label class="col-md-6 control-label">Inventoried By</label>
 						<div class="col-md-6">
 							<input type="text" class="form-control disabled" ng-model="inspection.inspected_by" ng-disabled="inspection_editing" />
 						</div>
@@ -28,7 +22,7 @@
 				</div>
 				<div class="col-md-5">
 					<div class="form-group">
-						<label class="col-md-6 control-label">Inspection Date</label>
+						<label class="col-md-6 control-label">Inventory Date</label>
 						<div class="col-md-6 input-group">
 							<input type="text" class="form-control disabled" 
 									   ng-model="inspection.inspection_date" ng-disabled="inspection_editing" data-date-format="yyyy-mm-dd" bs-datepicker>

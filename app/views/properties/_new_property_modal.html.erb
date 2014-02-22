@@ -38,33 +38,11 @@
 	</div>
 </div>
 <div class="form-group row">
-  <label class="col-md-2 control-label">Details</label>
-  <div class="col-md-10">
-		<span ng-repeat="detail in detailList">
-      <button ng-click="addDetailToList(detail)" type="button" 
-							ng-class="{'btn-primary': checkForDetail(propertyDetailList,detail), 'btn-default': !checkForDetail(propertyDetailList,detail)}" 
-							class="btn btn-md">{{ detail }}
-			</button>
-    </span>
-  </div>
-</div>
-<div class="form-group row">
   <label class="col-md-2 control-label">Room Count</label>
   <div class="col-md-10 room-count-boxes">
   	<div class="room-count-box col-md-2" ng-repeat="room in room_list">
       <input type="text" ng-model="room.count" class="form-control text-center">
   		<div class="text-center text-muted"><small>{{ room.name }}</small></div>
   	</div>
-  </div>
-</div>
-<div class="form-group row">
-  <label class="col-md-2 control-label">Details</label>
-  <div class="col-md-10">
-		<span ng-repeat="area in area_list">
-      <button ng-click="addAreaToList(area.type)" type="button" 
-							ng-class="{'btn-primary': checkForArea(propertyAreaList,area.type), 'btn-default': !checkForArea(propertyAreaList,area.type)}" 
-							class="btn btn-md">{{ area.name }}
-			</button>
-    </span>
   </div>
 </div>

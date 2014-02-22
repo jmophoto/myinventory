@@ -6,7 +6,7 @@ class Room < ActiveRecord::Base
   
   serialize :features
   
-  before_create :load_features
+  # before_create :load_features
   
   scope :bedrooms, -> { where(room_type: "bedroom") }
   scope :bathrooms, -> { where(room_type: "bathroom") }
