@@ -13,7 +13,7 @@ set :deploy_to, '/home/myinventory'
 set :user, 'root'
 set :ssh_options, { :forward_agent => true }
 
-after "deploy", "restart_unicorn", "deploy:cleanup" # keep only the last 5 releases
+after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :deploy do
   # %w[start stop restart].each do |command|
@@ -31,6 +31,7 @@ namespace :deploy do
       run "service unicorn_#{application} restart"
     end 
   end
+  after "deploy", "deploy:restart_unicorn"
     
 
   task :setup_config do
