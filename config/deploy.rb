@@ -28,7 +28,7 @@ namespace :deploy do
   
   task :restart_unicorn do
     on roles(:app), in: :sequence, wait: 5 do
-      run "service unicorn_#{application} restart"
+      run "service unicorn_myinventory restart"
     end 
   end
   after "deploy", "deploy:restart_unicorn"
