@@ -7,16 +7,15 @@ class InspectionPdf < Prawn::Document
     logo_box
     header_box
     address
-    details
     rooms
-    property_images
-    room_images
+    # property_images
+    # room_images
   end
   
   def logo_box
     bounding_box([bounds.left, bounds.top], width: 300) do
       if @inspection.user.company.logo.nil?
-        image "#{Rails.root}/app/assets/images/logo.png"
+        image "#{Rails.root}/app/assets/images/mi_logo.jpg", fit: [140,140], position: :center
       else
         image open(@inspection.user.company.logo.asset.url(:medium)), fit: [300, 75], position: :center
       end
@@ -27,10 +26,10 @@ class InspectionPdf < Prawn::Document
     bounding_box([bounds.right - 250, bounds.top], width: 250) do
       move_down 10
       font_size(12)
-      table([["Inspection Date:","#{@inspection.inspection_date}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
+      table([["Inventory Date:","#{@inspection.inspection_date}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
       table([["Report Date:","#{@inspection.report_date}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
-      table([["Inspection Type:","#{@inspection.inspection_type }" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
-      table([["Inspected By:","#{@inspection.inspected_by}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [], :padding => 10 })
+      table([["Inventory Type:","#{@inspection.inspection_type }" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
+      table([["Inventoried By:","#{@inspection.inspected_by}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [], :padding => 10 })
     end
   end
   
@@ -72,8 +71,8 @@ class InspectionPdf < Prawn::Document
         horizontal_rule
       end
       move_down 20
-      features = [["Feature", "Condition", "Cleanliness", "Marks & Damage", "Comments"]]
-      features += room.inspected_features.map{|x| [humanize(x.name), humanize(x.condition), true_to_clean(x.clean), marks_and_damage(x.marks, x.damage), x.comment]}
+      features = [["Feature", "Comments"]]
+      features += room.inspected_features.map{|x| [x.name, x.comment]}
       font_size(10) do
         table(features, :width => bounds.right, :row_colors => ["EEEEEE", "FFFFFF"], :header => true) do
           cells.borders = [:bottom]
@@ -95,7 +94,7 @@ class InspectionPdf < Prawn::Document
             bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
               if image_file && image_file.asset
                 image open(image_file.asset.url(:small)), fit: [width-20, height-20], position: :center
-                text_box "#{image_file.comment}", at: [cursor, cursor-10], width: width-20, height: 50, overflow: :shrink_to_fit
+                text_box "#{image_file.comment}", at: [bounds.left, cursor-10], width: width, size: 8
               end
             end
           end

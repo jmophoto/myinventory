@@ -35,12 +35,6 @@
   	  </div>
     <% end %>
 	  <div class="form-group">
-	    <%= f.label 'Inventory Type', :class => "col-md-2 control-label" %>
-			<div class="col-md-8">
-	    	<%= f.select :inspection_type, inspection_types, {}, { :class => "form-control" } %>
-			</div>
-	  </div>
-	  <div class="form-group">
 	    <%= f.label 'Inventoried by', :class => "col-md-2 control-label" %>
 			<div class="col-md-8">
 	    	<%= f.text_field :inspected_by, :class => "form-control" %>

@@ -4,7 +4,7 @@ class InspectedRoom < ActiveRecord::Base
   has_many :images, as: :imageable
   
   before_create :check_for_name
-  after_create :load_features
+  # after_create :load_features
   
   def check_for_name
     if self.name.nil?

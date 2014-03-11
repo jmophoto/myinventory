@@ -12,43 +12,7 @@
 					</span>
 				</form>
 			</div>
-			<div class="col-md-2 room-detail-item">
-				<div class="btn-group">	
-					<button ng-click="setCondition(feature, 'poor')" type="button" 
-									ng-class="{'btn-primary': feature.condition=='poor', 'btn-default': feature.condition != 'poor' || feature.condition==nil}" 
-									class="btn btn-sm">Poor
-					</button>
-					<button ng-click="setCondition(feature, 'fair')" type="button" 
-									ng-class="{'btn-primary': feature.condition=='fair', 'btn-default': feature.condition != 'fair' || feature.condition==nil}" 
-									class="btn btn-sm">Fair
-					</button>
-					<button ng-click="setCondition(feature, 'good')" type="button" 
-									ng-class="{'btn-primary': feature.condition=='good', 'btn-default': feature.condition != 'good' || feature.condition==nil}" 
-									class="btn btn-sm">Good
-					</button>
-				</div>
-			</div>
-			<div class="col-md-3 room-detail-item">
-				<div class="btn-group">
-					<button ng-click="isClean(feature, feature.name)" type="button" 
-									ng-class="{'btn-primary': feature.clean==true, 'btn-default': feature.clean==false || feature.clean==nil}" 
-									class="btn btn-sm">Clean
-					</button>
-					<button ng-click="isDirty(feature)" type="button" 
-									ng-class="{'btn-primary': feature.clean==false, 'btn-default': feature.clean==true || feature.clean==nil}" 
-									class="btn btn-sm">Dirty
-					</button>
-				</div>
-				<button ng-click="hasMarks(feature)" type="button" 
-								ng-class="{'btn-primary': feature.marks==true, 'btn-default': feature.marks == false || feature.marks==nil}" 
-								class="btn btn-sm">Marks
-				</button>
-				<button ng-click="hasDamage(feature)" type="button"
-				 				ng-class="{'btn-primary': feature.damage==true, 'btn-default': feature.damage == false || feature.damage==nil}" 
-								class="btn btn-sm">Damage
-				</button>
-			</div>
-			<div class="col-md-4 room-detail-item">
+			<div class="col-md-9 room-detail-item">
 				<form class="form-inline">
 					<input type="text" ng-model="feature.comment" class="form-control" placeholder="Comments" ng-change="addComment(feature, feature.comment)">
 				</form>
