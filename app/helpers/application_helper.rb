@@ -29,7 +29,7 @@ module ApplicationHelper
   end
   
   def inspection_types 
-    ['Move-In', 'Move-Out', 'Periodical', 'Drive-By', 'Other']
+    ['Residential', 'Commercial', 'Storage Unit', 'Other']
   end
   
   def month_select
