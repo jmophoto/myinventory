@@ -26,6 +26,7 @@
       color: $lightyellow;
     }
     .tagline-body {
+      padding-top:10px;
       font-size: 1.2em;
       color: white;
     }
@@ -33,6 +34,11 @@
   
   section {
     background-color: rgba(183, 179, 179, 0.1);
+  }
+  
+  #why-mi {
+    padding-left: 100px;
+    padding-right: 100px;
   }
   
   .homepage-block {
@@ -51,7 +57,6 @@
       color: $sandstone;
       font-size: .8em;
     }
-  }
-  
+  } 
 }
 

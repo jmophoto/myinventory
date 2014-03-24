@@ -6,7 +6,6 @@
 				<div class="panel-heading clearfix">
 					<div class="panel-title">
 						Personal Profile
-						<button ng-show="editUserForm.$dirty" type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
 					</div>
 				</div>
 				<div class="panel-body">
@@ -58,111 +57,14 @@
 							</select>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<div class="panel-title">
-						Company Profile
-						<button ng-show="editCompanyForm.$dirty" type="submit" class="btn btn-xs btn-success pull-right">Save Changes</button>
-					</div>
-				</div>
-				<div class="panel-body">
-					<div class="form-group row">
-						<div class="col-md-12">
-							<input class="form-control" ng-model="user.company.title" placeholder="Title">
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-md-6">
-							<input class="form-control" ng-model="user.company.email" placeholder="Email">
-						</div>
-						<div class="col-md-6">
-							<input class="form-control" ng-model="user.company.phone_number" placeholder="Phone Number">
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-md-6">
-							<input class="form-control" ng-model="user.company.address.street1" placeholder="Street Address" name="street">
-						</div>
-						<div class="col-md-6">
-							<input class="form-control" ng-model="user.company.address.street2" placeholder="Apt/Suite/Dept">
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-md-4">
-							<input class="form-control" ng-model="user.company.address.city" placeholder="City">
-						</div>
-						<div class="col-md-4" ng-hide="user.company.address.country=='Canada'">
-							<select class="form-control" ng-model="user.company.address.state" ng-options="state for state in stateList">
-								<option value="">Select State</option>
-							</select>
-						</div>
-						<div class="col-md-4" ng-show="user.company.address.country=='Canada'">
-							<select class="form-control" ng-model="user.company.address.state" ng-options="province for province in provinceList">
-								<option value="">Select Province</option>
-							</select>
-						</div>
-						<div class="col-md-2">
-							<input class="form-control" ng-model="user.company.address.zip" placeholder="Zip">
-						</div>
-						<div class="col-md-2">
-							<select class="form-control" ng-model="user.company.address.country">
-								<option value="USA">USA</option>
-								<option value="Canada">Canada</option>
-							</select>
-						</div>
-					</div>
+          <div class="form-group row button-row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-success pull-right">Save Changes</button>
+            </div>
+          </div>
 				</div>
 			</div>
 		</form>
-		<div class="panel panel-default" ng-controller="ImageController">
-			<div class="panel-heading">
-				<div class="panel-title">Company Logo</div>
-			</div>
-			<div class="panel-body">
-				<div class="row" ng-hide="user.company.logo">
-					<div class="col-md-2">
-						<form ng-upload="uploadCompanyImage(content)" action="/images" upload-options-enable-rails-csrf>
-							<span ng-show="uploadStatus == 'nofile'" class="btn btn-success fileinput-button">
-								<i class="glyphicon glyphicon-plus"></i>
-								<span>Select an image to upload</span>
-								<input type="file" name="image[asset]" onchange="angular.element(this).scope().setFiles(this)">
-							</span>
-							<input type='hidden' name='image[imageable_id]' value='{{user.company.id}}'>
-							<input type='hidden' name='image[imageable_type]' value='Company'>
-							<input type='hidden' name='image[company_id]' value='{{user.company.id}}'>
-							<button ng-show="uploadStatus == 'uploading'" class="btn btn-warning" disabled>
-								<i class="glyphicon glyphicon-cloud-upload"></i>
-								<span>Uploading {{ files[0].name }}</span>
-							</button>
-							<button ng-show="uploadStatus == 'hasfile'" class="btn btn-success" upload-submit ng-click="startUpload()">
-								<i class="glyphicon glyphicon-arrow-up"></i>
-								<span>Upload {{ files[0].name }}</span>
-							</button>
-						</form>
-					</div>
-				</div>
-				<div class="row " ng-show="user.company.logo">
-			    <div class="thumbnail logo-thumbnail">
-			      <img ng-src="{{ user.company.logo.asset.asset.url }}">
-						<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteLogo(user.company.logo)">
-							<span class="glyphicon glyphicon-trash"></span>
-						</button>
-			    </div>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
-<% if @user.subscription.subscription_type == "free" %>
-	<%= render :partial => 'free_account' %>
-<% else %>
-	<%= render :partial => 'active_account' %>
-<% end %>
-<% content_for :javascript do %> 
-  <script type="text/javascript">
-		var braintree = Braintree.create("MIIBCgKCAQEAqu1rnHeirm6hDVentjrRLwwltkxuQAg9csrZJohasyHcc2tHIQWTqHzzGE09RJ5oUA7d2IxZQSoryi9Rjfxx666NGekwep472j3QjL8OsovMtNhbT6WmOniStIv0ievbAM2ZBuumvmt8tutk6tD+fVYzodZu6UOUktNzQ7VArJKMrnnbLkyMJfNbhq0u2dgmMmth/YmazmrnV8MesYaP8xXFVhVqLHB1BmYe6/gtfne6N9eV4G791Eks/AywwHKXza5jbnquhkhhXLFtDk3GJ5lSCgyfggROR7aOmR1RT9aFLtzaqirm0iqQaqFZ2rr1DcHx/fwoAK2a6kKE/4/rbQIDAQAB")
-		braintree.onSubmitEncryptForm('braintree-form');
-	</script>
-<% end %>
+<%= render :partial => 'free_account' %>
