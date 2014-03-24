@@ -28,6 +28,7 @@ class InspectionsController < ApplicationController
   def new
     @inspection = Inspection.new
     @inspection.images.build
+    @inspection.build_address
     if params[:property_id]
       @inspection.create_from_template(params[:property_id])
     end

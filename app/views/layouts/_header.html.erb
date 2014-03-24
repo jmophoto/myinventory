@@ -12,7 +12,6 @@
       <div class="collapse navbar-collapse" id="top-links">
         <% if current_user %>
           <ul class="nav navbar-nav">
-            <li><%= link_to "properties", properties_path %></li>
             <li><%= link_to "inventories", inspections_path %></li>
           	<li><%= link_to "profile", profile_path %></li>
             <li><%= link_to 'sign out', signout_path, method: "delete" %></li>
