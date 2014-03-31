@@ -30,20 +30,19 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/myinventory"
       sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_myinventory"
-      # run "mkdir -p #{shared_path}/config"
-      # put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
-      # puts "Now edit the config files in #{shared_path}."
     end
   end
   after "deploy:check", "deploy:setup_config"
 
-  # task :symlink_config do
-  #   on roles(:app), in: :sequence, wait: 5 do
-  #     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  #   end
-  # end
-  # after :finished, "deploy:symlink_config"
-
+  task :symlink_config do
+    on roles(:app), in: :sequence, wait: 5 do
+      sudo "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+      sudo "ln -nfs #{shared_path}/config/aws.yml #{release_path}/config/aws.yml"
+      sudo "ln -nfs #{shared_path}/config/braintree.rb #{release_path}/config/braintree.rb"
+    end
+  end
+  before "deploy:assets:precompile", "deploy:symlink_config"
+  
   desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app), in: :sequence, wait: 5 do
