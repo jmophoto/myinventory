@@ -1,0 +1,3 @@
+config/database.yml
+config/braintree.rb
+config/aws.yml
