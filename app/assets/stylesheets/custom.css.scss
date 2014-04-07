@@ -55,6 +55,14 @@ footer {
   color: white;
   background-color: $skyblue !important;
   line-height: 40px;
+  
+  a {
+    color: $lightyellow;
+  }
+  
+  a:hover {
+    color: $lightyellow;
+  }
 }
 
 

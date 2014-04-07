@@ -23,4 +23,7 @@ class StaticPagesController < ApplicationController
   
   def support
   end
+  
+  def toc
+  end
 end

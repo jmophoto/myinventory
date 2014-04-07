@@ -17,9 +17,15 @@
             <ul class="nav navbar-nav">
             	<li><%= link_to "home", root_path %></li>
               <li><%= link_to "about mi", about_path %></li>
-            	<li><%= link_to "contact", contact_path %></li>
-              <li><%= link_to "get started", signup_path %></li>
-              <li><%= link_to "sign in", signin_path %></li>
+              <li><%= link_to "contact", contact_path %></li>
+              <% if current_user %>
+                  <li><%= link_to "my inventories", inspections_path %></li>
+                	<li><%= link_to "profile", profile_path %></li>
+                  <li><%= link_to 'sign out', signout_path, method: "delete" %></li>
+              <% else %>
+              	<li><%= link_to "get started", signup_path %></li>
+                <li><%= link_to "sign in", signin_path %></li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -60,18 +66,22 @@
             <p class="body">MyInventory is a safe and secure website. We do all we can to protect your account and maintain your privacy.</p>
           </div>
           <div class="col-md-3 homepage-block">
-            <span class="glyphicon glyphicon-folder-close" style="font-size:10em;"></span>
+            <span class="glyphicon glyphicon-envelope" style="font-size:10em;"></span>
             <p class="head">Share<p>
             <p class="body">Reports can easily be emailed from within the MyInventory software. Recipients can view online or print their own personal copy.</p>
           </div>
           <div class="col-md-3 homepage-block">
-            <span class="glyphicon glyphicon-envelope" style="font-size:10em;"></span>
+            <span class="glyphicon glyphicon-folder-close" style="font-size:10em;"></span>
             <p class="head">Online Storage<p>
             <p class="body">You inventory is stored online. Access it from any device, anywhere, any time you need it.</p>
           </div>
         </div>
       </div>
     </section>
-    <footer>Copyright © 2014 - MyInspection - All Rights Reserved.</footer>
+    <footer>
+    	<div class="container">
+      	<small>&copy; 2014 - MyInventory - All Rights Reserved. <%= link_to 'Terms & Conditions', toc_path %></small>
+    	</div>
+    </footer>
 	</body>
 </html>

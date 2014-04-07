@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   before_save { email.downcase! }
   before_create :create_remember_token
-  after_create :set_up_new_user
+  # after_create :set_up_new_user
   
   has_many :properties
   has_many :inspections

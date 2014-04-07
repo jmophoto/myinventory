@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @user.build_address
   end
   
   def create

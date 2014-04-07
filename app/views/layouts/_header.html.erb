@@ -10,23 +10,21 @@
         </button>
       </div>
       <div class="collapse navbar-collapse" id="top-links">
-        <% if current_user %>
-          <ul class="nav navbar-nav">
-            <li><%= link_to "inventories", inspections_path %></li>
-          	<li><%= link_to "profile", profile_path %></li>
-            <li><%= link_to 'sign out', signout_path, method: "delete" %></li>
-          </ul>
-        <% else %>
-          <ul class="nav navbar-nav">
-          	<li><%= link_to "home", root_path %></li>
-            <li><%= link_to "about mi", about_path %></li>
-            <li><%= link_to "contact", contact_path %></li>
+        <ul class="nav navbar-nav">
+        	<li><%= link_to "home", root_path %></li>
+          <li><%= link_to "about mi", about_path %></li>
+          <li><%= link_to "contact", contact_path %></li>
+          <% if current_user %>
+              <li><%= link_to "my inventories", inspections_path %></li>
+            	<li><%= link_to "profile", profile_path %></li>
+              <li><%= link_to 'sign out', signout_path, method: "delete" %></li>
+          <% else %>
           	<li><%= link_to "get started", signup_path %></li>
             <li><%= link_to "sign in", signin_path %></li>
-          </ul>
-        <% end %>
+          <% end %>
+        </ul>
       </div>
-      <%= image_tag 'mi_logo_white.png', class: 'mi-logo pull-right' %>
+      <%= link_to (image_tag 'mi_logo_white.png', class: 'mi-logo pull-right'), root_path %>
     </div>
   </nav>
 </header>
