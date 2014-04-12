@@ -12,8 +12,6 @@
       <div class="collapse navbar-collapse" id="top-links">
         <ul class="nav navbar-nav">
         	<li><%= link_to "home", root_path %></li>
-          <li><%= link_to "about mi", about_path %></li>
-          <li><%= link_to "contact", contact_path %></li>
           <% if current_user %>
               <li><%= link_to "my inventories", inspections_path %></li>
             	<li><%= link_to "profile", profile_path %></li>

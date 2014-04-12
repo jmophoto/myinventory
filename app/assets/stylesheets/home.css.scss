@@ -1,62 +1,88 @@
 @import 'colors';
 
 #homepage {
-  #homepage-top {
-    height: 520px;
-    background-color: none;
-    background-image: image-url("mi_background.jpg");
+  .homepage-top {
+    background-image: image-url("mi_background_1.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
-    color: #FABC89;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 100px;
+    color: #FFFFFF;
+  }
+
+  .homepage-menu {
+    padding: 0px;
+    &:after {
+      clear: both;
+      content: ' ';
+      display: table;
+    }
+    li {
+      list-style: none;
+      a {
+        padding: 15px 15px 15px 0px;
+        float: left;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .homepage-image-text {
+    padding: 30px 0px;
+    text-align: left;
+    font-size: 25px;
+    font-style: italic;
   }
   
-  .hompage_logo {
+  .homepage-logo img {
     height: 220px;
-    position: absolute;
-    right: 60px;
-    top: 40px;
+    float: right;
   }
-  
-  #homepage-tagline {
-    text-align: center;
-    padding: 40px 60px;
-    background-color: $sagegreen;
-    .tagline-title {
-      font-size: 2.2em;
-      color: $lightyellow;
-    }
-    .tagline-body {
-      padding-top:10px;
-      font-size: 1.2em;
-      color: white;
-    }
+
+  .homepage-logo-responsive {
+    margin: 0px auto;
+    width: 200px;
   }
-  
+
   section {
-    background-color: rgba(183, 179, 179, 0.1);
+    padding: 25px 0px;
   }
-  
-  #why-mi {
-    padding-left: 100px;
-    padding-right: 100px;
+
+  section.green {
+    background-color: $sagegreen;
+    color: #FFFFFF;
+  }
+
+  section.gray {
+    background-color: $gray;
+    color: $sandstone;
+  }
+
+  section.white {
+    background-color: #FFFFFF;
   }
   
   .homepage-block {
     padding: 20px 40px;
     text-align: center;
-    color: $skyblue;
+
+    .glyphicon {
+      color: $skyblue;
+    }  
     span {
       min-height: 180px;
     }
     .head {
       font-weight: bold;
-      color: $sandstone;
       font-size: 1.2em;
     }
     .body {
-      color: $sandstone;
       font-size: .8em;
     }
   } 
+
+  .lead {
+    margin: 0px;
+  }
 }
 

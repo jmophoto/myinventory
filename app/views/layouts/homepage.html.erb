@@ -1,87 +1,124 @@
 <!DOCTYPE html>
 <html>
-	<%= render :partial => 'layouts/head_tags' %>
-	<body id="homepage">
-    <header id="homepage-top">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-            	<li><%= link_to "home", root_path %></li>
-              <li><%= link_to "about mi", about_path %></li>
-              <li><%= link_to "contact", contact_path %></li>
-              <% if current_user %>
-                  <li><%= link_to "my inventories", inspections_path %></li>
-                	<li><%= link_to "profile", profile_path %></li>
-                  <li><%= link_to 'sign out', signout_path, method: "delete" %></li>
-              <% else %>
-              	<li><%= link_to "get started", signup_path %></li>
-                <li><%= link_to "sign in", signin_path %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <%= image_tag 'mi_logo_white.png', class: 'hompage_logo' %>
-    </header>
-    <section id="homepage-tagline">
+  <%= render :partial => 'layouts/head_tags' %>
+  <body id="homepage">
+    <header class="homepage-top">
       <div class="container">
-        <div id="why-mi">
-          <p class="tagline-title">Why do you need MyInventory?</p>
-          <p class="tagline-body">
-            You never know when a disaster may strike, a burglar might occur, but you can be prepared with a room by room inventory of all your personal possessions. Of course one can simply make a list of items and save receipts in a file but when a disaster occurs where is this list when you need it. With our 24/7 on line system your personal inventory is always there with a click of your mouse. 
-          </p>
-          <p class="tagline-body">
-          Having up to date inventory will help you get your insurance claim settled faster…help you make a wise decision on how much insurance is enough to replace all your personal things, and substantiate losses for your income tax return.
-          </p>
-          <p class="tagline-body">
-            Did you know that jewelry, furs, collectibles and expensive items may need separate insurance.
-          </p>
-          
-          <p class="tagline-body">
-          Our system makes taking pictures/videos easy better yet we offer in home personal consulting through one of our insured personal agents that will make this task even simpler buy doing the inventory for you.
-          </p>
+        <ul class="homepage-menu">
+            <li><%= link_to "home", root_path %></li>
+            <% if current_user %>
+                <li><%= link_to "my inventories", inspections_path %></li>
+                <li><%= link_to "profile", profile_path %></li>
+                <li><%= link_to 'sign out', signout_path, method: "delete" %></li>
+            <% else %>
+            <li><%= link_to "get started", signup_path %></li>
+            <li><%= link_to "sign in", signin_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-sm-6'>
+            <div class='homepage-logo-responsive visible-xs'>
+              <%= image_tag 'mi_logo_white.png', class: 'img-responsive' %>
+            </div>
+            <div class='homepage-image-text hidden-xs'>
+              The easiest way to document<br />your personal belongings.
+            </div>
+          </div>
+          <div class='col-sm-6'>
+            <div class='homepage-logo hidden-xs'>
+              <%= image_tag 'mi_logo_white.png' %>
+            </div>
+          </div>
         </div>
       </div>
+    </header>
+    
+    <section class="green lead text-center">
+      <div class="container">
+        <p>
+          Having a personal inventory can help you bounce<br />back from a disaster, fire, flood, burglary,<br />or anything else that might compromise your belongings.
+        </p>
+      </div>
     </section>
-    <section id="homepage-main">
+    
+    <section class="homepage-main gray">
       <div class="container">
         <div class="row">
-          <div class="col-md-3 homepage-block">
+          <div class="col-sm-4 homepage-block">
             <span class="glyphicon glyphicon-cloud" style="font-size:12em"></span>
             <p class="head">Cloud Based<p>
-            <p class="body">MyInventory reports are created online. You don't need to download software and it doesn't take a degree to learn how to use it.</p>
+            <p class="body">Inventories are created and stored online.</p>
           </div>
-          <div class="col-md-3 homepage-block">
+          <div class="col-sm-4 homepage-block">
             <span class="glyphicon glyphicon-lock" style="font-size:10em;"></span>
             <p class="head">Secure<p>
-            <p class="body">MyInventory is a safe and secure website. We do all we can to protect your account and maintain your privacy.</p>
+            <p class="body">Your information is safe and secure.</p>
           </div>
-          <div class="col-md-3 homepage-block">
+          <div class="col-sm-4 homepage-block">
             <span class="glyphicon glyphicon-envelope" style="font-size:10em;"></span>
             <p class="head">Share<p>
-            <p class="body">Reports can easily be emailed from within the MyInventory software. Recipients can view online or print their own personal copy.</p>
-          </div>
-          <div class="col-md-3 homepage-block">
-            <span class="glyphicon glyphicon-folder-close" style="font-size:10em;"></span>
-            <p class="head">Online Storage<p>
-            <p class="body">You inventory is stored online. Access it from any device, anywhere, any time you need it.</p>
+            <p class="body">Share your inventory with a few clicks.</p>
           </div>
         </div>
       </div>
     </section>
-    <footer>
-    	<div class="container">
-      	<small>&copy; 2014 - MyInventory - All Rights Reserved. <%= link_to 'Terms & Conditions', toc_path %></small>
-    	</div>
-    </footer>
-	</body>
+
+    <section class='white lead text-center'>
+      <div class="container">
+        <p>
+          Your up to date personal inventory can help you settle insurance claims faster, determine appropriate levels of coverage, or substantiate losses for your income tax return. You may need extra coverage for jewelry, furs, and collectibles.
+        </p>
+        <div class='text-center'>
+          <%= link_to 'Start Your Inventory Now', signup_path, class: 'btn btn-lg btn-primary' %>
+        </div>
+      </div>
+    </section>
+
+    <section class='gray lead'>
+      <div class="container">
+        <div class='row'>
+          <div class='col-md-6 text-center'>
+            Create, access, and update<br />your inventory from any device.
+          </div>
+          <div class='col-md-6'>
+            Image
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="green lead">
+      <div class="container">
+        <div class='row'>
+          <div class='col-md-6'>
+            My Inventory works in two ways:<br />
+            1. Have a mi agent complete your inventory.<br />
+            2. Complete an inventory on your own.<br />
+          </div>
+          <div class='col-md-6'>
+            Easy to Use Tools:
+            <div class='row'>
+              <div class='col-sm-6'>
+                Upload Images<br />
+                Include Comments<br />
+                Email Report<br />
+                Helpful Tutorials<br />
+              </div>
+              <div class='col-sm-6'>
+                Custom Items<br />
+                PDF Report<br />
+                Room by Room<br />
+                And More<br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	<%= render :partial => 'layouts/footer' %>
+
+  </body>
 </html>
