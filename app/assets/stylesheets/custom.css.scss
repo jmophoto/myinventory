@@ -17,19 +17,33 @@ body {
 
 header {
   background-color: $skyblue;
-  min-height: 100px;
   font-size: 1.4em;
   nav {
     padding-top: 20px;
   }
   .mi-logo {
-    position: absolute;
-    right: 200px;
-    top: 10px;
-    height: 80px;
+    width: 100px;
+    margin: 0px auto;
   }
   #top-links {
     background-color: $skyblue;
+  }
+}
+
+.menu {
+  padding: 0px;
+  &:after {
+    clear: both;
+    content: ' ';
+    display: table;
+  }
+  li {
+    list-style: none;
+    a {
+      padding: 30px 30px 30px 0px;
+      float: left;
+      color: #FFFFFF;
+    }
   }
 }
 
