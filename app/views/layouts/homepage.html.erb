@@ -28,7 +28,7 @@
           </div>
           <div class='col-sm-6'>
             <div class='homepage-logo hidden-xs'>
-              <%= image_tag 'mi_logo_white.png' %>
+              <%= link_to image_tag('mi_logo_white.png'), root_path %>
             </div>
           </div>
         </div>
@@ -37,9 +37,13 @@
     
     <section class="green lead text-center">
       <div class="container">
-        <p>
-          Having a personal inventory can help you bounce<br />back from a disaster, fire, flood, burglary,<br />or anything else that might compromise your belongings.
-        </p>
+        <div class='row'>
+          <div class='col-md-6 col-md-offset-3'>
+            <p>
+              Having a personal inventory can help you bounce back from a disaster, fire, flood, burglary, or anything else that might compromise your belongings.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
     
@@ -47,18 +51,24 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-4 homepage-block">
-            <span class="glyphicon glyphicon-cloud" style="font-size:12em"></span>
-            <p class="head">Cloud Based<p>
+            <p>
+              <span class="glyphicon glyphicon-cloud"></span>
+            </p>
+            <p class="head">Cloud Based</p>
             <p class="body">Inventories are created and stored online.</p>
           </div>
           <div class="col-sm-4 homepage-block">
-            <span class="glyphicon glyphicon-lock" style="font-size:10em;"></span>
-            <p class="head">Secure<p>
+            <p>
+              <span class="glyphicon glyphicon-lock"></span>
+            </p>
+            <p class="head">Secure</p>
             <p class="body">Your information is safe and secure.</p>
           </div>
           <div class="col-sm-4 homepage-block">
-            <span class="glyphicon glyphicon-envelope" style="font-size:10em;"></span>
-            <p class="head">Share<p>
+            <p>
+              <span class="glyphicon glyphicon-envelope"></span>
+            </p>
+            <p class="head">Share</p>
             <p class="body">Share your inventory with a few clicks.</p>
           </div>
         </div>
@@ -66,11 +76,15 @@
     </section>
 
     <section class='white lead text-center'>
-      <div class="container">
-        <p>
-          Your up to date personal inventory can help you settle insurance claims faster, determine appropriate levels of coverage, or substantiate losses for your income tax return. You may need extra coverage for jewelry, furs, and collectibles.
-        </p>
-        <div class='text-center'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-md-8 col-md-offset-2'>
+            <p>
+              Your up to date personal inventory can help you settle insurance claims faster, determine appropriate levels of coverage, or substantiate losses for your income tax return. You may need extra coverage for jewelry, furs, and collectibles.
+            </p>
+          </div>
+        </div>
+        <div class='text-center btn-row'>
           <%= link_to 'Start Your Inventory Now', signup_path, class: 'btn btn-lg btn-primary' %>
         </div>
       </div>
@@ -123,7 +137,7 @@
         <div class='row'>
 
           <div class='col-sm-12'>
-            <div class='text-center'>
+            <div class='text-center btn-row'>
               <%= link_to 'Start Your Inventory Now', signup_path, class: 'btn btn-lg btn-primary' %>
             </div>
           </div>
