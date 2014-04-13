@@ -30,6 +30,9 @@ Inspeckd::Application.routes.draw do
   resources :addresses
   resources :companies
   
+  # Authorize.net stuff
+  post '/submit_transaction', to: 'authorize_net#submit_transaction'
+  
   post '/create_new_subscription', to: 'braintree#create_new_subscription'
   post '/add_card', to: 'braintree#add_card'
   get 'braintree_notification', :to => 'braintree#verify'

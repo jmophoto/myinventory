@@ -2,7 +2,7 @@
 lock '3.1.0'
 
 set :application, 'myinventory'
-set :repo_url, 'git@github.com:jmophoto/inspeckd.git'
+set :repo_url, 'git@github.com:jmophoto/myinventory.git'
 set :branch, 'myinventory'
 
 # Default branch is :master
@@ -37,8 +37,7 @@ namespace :deploy do
   task :symlink_config do
     on roles(:app), in: :sequence, wait: 5 do
       sudo "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-      sudo "ln -nfs #{shared_path}/config/aws.yml #{release_path}/config/aws.yml"
-      sudo "ln -nfs #{shared_path}/config/braintree.rb #{release_path}/config/braintree.rb"
+      sudo "ln -nfs #{shared_path}/public/image #{release_path}/public/image"
     end
   end
   before "deploy:assets:precompile", "deploy:symlink_config"

@@ -96,10 +96,50 @@
               <label>City</label>
                 <%= a.text_field :city, :class => "form-control", placeholder: "" %>
               </div>
-
-              <div class="form-group">
-                <label>State</label>
-                <%= a.select :state, states, {}, { class: "form-control" } %>
+              <%= f.fields_for :address do |a| %>
+            	  <div class="form-group row">
+                  <div class="col-md-12">
+            		    <%= a.text_field :street1, :class => "form-control", placeholder: "Address" %>
+                  </div>
+            		</div>
+            	  <div class="form-group row">
+                  <div class="col-md-4">
+            		    <%= a.text_field :city, :class => "form-control", placeholder: "City" %>
+                  </div>
+                  <div class="col-md-4">
+            		    <%= a.select :state, states, {}, { class: "form-control" } %>
+                  </div>
+                  <div class="col-md-4">
+            		    <%= a.text_field :zip, class: "form-control" %>
+                  </div>
+            		</div>
+              <% end %>
+          	  <div class="form-group row">
+                <div class="col-md-6">
+          		    <%= f.phone_field :phone_number, :class => "form-control", placeholder: "Phone Number" %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.email_field :email, :class => "form-control", placeholder: "Email" %>
+                </div> 
+          		</div>
+          		<div class="form-group row">  
+          			<div class="col-md-6">
+          	  	  <%= f.password_field :password, :class => "form-control", placeholder: "Password" %>
+                </div>
+          	  	<div class="col-md-6">
+          	  	  <%= f.password_field :password_confirmation, :class => "form-control", placeholder: "Confirmation" %>
+                </div>
+          		</div>
+              <div class="form-group row">
+                <div class="col-md-8">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" id="accept"> Accept 
+                      <%= link_to "Terms & Conditions", "#", data: { toggle: 'modal', target: '#myModal'} %>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4"><%= f.submit "Start My Inventory", :class => "btn btn-primary pull-right" %></div>
               </div>
             <% end %>
             
