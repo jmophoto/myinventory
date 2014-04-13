@@ -12,7 +12,7 @@ class AssetUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   def store_dir
-    "#{model.class.to_s.underscore}/#{model.id}"
+    "images/#{model.id}"
   end
 
   version :thumb do
