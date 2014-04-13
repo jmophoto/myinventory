@@ -23,7 +23,7 @@ header {
   }
   .mi-logo {
     width: 100px;
-    margin: 0px auto;
+    margin: 10px auto;
   }
   #top-links {
     background-color: $skyblue;
@@ -43,6 +43,14 @@ header {
       padding: 30px 30px 30px 0px;
       float: left;
       color: #FFFFFF;
+    }
+  }
+  @media (max-width: 767px) {
+    li a {
+      float: none;
+      text-align: center;
+      display: block;
+      padding: 0px;
     }
   }
 }
@@ -76,6 +84,10 @@ footer {
   a:hover {
     color: $lightyellow;
   }
+}
+
+.form-control {
+  color: #333333;
 }
 
 

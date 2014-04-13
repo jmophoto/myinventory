@@ -44,6 +44,10 @@
   section.white {
     background-color: #FFFFFF;
   }
+
+  .btn-row {
+    padding: 30px 0px;
+  }
   
   .homepage-block {
     padding: 20px 40px;
@@ -51,10 +55,8 @@
 
     .glyphicon {
       color: $skyblue;
+      font-size: 100px;
     }  
-    span {
-      min-height: 180px;
-    }
     .head {
       font-weight: bold;
       font-size: 1.2em;
