@@ -8,8 +8,8 @@ class AssetUploader < CarrierWave::Uploader::Base
   
   process :set_content_type
 
-  # storage :file
-  storage :fog
+  storage :file
+  # storage :fog
 
   def store_dir
     "#{model.class.to_s.underscore}/#{model.id}"
