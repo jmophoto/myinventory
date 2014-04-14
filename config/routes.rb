@@ -36,12 +36,11 @@ Inspeckd::Application.routes.draw do
   
   # Authorize.net stuff
   post '/submit_transaction', to: 'authorize_net#submit_transaction'
-  
-  post '/create_new_subscription', to: 'braintree#create_new_subscription'
-  post '/add_card', to: 'braintree#add_card'
-  get 'braintree_notification', :to => 'braintree#verify'
-  post 'braintree_notification', :to => 'braintree#notify'
-    
+  post '/relay_response', to: 'authorize_net#relay_response'
+  match '/payments/relay_response', :to => 'payments#relay_response', :as => 'payments_relay_response', :via => [:post]
+  match '/payments/receipt', :to => 'payments#receipt', :as => 'payments_receipt', :via => [:get]
+  match '/payments/payment', :to => 'payments#payment', :as => 'paymentspayment', :via => [:get]
+  match '/payments/thank_you', :to => 'payments#thank_you', :as => 'payments_thank_you', :via => [:get]   
   
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
