@@ -37,7 +37,7 @@ namespace :deploy do
   task :symlink_config do
     on roles(:app), in: :sequence, wait: 5 do
       sudo "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-      sudo "ln -nfs #{shared_path}/public/image #{release_path}/public/image"
+      sudo "ln -nfs #{shared_path}/public/images #{release_path}/public/images"
     end
   end
   before "deploy:assets:precompile", "deploy:symlink_config"
