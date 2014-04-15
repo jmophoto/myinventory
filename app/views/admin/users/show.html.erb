@@ -1,0 +1,38 @@
+<%= form_for [:admin, @user] do |f| %>
+  <div class='form-group'>
+    <label>First Name</label>
+    <%= f.text_field :first_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <label>Last Name</label>
+    <%= f.text_field :last_name, :class => "form-control", placeholder: "" %>
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <%= f.email_field :email, :class => "form-control", placeholder: "" %>
+  </div>
+
+  <%= f.fields_for :address do |a| %>
+    <div class="form-group">
+    <label>City</label>
+      <%= a.text_field :city, :class => "form-control", placeholder: "" %>
+    </div>
+
+    <div class="form-group">
+      <label>State</label>
+      <%= a.select :state, states, {}, { class: "form-control" } %>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+    <label>Phone Number</label>
+    <%= f.phone_field :phone_number, :class => "form-control", placeholder: "" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Update", :class => "btn btn-primary pull-right" %>
+  </div>
+
+<% end %>

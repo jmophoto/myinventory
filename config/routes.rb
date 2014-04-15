@@ -29,6 +29,10 @@ Inspeckd::Application.routes.draw do
   end
   resources :addresses
   resources :companies
+
+  namespace :admin do
+    resources :users
+  end
   
   # Authorize.net stuff
   post '/submit_transaction', to: 'authorize_net#submit_transaction'

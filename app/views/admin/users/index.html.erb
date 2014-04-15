@@ -1,0 +1,26 @@
+<% provide(:title, "Admin - Users") %>
+<div class="row">
+  <div class="col-md-12 form-header">Users</div>
+</div>
+<div class="panel-group">
+  <% @users.each do |u| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <div class="property-heading-row row">
+            <div class="col-md-4">
+              <%= "#{u.first_name} #{u.last_name}" %>
+            </div>
+            <div class="col-md-4">
+              <%= u.created_at %>
+            </div>
+            <div class="pull-right">
+              <%= link_to 'Show', admin_user_path(u), class: 'btn btn-primary btn-xs' %>
+              <%= link_to 'Delete', admin_user_path(u), method: :delete, confirm: "Are you sure you want to delete #{u.first_name} #{u.last_name}?", class: 'btn btn-danger btn-xs' %>
+            </div>
+          </div>
+        </h4>
+      </div>
+    </div>
+  <% end %>
+</div>
