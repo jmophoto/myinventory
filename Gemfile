@@ -17,6 +17,7 @@ gem 'active_attr'
 gem 'pg'
 gem 'braintree-rails', :github => 'jmophoto/braintree-rails'
 gem 'unicorn', '4.7.0'
+gem 'authorizenet'
 gem 'authorize-net'
 
 group :development, :test do
