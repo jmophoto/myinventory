@@ -1,22 +1,8 @@
-<div class="col-md-4">  
+<div class="col-md-4">
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-			<div class="panel-title">Purchase an Inventory</div>
+			<div class="panel-title">Select Plan</div>
 		</div>
-		<div class="panel-body add-card-panel" ng-controller="PaymentController">
-      <%= form_for :sim_transaction, :url => AuthorizeNet::SIM::Transaction::Gateway::TEST do |f| %>
-        <%= sim_fields(@sim_transaction) %>
-        
-    	  <div class="form-group">
-          <%= label_tag 'x_card_num', 'Credit Card Number', :class => "control-label" %>
-          <%= text_field_tag 'x_card_num', '4111111111111111', class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= label_tag 'x_exp_date', 'Expiration Date (MMYY)', :class => "control-label" %>
-          <%= text_field_tag 'x_exp_date', '1120', class: 'form-control' %>
-        </div>
-        <%= f.submit 'Purchase', :class => "col-md-4 btn btn-success btn-sm pull-right" %>
-      <% end %>
-    </div>
+    <div class="panel-body add-card-panel">
   </div>
-</div>  
+</div>
