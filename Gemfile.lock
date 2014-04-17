@@ -47,8 +47,8 @@ GEM
       sass (>= 3.2)
     arel (4.0.1)
     atomic (1.1.14)
-    authorizenet (1.8)
-      nokogiri (~> 1.4, >= 1.4.3)
+    authorize-net (1.5.2)
+      nokogiri (~> 1.4)
     bcrypt-ruby (3.1.2)
     bootstrap-datepicker-rails (1.1.1.11)
       railties (>= 3.0)
@@ -252,7 +252,7 @@ DEPENDENCIES
   active_model_serializers
   angularjs-rails (= 1.2.5)
   anjlab-bootstrap-rails (>= 3.0.0.0)
-  authorizenet
+  authorize-net
   bcrypt-ruby
   bootstrap-datepicker-rails
   braintree-rails!
