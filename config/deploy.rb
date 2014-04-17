@@ -3,7 +3,7 @@ lock '3.1.0'
 
 set :application, 'myinventory'
 set :repo_url, 'git@github.com:jmophoto/myinventory.git'
-set :branch, 'rb4'
+set :branch, 'master'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
