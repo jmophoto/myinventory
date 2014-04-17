@@ -52,10 +52,6 @@ app.factory "Account", ["$resource", ($resource) ->
   $resource("/users/:user_id/accounts/:id", {user_id: "@user_id", id: "@id"}, {update: {method: "PUT"}})
 ]
 
-app.factory "Payment", ["$resource", ($resource) ->
-  $resource("/", {}, {update: {method: "PUT"}})
-]
-
 app.factory "PaymentMethod", ["$resource", ($resource) ->
   $resource("/payment_methods/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
@@ -346,15 +342,6 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
       Image.delete(image)
       $scope.account.logo = null
 ]
-
-@PaymentController = ["$scope", "$http", ($scope, $http) ->
-  $scope.payment = "Payment"
-  
-  $scope.submitPayment = ->
-    data = {credit_card: $scope.credit_card}
-    $http.post('/submit_transaction',data).success()
-]
-
 
 @PaymentMethodController = ["$scope", "PaymentMethod", ($scope, PaymentMethod) ->
   $scope.payment_methods = PaymentMethod.query()
