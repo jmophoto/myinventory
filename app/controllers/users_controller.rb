@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = current_user
-    @sim_transaction = AuthorizeNet::SIM::Transaction.new('7uNy39X7', '5WLu92n9U8H6z34s', '10.00', :relay_url => 'www.jmophoto.com')
+    # @sim_transaction = AuthorizeNet::SIM::Transaction.new('7uNy39X7', '5WLu92n9U8H6z34s', '10.00', :relay_url => 'www.jmophoto.com')
   end
   
   def update
