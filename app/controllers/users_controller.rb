@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # helper :authorize_net
+  helper :authorize_net
   before_action :set_user, only: [:show]
   before_action :signed_in_user, except: [:new, :create]
   # before_action :correct_user, only: [:edit, :update]
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   
   def edit
     @user = current_user
-    # @sim_transaction = AuthorizeNet::SIM::Transaction.new('7uNy39X7', '5WLu92n9U8H6z34s', '10.00', :relay_url => 'www.jmophoto.com')
+    @sim_transaction = AuthorizeNet::SIM::Transaction.new('7uNy39X7', '5WLu92n9U8H6z34s', '10.00', :relay_url => 'www.jmophoto.com')
   end
   
   def update
