@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
 
   layout 'authorize_net'
-  # helper :authorize_net
+  include AuthorizeNetHelper 
   protect_from_forgery :except => :relay_response
 
   # GET
