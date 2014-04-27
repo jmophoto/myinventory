@@ -24,7 +24,8 @@ class UsersController < ApplicationController
   
   def edit
     @user = current_user
-    @subscription = BraintreeRails::Subscription.new
+    @amount = 10.00
+    @sim_transaction = AuthorizeNet::SIM::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], @amount, :relay_url => payments_relay_response_url(:only_path => false))
   end
   
   def update
