@@ -1,0 +1,8 @@
+default:
+  api_login_id: 7uNy39X7
+  api_transaction_key: 5WLu92n9U8H6z34s
+  merchant_hash_value: 7uNy39X7
+
+development: 
+test: 
+production: 
