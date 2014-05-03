@@ -7,7 +7,7 @@
     <div class='col-sm-4'>
       <div class='well'>
         <h2 class='lead text-center'>MI Agent Inventory</h2>
-        <h2 class='lead'>$495</h2>
+        <h2 class='lead text-center'>$495</h2>
         <hr />
         <p>
           One of our local mi agents will schedule a convenient time with you to complete your inventory. They will create your account with a temporary password, document your belongings with images and comments and show you how to update your inventory once they are gone. You will be the only person with access to your inventory.
@@ -20,7 +20,7 @@
     <div class='col-sm-4'>
       <div class='well'>
         <h2 class='lead text-center'>User Created Inventory</h2>
-        <h2 class='lead'>$250</h2>
+        <h2 class='lead text-center'>$495</h2>
         <hr />
         <p>
           This is a do-it-yourself option. You will be able to use all of the tools to create your own inventory. You can add images and comments next to your belongings. We are here to help answer any questions and have provided helpful tutorials so you can complete your inventory.
@@ -49,7 +49,7 @@
     <div id="contactInfo" class="col-md-6">
       <p>
         <h2 class='lead'>Start protecting yourself with a personal inventory.</h2>
-        <h3 class='lead'>Simple and easy to use. No hidden costs.</h3>
+        <h3 class='lead'>Simple and easy to use. No hidden costs. 100% money-back guarantee.</h3>
         Images<br />
         Comments<br />
         One-click PDF document you can share<br />
@@ -60,23 +60,7 @@
       </p>
     </div>
 
-    <div class="col-md-6">
-
-      <div class='row'>
-        <div class='col-md-12'>
-          <h2 class='lead'>Get Started in Three Easy Steps:</h2>
-          <p>
-            1. Create An Account
-          </p>
-          <p>
-            2. Purchase An Inventory Plan On The Profile Page
-          </p>
-          <p>
-            3. Start Your Inventory
-          </p>
-        </div>
-      </div>
-
+    <div class="col-md-6" id="signup-form">
       <%= form_for(@user) do |f| %>
         <div class="panel panel-default">
           <div class="panel-heading">Register Now</div>
@@ -112,10 +96,50 @@
               <label>City</label>
                 <%= a.text_field :city, :class => "form-control", placeholder: "" %>
               </div>
-
-              <div class="form-group">
-                <label>State</label>
-                <%= a.select :state, states, {}, { class: "form-control" } %>
+              <%= f.fields_for :address do |a| %>
+            	  <div class="form-group row">
+                  <div class="col-md-12">
+            		    <%= a.text_field :street1, :class => "form-control", placeholder: "Address" %>
+                  </div>
+            		</div>
+            	  <div class="form-group row">
+                  <div class="col-md-4">
+            		    <%= a.text_field :city, :class => "form-control", placeholder: "City" %>
+                  </div>
+                  <div class="col-md-4">
+            		    <%= a.select :state, states, {}, { class: "form-control" } %>
+                  </div>
+                  <div class="col-md-4">
+            		    <%= a.text_field :zip, class: "form-control" %>
+                  </div>
+            		</div>
+              <% end %>
+          	  <div class="form-group row">
+                <div class="col-md-6">
+          		    <%= f.phone_field :phone_number, :class => "form-control", placeholder: "Phone Number" %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.email_field :email, :class => "form-control", placeholder: "Email" %>
+                </div> 
+          		</div>
+          		<div class="form-group row">  
+          			<div class="col-md-6">
+          	  	  <%= f.password_field :password, :class => "form-control", placeholder: "Password" %>
+                </div>
+          	  	<div class="col-md-6">
+          	  	  <%= f.password_field :password_confirmation, :class => "form-control", placeholder: "Confirmation" %>
+                </div>
+          		</div>
+              <div class="form-group row">
+                <div class="col-md-8">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" id="accept"> Accept 
+                      <%= link_to "Terms & Conditions", "#", data: { toggle: 'modal', target: '#myModal'} %>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4"><%= f.submit "Start My Inventory", :class => "btn btn-primary pull-right" %></div>
               </div>
             <% end %>
             
@@ -125,7 +149,12 @@
             </div>
 
             <div class="form-group">
-              <%= f.submit "Create My Account", :class => "btn btn-primary pull-right" %>
+              <label>Plan</label>  
+              <%= f.select :phone_number, ['$495', '$250'], {}, { class: "form-control" } %>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "Register", :class => "btn btn-primary pull-right" %>
             </div>
 
           </div>

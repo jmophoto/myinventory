@@ -14,7 +14,11 @@ class InspectionPdf < Prawn::Document
   
   def logo_box
     bounding_box([bounds.left, bounds.top], width: 300) do
-      image "#{Rails.root}/app/assets/images/mi_logo.jpg", fit: [140,140], position: :center
+      if @inspection.user.company.logo.nil?
+        image "#{Rails.root}/app/assets/images/mi_logo.jpg", fit: [140,140], position: :center
+      else
+        image open(@inspection.user.company.logo.asset.url(:medium)), fit: [300, 75], position: :center
+      end
     end
   end
   
@@ -29,7 +33,7 @@ class InspectionPdf < Prawn::Document
   end
   
   def address
-    move_down 30
+    move_down(20)
     font_size(18) do
       text @inspection.address.full_address
     end
@@ -88,8 +92,8 @@ class InspectionPdf < Prawn::Document
           image_row.each_with_index do |image_file, index|
             bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
               if image_file && image_file.asset
-                image "#{Rails.root}/public#{image_file.asset.url(:small)}", fit: [width-20, height-20], position: :center
-                text_box "#{image_file.comment}", at: [bounds.left+10, cursor-10], width: width, size: 8
+                image open(image_file.asset.url(:small)), fit: [width-20, height-20], position: :center
+                text_box "#{image_file.comment}", at: [bounds.left, cursor-10], width: width, size: 8
               end
             end
           end
@@ -114,7 +118,7 @@ class InspectionPdf < Prawn::Document
       image_row.each_with_index do |image_file, index|
         bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
           if image_file && image_file.asset
-            image "#{Rails.root}/public#{image_file.asset.url(:small)}", fit: [width-20, height-20], position: :center
+            image open(image_file.asset.url(:small)), fit: [width-20, height-20], position: :center
             text_box "#{image_file.comment}", at: [cursor, cursor-10], width: width-20, height: 50, overflow: :shrink_to_fit
           end
         end
@@ -141,7 +145,7 @@ class InspectionPdf < Prawn::Document
           image_row.each_with_index do |image_file, index|
             bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
               if image_file && image_file.asset
-                image "#{Rails.root}/public#{image_file.asset.url(:small)}", fit: [width-20, height-20], position: :center
+                image open(image_file.asset.url(:small)), fit: [width-20, height-20], position: :center
                 text_box "#{image_file.comment}", at: [cursor, cursor-10], width: width-20, height: 50, overflow: :shrink_to_fit
               end
             end
