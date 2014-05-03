@@ -36,7 +36,6 @@ Inspeckd::Application.routes.draw do
   
   # Authorize.net stuff
   post '/submit_transaction', to: 'authorize_net#submit_transaction'
-  post '/relay_response', to: 'authorize_net#relay_response'
   
   post '/create_new_subscription', to: 'braintree#create_new_subscription'
   post '/add_card', to: 'braintree#add_card'
