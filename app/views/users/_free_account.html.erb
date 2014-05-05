@@ -1,16 +1,11 @@
 <div class="col-md-4">
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-			<div class="panel-title">Select Plan</div>
+			<div class="panel-title">Purchase Inventory</div>
 		</div>
 		<div class="panel-body add-card-panel">
-			<%= form_for :customer, :url => create_new_subscription_path(@user), html: { id: "braintree-form" } do |f| %>
+			<%= form_for :customer, :url => submit_transaction_path(@user), html: { id: "braintree-form" } do |f| %>
 				<%= f.fields_for :credit_card do |cc| %>
-					<div class="form-group">
-						<%= fields_for :subscription do |sub| %>
-							<%= sub.select :plan_id, Plan.all.collect{|x| [x.description, x.plan_id]}, {}, { class: "form-control" }  %>
-						<% end %>
-					</div>
 					<div class="form-group">
 							<%= cc.text_field :cardholder_name, class: "form-control", placeholder: "Name on Card" %>
 					</div>

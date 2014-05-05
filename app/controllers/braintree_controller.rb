@@ -1,6 +1,21 @@
 class BraintreeController < ApplicationController
   before_action :set_user
   
+  def submit_transaction
+    if params[:pricing][:plan_id] == 'self'
+      params[:transaction][:amount] = '250.00'
+    else
+      params[:transaction][:amount] = '495.00'
+    end
+    transaction = BraintreeRails::Transaction.create(params[:transaction])
+    if transaction.errors.any?
+      render transaction.errors.messages.to_json
+    else
+      @user.inspections.create!(inspection_type:params[:pricing][:plan_id])
+      redirect_to profile_path
+    end
+  end
+  
   def create_new_subscription
     @customer = BraintreeRails::Customer.new(customer_params)
     if @customer.save
@@ -72,6 +87,10 @@ class BraintreeController < ApplicationController
     
     def customer_params
       params[:customer]
+    end
+    
+    def transaction_params
+      params[:transaction]
     end
   
 end
