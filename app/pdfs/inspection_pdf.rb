@@ -59,7 +59,8 @@ class InspectionPdf < Prawn::Document
   end
   
   def rooms
-    @inspection.inspected_rooms.each do |room|
+    rooms = @inspection.inspected_rooms
+    rooms.each_with_index do |room, index|
       text room.name, size: 25, align: :center
       stroke do
         stroke_color "EEEEEE"
@@ -96,7 +97,7 @@ class InspectionPdf < Prawn::Document
           y_index -= height + 50
         end
       end
-      move_down 40
+      start_new_page if (index+2) <= rooms.length
     end
   end
   
