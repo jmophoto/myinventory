@@ -19,6 +19,16 @@ class Inspection < ActiveRecord::Base
   
   default_scope order('inspection_date DESC')
   
+  def display_type
+    if inspection_type == "self"
+      "Self-Completed"
+    elsif inspection_type == "agent"
+      "Agent-Completed"
+    else
+      ""
+    end
+  end
+  
   def create_from_template(property_id)
     property = Property.find(property_id)
     self.property_id = property_id

@@ -3,9 +3,6 @@
   <div ng-controller="InspectionController">    
     <div class="row">
     	<div class="col-md-8 pull-left form-header">My Inventories</div>
-    	<div class="col-md-2 col-md-offest-8 pull-right">
-        <%= link_to "Add Inventory", new_inspection_path, class: "btn btn-primary" %>
-    	</div>
     </div>
     <div class="panel-group" id="inspectionAccordion">
   		<div class="property-panel panel panel-default" ng-repeat="inspection in inspections">
@@ -15,7 +12,7 @@
   						<div class="col-md-4">
   							<span class="btn-toggle glyphicon glyphicon-plus" 
                 data-toggle="collapse" data-parent="#inspectionAccordion" href="#inspection_{{ inspection.id }}"></span>
-  							{{ inspection.address.street_address }}
+  							{{ inspection.name }}
   						</div>
   						<div class="col-md-4">
   							{{ inspection.inspection_date | date:'mediumDate' }}
