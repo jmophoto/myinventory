@@ -11,7 +11,7 @@ class InspectedRoom < ActiveRecord::Base
       if self.room_type.nil? || self.room_type == "base"
         self.name = "New Room"
       else
-        self.name = "New #{self.room_type.humanize}"
+        self.name = "#{self.room_type.humanize}"
       end
     end
   end
