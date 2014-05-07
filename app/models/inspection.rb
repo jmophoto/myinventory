@@ -2,7 +2,9 @@ class Inspection < ActiveRecord::Base
   attr_accessor :template, :date_string
   
   has_many :inspected_rooms, -> { includes :inspected_features }
+  has_many :inspected_features, through: :inspected_rooms
   has_many :inspection_details
+  has_many :valuables
   belongs_to :property
   belongs_to :user
   has_many :images, as: :imageable

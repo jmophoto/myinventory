@@ -56,12 +56,26 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
   $resource("/payment_methods/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
-@InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", ($scope, InspectedRoom, Inspection, Image, Detail) ->
+app.factory "Valuable", ["$resource", ($resource) ->
+  $resource("/inspections/:inspection_id/valuables/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
+]
+
+@InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", "Valuable", ($scope, InspectedRoom, Inspection, Image, Detail, Valuable) ->
   $scope.inspections = Inspection.query()
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
 
   $scope.editInspection = (inspection) ->
     Inspection.update(inspection)
+    
+  $scope.addValuable = (inspection) ->
+    valuable = Valuable.save({inspection_id: inspection.id,name:"New Valuable"})
+    $scope.inspection.valuables.push(valuable)
+    
+  $scope.deleteValuable = (valuable,index) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Valuable.delete(valuable)
+      $scope.inspection.valuables.splice(index,1)
 
   $scope.addRoom = ->
     room = InspectedRoom.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})

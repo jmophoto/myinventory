@@ -1,0 +1,2 @@
+module ValuablesHelper
+end

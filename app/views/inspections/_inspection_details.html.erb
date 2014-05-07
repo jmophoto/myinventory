@@ -1,19 +1,7 @@
-<div class="panel-collapse collapse in" id="inspection-details">
+<div class="panel" id="inspection-details">
 	<div class="panel-body">
 		<form class="form-horizontal">
 			<div class="row">
-				<div class="col-md-6">
-					<div class="form-group">
-						<label class="col-md-6 control-label">Inventory Type</label>
-						<div class="col-md-6">
-							<select class="form-control disabled" ng-model="inspection.inspection_type" ng-disabled="inspection_editing">
-								<% inspection_types.each do |type| %>
-									<option><%= type %></option>
-								<% end %>
-							</select>
-						</div>
-					</div>
-				</div>
 				<div class="col-md-5">
 					<div class="form-group">
 						<label class="col-md-6 control-label">Inventory Date</label>

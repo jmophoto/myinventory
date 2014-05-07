@@ -6,28 +6,52 @@
 	<div class="panel-group" id="accordion" ng-controller="InspectionController">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-				<div class="panel-title">
-					<div class="row">
-						<div class="col-md-7 inspection-address">
-							<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#inspection-details"></span>
-							{{ inspection.address.full_address }}
+				<div class="panel-title inspection-title">
+					<form class="form-inline">
+		      <span ng-hide="inspection.editing" ng-click="inspection.editing = true">{{ inspection.name }}</span>
+					<span ng-show="inspection.editing">
+						<div class="form-group">
+							<input type="text" class="form-control" ng-model="inspection.name">
 						</div>
-						<form class="add-room-form form-inline pull-right" role="form" ng-submit="addRoom()">
-							<div class="form-group">
-						    <label class="sr-only" for="newRoomName">Type</label>
-								<input type="text" class="form-control" placeholder="Room Name (optional)" ng-model="newRoom.name">
-						  </div>
-						  <div class="form-group">
-						    <label class="sr-only" for="newRoomType">Type</label>
-								<%= select_tag "Room Type", options_for_select(full_list.collect{ |x| [x.titleize, x] }),
-										:class => "form-control input-sm", :"ng-model" => "newRoom.type", prompt: "Room Type" %>
-						  </div>
-						  <button type="submit" class="btn btn-sm btn-success">Add Room</button>
-						</form>
-					</div>
+						<button class="btn btn-default btn-sm" type="submit" ng-click="inspection.editing = false; editInspection(inspection)">Save</button>
+					</span>
+					</form>
+					<form class="add-room-form form-inline pull-right" role="form" ng-submit="addRoom()">
+						<div class="form-group">
+					    <label class="sr-only" for="newRoomName">Type</label>
+							<input type="text" class="form-control" placeholder="Room Name (optional)" ng-model="newRoom.name">
+					  </div>
+					  <div class="form-group">
+					    <label class="sr-only" for="newRoomType">Type</label>
+							<%= select_tag "Room Type", options_for_select(full_list.collect{ |x| [x.titleize, x] }),
+									:class => "form-control input-sm", :"ng-model" => "newRoom.type", prompt: "Room Type" %>
+					  </div>
+					  <button type="submit" class="btn btn-sm btn-success">Add Room</button>
+					</form>
 				</div>
 			</div>
 			<%= render :partial => 'inspection_details' %>
+		</div>
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+				<div class="panel-title inspection-title">
+          Valuables
+          <button class="btn btn-success btn-xs pull-right" type="submit" ng-click="addValuable(inspection)">Add Valuable</button>
+        </div>
+			</div>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="valuable in inspection.valuables">
+            <div class="row">
+              <div class="col-md-4">{{ valuable.name }}</div>
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+      					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteValuable(valuable,$index)">
+      						<span class="glyphicon glyphicon-trash"></span>
+      					</button>
+              </div>
+            </div>
+          </li>
+        </ul>    
 		</div>
 		<div class="room-panel panel panel-default" ng-repeat="room in inspection.inspected_rooms">
 		  <div class="room-heading panel-heading">

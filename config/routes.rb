@@ -16,7 +16,9 @@ Inspeckd::Application.routes.draw do
     resources :images
     resources :inspected_rooms
     resources :inspection_details
+    resources :valuables
   end
+  resources :valuables
   resources :inspected_rooms do
     resources :images
     resources :inspected_features
