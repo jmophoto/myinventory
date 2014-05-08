@@ -80,5 +80,7 @@ Inspeckd::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  RAILS_DEFAULT_LOGGER = Logger.new('log/production.log')
 
 end
