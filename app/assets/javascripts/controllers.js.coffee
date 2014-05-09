@@ -76,13 +76,17 @@ app.factory "Valuable", ["$resource", ($resource) ->
     if confirmVariable == true
       Valuable.delete(valuable)
       $scope.inspection.valuables.splice(index,1)
+      
+  $scope.editValuable = (valuable) ->
+    Valuable.update(valuable)
+    $scope.editValuableForm.$dirty=false
 
   $scope.addRoom = ->
     room = InspectedRoom.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
     $scope.inspection.inspected_rooms.push(room)
     $scope.newRoom = {}
 
-  $scope.deleteRoom = (room, index) ->
+  $scope.deleteRoom = (room,index) ->
     confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
       InspectedRoom.delete(room)

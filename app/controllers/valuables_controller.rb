@@ -36,7 +36,10 @@ class ValuablesController < ApplicationController
   # PATCH/PUT /valuables/1
   def update
     if @valuable.update(valuable_params)
-      redirect_to @valuable, notice: 'Valuable was successfully updated.'
+      respond_to do |format|
+        format.html { redirect_to @valuable, notice: 'Valuable was successfully updated.' }
+        format.json { render :json => @valuable.to_json }
+      end
     else
       render action: 'edit'
     end

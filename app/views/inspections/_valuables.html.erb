@@ -1,53 +1,49 @@
-<div class="panel-collapse collapse" id="property-details">
-	<div class="panel-body">
-		<div class="row" ng-repeat="detail in inspection.valuables">
-			<div class="col-md-2 property-detail-item">
-				<form class="form-inline">
-					<span ng-hide="detail.editing" class="feature-name" ng-click="detail.editing = true">{{ detail.name }}</span>
-					<span ng-show="detail.editing">
-						<div class="form-group">
-							<input type="text" class="form-control" ng-model="detail.name">
-						</div>
-						<button class="btn btn-default btn-sm" type="submit" ng-click="detail.editing = false; editDetail(detail)">Save</button>
-					</span>
-				</form>
-			</div>
-			<div class="col-md-3 property-detail-item">
-				<div class="btn-group">
-					<button ng-click="setDetailStatus(detail, 'present')" type="button" 
-									ng-class="{'btn-primary': detail.status=='present', 'btn-default': detail.status != 'present' || detail.status==nil}" 
-									class="btn btn-sm">Present
-					</button>
-					<button ng-click="setDetailStatus(detail, 'not working')" type="button" 
-									ng-class="{'btn-primary': detail.status=='not working', 'btn-default': detail.status != 'not working' || detail.status==nil}" 
-									class="btn btn-sm">Not Working
-					</button>
-					<button ng-click="setDetailStatus(detail, 'missing')" type="button" 
-									ng-class="{'btn-primary': detail.status=='missing', 'btn-default': detail.status != 'missing' || detail.status==nil}" 
-									class="btn btn-sm">Missing
-					</button>
-				</div>
-			</div>
-			<div class="col-md-5 property-detail-item">
-				<form class="form-inline">
-					<input type="text" ng-model="detail.comment" class="form-control" placeholder="Comments" ng-change="addDetailComment(detail, detail.comment)">
-				</form>
-			</div>
-			<div class="col-md-1 property-detail-item">
-				<button class="btn-feature-delete btn btn-xs btn-danger pull-right" ng-click="deleteDetail(detail,$index)">
-					<span class="glyphicon glyphicon-trash"></span>
-				</button>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3 property-detail-item">
-				<form class="form-inline" ng-submit="addDetail()">
-					<div class="form-group">
-						<input type="text" class="form-control" ng-model="newDetail.name" placeholder="New Detail" ng-submit="addDetail()">
-					</div>
-					<button class="btn btn-sm btn-default pull-right">Add</button>
-				</form>
-			</div>
-		</div>
-	</div>
+<div class="panel panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+  		<div class="panel-title inspection-title">
+        Valuables
+        <button class="btn btn-success btn-xs pull-right" type="submit" ng-click="addValuable(inspection)">Add Valuable</button>
+      </div>
+  	</div>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="valuable in inspection.valuables">
+        <div class="row">
+          <div class="col-md-8">
+            <form class="form-inline">
+              <span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" 
+              data-parent="#accordion" href="#valuable_{{ valuable.id }}"></span> 
+    		      <span ng-hide="valuable.editing" ng-click="valuable.editing = true">{{ valuable.name }}</span>
+    					<span ng-show="valuable.editing">
+    						<div class="form-group"><input type="text" class="form-control" ng-model="valuable.name"></div>
+    						<button class="btn btn-success btn-sm" type="submit" ng-click="valuable.editing = false; editValuable(valuable)">Save</button>
+    					</span>
+            </form>
+          </div>
+          <div class="col-md-4">
+  					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteValuable(valuable,$index)">
+  						<span class="glyphicon glyphicon-trash"></span>
+  					</button>
+          </div>
+        </div>
+        <div id="valuable_{{ valuable.id }}" class="panel-collapse collapse out">
+  				<div class="panel-body">
+            <form ng-submit="editValuable(valuable);$scope.editValuableForm.$dirty=false" name="editValuableForm">
+    					<div class="form-group row">
+    						<div class="col-md-4">
+    							<input class="form-control" ng-model="valuable.serial_number" placeholder="Serial Number">
+                </div>
+                <div class="col-md-4">
+                  <input class="form-control" ng-model="valuable.comments" placeholder="Comments">
+    						</div>                
+                <div class="col-md-4" ng-show="editValuableForm.$dirty">
+        					<button class="btn btn-success btn-sm" type="submit">Save</button>
+                </div>
+    					</div>
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>    
+  </div>
 </div>

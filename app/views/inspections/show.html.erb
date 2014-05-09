@@ -32,27 +32,7 @@
 			</div>
 			<%= render :partial => 'inspection_details' %>
 		</div>
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-				<div class="panel-title inspection-title">
-          Valuables
-          <button class="btn btn-success btn-xs pull-right" type="submit" ng-click="addValuable(inspection)">Add Valuable</button>
-        </div>
-			</div>
-        <ul class="list-group">
-          <li class="list-group-item" ng-repeat="valuable in inspection.valuables">
-            <div class="row">
-              <div class="col-md-4">{{ valuable.name }}</div>
-              <div class="col-md-4"></div>
-              <div class="col-md-4">
-      					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteValuable(valuable,$index)">
-      						<span class="glyphicon glyphicon-trash"></span>
-      					</button>
-              </div>
-            </div>
-          </li>
-        </ul>    
-		</div>
+		<%= render :partial => 'valuables' %>
 		<div class="room-panel panel panel-default" ng-repeat="room in inspection.inspected_rooms">
 		  <div class="room-heading panel-heading">
 				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">
