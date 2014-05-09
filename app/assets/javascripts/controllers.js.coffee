@@ -79,7 +79,6 @@ app.factory "Valuable", ["$resource", ($resource) ->
       
   $scope.editValuable = (valuable) ->
     Valuable.update(valuable)
-    $scope.editValuableForm.$dirty=false
 
   $scope.addRoom = ->
     room = InspectedRoom.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
