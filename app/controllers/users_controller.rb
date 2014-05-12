@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :signed_in_user, except: [:new, :create]
   # before_action :correct_user, only: [:edit, :update]
   
+  force_ssl unless Rails.env.development?
+  
   def show
     render json: @user, root: false
   end
