@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper 
 
-  force_ssl if: :force_ssl?
-  
-  def force_ssl?
-    !Rails.env.development?
-  end
+  # force_ssl if: :force_ssl?
+  # 
+  # def force_ssl?
+  #   !Rails.env.development?
+  # end
   
 end
