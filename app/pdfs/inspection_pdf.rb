@@ -4,36 +4,39 @@ class InspectionPdf < Prawn::Document
     super(margin: 20)
     @inspection = inspection
     @view = view
-    logo_box
     header_box
+
     address
+    info_box
     rooms
+    
     # property_images
     # room_images
   end
   
-  def logo_box
-    bounding_box([bounds.left, bounds.top], width: 300) do
-      image "#{Rails.root}/app/assets/images/mi_logo.jpg", fit: [140,140], position: :center
-    end
+  def header_box
+    fill_color '5F7FB0'
+    fill_rectangle [-bounds.absolute_left, cursor + 20], bounds.absolute_left + bounds.absolute_right, 100
+    fill_color '000000'
+    image("#{Rails.root}/app/assets/images/mi_logo_white.png", height: 80, position: 400, vposition: -10)
+    move_down 10
   end
   
-  def header_box
-    bounding_box([bounds.right - 250, bounds.top], width: 250) do
-      move_down 10
+  def address
+    bounding_box([0, cursor - 10], width: 200) do
+      font_size(18) do
+        text_box @inspection.address.full_address
+      end
+    end
+  end
+
+  def info_box
+    bounding_box([300, cursor], width: 200) do
       font_size(12)
       table([["Inventory Date:","#{@inspection.inspection_date}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
       table([["Report Date:","#{@inspection.report_date}" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
       table([["Inventory Type:","#{@inspection.inspection_type }" ]], width: 250, column_widths: [125, 125], :cell_style => { :borders => [:bottom], :padding => 10 })
     end
-  end
-  
-  def address
-    move_down 30
-    font_size(18) do
-      text @inspection.address.full_address
-    end
-    move_down 40
   end
 
   def details
@@ -59,13 +62,10 @@ class InspectionPdf < Prawn::Document
   end
   
   def rooms
+    move_down 30
     rooms = @inspection.inspected_rooms
     rooms.each_with_index do |room, index|
       text room.name, size: 25, align: :center
-      stroke do
-        stroke_color "EEEEEE"
-        horizontal_rule
-      end
       move_down 20
       features = [["Feature", "Comments"]]
       features += room.inspected_features.map{|x| [x.name, x.comment]}
