@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   before_action :signed_in_user, except: [:new, :create]
+  before_action :admin_user?, only: [:show]
   # before_action :correct_user, only: [:edit, :update]
   
   def show

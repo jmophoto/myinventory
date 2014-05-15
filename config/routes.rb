@@ -36,6 +36,12 @@ Inspeckd::Application.routes.draw do
     resources :users
   end
   
+  # agent access
+  get '/agent', to: 'static_pages#agent'
+  
+  # admin access
+  get 'admin', to: 'static_pages#admin'
+  
   post '/create_new_subscription', to: 'braintree#create_new_subscription'
   post 'submit_transaction', to: 'braintree#submit_transaction'
   post '/add_card', to: 'braintree#add_card'
