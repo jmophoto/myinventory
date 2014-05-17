@@ -1,0 +1,56 @@
+<% provide(:title, "Admin - Users") %>
+<div class="col-md-12" ng-controller="UserController">
+  <div class="panel-group">
+    <div class="panel panel-default user-panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">Pending Agents</h4>
+			</div>
+      <ul class="list-group">
+        <li class="list-group-item row" ng-repeat="user in users | filter:{agent:true,agent_status:'pending'}">
+          <div class="col-md-2">{{ user.full_name }}</div>
+          <div class="col-md-2">{{ user.email }}</div>
+          <div class="col-md-2">{{ user.address.city_state }}</div>
+          <div class="col-md-4 pull-right text-right">
+            <button class="btn btn-xs btn-success" ng-click="updateAgentStatus(user,'approved')">Approve</button>
+            <button class="btn btn-xs btn-warning" ng-click="updateAgentStatus(user,'pending')" disabled>Pending</button>
+            <button class="btn btn-xs btn-danger" ng-click="updateAgentStatus(user,'declined')">Decline</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="panel panel-default user-panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">Approved Agents</h4>
+			</div>
+      <ul class="list-group">
+        <li class="list-group-item row" ng-repeat="user in users | filter:{agent:true,agent_status:'approved'}">
+          <div class="col-md-2">{{ user.full_name }}</div>
+          <div class="col-md-2">{{ user.email }}</div>
+          <div class="col-md-2">{{ user.address.city_state }}</div>
+          <div class="col-md-4 pull-right text-right">
+            <button class="btn btn-xs btn-success" ng-click="updateAgentStatus(user,'approved')" disabled>Approve</button>
+            <button class="btn btn-xs btn-warning" ng-click="updateAgentStatus(user,'pending')">Pending</button>
+            <button class="btn btn-xs btn-danger" ng-click="updateAgentStatus(user,'declined')">Decline</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="panel panel-default user-panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">Declined Agents</h4>
+			</div>
+      <ul class="list-group">
+        <li class="list-group-item row" ng-repeat="user in users | filter:{agent:true,agent_status:'declined'}">
+          <div class="col-md-2">{{ user.full_name }}</div>
+          <div class="col-md-2">{{ user.email }}</div>
+          <div class="col-md-2">{{ user.address.city_state }}</div>
+          <div class="col-md-4 pull-right text-right">
+            <button class="btn btn-xs btn-success" ng-click="updateAgentStatus(user,'approved')">Approve</button>
+            <button class="btn btn-xs btn-warning" ng-click="updateAgentStatus(user,'pending')">Pending</button>
+            <button class="btn btn-xs btn-danger" ng-click="updateAgentStatus(user,'declined')" disabled>Decline</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

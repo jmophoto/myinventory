@@ -330,6 +330,7 @@ app.factory "Valuable", ["$resource", ($resource) ->
 
 @UserController = ["$scope", "User", "Company", "Address", ($scope, User, Company, Address) ->
   $scope.user = User.get({id: $scope.userId})
+  $scope.users = User.query()
 
   $scope.editUser = (user) ->
     User.update(user)
@@ -342,6 +343,12 @@ app.factory "Valuable", ["$resource", ($resource) ->
     Company.update(user.company)
     Address.update(user.company.address)
     $scope.editCompanyForm.$dirty = false
+    
+    
+  $scope.updateAgentStatus = (user,status) ->
+    user.agent = true
+    user.agent_status = status
+    User.update(user)
 
 ]
 

@@ -52,6 +52,7 @@ Inspeckd::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match 'new_agent', to: 'users#new_agent',     via: 'get'
   
   get '/home', to: 'static_pages#home'
   get '/about', to: 'static_pages#about'

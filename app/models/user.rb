@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     create_address!
   end
   
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+  
   def customer
     if customer_id
       begin

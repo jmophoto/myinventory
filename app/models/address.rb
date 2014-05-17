@@ -22,6 +22,13 @@ class Address < ActiveRecord::Base
     full_address
   end
   
+  def city_state
+    city_state = ""
+    city_state += "#{self.city}" unless self.city.blank?
+    city_state += ", #{self.state}" unless self.city.blank?
+    city_state
+  end
+  
   def street_address
     full_address = ""
     full_address += "#{self.street1}" unless self.street1.blank?
