@@ -7,10 +7,10 @@
 			</div>
       <ul class="list-group">
         <li class="list-group-item row" ng-repeat="user in users | filter:{agent:true,agent_status:'pending'}">
-          <div class="col-md-2">{{ user.full_name }}</div>
-          <div class="col-md-2">{{ user.email }}</div>
-          <div class="col-md-2">{{ user.address.city_state }}</div>
-          <div class="col-md-4 pull-right text-right">
+          <div class="col-md-3">{{ user.full_name }}</div>
+          <div class="col-md-3">{{ user.email }}</div>
+          <div class="col-md-3">{{ user.address.city_state }}</div>
+          <div class="col-md-3 pull-right text-right">
             <button class="btn btn-xs btn-success" ng-click="updateAgentStatus(user,'approved')">Approve</button>
             <button class="btn btn-xs btn-warning" ng-click="updateAgentStatus(user,'pending')" disabled>Pending</button>
             <button class="btn btn-xs btn-danger" ng-click="updateAgentStatus(user,'declined')">Decline</button>
@@ -24,10 +24,10 @@
 			</div>
       <ul class="list-group">
         <li class="list-group-item row" ng-repeat="user in users | filter:{agent:true,agent_status:'approved'}">
-          <div class="col-md-2">{{ user.full_name }}</div>
-          <div class="col-md-2">{{ user.email }}</div>
-          <div class="col-md-2">{{ user.address.city_state }}</div>
-          <div class="col-md-4 pull-right text-right">
+          <div class="col-md-3">{{ user.full_name }}</div>
+          <div class="col-md-3">{{ user.email }}</div>
+          <div class="col-md-3">{{ user.address.city_state }}</div>
+          <div class="col-md-3 pull-right text-right">
             <button class="btn btn-xs btn-success" ng-click="updateAgentStatus(user,'approved')" disabled>Approve</button>
             <button class="btn btn-xs btn-warning" ng-click="updateAgentStatus(user,'pending')">Pending</button>
             <button class="btn btn-xs btn-danger" ng-click="updateAgentStatus(user,'declined')">Decline</button>
@@ -41,10 +41,10 @@
 			</div>
       <ul class="list-group">
         <li class="list-group-item row" ng-repeat="user in users | filter:{agent:true,agent_status:'declined'}">
-          <div class="col-md-2">{{ user.full_name }}</div>
-          <div class="col-md-2">{{ user.email }}</div>
-          <div class="col-md-2">{{ user.address.city_state }}</div>
-          <div class="col-md-4 pull-right text-right">
+          <div class="col-md-3">{{ user.full_name }}</div>
+          <div class="col-md-3">{{ user.email }}</div>
+          <div class="col-md-3">{{ user.address.city_state }}</div>
+          <div class="col-md-3 pull-right text-right">
             <button class="btn btn-xs btn-success" ng-click="updateAgentStatus(user,'approved')">Approve</button>
             <button class="btn btn-xs btn-warning" ng-click="updateAgentStatus(user,'pending')">Pending</button>
             <button class="btn btn-xs btn-danger" ng-click="updateAgentStatus(user,'declined')" disabled>Decline</button>
