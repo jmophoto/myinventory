@@ -16,18 +16,6 @@
 						<button class="btn btn-default btn-sm" type="submit" ng-click="inspection.editing = false; editInspection(inspection)">Save</button>
 					</span>
 					</form>
-					<form class="add-room-form form-inline pull-right" role="form" ng-submit="addRoom()">
-						<div class="form-group">
-					    <label class="sr-only" for="newRoomName">Type</label>
-							<input type="text" class="form-control" placeholder="Room Name (optional)" ng-model="newRoom.name">
-					  </div>
-					  <div class="form-group">
-					    <label class="sr-only" for="newRoomType">Type</label>
-							<%= select_tag "Room Type", options_for_select(full_list.collect{ |x| [x.titleize, x] }),
-									:class => "form-control input-sm", :"ng-model" => "newRoom.type", prompt: "Room Type" %>
-					  </div>
-					  <button type="submit" class="btn btn-sm btn-success">Add Room</button>
-					</form>
 				</div>
 			</div>
 			<%= render :partial => 'inspection_details' %>

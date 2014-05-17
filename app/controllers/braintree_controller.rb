@@ -11,7 +11,8 @@ class BraintreeController < ApplicationController
     if transaction.errors.any?
       render transaction.errors.messages.to_json
     else
-      @user.inspections.create!(name:'New Inventory',inspection_type:params[:pricing][:plan_id])
+      inventory = @user.inspections.create!(name:'New Inventory',inspection_type:params[:pricing][:plan_id])
+      inventory.create_address
       redirect_to profile_path
     end
   end

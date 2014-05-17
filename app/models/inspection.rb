@@ -16,7 +16,7 @@ class Inspection < ActiveRecord::Base
   accepts_nested_attributes_for :address
   
   # before_save :parse_date
-  after_create :add_rooms
+  # after_create :add_rooms
   # after_create :add_details
   
   default_scope order('inspection_date DESC')

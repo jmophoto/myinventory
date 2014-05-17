@@ -60,12 +60,15 @@ app.factory "Valuable", ["$resource", ($resource) ->
   $resource("/inspections/:inspection_id/valuables/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
 ]
 
-@InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", "Valuable", ($scope, InspectedRoom, Inspection, Image, Detail, Valuable) ->
+@InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", "Valuable", "Address", ($scope, InspectedRoom, Inspection, Image, Detail, Valuable, Address) ->
   $scope.inspections = Inspection.query()
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
 
   $scope.editInspection = (inspection) ->
     Inspection.update(inspection)
+    Address.update(inspection.address)
+    $scope.inspectionSaved=true
+    $scope.editInspectionForm.$setPristine()
     
   $scope.addValuable = (inspection) ->
     valuable = Valuable.save({inspection_id: inspection.id,name:"New Valuable"})
