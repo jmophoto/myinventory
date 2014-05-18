@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-	<%= render :partial => 'layouts/head_tags' %>
-	<body>
-		<%= render :partial => 'layouts/header' %>
-		<div class="container" id="main-container">
-			<%= yield %>
-		</div>
-		<%= render :partial => 'layouts/footer' %>
-		<%= yield :javascript %>
-	</body>
+  <%= render :partial => 'layouts/head_tags' %>
+  <body>
+    <%= render :partial => 'layouts/header' %>
+    <div class="container" id="main-container">
+      <%= yield %>
+    </div>
+    <%= render :partial => 'layouts/footer' %>
+    <%= yield :javascript %>
+  </body>
 </html>
