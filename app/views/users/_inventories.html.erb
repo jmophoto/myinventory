@@ -7,8 +7,8 @@
         <div class="col-md-4">
           <% if i.inspection_type == "self" %>
             <%= link_to "Show", i, class: "btn btn-primary btn-xs pull-right" %>
-          <% else %>
-            <%= link_to i.status.titleize, "", class: "btn btn-primary btn-xs pull-right disabled" %>
+          <% elsif !i.status.nil? %>
+            <%= link_to i.display_status, i, class: "btn btn-primary btn-xs pull-right" %>
           <% end %>
         </div>
       </div>

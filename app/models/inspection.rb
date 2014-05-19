@@ -30,6 +30,10 @@ class Inspection < ActiveRecord::Base
     where(inspection_type: 'agent', agent_id: nil)
   end
   
+  def display_status
+    status.titleize unless status.nil?
+  end
+    
   def display_type
     if inspection_type == "self"
       "Self-Completed"
