@@ -71,10 +71,12 @@ app.factory "Valuable", ["$resource", ($resource) ->
 
   $scope.assignAgent = (inspection,agent) ->
     inspection.agent_id = agent.id
+    inspection.inspection_status = 'assigned'
     Inspection.update(inspection)
     
   $scope.unassignAgent = (inspection) ->
     inspection.agent_id = null
+    inspection.inspection_status = 'pending'
     Inspection.update(inspection)
     
   $scope.isAssigned = (inspection) ->

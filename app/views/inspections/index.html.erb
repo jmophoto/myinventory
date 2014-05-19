@@ -8,8 +8,9 @@
   			</div>
         <ul class="list-group">
           <li class="list-group-item row" ng-repeat="inspection in inspections | filter:isUnassigned">
-            <div class="col-md-3">{{ inspection.name }}</div>
-            <div class="col-md-6">{{ inspection.address.city_state }}</div>
+            <div class="col-md-3"><a ng-href="inspections/{{inspection.id}}">{{ inspection.name }}</a></div>
+            <div class="col-md-3">{{ inspection.user.full_name }}</div>
+            <div class="col-md-3">{{ inspection.address.city_state }}</div>
             <div class="col-md-2">
     					<select class="form-control" ng-model="selectedAgent" ng-options="agent.full_name for agent in agents">
     					  <option value="">Select Agent</option>
@@ -30,8 +31,9 @@
   			</div>
         <ul class="list-group">
           <li class="list-group-item row" ng-repeat="inspection in inspections | filter:isAssigned">
-            <div class="col-md-3">{{ inspection.name }}</div>
-            <div class="col-md-6">{{ inspection.address.city_state }}</div>
+            <div class="col-md-3"><a ng-href="inspections/{{inspection.id}}">{{ inspection.name }}</a></div>
+            <div class="col-md-3">{{ inspection.user.full_name }}</div>
+            <div class="col-md-3">{{ inspection.address.city_state }}</div>
             <div class="col-md-2">{{ inspection.agent.full_name }}</div>
             <div class-"col-md-2">
               <button class="btn btn-sm btn-warning" ng-click="unassignAgent(inspection)">Unassign</button>

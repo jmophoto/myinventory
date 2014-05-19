@@ -12,7 +12,10 @@ class BraintreeController < ApplicationController
       render transaction.errors.messages.to_json
     else
       inventory = @user.inspections.create!(name:'New Inventory',inspection_type:params[:pricing][:plan_id])
-      inventory.create_address(country:"USA")
+      if inventory.inspection_type == 'agent'
+        inventory.update_attributes(status:'pending')
+      end
+      inventory.create_address(country:'USA')
       redirect_to profile_path
     end
   end

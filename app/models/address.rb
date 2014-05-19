@@ -25,7 +25,7 @@ class Address < ActiveRecord::Base
   def city_state
     city_state = ""
     city_state += "#{self.city}" unless self.city.blank?
-    city_state += ", #{self.state}" unless self.city.blank?
+    city_state += ", #{self.state}" unless self.state.blank?
     city_state
   end
   
