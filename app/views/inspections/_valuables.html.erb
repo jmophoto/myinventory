@@ -13,7 +13,9 @@
             <form class="form-inline">
               <span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" 
               data-parent="#accordion" href="#valuable_{{ valuable.id }}"></span> 
-    		      <span ng-hide="valuable.editing" ng-click="valuable.editing = true">{{ valuable.name }}</span>
+    		      <span ng-hide="valuable.editing" ng-click="valuable.editing = true">{{ valuable.name }}
+                <span class="glyphicon glyphicon-pencil edit-icon"></span>
+              </span>
     					<span ng-show="valuable.editing">
     						<div class="form-group"><input type="text" class="form-control" ng-model="valuable.name"></div>
     						<button class="btn btn-success btn-sm" type="submit" ng-click="valuable.editing = false; editValuable(valuable)">Save</button>
@@ -41,6 +43,39 @@
                 </div>
     					</div>
             </form>
+        		<div class="row">
+        			<div ng-controller="ImageController" class="col-md-2">
+        				<form ng-upload="uploadValuableImage(content,$index)" action="/images" upload-options-enable-rails-csrf>
+        					<span ng-show="uploadStatus == 'nofile'" class="btn btn-success fileinput-button">
+        						<i class="glyphicon glyphicon-plus"></i>
+        						<span>Select an image to upload</span>
+        						<input type="file" name="image[asset]" onchange="angular.element(this).scope().setFiles(this)">
+        					</span>
+        					<input type='hidden' name='image[imageable_id]' value='{{valuable.id}}'>
+        					<input type='hidden' name='image[imageable_type]' value='Valuable'>
+        					<button ng-show="uploadStatus == 'uploading'" class="btn btn-warning" disabled>
+        						<i class="glyphicon glyphicon-cloud-upload"></i>
+        						<span>Uploading {{ files[0].name }}</span>
+        					</button>
+        					<button ng-show="uploadStatus == 'hasfile'" class="btn btn-success" upload-submit ng-click="startUpload()">
+        						<i class="glyphicon glyphicon-arrow-up"></i>
+        						<span>Upload {{ files[0].name }}</span>
+        					</button>
+        				</form>
+        			</div>
+        		</div>
+        		<div class="row room-detail-item image-grid">
+        		  <div ng-repeat="image in valuable.images" class="col-md-2">
+        		    <div class="thumbnail">
+        		      <img ng-src="{{ image.asset.asset.thumb.url }}">
+        					<input type="text" ng-model="image.comment" class="image-comment form-control" 
+        														 placeholder="Comments" ng-change="addImageComment(image, image.comment)">
+        					<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoomImage($parent.$index,image,$index)">
+        						<span class="glyphicon glyphicon-trash"></span>
+        					</button>
+        		    </div>
+        		  </div>
+        		</div>
           </div>
         </div>
       </li>

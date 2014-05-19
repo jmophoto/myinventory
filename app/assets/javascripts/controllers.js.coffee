@@ -440,7 +440,12 @@ app.factory "Valuable", ["$resource", ($resource) ->
   $scope.uploadInspectionImage = (content) ->
     $scope.uploadStatus = "nofile"
     $scope.files = []
-    $scope.inspection.images.push(content)
+    
+  $scope.uploadValuableImage = (content,index) ->
+    $scope.uploadStatus = "nofile"
+    $scope.files = []
+    $scope.inspection.valuables[index].images.push(content)
+    
     
   $scope.uploadCompanyImage = (content) ->
     $scope.uploadStatus = "nofile"
