@@ -40,6 +40,10 @@ app.factory "User", ["$resource", ($resource) ->
   $resource("/users/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
+app.factory "Agent", ["$resource", ($resource) ->
+  $resource("/agents")
+]
+
 app.factory "Address", ["$resource", ($resource) -> 
   $resource("/addresses/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
@@ -60,10 +64,25 @@ app.factory "Valuable", ["$resource", ($resource) ->
   $resource("/inspections/:inspection_id/valuables/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
 ]
 
-@InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", "Valuable", "Address", ($scope, InspectedRoom, Inspection, Image, Detail, Valuable, Address) ->
+@InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", "Valuable", "Address", "Agent", ($scope, InspectedRoom, Inspection, Image, Detail, Valuable, Address, Agent) ->
   $scope.inspections = Inspection.query()
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
+  $scope.agents = Agent.query()
 
+  $scope.assignAgent = (inspection,agent) ->
+    inspection.agent_id = agent.id
+    Inspection.update(inspection)
+    
+  $scope.unassignAgent = (inspection) ->
+    inspection.agent_id = null
+    Inspection.update(inspection)
+    
+  $scope.isAssigned = (inspection) ->
+    inspection.agent_id != null
+    
+  $scope.isUnassigned = (inspection) ->
+    inspection.agent_id is null
+  
   $scope.editInspection = (inspection) ->
     Inspection.update(inspection)
     Address.update(inspection.address)

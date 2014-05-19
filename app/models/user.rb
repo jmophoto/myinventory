@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   
   has_many :properties
   has_many :inspections
+  has_many :assigned_inspections, class_name: 'Inspection', foreign_key: 'agent_id'
   has_many :payment_methods
   
   belongs_to :account
@@ -23,6 +24,10 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :account
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :company
+  
+  def self.agent
+    where(agent:true)
+  end
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64

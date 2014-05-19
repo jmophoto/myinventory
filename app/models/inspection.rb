@@ -7,6 +7,7 @@ class Inspection < ActiveRecord::Base
   has_many :valuables
   belongs_to :property
   belongs_to :user
+  belongs_to :agent, class_name: 'User'
   has_many :images, as: :imageable
   has_one :address, as: :addressable
   
@@ -20,6 +21,14 @@ class Inspection < ActiveRecord::Base
   # after_create :add_details
   
   default_scope order('inspection_date DESC')
+  
+  def self.agent
+    where(inspection_type: 'agent')
+  end
+  
+  def self.unassigned
+    where(inspection_type: 'agent', agent_id: nil)
+  end
   
   def display_type
     if inspection_type == "self"

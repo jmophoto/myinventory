@@ -11,6 +11,15 @@ class UsersController < ApplicationController
     end
   end
   
+  def agents
+    @users = User.where(agent:true,agent_status:'approved')
+    respond_to do |format|
+      format.html
+      format.json { render json: @users, root: false }
+    end
+  end
+    
+  
   def show
     render json: @user, root: false
   end

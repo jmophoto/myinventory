@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140517183712) do
+ActiveRecord::Schema.define(version: 20140518035108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20140517183712) do
     t.date     "report_date"
     t.text     "details"
     t.string   "name"
+    t.integer  "agent_id"
   end
 
   create_table "payment_methods", force: true do |t|
