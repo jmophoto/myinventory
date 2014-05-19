@@ -1,0 +1,14 @@
+$ ->
+  currentImage = 1
+
+  changeHeaderImage = ->
+    images = ["<%= image_url('mi_background_1.jpg') %>", "<%= image_url('mi_background_2.jpg') %>", "<%= image_url('mi_background_3.jpg') %>"]
+    $('.homepage-top').css 'background-image', images[currentImage]
+    if currentImage == 2
+      currentImage = 0
+    else
+      currentImage++
+
+  setInterval ->
+    changeHeaderImage()
+  , 5000
