@@ -17,6 +17,8 @@ Inspeckd::Application.routes.draw do
     resources :inspected_rooms
     resources :inspection_details
     resources :valuables
+
+    get 'email', to: 'inspections#email'
   end
   resources :valuables
   resources :inspected_rooms do

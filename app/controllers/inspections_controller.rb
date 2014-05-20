@@ -107,6 +107,13 @@ class InspectionsController < ApplicationController
     end
   end
 
+  def email
+    @inspection = Inspection.find(params[:inspection_id])
+    pdf = InspectionPdf.new(@inspection, view_context)
+    InspectionMailer.email_pdf(params[:email], pdf).deliver
+    redirect_to inspection_path(@inspection)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inspection
