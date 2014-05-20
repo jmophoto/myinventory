@@ -1,11 +1,20 @@
 class InspectionsController < ApplicationController
   before_action :set_inspection, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user?, only: [:index]
+  # before_action :admin_user?, only: [:index]
+  # before_action :agent_user?, only: [:assigned_index]
   wrap_parameters include: [:name, :details, :desscription, :room_count, :other_areas, :address_attributes, :agent_id, :status]
 
   # GET /inspections
   # GET /inspections.json
   def index
+    @inspections = Inspection.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @inspections, root: false }
+    end
+  end
+  
+  def assigned_index
     @inspections = Inspection.all
     respond_to do |format|
       format.html

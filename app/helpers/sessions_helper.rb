@@ -9,7 +9,7 @@ module SessionsHelper
   end
   
   def agent_user?
-    unless signed_in? && current_user.admin?
+    unless signed_in? && current_user.agent?
       store_location
       flash[:error] = "This page is for agents only."
       redirect_to signin_url

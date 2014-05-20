@@ -37,7 +37,7 @@ Inspeckd::Application.routes.draw do
   end
   
   # agent access
-  get '/agent', to: 'static_pages#agent'
+  get '/agent_inspections', to: 'inspections#assigned_index'
   get '/agents', to: 'users#agent_index'
   
   # admin access

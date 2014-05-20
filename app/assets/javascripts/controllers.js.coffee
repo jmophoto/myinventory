@@ -84,6 +84,9 @@ app.factory "Valuable", ["$resource", ($resource) ->
     
   $scope.isUnassigned = (inspection) ->
     inspection.agent_id is null
+    
+  $scope.checkAssigned = (inspection) ->
+    $scope.agentID == inspection.agent_id
   
   $scope.editInspection = (inspection) ->
     Inspection.update(inspection)

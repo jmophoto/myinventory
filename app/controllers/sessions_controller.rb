@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
       sign_in user
       if user.admin?
         redirect_to(admin_path)
+      elsif user.agent?
+        redirect_to(agent_inspections_path)
       else
         redirect_to(profile_path)
       end
