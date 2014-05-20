@@ -7,6 +7,8 @@ class InspectionPdf < Prawn::Document
     logo_box
     header_box
     address
+    info_box
+    valuables
     rooms
     # property_images
     # room_images
@@ -51,11 +53,48 @@ class InspectionPdf < Prawn::Document
         cells.padding = [10, 5, 10, 5]
         row(0).font_style = :bold
         row(0).columns(2).align = :center
-        # columns(1).align = :center
         columns(2).width = 300
       end
     end
     move_down 40
+  end
+
+  def valuables
+    move_down 30
+    text 'Valuables', size: 25, align: :center
+    @inspection.valuables.each_with_index do |v, index|
+      move_down 20
+      features = [["Serial Number", "Comments"]]
+      features += [[v.serial_number, v.comments]]
+      font_size(10) do
+        table(features, :width => bounds.right, :row_colors => ["EEEEEE", "FFFFFF"], :header => true) do
+          cells.borders = [:bottom]
+          cells.padding = [10, 5, 10, 5]
+          row(0).font_style = :bold
+          row(0).columns(4).align = :center
+          columns(4).width = 200
+        end
+      end
+      if v.images.any?
+        move_down 20
+        image_urls = v.images.map(&:small_url)
+        y_index = cursor
+        width = bounds.right/3
+        height = bounds.right/5
+        v.images.in_groups_of(3).map do |image_row|
+          image_row.each_with_index do |image_file, index|
+            bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
+              if image_file && image_file.asset
+                image "#{Rails.root}/public#{image_file.asset.url(:small)}", fit: [width-20, height-20], position: :center
+                text_box "#{image_file.comment}", at: [bounds.left+10, cursor-10], width: width, size: 8
+              end
+            end
+          end
+          y_index -= height + 50
+        end
+      end
+    end
+    start_new_page
   end
   
   def rooms
@@ -99,7 +138,7 @@ class InspectionPdf < Prawn::Document
       move_down 40
     end
   end
-  
+
   def property_images
     text "Property Images", size: 25, align: :center
     stroke do
