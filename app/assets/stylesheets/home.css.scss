@@ -2,12 +2,22 @@
 
 #homepage {
   .homepage-top {
-    background-image: image-url("mi_background_1.jpg");
-    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     padding-bottom: 100px;
     color: #FFFFFF;
+
+    &.one {
+      background: url("mi_background_1.jpg") no-repeat;
+    }
+
+    &.two {
+      background: url("mi_background_2.jpg") no-repeat;
+    }
+
+    &.three {
+      background: url("mi_background_3.jpg") no-repeat;
+    }
   }
 
   .homepage-image-text {
