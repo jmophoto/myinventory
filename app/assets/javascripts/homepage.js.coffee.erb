@@ -1,14 +1,18 @@
 $ ->
-  currentImage = 1
+  currentClass = 1
 
   changeHeaderImage = ->
-    images = ["<%= image_url('mi_background_1.jpg') %>", "<%= image_url('mi_background_2.jpg') %>", "<%= image_url('mi_background_3.jpg') %>"]
-    $('.homepage-top').css 'background-image', images[currentImage]
-    if currentImage == 2
-      currentImage = 0
+    classes = ['one', 'two', 'three']
+    $('.homepage-top').removeClass($('.homepage-top').data('removeclass'))
+    $('.homepage-top').addClass(classes[currentClass])
+    $('.homepage-top').data('removeclass', classes[currentClass])
+    if currentClass == 2
+      currentClass = 0
     else
-      currentImage++
+      currentClass++
 
   setInterval ->
     changeHeaderImage()
+    true
   , 5000
+
