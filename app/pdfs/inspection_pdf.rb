@@ -26,7 +26,7 @@ class InspectionPdf < Prawn::Document
   def address
     bounding_box([0, cursor - 10], width: 200) do
       font_size(18) do
-        text_box @inspection.address.full_address
+        text_box @inspection.address.try(:full_address) || ''
       end
     end
   end
