@@ -7,11 +7,8 @@ class InspectionPdf < Prawn::Document
     logo_box
     header_box
     address
-<<<<<<< Updated upstream
-=======
     info_box
     valuables
->>>>>>> Stashed changes
     rooms
     # property_images
     # room_images
