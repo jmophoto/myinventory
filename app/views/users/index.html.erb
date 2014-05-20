@@ -1,53 +1,17 @@
 <% provide(:title, "Admin - Users") %>
 <div class="col-md-12" ng-controller="UserController">
   <div class="panel-group">
-    <div class="panel panel-default user-panel panel-warning" ng-hide="(users | filter:{agent:true,agent_status:'pending'}).length < 1">
+    <div class="panel panel-default user-panel">
 			<div class="panel-heading">
-				<h4 class="panel-title">Pending Agents</h4>
+				<h4 class="panel-title">Users</h4>
 			</div>
       <ul class="list-group">
-        <li class="list-group-item row" ng-repeat="user in users | filter:{agent:true,agent_status:'pending'}">
+        <li class="list-group-item row" ng-repeat="user in users">
           <div class="col-md-3">{{ user.full_name }}</div>
           <div class="col-md-3">{{ user.email }}</div>
-          <div class="col-md-3">{{ user.address.city_state }}</div>
-          <div class="col-md-3 pull-right text-right">
-            <button class="btn btn-xs btn-success" ng-click="updateAgentStatus(user,'approved')">Approve</button>
-            <button class="btn btn-xs btn-warning" ng-click="updateAgentStatus(user,'pending')" disabled>Pending</button>
-            <button class="btn btn-xs btn-danger" ng-click="updateAgentStatus(user,'declined')">Decline</button>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="panel panel-default user-panel panel-success" ng-hide="(users | filter:{agent:true,agent_status:'approved'}).length < 1">
-			<div class="panel-heading">
-				<h4 class="panel-title">Approved Agents</h4>
-			</div>
-      <ul class="list-group">
-        <li class="list-group-item row" ng-repeat="user in users | filter:{agent:true,agent_status:'approved'}">
-          <div class="col-md-3">{{ user.full_name }}</div>
-          <div class="col-md-3">{{ user.email }}</div>
-          <div class="col-md-3">{{ user.address.city_state }}</div>
-          <div class="col-md-3 pull-right text-right">
-            <button class="btn btn-xs btn-success" ng-click="updateAgentStatus(user,'approved')" disabled>Approve</button>
-            <button class="btn btn-xs btn-warning" ng-click="updateAgentStatus(user,'pending')">Pending</button>
-            <button class="btn btn-xs btn-danger" ng-click="updateAgentStatus(user,'declined')">Decline</button>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="panel panel-default user-panel panel-danger" ng-hide="(users | filter:{agent:true,agent_status:'declined'}).length < 1">
-			<div class="panel-heading">
-				<h4 class="panel-title">Declined Agents</h4>
-			</div>
-      <ul class="list-group">
-        <li class="list-group-item row" ng-repeat="user in users | filter:{agent:true,agent_status:'declined'}">
-          <div class="col-md-3">{{ user.full_name }}</div>
-          <div class="col-md-3">{{ user.email }}</div>
-          <div class="col-md-3">{{ user.address.city_state }}</div>
-          <div class="col-md-3 pull-right text-right">
-            <button class="btn btn-xs btn-success" ng-click="updateAgentStatus(user,'approved')">Approve</button>
-            <button class="btn btn-xs btn-warning" ng-click="updateAgentStatus(user,'pending')">Pending</button>
-            <button class="btn btn-xs btn-danger" ng-click="updateAgentStatus(user,'declined')" disabled>Decline</button>
+          <div class="col-md-3">{{ user.user_type }}</div>
+          <div class="col-md-3 text-right">
+            <a ng-href="users/{{user.id}}" class="btn btn-primary btn-sm">Show</a>
           </div>
         </li>
       </ul>

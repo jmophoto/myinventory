@@ -366,11 +366,15 @@ app.factory "Valuable", ["$resource", ($resource) ->
     $scope.editCompanyForm.$dirty = false
     
     
-  $scope.updateAgentStatus = (user,status) ->
-    user.agent = true
+  $scope.updateAgentStatus = (user,isAgent,status) ->
+    user.agent = isAgent
     user.agent_status = status
     User.update(user)
-
+    
+  $scope.updateAdminStatus = (user,isAdmin) ->
+    user.admin = isAdmin
+    User.update(user)
+    
 ]
 
 @AccountController = ["$scope", "User", "Account", "Image", ($scope, User, Account, Image) ->
@@ -440,6 +444,7 @@ app.factory "Valuable", ["$resource", ($resource) ->
   $scope.uploadInspectionImage = (content) ->
     $scope.uploadStatus = "nofile"
     $scope.files = []
+    $scope.inspection.images.push(content)
     
   $scope.uploadValuableImage = (content,index) ->
     $scope.uploadStatus = "nofile"

@@ -25,6 +25,24 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :company
   
+  def user_type
+    if self.admin?
+      "Admin"
+    elsif self.agent?
+      "Agent"
+    else
+      "User"
+    end
+  end
+  
+  def display_agent_status
+    if self.agent_status.nil?
+      "None"
+    else
+      self.agent_status.titleize
+    end
+  end
+  
   def self.agent
     where(agent:true)
   end

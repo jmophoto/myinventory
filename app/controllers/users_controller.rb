@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   before_action :signed_in_user, except: [:new, :create, :new_agent]
-  before_action :admin_user?, only: [:index]
+  before_action :admin_user?, only: [:index,:agent_index]
+  wrap_parameters include: [:agent, :agent_status, :admin]
   
   def index
     @users = User.all
@@ -11,8 +12,8 @@ class UsersController < ApplicationController
     end
   end
   
-  def agents
-    @users = User.where(agent:true,agent_status:'approved')
+  def agent_index
+    @users = User.all
     respond_to do |format|
       format.html
       format.json { render json: @users, root: false }
@@ -21,7 +22,10 @@ class UsersController < ApplicationController
     
   
   def show
-    render json: @user, root: false
+    respond_to do |format|
+      format.html
+      format.json { render json: @user, root: false }
+    end
   end
   
   def new
