@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
+  before_action :agent_user?, only: [:agent]
+  before_action :admin_user?, only: [:admin]
+  
   def home
     render :layout => 'homepage'
   end
@@ -25,5 +28,11 @@ class StaticPagesController < ApplicationController
   end
   
   def toc
+  end
+  
+  def agent
+  end
+  
+  def admin
   end
 end

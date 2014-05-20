@@ -6,47 +6,56 @@
 	<div class="panel-group" id="accordion" ng-controller="InspectionController">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-				<div class="panel-title">
-					<div class="row">
-						<div class="col-md-7 inspection-address">
-							<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#inspection-details"></span>
-							{{ inspection.address.full_address }}
+				<div class="panel-title inspection-title row">
+					<form class="form-inline col-md-6" role="form">
+		      <span ng-hide="inspection.editing" ng-click="inspection.editing = true">{{ inspection.name }}
+            <span class="glyphicon glyphicon-pencil edit-icon"></span>
+          </span>
+					<span ng-show="inspection.editing">
+						<div class="form-group">
+							<input type="text" class="form-control" ng-model="inspection.name">
 						</div>
-						<form class="add-room-form form-inline pull-right" role="form" ng-submit="addRoom()">
-							<div class="form-group">
-						    <label class="sr-only" for="newRoomName">Type</label>
-								<input type="text" class="form-control" placeholder="Room Name (optional)" ng-model="newRoom.name">
-						  </div>
-						  <div class="form-group">
-						    <label class="sr-only" for="newRoomType">Type</label>
-								<%= select_tag "Room Type", options_for_select(full_list.collect{ |x| [x.titleize, x] }),
-										:class => "form-control input-sm", :"ng-model" => "newRoom.type", prompt: "Room Type" %>
-						  </div>
-						  <button type="submit" class="btn btn-sm btn-success">Add Room</button>
-						</form>
-					</div>
+						<button class="btn btn-default btn-sm" type="submit" ng-click="inspection.editing = false; editInspection(inspection)">Save</button>
+					</span>
+					</form>
+					<form class="form-inline col-md-6 text-right" role="form" ng-submit="addRoom()">
+						<div class="form-group">
+					    <label class="sr-only" for="newRoomName">Type</label>
+							<input type="text" class="form-control" placeholder="Room Name (optional)" ng-model="newRoom.name">
+					  </div>
+					  <div class="form-group">
+					    <label class="sr-only" for="newRoomType">Type</label>
+							<%= select_tag "Room Type", options_for_select(full_list.collect{ |x| [x.titleize, x] }),
+									:class => "form-control input-sm", :"ng-model" => "newRoom.type", prompt: "Room Type" %>
+					  </div>
+					  <button type="submit" class="btn btn-sm btn-success">Add Room</button>
+					</form>
 				</div>
 			</div>
 			<%= render :partial => 'inspection_details' %>
 		</div>
-		<div class="room-panel panel panel-default" ng-repeat="room in inspection.inspected_rooms">
-		  <div class="room-heading panel-heading">
-				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">
-					<form class="form-inline">
-					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" href="#room_{{ room.id }}"></span>
-		      <span ng-hide="room.editing" ng-click="room.editing = true">{{ room.name }}</span>
-					<span ng-show="room.editing">
-						<div class="form-group">
-							<input type="text" class="form-control" ng-model="room.name">
-						</div>
-						<button class="btn btn-default btn-sm" type="submit" ng-click="room.editing = false; editRoom(room)">Save</button>
-					</span>
-					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoom(room,$index)">
-						<span class="glyphicon glyphicon-trash"></span>
-					</button>
-					</form>
-				</div>
-			</div>
+		<%= render :partial => 'valuables' %>
+  		<div class="room-panel panel panel-default" ng-repeat="room in inspection.inspected_rooms">
+  		  <div class="room-heading panel-heading">
+  				<div class="room-title panel-title" ng-init="inspected_room_id=room.id">
+  					<form class="form-inline">
+  					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" 
+                  href="#room_{{ room.id }}"></span>
+  		      <span ng-hide="room.editing" ng-click="room.editing = true">{{ room.name }}
+              <span class="glyphicon glyphicon-pencil edit-icon"></span>
+            </span>
+  					<span ng-show="room.editing">
+  						<div class="form-group">
+  							<input type="text" class="form-control" ng-model="room.name">
+  						</div>
+  						<button class="btn btn-success btn-sm" type="submit" ng-click="room.editing = false; editRoom(room)">Save</button>
+  					</span>
+  					<button class="btn-room-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoom(room,$index)">
+  						<span class="glyphicon glyphicon-trash"></span>
+  					</button>
+  					</form>
+  				</div>
+  			</div>
 			<%= render :partial => 'room_details' %>
 		</div>
 	</div>

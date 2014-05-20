@@ -40,6 +40,10 @@ app.factory "User", ["$resource", ($resource) ->
   $resource("/users/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
+app.factory "Agent", ["$resource", ($resource) ->
+  $resource("/agents")
+]
+
 app.factory "Address", ["$resource", ($resource) -> 
   $resource("/addresses/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
@@ -56,19 +60,59 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
   $resource("/payment_methods/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
 
-@InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", ($scope, InspectedRoom, Inspection, Image, Detail) ->
+app.factory "Valuable", ["$resource", ($resource) ->
+  $resource("/inspections/:inspection_id/valuables/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
+]
+
+@InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", "Valuable", "Address", "Agent", ($scope, InspectedRoom, Inspection, Image, Detail, Valuable, Address, Agent) ->
   $scope.inspections = Inspection.query()
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
+  $scope.agents = Agent.query()
 
+  $scope.assignAgent = (inspection,agent) ->
+    inspection.agent_id = agent.id
+    inspection.status = 'assigned'
+    Inspection.update(inspection)
+    
+  $scope.unassignAgent = (inspection) ->
+    inspection.agent_id = null
+    inspection.status = 'pending'
+    Inspection.update(inspection)
+    
+  $scope.isAssigned = (inspection) ->
+    inspection.agent_id != null
+    
+  $scope.isUnassigned = (inspection) ->
+    inspection.agent_id is null
+    
+  $scope.checkAssigned = (inspection) ->
+    $scope.agentID == inspection.agent_id
+  
   $scope.editInspection = (inspection) ->
     Inspection.update(inspection)
+    Address.update(inspection.address)
+    $scope.inspectionSaved=true
+    $scope.editInspectionForm.$setPristine()
+    
+  $scope.addValuable = (inspection) ->
+    valuable = Valuable.save({inspection_id: inspection.id,name:"New Valuable"})
+    $scope.inspection.valuables.push(valuable)
+    
+  $scope.deleteValuable = (valuable,index) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Valuable.delete(valuable)
+      $scope.inspection.valuables.splice(index,1)
+      
+  $scope.editValuable = (valuable) ->
+    Valuable.update(valuable)
 
   $scope.addRoom = ->
     room = InspectedRoom.save({inspection_id: $scope.inspection_id, name: $scope.newRoom.name, room_type: $scope.newRoom.type})
     $scope.inspection.inspected_rooms.push(room)
     $scope.newRoom = {}
 
-  $scope.deleteRoom = (room, index) ->
+  $scope.deleteRoom = (room,index) ->
     confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
       InspectedRoom.delete(room)
@@ -310,6 +354,7 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
 
 @UserController = ["$scope", "User", "Company", "Address", ($scope, User, Company, Address) ->
   $scope.user = User.get({id: $scope.userId})
+  $scope.users = User.query()
 
   $scope.editUser = (user) ->
     User.update(user)
@@ -322,7 +367,17 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
     Company.update(user.company)
     Address.update(user.company.address)
     $scope.editCompanyForm.$dirty = false
-
+    
+    
+  $scope.updateAgentStatus = (user,isAgent,status) ->
+    user.agent = isAgent
+    user.agent_status = status
+    User.update(user)
+    
+  $scope.updateAdminStatus = (user,isAdmin) ->
+    user.admin = isAdmin
+    User.update(user)
+    
 ]
 
 @AccountController = ["$scope", "User", "Account", "Image", ($scope, User, Account, Image) ->
@@ -393,6 +448,12 @@ app.factory "PaymentMethod", ["$resource", ($resource) ->
     $scope.uploadStatus = "nofile"
     $scope.files = []
     $scope.inspection.images.push(content)
+    
+  $scope.uploadValuableImage = (content,index) ->
+    $scope.uploadStatus = "nofile"
+    $scope.files = []
+    $scope.inspection.valuables[index].images.push(content)
+    
     
   $scope.uploadCompanyImage = (content) ->
     $scope.uploadStatus = "nofile"

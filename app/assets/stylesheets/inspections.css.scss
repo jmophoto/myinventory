@@ -11,6 +11,10 @@
   text-align: right;
 }
 
+.list-group-item {
+  line-height: 32px;
+}
+
 .list-group-item-heading {
   margin-top: 7px;
 }
@@ -76,4 +80,9 @@
 
 btn-edit-toggle {
   margin-right: 20px;
+}
+
+.inspection-title, .room-title {
+  font-size: 18px;
+  line-height: 36px;
 }

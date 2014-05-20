@@ -1,0 +1,23 @@
+<% provide(:title, "Inventories") %>
+<div class="col-md-12" ng-init="agentID='<%= current_user.id %>'">
+  <div ng-controller="InspectionController">
+    <div class="panel-group" id="inspectionAccordion">      
+      <div class="panel panel-default user-panel">
+  			<div class="panel-heading">
+  				<h4 class="panel-title">Assigned Inventories</h4>
+  			</div>
+        <ul class="list-group">
+          <li class="list-group-item row" ng-repeat="inspection in inspections | filter:{agent_id:agentID}">
+            <div class="col-md-3"><a ng-href="inspections/{{inspection.id}}">{{ inspection.name }}</a></div>
+            <div class="col-md-3">{{ inspection.name }}</div>
+            <div class="col-md-3">{{ inspection.address.city_state }}</div>
+            <div class="col-md-2">{{ inspection.user.full_name }}</div>
+            <div class-"col-md-2">
+              <a ng-href="inspections/{{ inspection.id }}" class="btn btn-sm btn-success">Show</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

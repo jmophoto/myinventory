@@ -1,0 +1,20 @@
+<% provide(:title, "Admin - Users") %>
+<div class="col-md-12" ng-controller="UserController">
+  <div class="panel-group">
+    <div class="panel panel-default user-panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">Users</h4>
+			</div>
+      <ul class="list-group">
+        <li class="list-group-item row" ng-repeat="user in users">
+          <div class="col-md-3">{{ user.full_name }}</div>
+          <div class="col-md-3">{{ user.email }}</div>
+          <div class="col-md-3">{{ user.user_type }}</div>
+          <div class="col-md-3 text-right">
+            <a ng-href="users/{{user.id}}" class="btn btn-primary btn-sm">Show</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

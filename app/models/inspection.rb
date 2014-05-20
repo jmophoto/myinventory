@@ -2,9 +2,12 @@ class Inspection < ActiveRecord::Base
   attr_accessor :template, :date_string
   
   has_many :inspected_rooms, -> { includes :inspected_features }
+  has_many :inspected_features, through: :inspected_rooms
   has_many :inspection_details
+  has_many :valuables
   belongs_to :property
   belongs_to :user
+  belongs_to :agent, class_name: 'User'
   has_many :images, as: :imageable
   has_one :address, as: :addressable
   
@@ -14,10 +17,32 @@ class Inspection < ActiveRecord::Base
   accepts_nested_attributes_for :address
   
   # before_save :parse_date
-  after_create :add_rooms
+  # after_create :add_rooms
   # after_create :add_details
   
   default_scope order('inspection_date DESC')
+  
+  def self.agent
+    where(inspection_type: 'agent')
+  end
+  
+  def self.unassigned
+    where(inspection_type: 'agent', agent_id: nil)
+  end
+  
+  def display_status
+    status.titleize unless status.nil?
+  end
+    
+  def display_type
+    if inspection_type == "self"
+      "Self-Completed"
+    elsif inspection_type == "agent"
+      "Agent-Completed"
+    else
+      ""
+    end
+  end
   
   def create_from_template(property_id)
     property = Property.find(property_id)

@@ -1,0 +1,25 @@
+<h1>Listing valuables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @valuables.each do |valuable| %>
+      <tr>
+        <td><%= link_to 'Show', valuable %></td>
+        <td><%= link_to 'Edit', edit_valuable_path(valuable) %></td>
+        <td><%= link_to 'Destroy', valuable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Valuable', new_valuable_path %>

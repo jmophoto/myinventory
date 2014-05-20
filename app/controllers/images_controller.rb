@@ -25,7 +25,7 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.create(image_params)
-    render json: @image, root: false
+    render json: @image, root: false, :content_type => 'text/plain'
     # render json: @image.to_json
     # respond_to do |format|
     #   if @image.save
