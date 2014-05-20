@@ -1,10 +1,31 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
-  before_action :signed_in_user, except: [:new, :create]
-  # before_action :correct_user, only: [:edit, :update]
+  before_action :signed_in_user, except: [:new, :create, :new_agent]
+  before_action :admin_user?, only: [:index,:agent_index]
+  wrap_parameters include: [:agent, :agent_status, :admin]
+  
+  def index
+    @users = User.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @users, root: false }
+    end
+  end
+  
+  def agent_index
+    @users = User.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @users, root: false }
+    end
+  end
+    
   
   def show
-    render json: @user, root: false
+    respond_to do |format|
+      format.html
+      format.json { render json: @user, root: false }
+    end
   end
   
   def new
@@ -12,8 +33,18 @@ class UsersController < ApplicationController
     @user.build_address
   end
   
+  def new_agent
+    @user = User.new
+    @user.build_address
+  end
+  
+  
   def create
     @user = User.new(user_params)
+    if params[:agent_request].present?
+      @user.agent = true
+      @user.agent_status = 'pending'
+    end
     if @user.save
       sign_in(@user)
       redirect_to profile_path
@@ -30,7 +61,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      sign_in @user
+      # sign_in @user
       render json: @user, root: false
     else
       render 'edit'

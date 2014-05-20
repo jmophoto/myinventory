@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   
   has_many :properties
   has_many :inspections
+  has_many :assigned_inspections, class_name: 'Inspection', foreign_key: 'agent_id'
   has_many :payment_methods
   
   belongs_to :account
@@ -23,6 +24,28 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :account
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :company
+  
+  def user_type
+    if self.admin?
+      "Admin"
+    elsif self.agent?
+      "Agent"
+    else
+      "User"
+    end
+  end
+  
+  def display_agent_status
+    if self.agent_status.nil?
+      "None"
+    else
+      self.agent_status.titleize
+    end
+  end
+  
+  def self.agent
+    where(agent:true)
+  end
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64
@@ -40,6 +63,10 @@ class User < ActiveRecord::Base
     create_subscription!(start_date: Date.today, end_date: Date.today + 2.weeks, subscription_type: "free")
     create_company!
     create_address!
+  end
+  
+  def full_name
+    "#{self.first_name} #{self.last_name}"
   end
   
   def customer

@@ -21,6 +21,7 @@ namespace :deploy do
     task command do
       on roles(:app), in: :sequence, wait: 5 do
         execute "service unicorn_myinventory restart"
+        execute "service nginx restart"
       end
     end
   end

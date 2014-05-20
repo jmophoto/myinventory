@@ -16,7 +16,9 @@ Inspeckd::Application.routes.draw do
     resources :images
     resources :inspected_rooms
     resources :inspection_details
+    resources :valuables
   end
+  resources :valuables
   resources :inspected_rooms do
     resources :images
     resources :inspected_features
@@ -34,6 +36,13 @@ Inspeckd::Application.routes.draw do
     resources :users
   end
   
+  # agent access
+  get '/agent_inspections', to: 'inspections#assigned_index'
+  get '/agents', to: 'users#agent_index'
+  
+  # admin access
+  get 'admin', to: 'static_pages#admin'
+  
   post '/create_new_subscription', to: 'braintree#create_new_subscription'
   post 'submit_transaction', to: 'braintree#submit_transaction'
   post '/add_card', to: 'braintree#add_card'
@@ -44,6 +53,7 @@ Inspeckd::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match 'new_agent', to: 'users#new_agent',     via: 'get'
   
   get '/home', to: 'static_pages#home'
   get '/about', to: 'static_pages#about'
@@ -51,6 +61,7 @@ Inspeckd::Application.routes.draw do
   get '/profile', to: 'users#edit'
   get '/support', to: 'static_pages#support'
   get '/toc', to: 'static_pages#toc'
+  get '/list', to: 'static_pages#list'
 
   root 'static_pages#home'
 end

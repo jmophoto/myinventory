@@ -1,8 +1,14 @@
 <% provide(:title, "Sign Up") %>
 
+<% if @user.errors.any? %>
+  <ul class='alert alert-danger list-unstyled'>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div class="static-page">
-
-
   <div class='row plans'>
     <div class='col-sm-4'>
       <div class='well'>
@@ -57,6 +63,12 @@
         Cloud Based<br />
         Helpful turorials<br />
         And much more!<br />
+      </p>
+      <p>
+        <h3 class='lead'>Refer A Friend and Get 1 Year Free</h3>
+        <p>
+          Do you know someone who would like to use My Inventory?<br />Give us a call at 702.429.2526 to learn how to get a free annual renewal.         
+        </p>
       </p>
     </div>
 

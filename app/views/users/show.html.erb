@@ -1,0 +1,110 @@
+<% provide(:title, "User") %>
+<div ng-init="userId=<%= @user.id %>;stateList=<%= states %>;provinceList=<%= provinces %>">
+  <div class="row" ng-controller="UserController">
+    <div class="col-md-9">
+  		<form ng-submit="editUser(user)" name="editUserForm">
+  			<div class="panel panel-default">
+  				<div class="panel-heading clearfix">
+  					<div class="panel-title">
+  						User Profile
+              <div class="col-md-2 pull-right">
+                <button type="submit" class="btn btn-success btn-sm">Save Changes</button>
+              </div>
+  					</div>
+  				</div>
+  				<div class="panel-body">
+  					<div class="form-group row">
+  						<div class="col-md-6">
+  							<input class="form-control" ng-model="user.first_name" placeholder="First Name">
+  						</div>
+  						<div class="col-md-6">
+  							<input class="form-control" ng-model="user.last_name" placeholder="Last Name">
+  						</div>
+  					</div>
+  					<div class="form-group row">
+  						<div class="col-md-6">
+  							<input class="form-control" ng-model="user.email" placeholder="Email">
+  						</div>
+  						<div class="col-md-6">
+  							<input type="tel" class="form-control" ng-model="user.phone_number" placeholder="Phone Number">
+  						</div>
+  					</div>
+  					<div class="form-group row">
+  						<div class="col-md-4">
+  							<input class="form-control" ng-model="user.address.city" placeholder="City">
+  						</div>
+  						<div class="col-md-4" ng-hide="user.address.country=='Canada'">
+  							<select class="form-control" ng-model="user.address.state" ng-options="state for state in stateList">
+  								<option value="">Select State</option>
+  							</select>
+  						</div>
+  						<div class="col-md-4" ng-show="user.address.country=='Canada'">
+  							<select class="form-control" ng-model="user.address.state" ng-options="province for province in provinceList">
+  								<option value="">Select Province</option>
+  							</select>
+  						</div>
+  						<div class="col-md-2">
+  							<input class="form-control" ng-model="user.address.zip" placeholder="Zip">
+  						</div>
+  						<div class="col-md-2">
+  							<select class="form-control" ng-model="user.address.country">
+  								<option value="USA">USA</option>
+  								<option value="Canada">Canada</option>
+  							</select>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</form>
+  		<div class="panel panel-default">
+  			<div class="panel-heading clearfix">
+  				<div class="panel-title">
+  					User Inventories
+  				</div>
+  			</div>
+        <%= render partial: 'inventories' %>
+      </div>
+    </div>
+    <div class="col-md-3">
+    	<div class="panel panel-default">
+    	  <div class="panel-heading">
+    			<div class="panel-title">Agent Access</div>
+    		</div>
+        <div class="panel-body text-center">
+          <button class="btn btn-sm btn-success btn-block"
+            ng-click="updateAgentStatus(user,true,'approved')"      
+            ng-disabled="user.agent_status=='approved'">
+            <span class="glyphicon glyphicon-ok" ng-show="user.agent_status=='approved'" style="display:hidden"></span> Approved
+          </button>
+          <button class="btn btn-sm btn-warning btn-block"
+            ng-click="updateAgentStatus(user,true,'pending')"
+            ng-disabled="user.agent_status=='pending'">
+            <span class="glyphicon glyphicon-ok" ng-show="user.agent_status=='pending'" style="display:hidden"></span> Pending
+          </button>
+          <button class="btn btn-sm btn-danger btn-block" 
+            ng-click="updateAgentStatus(user,false,nil)"
+            ng-disabled="!user.agent">
+            <span class="glyphicon glyphicon-ok" ng-show="!user.agent" style="display:hidden"></span> None
+          </button>
+        </div>
+      </div>
+    	<div class="panel panel-default">
+    	  <div class="panel-heading">
+    			<div class="panel-title">Admin Access</div>
+    		</div>
+        <div class="panel-body text-center">
+          <button class="btn btn-sm btn-success btn-block" 
+            ng-click="updateAdminStatus(user,true)"
+            ng-disabled="user.admin">
+            <span class="glyphicon glyphicon-ok" ng-show="user.admin" style="display:hidden"></span> Allow
+          </button>
+          <button class="btn btn-sm btn-danger btn-block" 
+            ng-click="updateAdminStatus(user,false)"
+            ng-disabled="!user.admin">
+            <span class="glyphicon glyphicon-ok" ng-show="!user.admin" style="display:hidden"></span> None
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<ul class="list-group">
+  <% @user.inspections.each do |i| %>
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-4"><%= i.name %></div>
+        <div class="col-md-4"><%= i.display_type %></div>
+        <div class="col-md-4">
+          <% if i.inspection_type == "self" %>
+            <%= link_to "Show", i, class: "btn btn-primary btn-xs pull-right" %>
+          <% elsif !i.status.nil? %>
+            <%= link_to i.display_status, i, class: "btn btn-primary btn-xs pull-right" %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
