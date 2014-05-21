@@ -80,10 +80,10 @@ app.factory "Valuable", ["$resource", ($resource) ->
     Inspection.update(inspection)
     
   $scope.isAssigned = (inspection) ->
-    inspection.agent_id != null
+    inspection.agent_id != null and inspection.completed_by == 'agent'
     
   $scope.isUnassigned = (inspection) ->
-    inspection.agent_id is null
+    inspection.agent_id is null and inspection.completed_by == 'agent'
     
   $scope.checkAssigned = (inspection) ->
     $scope.agentID == inspection.agent_id

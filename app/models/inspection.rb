@@ -23,11 +23,11 @@ class Inspection < ActiveRecord::Base
   default_scope order('inspection_date DESC')
   
   def self.agent
-    where(inspection_type: 'agent')
+    where(completed_by: 'agent')
   end
   
   def self.unassigned
-    where(inspection_type: 'agent', agent_id: nil)
+    where(completed_by: 'agent', agent_id: nil)
   end
   
   def display_status
@@ -35,9 +35,9 @@ class Inspection < ActiveRecord::Base
   end
     
   def display_type
-    if inspection_type == "self"
+    if completed_by == "self"
       "Self-Completed"
-    elsif inspection_type == "agent"
+    elsif completed_by == "agent"
       "Agent-Completed"
     else
       ""

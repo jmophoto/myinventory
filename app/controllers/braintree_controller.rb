@@ -11,8 +11,8 @@ class BraintreeController < ApplicationController
     if transaction.errors.any?
       render transaction.errors.messages.to_json
     else
-      inventory = @user.inspections.create!(name:'New Inventory',inspection_type:params[:pricing][:plan_id])
-      if inventory.inspection_type == 'agent'
+      inventory = @user.inspections.create!(name:'New Inventory',completed_by:params[:pricing][:plan_id])
+      if inventory.completed_by == 'agent'
         inventory.update_attributes(status:'pending')
       end
       inventory.create_address(country:'USA')
