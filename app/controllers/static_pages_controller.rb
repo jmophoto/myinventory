@@ -24,7 +24,7 @@ class StaticPagesController < ApplicationController
   def properties
   end
   
-  def support
+  def faq
   end
   
   def toc
