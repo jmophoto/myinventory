@@ -12,7 +12,7 @@ Plan.create([
     price: 10
   },
   { plan_id: 'self',
-    description: "Self completed completed inspections", 
+    description: "Self completed inspections", 
     price: 10
   }
 ])

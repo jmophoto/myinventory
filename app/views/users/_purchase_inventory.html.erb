@@ -25,10 +25,12 @@
   				</div>
   				<div class="form-group row">
   					<div class="col-md-6">
-  				  	<%= cc.select :expiration_month, month_select, {}, { class: "form-control" } %>
+  				  	<%= select_month Date.today, { prefix: 'transaction[credit_card]', field_name: 'expiration_month' }, { class: "form-control" } %>
   					</div>
   					<div class="col-md-6">
-  				 		<%= cc.select :expiration_year, year_select, {}, { class: "form-control" } %>
+              <%= select_year Date.today, 
+              { start_year: Date.today.year, end_year: (Date.today+10.years).year, prefix: 'transaction[credit_card]', field_name: 'expiration_year' }, 
+              { class: "form-control" } %>
   					</div>
   				</div>
         <% end %>

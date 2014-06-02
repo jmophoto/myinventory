@@ -33,6 +33,7 @@ module ApplicationHelper
   end
   
   def month_select
+    month = Date.today.month
     [
       ['1 - January', '01'], 
       ['2 - February', '02'], 

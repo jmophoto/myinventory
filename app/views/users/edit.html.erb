@@ -1,5 +1,6 @@
 <% provide(:title, "Profile") %>
 <div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>;provinceList=<%= provinces %>">
+  <%= render :partial => 'shared/flash_messages' %>
 	<div ng-controller="UserController">
 		<form ng-submit="editUser(user)" name="editUserForm">
 			<div class="panel panel-default">
