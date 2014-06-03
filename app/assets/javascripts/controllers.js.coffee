@@ -199,7 +199,8 @@ app.factory "Valuable", ["$resource", ($resource) ->
                       {name:'Hallway',type:'hallway'},
                       {name:'Staircase',type:'staircase'},
                       {name:'Garage',type:'garage'},
-                      {name:'Exterior',type:'exterior'}]
+                      {name:'Exterior',type:'exterior'},
+                      {name:'Storage Unit',type:'storage_unit'}]
   $scope.propertyDetailList ||= []
   $scope.propertyAreaList ||= []
   $scope.countryList = ['USA','Canada']

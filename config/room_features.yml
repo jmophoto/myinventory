@@ -54,3 +54,7 @@ garage:
   features: ["Windows","Screens","Walls","Light Fixtures","Closets / Shelves","Floors","Doors / Locks"]
   is_room: false
 
+storage_unit:
+  features: []
+  is_room: false
+
