@@ -8,7 +8,7 @@
 		  <div class="panel-heading">
 				<div class="panel-title inspection-title row">
 					<form class="form-inline col-md-6" role="form">
-		      <span ng-hide="inspection.editing" ng-click="inspection.editing = true">{{ inspection.name }}
+		      <span class="clicktoedit" ng-hide="inspection.editing" ng-click="inspection.editing = true">{{ inspection.name }}
             <span class="glyphicon glyphicon-pencil edit-icon"></span>
           </span>
 					<span ng-show="inspection.editing">
@@ -41,7 +41,7 @@
   					<form class="form-inline">
   					<span class="btn-toggle glyphicon glyphicon-plus" data-toggle="collapse" data-parent="#accordion" 
                   href="#room_{{ room.id }}"></span>
-  		      <span ng-hide="room.editing" ng-click="room.editing = true">{{ room.name }}
+  		      <span class="clicktoedit" ng-hide="room.editing" ng-click="room.editing = true">{{ room.name }}
               <span class="glyphicon glyphicon-pencil edit-icon"></span>
             </span>
   					<span ng-show="room.editing">

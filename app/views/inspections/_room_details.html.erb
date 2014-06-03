@@ -1,18 +1,20 @@
 <div class="panel-collapse collapse" id="room_{{ room.id }}">
 	<div class="panel-body" ng-controller="FeatureController">
     <div class="row" ng-repeat="feature in room.inspected_features">
-			<div class="col-md-2 room-detail-item">
-				<form class="form-inline">
-					<span ng-hide="feature.editing" class="feature-name" ng-click="feature.editing = true">{{ feature.name }}</span>
+			<div class="col-md-3 room-detail-item">
+				<form class="form-inline">          
+					<span class="clicktoedit" ng-hide="feature.editing" class="feature-name" ng-click="feature.editing = true">{{ feature.name }}
+            <span class="glyphicon glyphicon-pencil edit-icon"></span>
+          </span>
 					<span ng-show="feature.editing">
 						<div class="form-group">
 							<input type="text" class="form-control" ng-model="feature.name">
 						</div>
-						<button class="btn btn-default btn-sm" type="submit" ng-click="feature.editing = false; editFeature(feature)">Save</button>
+						<button class="btn btn-success btn-sm" type="submit" ng-click="feature.editing = false; editFeature(feature)">Save</button>
 					</span>
 				</form>
 			</div>
-			<div class="col-md-9 room-detail-item">
+			<div class="col-md-8 room-detail-item">
 				<form class="form-inline">
 					<input type="text" ng-model="feature.comment" class="form-control" placeholder="Comments" ng-change="addComment(feature, feature.comment)">
 				</form>
