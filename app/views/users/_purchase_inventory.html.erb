@@ -7,7 +7,7 @@
       <%= form_for :transaction, :url => submit_transaction_path(@user), html: { id: "braintree-form" } do |f| %>
         <div class="form-group">
     			<%= fields_for :pricing do |sub| %>
-    				<%= sub.select :plan_id, Plan.all.collect{|x| [x.description, x.plan_id]}, {}, { class: "form-control" }  %>
+    				<%= sub.select :plan_id, Plan.all.collect{|x| ["#{x.description} - #{number_to_currency(x.price, precision: 0)}", x.plan_id]}, {}, { class: "form-control" }  %>
     			<% end %>
         </div>
         <%= f.fields_for :credit_card do |cc| %>
