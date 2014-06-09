@@ -130,6 +130,12 @@ app.factory "Valuable", ["$resource", ($resource) ->
     if confirmVariable == true
       Image.delete(image)
       $scope.inspection.inspected_rooms[room_index].images.splice(index, 1)
+      
+  $scope.deleteValuableImage = (valuable_index, image, index) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Image.delete(image)
+      $scope.inspection.valuables[valuable_index].images.splice(index, 1)
 
   $scope.deleteInspectionImage = (image, index) ->
     confirmVariable = confirm("Are you sure?")
@@ -443,18 +449,26 @@ app.factory "Valuable", ["$resource", ($resource) ->
   $scope.uploadRoomImage = (content) ->
     $scope.uploadStatus = "nofile"
     $scope.files = []
-    $scope.room.images.push(content)
+    if $scope.room.images
+      $scope.room.images.push(content)
+    else
+      $scope.room.images = [content]
     
   $scope.uploadInspectionImage = (content) ->
     $scope.uploadStatus = "nofile"
     $scope.files = []
-    $scope.inspection.images.push(content)
+    if $scope.inspection.images
+      $scope.inspection.images.push(content)
+    else
+      $scope.inspection.images = [content]
     
   $scope.uploadValuableImage = (content,index) ->
     $scope.uploadStatus = "nofile"
     $scope.files = []
-    $scope.inspection.valuables[index].images.push(content)
-    
+    if $scope.valuable.images
+      $scope.valuable.images.push(content)
+    else
+      $scope.valuable.images = [content]
     
   $scope.uploadCompanyImage = (content) ->
     $scope.uploadStatus = "nofile"
