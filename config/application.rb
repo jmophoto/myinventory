@@ -11,16 +11,15 @@ ROOM_FEATURES = YAML.load(File.read(File.expand_path('../room_features.yml', __F
 module Inspeckd
   class Application < Rails::Application
 
-    config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      address: 'smtpout.secureserver.net',
-      port: 465,
-      domain: 'myinventoryllc.com',
-      user_name: 'info@myinventoryllc.com',
-      password: 'vossnorway',
-      authentication: 'plain',
-      enable_starttls_auto: true
+      address: 'smtp.mailgun.org',
+      port: 587,
+      domain: 'sandbox233fbaecc8dc42e5b81062c9315beb83.mailgun.org',
+      user_name: 'postmaster@sandbox233fbaecc8dc42e5b81062c9315beb83.mailgun.org',
+      password: '4jvbqvijxhr3',
+      authentication: :plain
     }
+    config.action_mailer.delivery_method = :smtp
     
     #for bootstrap sass
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
