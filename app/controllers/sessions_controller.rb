@@ -12,7 +12,11 @@ class SessionsController < ApplicationController
       elsif user.agent?
         redirect_to(agent_inspections_path)
       else
-        redirect_to(profile_path)
+        if user.inspections.blank?
+          redirect_to(profile_path)
+        else
+          redirect_to(inspections_path)
+        end
       end
     else
       flash.now[:error] = 'Invalid email/password combination'

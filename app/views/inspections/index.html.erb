@@ -2,41 +2,16 @@
 <div class="col-md-12" ng-init="stateList=<%= states %>;provinceList=<%= provinces %>;detailList=<%= detail_list %>;">
   <div ng-controller="InspectionController">
     <div class="panel-group" id="inspectionAccordion">
-      <div class="panel panel-default user-panel panel-warning" ng-hide="(inspections | filter:isUnassigned).length < 1">
+      <div class="panel panel-default user-panel">
   			<div class="panel-heading">
-  				<h4 class="panel-title">Unassigned Inventories</h4>
+  				<h4 class="panel-title">My Inventories</h4>
   			</div>
         <ul class="list-group">
-          <li class="list-group-item row" ng-repeat="inspection in inspections | filter:isUnassigned">
-            <div class="col-md-3"><a ng-href="inspections/{{inspection.id}}">{{ inspection.name }}</a></div>
-            <div class="col-md-3">{{ inspection.user.full_name }}</div>
-            <div class="col-md-3">{{ inspection.address.city_state }}</div>
-            <div class="col-md-2">
-    					<select class="form-control" ng-model="selectedAgent" ng-options="agent.full_name for agent in agents">
-    					  <option value="">Select Agent</option>
-    					</select>
-            </div>
-            <div class-"col-md-2">
-              <button class="btn btn-sm btn-success"   
-                      ng-click="assignAgent(inspection,selectedAgent);inspection.agent.full_name=selectedAgent.full_name">
-                Assign
-              </button>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="panel panel-default user-panel panel-success" ng-hide="(inspections | filter:isAssigned).length < 1">
-  			<div class="panel-heading">
-  				<h4 class="panel-title">Assigned Inventories</h4>
-  			</div>
-        <ul class="list-group">
-          <li class="list-group-item row" ng-repeat="inspection in inspections | filter:isAssigned">
-            <div class="col-md-3"><a ng-href="inspections/{{inspection.id}}">{{ inspection.name }}</a></div>
-            <div class="col-md-3">{{ inspection.user.full_name }}</div>
-            <div class="col-md-3">{{ inspection.address.city_state }}</div>
-            <div class="col-md-2">{{ inspection.agent.full_name }}</div>
-            <div class-"col-md-2">
-              <button class="btn btn-sm btn-warning" ng-click="unassignAgent(inspection)">Unassign</button>
+          <li class="list-group-item row" ng-repeat="inspection in inspections">
+            <div class="col-md-4"><a ng-href="inspections/{{inspection.id}}">{{ inspection.name }}</a></div>
+            <div class="col-md-4">{{ inspection.display_type }}</div>
+            <div class="col-md-4">
+              <a ng-href="inspections/{{inspection.id}}" class="btn btn-primary btn-xs pull-right">Edit</a>
             </div>
           </li>
         </ul>

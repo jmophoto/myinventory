@@ -7,9 +7,25 @@ class InspectionsController < ApplicationController
   # GET /inspections
   # GET /inspections.json
   def index
+    @inspections = current_user.inspections
+    respond_to do |format|
+      format.html
+      format.json { render json: @inspections, root: false }
+    end
+  end
+  
+  def admin_index
     @inspections = Inspection.all
     respond_to do |format|
       format.html
+      format.json { render json: @inspections, root: false }
+    end
+  end
+  
+  def agent_index
+    @inspections = current_user.assigned_inspections
+    respond_to do |format|
+      format.html { render 'index' }
       format.json { render json: @inspections, root: false }
     end
   end
