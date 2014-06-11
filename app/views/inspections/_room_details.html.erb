@@ -60,8 +60,8 @@
 		  <div ng-repeat="image in room.images" class="col-md-2">
 		    <div class="thumbnail">
 		      <img ng-src="{{ image.asset.asset.thumb.url }}">
-					<input type="text" ng-model="image.comment" class="image-comment form-control" 
-														 placeholder="Comments" ng-change="addImageComment(image, image.comment)">
+					<textarea type="text" ng-model="image.comment" class="image-comment form-control" 
+														 placeholder="Comments" ng-change="addImageComment(image, image.comment)"></textarea>
 					<button class="btn-image-delete btn btn-xs btn-danger pull-right" ng-click="deleteRoomImage($parent.$index,image,$index)">
 						<span class="glyphicon glyphicon-trash"></span>
 					</button>
