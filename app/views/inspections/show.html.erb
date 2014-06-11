@@ -1,7 +1,19 @@
 <% provide(:title, "Show Inventory") %>
-<div class="btn-top">
-	<%= link_to "Show PDF", inspection_path(@inspection, format: "pdf"), class: "btn btn-primary btn-sm btn-save", target: "_blank" %>
+
+<div class='row top-actions'>
+  <%= form_tag inspection_email_path(@inspection), method: :get do %>
+    <div class='col-sm-4 col-sm-offset-5'>
+      <%= text_field_tag :email, nil, class: 'form-control', placeholder: 'Email Address' %>
+    </div>
+    <div class='col-sm-1'>
+      <%= submit_tag 'Send PDF', class: 'btn btn-success btn-sm' %>
+    </div>
+  <% end %>
+  <div class='col-sm-2'>
+    <%= link_to "Show PDF", inspection_path(@inspection, format: "pdf"), class: "btn btn-primary btn-sm btn-save pull-right", target: "_blank" %>
+  </div>
 </div>
+
 <div ng-init="inspection_id='<%= @inspection.id %>'">
 	<div class="panel-group" id="accordion" ng-controller="InspectionController">
 		<div class="panel panel-default">
