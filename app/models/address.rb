@@ -4,6 +4,22 @@ class Address < ActiveRecord::Base
   after_initialize :set_defaults
   before_save :set_country
   
+  def update_from_braintree(data)
+    if self.street1.blank?
+      self.street1 = data[:street_address]
+    end
+    if self.city.blank?
+      self.city = data[:locality]
+    end
+    if self.state.blank?
+      self.state = data[:region]
+    end
+    if self.zip.blank?
+      self.zip = data[:postal_code]
+    end
+    self.save
+  end
+  
   def set_defaults
     self.country = "USA"
   end

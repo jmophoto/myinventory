@@ -18,6 +18,7 @@ class BraintreeController < ApplicationController
       inventory.create_address(country:'USA')
       flash[:success] = "Thank you for purchasing an inventory. To begin, <a href='#{ inspection_path(inventory) }'>click here</a> or on the 'Edit' button below. You may also want to review the FAQs.".html_safe
       redirect_to profile_path
+      current_user.address.update_from_braintree(params[:transaction][:billing])
     end
   end
   

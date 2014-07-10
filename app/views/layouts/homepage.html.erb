@@ -4,10 +4,10 @@
   <body id="homepage">
     <header class="homepage-top one" data-removeclass='one'>
       <div class="container">
-        <ul class="menu">
+        <ul class="homepage-menu nav navbar-nav">
             <li><%= link_to "home", root_path %></li>
+            <li><%= link_to "faqs", faq_path %></li>
             <% if current_user %>
-                <li><%= link_to "faqs", faq_path %></li>
                 <li><%= link_to "account", profile_path %></li>
                 <% if current_user.agent? %>
                   <li><%= link_to "inventories", agent_inspections_path %></li>
@@ -26,11 +26,11 @@
       </div>
       <div class='container'>
         <div class='row'>
-          <div class='col-sm-6'>
+          <div class='col-sm-4'>
             <div class='homepage-logo-responsive visible-xs'>
               <%= image_tag 'mi_logo_white.png', class: 'img-responsive' %>
             </div>
-            <div class='homepage-image-text hidden-xs'>
+            <div class='homepage-image-text hidden-xs gray-background'>
               The easiest way to document<br />your personal belongings.
             </div>
           </div>
@@ -93,7 +93,7 @@
           </div>
         </div>
         <div class='text-center btn-row'>
-          <%= link_to 'Start Your Inventory Now', signup_path, class: 'btn btn-lg btn-primary' %>
+          <%= link_to 'Get Started', signup_path, class: 'btn btn-lg btn-primary' %>
         </div>
       </div>
     </section>
@@ -117,8 +117,8 @@
       <div class="container">
         <div class='row'>
           <div class='col-md-6'>
-            My Inventory works in two ways:<br />
-            1. Have a mi agent complete your inventory.<br />
+            MyInventory works in two ways:<br />
+            1. Have a MI agent complete your inventory.<br />
             2. Complete an inventory on your own.<br />
           </div>
           <div class='col-md-6'>
@@ -148,7 +148,7 @@
 
           <div class='col-sm-12'>
             <div class='text-center btn-row'>
-              <%= link_to 'Start Your Inventory Now', signup_path, class: 'btn btn-lg btn-primary' %>
+              <%= link_to 'Get Started', signup_path, class: 'btn btn-lg btn-primary' %>
             </div>
           </div>
         </div>

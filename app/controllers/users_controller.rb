@@ -37,6 +37,7 @@ class UsersController < ApplicationController
       @user.agent_status = 'pending'
     end
     if @user.save
+      @user.create_address
       sign_in(@user)
       redirect_to profile_path
     else

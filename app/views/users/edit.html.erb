@@ -1,70 +1,86 @@
 <% provide(:title, "Profile") %>
 <div class="col-md-8" ng-init="userId=<%= current_user.id %>;stateList=<%= states %>;provinceList=<%= provinces %>">
   <%= render :partial => 'shared/flash_messages' %>
-	<div ng-controller="UserController">
-		<form ng-submit="editUser(user)" name="editUserForm">
-			<div class="panel panel-default">
-				<div class="panel-heading clearfix">
-					<div class="panel-title">
-						Personal Profile
-            <div class="col-md-2 pull-right">
-              <button type="submit" class="btn btn-success btn-sm">Save Changes</button>
-            </div>
-					</div>
-				</div>
-				<div class="panel-body">
-					<div class="form-group row">
-						<div class="col-md-6">
-							<input class="form-control" ng-model="user.first_name" placeholder="First Name">
-						</div>
-						<div class="col-md-6">
-							<input class="form-control" ng-model="user.last_name" placeholder="Last Name">
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-md-6">
-							<input class="form-control" ng-model="user.email" placeholder="Email">
-						</div>
-						<div class="col-md-6">
-							<input type="tel" class="form-control" ng-model="user.phone_number" placeholder="Phone Number">
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-md-4">
-							<input class="form-control" ng-model="user.address.city" placeholder="City">
-						</div>
-						<div class="col-md-4" ng-hide="user.address.country=='Canada'">
-							<select class="form-control" ng-model="user.address.state" ng-options="state for state in stateList">
-								<option value="">Select State</option>
-							</select>
-						</div>
-						<div class="col-md-4" ng-show="user.address.country=='Canada'">
-							<select class="form-control" ng-model="user.address.state" ng-options="province for province in provinceList">
-								<option value="">Select Province</option>
-							</select>
-						</div>
-						<div class="col-md-2">
-							<input class="form-control" ng-model="user.address.zip" placeholder="Zip">
-						</div>
-						<div class="col-md-2">
-							<select class="form-control" ng-model="user.address.country">
-								<option value="USA">USA</option>
-								<option value="Canada">Canada</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
+  <% if current_user.inspections.empty? %>
 		<div class="panel panel-default">
 			<div class="panel-heading clearfix">
 				<div class="panel-title">
-					My Inventories
+					Welcome to MyInventory
 				</div>
 			</div>
-      <%= render partial: 'inventories' %>
+			<div class="panel-body">
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce enim sapien, tristique vel rutrum at, ornare in lectus. Ut et diam velit. Cras varius est eu semper tempus. Mauris vel accumsan erat, ac vehicula tortor. Duis et sem et eros varius vestibulum. Pellentesque eget sapien venenatis, venenatis enim et, faucibus dolor. Duis accumsan euismod est, vel feugiat velit facilisis sit amet. Proin ornare lacus vel metus semper, eget cursus enim sollicitudin. Proin nec tincidunt justo. Aliquam nec arcu tempus, laoreet mi non, elementum tortor. Sed at mauris porta velit pulvinar dapibus id id turpis.
+        <p>
+        Curabitur nec gravida magna. Vestibulum ac augue sed est consequat tincidunt. Suspendisse potenti. Suspendisse aliquam quam vitae arcu adipiscing, id eleifend urna malesuada. Sed elementum purus quis ipsum eleifend, et feugiat nulla porta. Phasellus sed justo pulvinar, aliquet ipsum in, facilisis dolor. Mauris molestie leo sed auctor fermentum. Donec sit amet tortor ultrices, aliquam justo in, dictum mi. Quisque luctus urna sit amet metus mollis, a fringilla leo interdum.
+      </div>
     </div>
-	</div>
+  <% else %>
+  	<div ng-controller="UserController">
+  		<form ng-submit="editUser(user)" name="editUserForm">
+  			<div class="panel panel-default">
+  				<div class="panel-heading clearfix">
+  					<div class="panel-title">
+  						Personal Profile
+              <div class="col-md-2 pull-right">
+                <button type="submit" class="btn btn-success btn-sm">Save Changes</button>
+              </div>
+  					</div>
+  				</div>
+  				<div class="panel-body">
+  					<div class="form-group row">
+  						<div class="col-md-6">
+  							<input class="form-control" ng-model="user.first_name" placeholder="First Name">
+  						</div>
+  						<div class="col-md-6">
+  							<input class="form-control" ng-model="user.last_name" placeholder="Last Name">
+  						</div>
+  					</div>
+  					<div class="form-group row">
+  						<div class="col-md-6">
+  							<input class="form-control" ng-model="user.email" placeholder="Email">
+  						</div>
+  						<div class="col-md-6">
+  							<input type="tel" class="form-control" ng-model="user.phone_number" placeholder="Phone Number">
+  						</div>
+  					</div>
+  					<div class="form-group row">
+  						<div class="col-md-4">
+  							<input class="form-control" ng-model="user.address.city" placeholder="City">
+  						</div>
+  						<div class="col-md-4" ng-hide="user.address.country=='Canada'">
+  							<select class="form-control" ng-model="user.address.state" ng-options="state for state in stateList">
+  								<option value="">Select State</option>
+  							</select>
+  						</div>
+  						<div class="col-md-4" ng-show="user.address.country=='Canada'">
+  							<select class="form-control" ng-model="user.address.state" ng-options="province for province in provinceList">
+  								<option value="">Select Province</option>
+  							</select>
+  						</div>
+  						<div class="col-md-2">
+  							<input class="form-control" ng-model="user.address.zip" placeholder="Zip">
+  						</div>
+  						<div class="col-md-2">
+  							<select class="form-control" ng-model="user.address.country">
+  								<option value="USA">USA</option>
+  								<option value="Canada">Canada</option>
+  							</select>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</form>
+  		<div class="panel panel-default">
+  			<div class="panel-heading clearfix">
+  				<div class="panel-title">
+  					My Inventories
+  				</div>
+  			</div>
+        <%= render partial: 'inventories' %>
+      </div>
+  	</div>
+  <% end %>
 </div>
 <%= render :partial => 'purchase_inventory' %>
 <% content_for :javascript do %> 

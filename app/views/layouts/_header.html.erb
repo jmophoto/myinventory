@@ -4,8 +4,8 @@
       <div class='col-md-10'>
         <ul class="menu">
             <li><%= link_to "home", root_path %></li>
+            <li><%= link_to "faqs", faq_path %></li>
             <% if current_user %>
-                <li><%= link_to "faqs", faq_path %></li>
                 <li><%= link_to "account", profile_path %></li>
                 <% if current_user.agent? %>
                   <li><%= link_to "inventories", agent_inspections_path %></li>
