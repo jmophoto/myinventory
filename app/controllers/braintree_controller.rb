@@ -16,6 +16,8 @@ class BraintreeController < ApplicationController
         inventory.update_attributes(status:'pending')
       end
       inventory.create_address(country:'USA')
+      inventory.inspected_rooms.create(name: "Living Room", room_type: "living_room")
+      inventory.inspected_rooms.create(name: "Miscellaneous Valuables", room_type: "misc")
       flash[:success] = "Thank you for purchasing an inventory. To begin, <a href='#{ inspection_path(inventory) }'>click here</a> or on the 'Edit' button below. You may also want to review the FAQs.".html_safe
       redirect_to profile_path
       current_user.address.update_from_braintree(params[:transaction][:billing])

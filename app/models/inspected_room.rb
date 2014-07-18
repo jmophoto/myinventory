@@ -2,9 +2,17 @@ class InspectedRoom < ActiveRecord::Base
   belongs_to :inspection
   has_many :inspected_features
   has_many :images, as: :imageable
+  has_many :valuables
   
   before_create :check_for_name
+  before_create :set_room_type
   # after_create :load_features
+  
+  def set_room_type
+    if self.room_type.nil?
+      self.room_type = "base"
+    end
+  end
   
   def check_for_name
     if self.name.nil?

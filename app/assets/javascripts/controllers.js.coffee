@@ -345,7 +345,20 @@ app.factory "Valuable", ["$resource", ($resource) ->
     confirmVariable = confirm("Are you sure?")
     if confirmVariable == true
       Feature.delete(feature)
-      $scope.inspection.inspected_rooms[room_index].inspected_features.splice(index, 1);
+      $scope.inspection.inspected_rooms[room_index].inspected_features.splice(index, 1)
+
+  $scope.addMiscFeature = (room_index, room) ->
+    feature = Feature.save({inspected_room_id: room.id, name: $scope.newFeature.name})
+    $scope.inspection.misc_valuables[room_index].inspected_features.push(feature)
+    $scope.newFeature = {}
+  
+  $scope.deleteMiscFeature = (room_index, feature, index) ->
+    confirmVariable = confirm("Are you sure?")
+    if confirmVariable == true
+      Feature.delete(feature)
+      $scope.inspection.misc_valuables[room_index].inspected_features.splice(index, 1);
+
+
     
 ]
 

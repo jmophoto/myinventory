@@ -1,7 +1,9 @@
 class Inspection < ActiveRecord::Base
   attr_accessor :template, :date_string
   
-  has_many :inspected_rooms, -> { includes :inspected_features }
+  has_many :inspected_rooms, -> { where.not(room_type: 'misc').includes(:inspected_features) }
+  has_many :valuable_rooms, -> { where.not(room_type: 'misc').includes(:inspected_features) }, class_name: "InspectedRoom"
+  has_many :misc_valuables, -> { where(room_type: 'misc').includes(:inspected_features) }, class_name: "InspectedRoom"
   has_many :inspected_features, through: :inspected_rooms
   has_many :inspection_details
   has_many :valuables
