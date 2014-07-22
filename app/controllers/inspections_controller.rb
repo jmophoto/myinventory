@@ -126,7 +126,7 @@ class InspectionsController < ApplicationController
   def email
     @inspection = Inspection.find(params[:inspection_id])
     pdf = InspectionPdf.new(@inspection, view_context)
-    InspectionMailer.email_pdf(params[:email], pdf).deliver
+    InspectionMailer.email_pdf(@inspection.user, params[:email], pdf).deliver
     redirect_to inspection_path(@inspection)
   end
 
