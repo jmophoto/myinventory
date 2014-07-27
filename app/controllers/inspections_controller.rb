@@ -101,17 +101,17 @@ class InspectionsController < ApplicationController
   end
   
   
-  def update
-    respond_to do |format|
-      if @inspection.update(inspection_params)
-        format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @inspection.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @inspection.update(inspection_params)
+  #       format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
+  #       format.json { head :no_content }
+  #     else
+  #       format.html { render action: 'edit' }
+  #       format.json { render json: @inspection.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /inspections/1
   # DELETE /inspections/1.json

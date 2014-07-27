@@ -8219,3 +8219,225 @@ Processing by SessionsController#new as JSON
   Rendered layouts/_header.html.erb (2.2ms)
   Rendered layouts/_footer.html.erb (0.2ms)
 Completed 200 OK in 56ms (Views: 54.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/inspections/1" for 127.0.0.1 at 2014-07-26 18:24:09 -0600
+Processing by InspectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mInspection Load (0.8ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["id", "1"]]
+  Rendered inspections/_inspection_details.html.erb (0.5ms)
+  Rendered inspections/_rooms.html.erb (0.1ms)
+  Rendered inspections/_valuables.html.erb (0.1ms)
+  Rendered inspections/show.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 41ms (Views: 37.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-07-26 18:24:10 -0600
+Processing by InspectionsController#index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1
+  [1m[36mInspection Load (0.4ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 1]]
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "Inspection"]]
+  [1m[36mInspectedRoom Load (0.1ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')[0m  [["inspection_id", 1]]
+  [1m[35mInspectedFeature Load (0.2ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (1)
+  [1m[36mImage Load (0.3ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 1], ["imageable_type", "InspectedRoom"]]
+  [1m[35mInspectedRoom Load (0.2ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'  [["inspection_id", 1]]
+  [1m[36mInspectedFeature Load (0.2ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (2)[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 2], ["imageable_type", "InspectedRoom"]]
+  [1m[36mValuable Load (0.5ms)[0m  [1mSELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1[0m  [["inspection_id", 1]]
+  [1m[35mImage Load (0.3ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 1], ["imageable_type", "Inspection"]]
+  [1m[36mInspectionDetail Load (0.1ms)[0m  [1mSELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1[0m  [["inspection_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 20ms (Views: 13.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-07-26 18:24:10 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/inspections/1" for 127.0.0.1 at 2014-07-26 18:24:10 -0600
+Processing by InspectionsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mInspection Load (0.3ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1[0m
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "Inspection"]]
+  [1m[36mInspectedRoom Load (0.2ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')[0m  [["inspection_id", 1]]
+  [1m[35mInspectedFeature Load (0.2ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (1)
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 1], ["imageable_type", "InspectedRoom"]]
+  [1m[35mInspectedRoom Load (0.2ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'  [["inspection_id", 1]]
+  [1m[36mInspectedFeature Load (0.2ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (2)[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 2], ["imageable_type", "InspectedRoom"]]
+  [1m[36mValuable Load (0.2ms)[0m  [1mSELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1[0m  [["inspection_id", 1]]
+  [1m[35mImage Load (0.2ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 1], ["imageable_type", "Inspection"]]
+  [1m[36mInspectionDetail Load (0.1ms)[0m  [1mSELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1[0m  [["inspection_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 112ms (Views: 106.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-07-26 18:24:10 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (43.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 59ms (Views: 58.4ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/inspections/1" for 127.0.0.1 at 2014-07-26 18:25:28 -0600
+DEPRECATION WARNING: Calling #default_scope without a block is deprecated. For example instead of `default_scope where(color: 'red')`, please use `default_scope { where(color: 'red') }`. (Alternatively you can just redefine self.default_scope.). (called from <class:Inspection> at /Users/jmophoto/sites/myinventory/app/models/inspection.rb:25)
+Processing by InspectionsController#update as JSON
+  Parameters: {"id"=>"1", "name"=>"My Inventory", "inspection_type"=>nil, "unit"=>nil, "tenant"=>nil, "inspected_by"=>nil, "inspection_date"=>nil, "report_date"=>nil, "agent_id"=>nil, "status"=>"pending", "completed_by"=>"agent", "display_type"=>"Agent-Completed", "address"=>{"id"=>2, "street1"=>"819 Norway Court", "street2"=>nil, "city"=>"Payso", "state"=>"Utah", "zip"=>"84651", "country"=>"USA", "full_address"=>"819 Norway Ct, Payso, Utah  84651", "street_address"=>"819 Norway Ct", "city_state"=>"Payso, Utah"}, "inspected_rooms"=>[{"id"=>1, "name"=>"Living Room", "inspection_id"=>1, "room_type"=>"living_room", "images"=>nil, "inspected_features"=>[{"id"=>2, "name"=>"Stereo", "condition"=>nil, "clean"=>nil, "marks"=>nil, "damage"=>nil, "comment"=>nil, "inspected_room_id"=>1, "created_at"=>"2014-07-26T21:29:21.838Z", "updated_at"=>"2014-07-26T21:29:21.838Z"}]}], "misc_valuables"=>[{"id"=>2, "name"=>"Miscellaneous Valuables", "inspection_id"=>1, "room_type"=>"misc", "images"=>nil, "inspected_features"=>[{"id"=>1, "name"=>"TV", "condition"=>nil, "clean"=>nil, "marks"=>nil, "damage"=>nil, "comment"=>nil, "inspected_room_id"=>2, "created_at"=>"2014-07-26T21:29:12.090Z", "updated_at"=>"2014-07-26T21:29:12.090Z"}]}], "valuables"=>nil, "images"=>nil, "inspection_details"=>nil, "agent"=>nil, "user"=>{"id"=>1, "first_name"=>"Jason", "last_name"=>"Olson", "email"=>"jason@jmophoto.com", "account_id"=>nil, "phone_number"=>nil, "full_name"=>"Jason Olson", "agent_status"=>nil, "agent"=>nil, "admin"=>nil, "user_type"=>"User", "display_agent_status"=>"None", "account"=>nil, "address"=>{"id"=>1, "street1"=>"819 Norway Court", "street2"=>nil, "city"=>"Payson", "state"=>"Utah", "zip"=>"84651", "country"=>"USA", "full_address"=>"819 Norway Court, Payson, Utah  84651", "street_address"=>"819 Norway Court", "city_state"=>"Payson, Utah"}, "company"=>nil}, "inspection"=>{"name"=>"My Inventory", "agent_id"=>nil, "status"=>"pending"}}
+  [1m[35mInspection Load (0.2ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "inspections" SET "updated_at" = $1, "details" = $2 WHERE "inspections"."id" = 1  [["updated_at", Sun, 27 Jul 2014 00:25:28 UTC +00:00], ["details", "--- {}\n"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "Inspection"]]
+  [1m[35mInspectedRoom Load (0.1ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')  [["inspection_id", 1]]
+  [1m[36mInspectedFeature Load (0.2ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (1)[0m
+  [1m[35mImage Load (0.2ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 1], ["imageable_type", "InspectedRoom"]]
+  [1m[36mInspectedRoom Load (0.2ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'[0m  [["inspection_id", 1]]
+  [1m[35mInspectedFeature Load (0.2ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (2)
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 2], ["imageable_type", "InspectedRoom"]]
+  [1m[35mValuable Load (0.1ms)[0m  SELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1  [["inspection_id", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 1], ["imageable_type", "Inspection"]]
+  [1m[35mInspectionDetail Load (0.1ms)[0m  SELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1  [["inspection_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 159ms (Views: 134.5ms | ActiveRecord: 12.1ms)
+
+
+Started PUT "/addresses/2" for 127.0.0.1 at 2014-07-26 18:25:28 -0600
+Processing by AddressesController#update as JSON
+  Parameters: {"id"=>"2", "street1"=>"819 Norway Court", "street2"=>nil, "city"=>"Payso", "state"=>"Utah", "zip"=>"84651", "country"=>"USA", "full_address"=>"819 Norway Ct, Payso, Utah  84651", "street_address"=>"819 Norway Ct", "city_state"=>"Payso, Utah", "address"=>{"id"=>"2", "street1"=>"819 Norway Court", "street2"=>nil, "city"=>"Payso", "state"=>"Utah", "zip"=>"84651", "country"=>"USA"}}
+  [1m[35mAddress Load (0.5ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "addresses" SET "street1" = $1, "updated_at" = $2 WHERE "addresses"."id" = 2  [["street1", "819 Norway Court"], ["updated_at", Sun, 27 Jul 2014 00:25:28 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Completed 204 No Content in 6ms (ActiveRecord: 1.7ms)
+
+
+Started PUT "/inspections/1" for 127.0.0.1 at 2014-07-26 18:26:27 -0600
+Processing by InspectionsController#update as JSON
+  Parameters: {"id"=>"1", "name"=>"My Inventory", "inspection_type"=>nil, "unit"=>nil, "tenant"=>nil, "inspected_by"=>nil, "inspection_date"=>"09/16/1970", "report_date"=>nil, "agent_id"=>nil, "status"=>"pending", "completed_by"=>"agent", "display_type"=>"Agent-Completed", "address"=>{"id"=>2, "street1"=>"819 Norway Court", "street2"=>nil, "city"=>"Payso", "state"=>"Utah", "zip"=>"84651", "country"=>"USA", "full_address"=>"819 Norway Ct, Payso, Utah  84651", "street_address"=>"819 Norway Ct", "city_state"=>"Payso, Utah"}, "inspected_rooms"=>[{"id"=>1, "name"=>"Living Room", "inspection_id"=>1, "room_type"=>"living_room", "images"=>nil, "inspected_features"=>[{"id"=>2, "name"=>"Stereo", "condition"=>nil, "clean"=>nil, "marks"=>nil, "damage"=>nil, "comment"=>nil, "inspected_room_id"=>1, "created_at"=>"2014-07-26T21:29:21.838Z", "updated_at"=>"2014-07-26T21:29:21.838Z"}]}], "misc_valuables"=>[{"id"=>2, "name"=>"Miscellaneous Valuables", "inspection_id"=>1, "room_type"=>"misc", "images"=>nil, "inspected_features"=>[{"id"=>1, "name"=>"TV", "condition"=>nil, "clean"=>nil, "marks"=>nil, "damage"=>nil, "comment"=>nil, "inspected_room_id"=>2, "created_at"=>"2014-07-26T21:29:12.090Z", "updated_at"=>"2014-07-26T21:29:12.090Z"}]}], "valuables"=>nil, "images"=>nil, "inspection_details"=>nil, "agent"=>nil, "user"=>{"id"=>1, "first_name"=>"Jason", "last_name"=>"Olson", "email"=>"jason@jmophoto.com", "account_id"=>nil, "phone_number"=>nil, "full_name"=>"Jason Olson", "agent_status"=>nil, "agent"=>nil, "admin"=>nil, "user_type"=>"User", "display_agent_status"=>"None", "account"=>nil, "address"=>{"id"=>1, "street1"=>"819 Norway Court", "street2"=>nil, "city"=>"Payson", "state"=>"Utah", "zip"=>"84651", "country"=>"USA", "full_address"=>"819 Norway Court, Payson, Utah  84651", "street_address"=>"819 Norway Court", "city_state"=>"Payson, Utah"}, "company"=>nil}, "inspection"=>{"name"=>"My Inventory", "agent_id"=>nil, "status"=>"pending"}}
+  [1m[35mInspection Load (1.1ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "inspections" SET "updated_at" = $1, "details" = $2 WHERE "inspections"."id" = 1  [["updated_at", Sun, 27 Jul 2014 00:26:27 UTC +00:00], ["details", "--- {}\n"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "Inspection"]]
+  [1m[35mInspectedRoom Load (0.2ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')  [["inspection_id", 1]]
+  [1m[36mInspectedFeature Load (0.2ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (1)[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 1], ["imageable_type", "InspectedRoom"]]
+  [1m[36mInspectedRoom Load (0.2ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'[0m  [["inspection_id", 1]]
+  [1m[35mInspectedFeature Load (0.2ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (2)
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 2], ["imageable_type", "InspectedRoom"]]
+  [1m[35mValuable Load (0.2ms)[0m  SELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1  [["inspection_id", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 1], ["imageable_type", "Inspection"]]
+  [1m[35mInspectionDetail Load (0.3ms)[0m  SELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1  [["inspection_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 24ms (Views: 12.1ms | ActiveRecord: 5.3ms)
+
+
+Started PUT "/addresses/2" for 127.0.0.1 at 2014-07-26 18:26:27 -0600
+Processing by AddressesController#update as JSON
+  Parameters: {"id"=>"2", "street1"=>"819 Norway Court", "street2"=>nil, "city"=>"Payso", "state"=>"Utah", "zip"=>"84651", "country"=>"USA", "full_address"=>"819 Norway Ct, Payso, Utah  84651", "street_address"=>"819 Norway Ct", "city_state"=>"Payso, Utah", "address"=>{"id"=>"2", "street1"=>"819 Norway Court", "street2"=>nil, "city"=>"Payso", "state"=>"Utah", "zip"=>"84651", "country"=>"USA"}}
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 204 No Content in 2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/inspections/1" for 127.0.0.1 at 2014-07-26 18:26:45 -0600
+Processing by InspectionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mInspection Load (0.3ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["id", "1"]]
+  Rendered inspections/_inspection_details.html.erb (0.4ms)
+  Rendered inspections/_rooms.html.erb (0.1ms)
+  Rendered inspections/_valuables.html.erb (0.1ms)
+  Rendered inspections/show.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-07-26 18:26:46 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1[0m
+  [1m[35mInspection Load (0.4ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "Inspection"]]
+  [1m[35mInspectedRoom Load (0.2ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')  [["inspection_id", 1]]
+  [1m[36mInspectedFeature Load (0.2ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (1)[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 1], ["imageable_type", "InspectedRoom"]]
+  [1m[36mInspectedRoom Load (0.2ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'[0m  [["inspection_id", 1]]
+  [1m[35mInspectedFeature Load (0.2ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (2)
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 2], ["imageable_type", "InspectedRoom"]]
+  [1m[35mValuable Load (0.2ms)[0m  SELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1  [["inspection_id", 1]]
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 1], ["imageable_type", "Inspection"]]
+  [1m[35mInspectionDetail Load (0.1ms)[0m  SELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1  [["inspection_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAddress Load (0.5ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 21ms (Views: 14.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/inspections/1" for 127.0.0.1 at 2014-07-26 18:26:46 -0600
+Processing by InspectionsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mInspection Load (0.3ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["id", "1"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1[0m
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "Inspection"]]
+  [1m[36mInspectedRoom Load (0.1ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')[0m  [["inspection_id", 1]]
+  [1m[35mInspectedFeature Load (0.2ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (1)
+  [1m[36mImage Load (0.5ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 1], ["imageable_type", "InspectedRoom"]]
+  [1m[35mInspectedRoom Load (0.2ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'  [["inspection_id", 1]]
+  [1m[36mInspectedFeature Load (0.2ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (2)[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 2], ["imageable_type", "InspectedRoom"]]
+  [1m[36mValuable Load (0.2ms)[0m  [1mSELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1[0m  [["inspection_id", 1]]
+  [1m[35mImage Load (0.2ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 1], ["imageable_type", "Inspection"]]
+  [1m[36mInspectionDetail Load (0.1ms)[0m  [1mSELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1[0m  [["inspection_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-07-26 18:26:46 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-07-26 18:26:46 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (29.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '71fdb55d0b249bc1f94d82921566311a1037ea05' LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 43.2ms | ActiveRecord: 0.3ms)
