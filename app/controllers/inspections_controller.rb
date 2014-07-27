@@ -2,7 +2,7 @@ class InspectionsController < ApplicationController
   before_action :set_inspection, only: [:show, :edit, :update, :destroy]
   # before_action :admin_user?, only: [:index]
   # before_action :agent_user?, only: [:assigned_index]
-  wrap_parameters include: [:name, :details, :desscription, :room_count, :other_areas, :address_attributes, :agent_id, :status]
+  wrap_parameters include: [:name, :details, :desscription, :room_count, :other_areas, :address_attributes, :agent_id, :status, :inspection_date, :inspection_type]
 
   # GET /inspections
   # GET /inspections.json
@@ -93,25 +93,15 @@ class InspectionsController < ApplicationController
   # PATCH/PUT /inspections/1.json
   # PATCH/PUT /properties/1
   def update
+    unless inspection_params[:inspection_date].blank?
+      inspection_params[:inspection_date] = Date.strptime(inspection_params[:inspection_date], '%m/%d/%Y')
+    end
     if @inspection.update(inspection_params)
       render json: @inspection, root: false
     else
       render action: 'edit'
     end
   end
-  
-  
-  # def update
-  #   respond_to do |format|
-  #     if @inspection.update(inspection_params)
-  #       format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: 'edit' }
-  #       format.json { render json: @inspection.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   # DELETE /inspections/1
   # DELETE /inspections/1.json
