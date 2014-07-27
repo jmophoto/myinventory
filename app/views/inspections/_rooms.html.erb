@@ -60,7 +60,7 @@
   				<form ng-upload="uploadRoomImage(content)" action="/images" upload-options-enable-rails-csrf>
   					<span ng-show="uploadStatus == 'nofile'" class="btn btn-success fileinput-button">
   						<i class="glyphicon glyphicon-plus"></i>
-  						<span>Select an image to upload</span>
+  						<span>Select and image, receipt and/or appraisal to upload</span>
   						<input type="file" name="image[asset]" onchange="angular.element(this).scope().setFiles(this)">
   					</span>
   					<input type='hidden' name='image[imageable_id]' value='{{room.id}}'>

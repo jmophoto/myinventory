@@ -6,6 +6,31 @@
         <span class="clicktoedit" ng-hide="room.editing" ng-click="room.editing = true">{{ room.name }}
           <span class="glyphicon glyphicon-pencil edit-icon"></span>
         </span>
+        <a href="#" data-toggle="modal" data-target="#examplesModal" class="examples">(examples)</a>
+        <!-- Modal -->
+        <div class="modal fade" id="examplesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Examples of Miscellaneous Valuables</h4>
+              </div>
+              <div class="modal-body">
+                <ul>
+                  <li>Jewelry</li>
+                  <li>Furs</li>
+                  <li>Art collection</li>
+                  <li>Stamp collection</li>
+                  <li>Sport collection</li>
+                  <li>Coin collection</li>
+                  <li>Other Collectibles</li>
+                  <li>Heirlooms</li>
+                  <li>Antiques</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
         <span ng-show="room.editing">
           <div class="form-group">
             <input type="text" class="form-control" ng-model="room.name">
@@ -61,7 +86,7 @@
   				<form ng-upload="uploadRoomImage(content)" action="/images" upload-options-enable-rails-csrf>
   					<span ng-show="uploadStatus == 'nofile'" class="btn btn-success fileinput-button">
   						<i class="glyphicon glyphicon-plus"></i>
-  						<span>Select an image to upload</span>
+  						<span>Select and image, receipt and/or appraisal to upload and/or appraisal to upload</span>
   						<input type="file" name="image[asset]" onchange="angular.element(this).scope().setFiles(this)">
   					</span>
   					<input type='hidden' name='image[imageable_id]' value='{{room.id}}'>
@@ -92,3 +117,8 @@
   	</div>
   </div>
 </div>
+<script>
+  $(function (){
+     $("#example").popover();
+  });
+</script>

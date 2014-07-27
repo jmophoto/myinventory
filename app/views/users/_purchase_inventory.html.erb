@@ -4,6 +4,9 @@
 			<div class="panel-title">Purchase Inventory</div>
 		</div>
     <div class="panel-body add-card-panel">
+      <div class="text-center">
+        <%= image_tag ('cc_logos.png'), class: 'cc_logos_boxed' %>
+      </div>
       <%= form_for :transaction, :url => submit_transaction_path(@user), html: { id: "braintree-form" } do |f| %>
         <div class="form-group">
     			<%= fields_for :pricing do |sub| %>
