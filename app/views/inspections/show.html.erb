@@ -10,7 +10,7 @@
     </div>
   <% end %>
   <div class='col-sm-2'>
-    <%= link_to "Show PDF", inspection_path(@inspection, format: "pdf"), class: "btn btn-primary btn-sm btn-save pull-right", target: "_blank" %>
+    <%= link_to "Preview PDF", inspection_path(@inspection, format: "pdf"), class: "btn btn-primary btn-sm btn-save pull-right", target: "_blank" %>
   </div>
 </div>
 <div ng-init="inspection_id='<%= @inspection.id %>'">

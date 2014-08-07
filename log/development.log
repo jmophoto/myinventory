@@ -9982,3 +9982,2682 @@ Processing by InspectionsController#show as PDF
   Rendered text template (0.0ms)
 Sent data inspection_1 (0.5ms)
 Completed 200 OK in 2658ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 07:13:11 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (28.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (1.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.5ms)
+  Rendered layouts/_head_tags.html.erb (1130.9ms)
+  [1m[35mUser Load (20.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 1261ms (Views: 1225.4ms | ActiveRecord: 35.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:13:17 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.3ms)
+  Rendered layouts/_head_tags.html.erb (31.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 43ms (Views: 42.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:15:12 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (10.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:15:13 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (27.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:15:14 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (78.8ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 85ms (Views: 84.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:15:16 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (29.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 88ms (Views: 87.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:16:26 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 40.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:16:35 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:20:30 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:20:50 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:20:58 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (32.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 38.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 07:21:03 -0600
+Processing by SessionsController#new as HTML
+  Rendered shared/_flash_messages.html.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (17.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (73.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 98ms (Views: 97.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-07 07:21:05 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lP+lJHjocDYUGfPTJyL4n73JJjqeB43yI80abwexT1M=", "session"=>{"email"=>"jason@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (14.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jason@jmophoto.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.7ms)[0m  UPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["remember_token", "2a1323f2242157c720dfdb574bd3f0223d5417b2"], ["updated_at", Thu, 07 Aug 2014 13:21:05 UTC +00:00]]
+  [1m[36m (67.3ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: Calling #default_scope without a block is deprecated. For example instead of `default_scope where(color: 'red')`, please use `default_scope { where(color: 'red') }`. (Alternatively you can just redefine self.default_scope.). (called from <class:Inspection> at /Users/jmophoto/Sites/myinventory/app/models/inspection.rb:25)
+  [1m[35mInspection Load (12.6ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 1]]
+Redirected to http://lvh.me:3000/inspections
+Completed 302 Found in 248ms (ActiveRecord: 130.8ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-07 07:21:05 -0600
+Processing by InspectionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '2a1323f2242157c720dfdb574bd3f0223d5417b2' LIMIT 1[0m
+  Rendered inspections/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.2ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-07 07:21:06 -0600
+Processing by InspectionsController#index as JSON
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '2a1323f2242157c720dfdb574bd3f0223d5417b2' LIMIT 1
+  [1m[36mInspection Load (0.8ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 1]]
+  [1m[35mAddress Load (24.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "Inspection"]]
+  [1m[36mInspectedRoom Load (12.2ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')[0m  [["inspection_id", 1]]
+  [1m[35mInspectedFeature Load (17.7ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (1)
+  [1m[36mImage Load (12.0ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 1], ["imageable_type", "InspectedRoom"]]
+  [1m[35mInspectedRoom Load (0.4ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'  [["inspection_id", 1]]
+  [1m[36mInspectedFeature Load (0.2ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (2)[0m
+  [1m[35mImage Load (0.2ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 2], ["imageable_type", "InspectedRoom"]]
+  [1m[36mValuable Load (14.4ms)[0m  [1mSELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1[0m  [["inspection_id", 1]]
+  [1m[35mImage Load (0.3ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 1], ["imageable_type", "Inspection"]]
+  [1m[36mInspectionDetail Load (12.7ms)[0m  [1mSELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1[0m  [["inspection_id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAddress Load (0.4ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.9ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 283ms (Views: 139.9ms | ActiveRecord: 141.1ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-07 07:21:07 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '2a1323f2242157c720dfdb574bd3f0223d5417b2' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 07:21:07 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.3ms)
+  Rendered layouts/_head_tags.html.erb (31.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '2a1323f2242157c720dfdb574bd3f0223d5417b2' LIMIT 1
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 55ms (Views: 53.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/user_faq" for 127.0.0.1 at 2014-08-07 07:21:07 -0600
+Processing by StaticPagesController#user_faq as HTML
+  Rendered static_pages/user_faq.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '2a1323f2242157c720dfdb574bd3f0223d5417b2' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2014-08-07 07:21:12 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lP+lJHjocDYUGfPTJyL4n73JJjqeB43yI80abwexT1M="}
+Redirected to http://lvh.me:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 07:21:12 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:21:14 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (84.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 95ms (Views: 94.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:25:10 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (12.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:25:13 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (34.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:25:38 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (29.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:25:47 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 41.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:26:22 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (53.3ms)
+Completed 200 OK in 93ms (Views: 92.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:26:33 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (90.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 98ms (Views: 97.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:27:21 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 32.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:27:29 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:28:14 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (43.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 51ms (Views: 49.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:28:22 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:28:23 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:28:44 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (82.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 90ms (Views: 88.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:29:09 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (85.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 90ms (Views: 89.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:29:16 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:29:37 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:29:45 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:29:53 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (30.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 36ms (Views: 35.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:29:54 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (29.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 33.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:29:55 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (75.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 80ms (Views: 79.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 07:29:56 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:29:56 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (29.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2014-08-07 07:30:02 -0600
+
+ActionController::RoutingError (No route matches [GET] "/signout"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jmophoto/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jmophoto/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jmophoto/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jmophoto/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.6ms)
+  Rendered /Users/jmophoto/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (67.9ms)
+  Rendered /Users/jmophoto/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered /Users/jmophoto/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (159.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 07:30:02 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 30.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2014-08-07 07:30:03 -0600
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/static_page (0.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.5ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2014-08-07 07:31:32 -0600
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/static_page (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (130.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 136ms (Views: 135.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 07:31:34 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 38ms (Views: 37.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:33:29 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (38.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 43ms (Views: 42.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:34:05 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (125.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 135ms (Views: 133.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:34:21 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (130.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 137ms (Views: 135.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:35:33 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:35:43 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (120.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 127ms (Views: 125.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:35:58 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (127.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 132ms (Views: 131.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:36:06 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (120.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 126ms (Views: 124.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:36:17 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 38.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:36:35 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 39.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:36:51 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (124.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 131ms (Views: 129.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:37:06 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (128.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 134ms (Views: 133.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:37:21 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (124.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 131ms (Views: 129.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:37:31 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (129.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 133ms (Views: 132.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 08:38:02 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (30.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 34ms (Views: 33.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2014-08-07 08:38:02 -0600
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/static_page (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 31ms (Views: 30.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:38:27 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (29.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:38:40 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:39:56 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (87.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 95ms (Views: 94.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:41:26 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 95ms (Views: 32.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:41:52 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (80.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 88ms (Views: 86.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:42:16 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:42:38 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (121.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 128ms (Views: 126.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:42:49 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (119.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 129ms (Views: 127.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:43:42 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:44:57 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 38.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:46:11 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (40.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 47ms (Views: 45.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:46:22 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (31.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:46:51 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:47:00 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 45.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:47:18 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 95ms (Views: 93.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:47:45 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (132.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 138ms (Views: 137.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:47:57 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (88.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 138ms (Views: 137.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:48:27 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:48:58 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:49:15 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (69.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (49.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 124ms (Views: 123.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:49:31 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 38.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:49:41 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (125.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 131ms (Views: 129.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:49:59 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (38.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:50:11 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (117.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 124ms (Views: 122.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:50:19 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (121.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 127ms (Views: 126.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:50:28 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (124.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 130ms (Views: 129.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:52:56 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (31.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:53:31 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (31.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:53:43 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (125.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 132ms (Views: 131.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:54:06 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:54:29 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 44ms (Views: 42.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:55:21 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:56:22 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (85.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 95ms (Views: 93.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:56:57 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (86.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 96ms (Views: 95.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:57:31 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (68.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 135ms (Views: 134.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:57:55 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (71.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 76ms (Views: 74.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:58:09 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (67.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 72ms (Views: 70.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:59:00 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (75.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 83ms (Views: 82.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:59:09 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (73.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 80ms (Views: 79.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:59:20 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:59:30 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (70.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 77ms (Views: 75.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:59:41 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (76.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 82ms (Views: 80.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 08:59:51 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (71.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 78ms (Views: 76.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:00:03 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:00:48 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2014-08-07 09:00:50 -0600
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/static_page (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 31ms (Views: 30.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:02:34 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:02:52 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.8ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 45ms (Views: 44.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:03:08 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:03:38 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 43ms (Views: 42.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:03:45 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 38.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:04:05 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (124.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 132ms (Views: 131.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 09:04:28 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (69.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 121ms (Views: 103.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 09:04:32 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.6ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:04:33 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 38.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:05:13 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (65.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 70ms (Views: 69.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:05:36 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (126.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 135ms (Views: 133.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 09:05:43 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (88.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 100ms (Views: 98.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 09:05:47 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (27.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 33ms (Views: 32.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:06:51 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 34.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:07:15 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (101.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 107ms (Views: 106.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:07:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (43.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 115ms (Views: 114.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:10:14 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 38.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:11:30 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 43ms (Views: 42.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:11:53 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (37.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:13:19 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:14:55 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:15:58 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (152.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 159ms (Views: 157.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:16:07 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (131.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 136ms (Views: 134.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:16:13 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (139.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 143ms (Views: 142.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:17:05 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 41.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:17:13 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 39.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:17:22 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:17:37 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 39.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:17:47 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:18:25 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (92.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 101ms (Views: 99.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:19:16 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (135.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 142ms (Views: 141.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:19:33 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (137.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 142ms (Views: 141.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:19:44 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (91.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 97ms (Views: 96.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:19:56 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 96ms (Views: 95.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:20:39 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (45.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 51ms (Views: 50.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:20:55 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (86.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 91ms (Views: 90.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:21:50 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 38.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:23:50 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 37ms (Views: 36.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 09:24:17 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (133.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 137ms (Views: 136.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 10:57:07 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (127.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 131ms (Views: 130.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 10:57:14 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (134.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 139ms (Views: 138.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 10:57:27 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (132.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 138ms (Views: 136.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 10:57:37 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (144.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 148ms (Views: 147.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 10:57:49 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (135.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 140ms (Views: 138.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 10:58:06 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 10:58:08 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 39.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 10:58:09 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 89ms (Views: 88.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 10:58:13 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:02:41 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 41.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 11:02:44 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 38.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:02:52 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 11:02:56 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (53.5ms)
+Completed 200 OK in 90ms (Views: 89.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 11:02:57 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:02:58 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:03:20 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 31ms (Views: 30.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/faq" for 127.0.0.1 at 2014-08-07 11:03:23 -0600
+Processing by StaticPagesController#faq as HTML
+  Rendered static_pages/faq.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 38.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/services" for 127.0.0.1 at 2014-08-07 11:03:24 -0600
+Processing by StaticPagesController#services as HTML
+  Rendered static_pages/services.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:03:30 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 34.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:04:01 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:04:31 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (139.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 144ms (Views: 142.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:04:57 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (134.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 139ms (Views: 138.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:05:08 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (134.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 140ms (Views: 139.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-07 11:05:15 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (192.2ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 200ms (Views: 198.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 11:07:27 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 11:08:26 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.7ms)
+  Rendered users/new.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (84.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 97ms (Views: 95.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 11:08:42 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (88.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 101ms (Views: 99.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 11:09:05 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.0ms)
+  Rendered users/new.html.erb within layouts/application (70.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 105ms (Views: 103.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 11:09:19 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 53ms (Views: 48.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 11:09:31 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.3ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (37.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 11:09:54 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 44.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 11:10:06 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 41.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 11:12:35 -0600
+Processing by SessionsController#new as HTML
+  Rendered shared/_flash_messages.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-07 11:12:48 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lP+lJHjocDYUGfPTJyL4n73JJjqeB43yI80abwexT1M=", "session"=>{"email"=>"christine@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'christine@jmophoto.com' LIMIT 1[0m
+  Rendered shared/_flash_messages.html.erb (0.5ms)
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (30.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 38.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-07 11:12:54 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (0.2ms)
+  Rendered users/new.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 45ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-08-07 11:13:16 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lP+lJHjocDYUGfPTJyL4n73JJjqeB43yI80abwexT1M=", "user"=>{"first_name"=>"Christin", "last_name"=>"Olson", "email"=>"christine@jmophoto.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create My Account"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (14.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('christine@jmophoto.com') LIMIT 1[0m
+  [1m[35mSQL (7.5ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "remember_token", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Thu, 07 Aug 2014 17:13:16 UTC +00:00], ["email", "christine@jmophoto.com"], ["first_name", "Christin"], ["last_name", "Olson"], ["password_digest", "$2a$10$oUpjPMlDoCa6N32SreI2nefbCDYKiwjwHnQBzMDT07gqhUiXG.gVm"], ["remember_token", "6401ded0268519e72a9f8cfa185f654890f0f01b"], ["updated_at", Thu, 07 Aug 2014 17:13:16 UTC +00:00]]
+  [1m[36m (70.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "addresses" ("addressable_id", "addressable_type", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["addressable_id", 2], ["addressable_type", "User"], ["country", "USA"], ["created_at", Thu, 07 Aug 2014 17:13:16 UTC +00:00], ["updated_at", Thu, 07 Aug 2014 17:13:16 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 2[0m  [["remember_token", "1dfc24178aa97ebcd099e6c35ece446e0688f470"], ["updated_at", Thu, 07 Aug 2014 17:13:16 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://lvh.me:3000/profile
+Completed 302 Found in 184ms (ActiveRecord: 96.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-07 11:13:16 -0600
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  Rendered shared/_flash_messages.html.erb (0.2ms)
+DEPRECATION WARNING: Calling #default_scope without a block is deprecated. For example instead of `default_scope where(color: 'red')`, please use `default_scope { where(color: 'red') }`. (Alternatively you can just redefine self.default_scope.). (called from <class:Inspection> at /Users/jmophoto/Sites/myinventory/app/models/inspection.rb:25)
+  [1m[35mInspection Exists (0.3ms)[0m  SELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["user_id", 2]]
+  [1m[36mPlan Load (7.4ms)[0m  [1mSELECT "plans".* FROM "plans"[0m
+  Rendered users/_purchase_inventory.html.erb (20.5ms)
+  Rendered users/edit.html.erb within layouts/application (36.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (72.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 212ms (Views: 102.9ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-07 11:14:14 -0600
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (1.0ms)
+  [1m[36mInspection Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mPlan Load (0.3ms)[0m  SELECT "plans".* FROM "plans"
+  Rendered users/_purchase_inventory.html.erb (4.4ms)
+  Rendered users/edit.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (89.6ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 109ms (Views: 106.1ms | ActiveRecord: 1.1ms)
+  [1m[36mPlan Load (1.5ms)[0m  [1mSELECT "plans".* FROM "plans" ORDER BY "plans"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (4.2ms)[0m  [1mUPDATE "plans" SET "description" = $1, "updated_at" = $2 WHERE "plans"."id" = 1[0m  [["description", "Full Service Inventory"], ["updated_at", Thu, 07 Aug 2014 17:15:32 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mPlan Load (0.6ms)[0m  [1mSELECT "plans".* FROM "plans" ORDER BY "plans"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "plans" SET "description" = $1, "updated_at" = $2 WHERE "plans"."id" = 2[0m  [["description", "Do It Yourself Option"], ["updated_at", Thu, 07 Aug 2014 17:16:04 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  COMMIT
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-07 11:16:06 -0600
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  Rendered shared/_flash_messages.html.erb (0.7ms)
+  [1m[35mInspection Exists (2.1ms)[0m  SELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["user_id", 2]]
+  [1m[36mPlan Load (0.3ms)[0m  [1mSELECT "plans".* FROM "plans"[0m
+  Rendered users/_purchase_inventory.html.erb (3.7ms)
+  Rendered users/edit.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.2ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 51ms (Views: 44.9ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/submit_transaction.2" for 127.0.0.1 at 2014-08-07 11:17:16 -0600
+Processing by BraintreeController#submit_transaction as 
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lP+lJHjocDYUGfPTJyL4n73JJjqeB43yI80abwexT1M=", "pricing"=>{"plan_id"=>"agent"}, "transaction"=>{"credit_card"=>{"cardholder_name"=>"Jason Olson", "expiration_month"=>"9", "expiration_year"=>"2014", "number"=>"$bt4|javascript_1_2_0$Gl37lJ9L+DD2bgV3ng8UCYUewzbKrn1uxwdBYpzkcG40D/D145l23kpF9r89fsrIrkI8NrxePc48k3aEhGJ660FrSFPZOHG4bbzdLQYJTxx2m4JECf+cAsfB57sUuKU1kbwv2zJ1dlOZrIs59hB0KWopcQMw3+G2ySEoYpovgDcwDhPVLjqEAf7NxV2TOCrV1V2uPVk3WZfLqLHMFlSraIxNs3xUVmKbvzoi2QzoqH+9DvDz5s+0ErT7rHO/thAsYK6FWKbrqStxqa7xnfqJixru2TNfVDRn3dUnuMUbbC+P9XXmxcpPkPdvpsKth4wk4e1Ldo6nvlc+EXOTBAEYgA==$K4fTR05WS7cviZRaMym7Lhig5hTchBOZSiZB7IunppSq1kSjmKHP1ApRuM4uEJZb$Zuz5b+vcE2WxEajy2FFclt4D0W0pCKktXCkB402BC8Q=", "cvv"=>"$bt4|javascript_1_2_0$Nkn5MXtfaL07+HzsL+vx0Xtc/3YmJl+m+C66NholaalH+b7/Rsvj+o48Ymkvc1EjOh+kJySdE1BDeMYwkzkhkfKJKMbOimOzGjsDxrlUU7EJM6cDL4vp4Qn6EqLvVv1J1vTLINQqQ7ya46QvFUFjjbWlMeEgxDfDeRoXHyNO6Jf8u82c1zzgOLQFLr/9DtcCL7sPqqZEBZppUg8pzhoJTya616JfC+bE5768nR2ikOQJVHwcjWqbl1LzNcaqHB+2ho7TisQhf7KykFUQIZUGWrcdhNtM9SzKgv6ufbl2J7KxSnPBFyFSN9gKZMiRYQdToNi2TBVvKRpJyu9+pg9HWQ==$25thN2v2+rzFI6pKeJ/hIQs80SAjOWrbYhm1R4jTUOE=$Tdr6ht/lzBFmuuvcFlK9Rk0xwT6mPWhvJzgd5W9/a0w="}, "billing"=>{"street_address"=>"819 Norway Court", "locality"=>"Payson", "region"=>"Utah", "postal_code"=>"84651"}}, "commit"=>"Add"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.5ms)[0m  INSERT INTO "inspections" ("completed_by", "created_at", "details", "name", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["completed_by", "agent"], ["created_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00], ["details", "--- {}\n"], ["name", "My Inventory"], ["updated_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00], ["user_id", 2]]
+  [1m[36m (6.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "inspections" SET "status" = $1, "updated_at" = $2, "details" = $3 WHERE "inspections"."id" = 2[0m  [["status", "pending"], ["updated_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00], ["details", "--- {}\n"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "addresses" ("addressable_id", "addressable_type", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["addressable_id", 2], ["addressable_type", "Inspection"], ["country", "USA"], ["created_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00], ["updated_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mAddress Load (0.4ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "Inspection"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "inspected_rooms" ("created_at", "inspection_id", "name", "room_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00], ["inspection_id", 2], ["name", "Living Room"], ["room_type", "living_room"], ["updated_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "inspected_rooms" ("created_at", "inspection_id", "name", "room_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00], ["inspection_id", 2], ["name", "Miscellaneous Valuables"], ["room_type", "misc"], ["updated_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://lvh.me:3000/profile
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "addresses" SET "street1" = $1, "city" = $2, "state" = $3, "zip" = $4, "updated_at" = $5 WHERE "addresses"."id" = 3[0m  [["street1", "819 Norway Court"], ["city", "Payson"], ["state", "Utah"], ["zip", "84651"], ["updated_at", Thu, 07 Aug 2014 17:17:17 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 302 Found in 1308ms (ActiveRecord: 28.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-07 11:17:18 -0600
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  Rendered shared/_flash_messages.html.erb (0.2ms)
+  [1m[35mInspection Exists (0.2ms)[0m  SELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["user_id", 2]]
+  [1m[36mInspection Load (0.3ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 2]]
+  Rendered users/_inventories.html.erb (2.3ms)
+  [1m[35mPlan Load (0.2ms)[0m  SELECT "plans".* FROM "plans"
+  Rendered users/_purchase_inventory.html.erb (3.1ms)
+  Rendered users/edit.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (26.7ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 37.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-08-07 11:17:19 -0600
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  [1m[36mAddress Load (0.7ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 2]]
+Completed 200 OK in 75ms (Views: 69.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-07 11:17:19 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 11:17:19 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (96.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 118ms (Views: 116.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/inspections/2" for 127.0.0.1 at 2014-08-07 11:17:23 -0600
+Processing by InspectionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mInspection Load (1.6ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["id", "2"]]
+  Rendered inspections/_inspection_details.html.erb (0.5ms)
+  Rendered inspections/_rooms.html.erb (0.6ms)
+  Rendered inspections/_valuables.html.erb (0.6ms)
+  Rendered inspections/show.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 48ms (Views: 42.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-07 11:17:23 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  [1m[35mInspection Load (0.4ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 2]]
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "Inspection"]]
+  [1m[35mInspectedRoom Load (0.4ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')  [["inspection_id", 2]]
+  [1m[36mInspectedFeature Load (0.2ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (3)[0m
+  [1m[35mImage Load (0.5ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 3], ["imageable_type", "InspectedRoom"]]
+  [1m[36mInspectedRoom Load (0.6ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'[0m  [["inspection_id", 2]]
+  [1m[35mInspectedFeature Load (0.5ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (4)
+  [1m[36mImage Load (0.3ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 4], ["imageable_type", "InspectedRoom"]]
+  [1m[35mValuable Load (0.2ms)[0m  SELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1  [["inspection_id", 2]]
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 2], ["imageable_type", "Inspection"]]
+  [1m[35mInspectionDetail Load (0.4ms)[0m  SELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1  [["inspection_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mAddress Load (0.7ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+Completed 200 OK in 55ms (Views: 42.6ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/inspections/2" for 127.0.0.1 at 2014-08-07 11:17:23 -0600
+Processing by InspectionsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[35mInspection Load (0.4ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "Inspection"]]
+  [1m[36mInspectedRoom Load (0.3ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')[0m  [["inspection_id", 2]]
+  [1m[35mInspectedFeature Load (0.2ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (3)
+  [1m[36mImage Load (0.5ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 3], ["imageable_type", "InspectedRoom"]]
+  [1m[35mInspectedRoom Load (0.3ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'  [["inspection_id", 2]]
+  [1m[36mInspectedFeature Load (0.5ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (4)[0m
+  [1m[35mImage Load (0.4ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 4], ["imageable_type", "InspectedRoom"]]
+  [1m[36mValuable Load (0.3ms)[0m  [1mSELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1[0m  [["inspection_id", 2]]
+  [1m[35mImage Load (0.2ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 2], ["imageable_type", "Inspection"]]
+  [1m[36mInspectionDetail Load (0.4ms)[0m  [1mSELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1[0m  [["inspection_id", 2]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 2]]
+Completed 200 OK in 71ms (Views: 64.4ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-07 11:17:23 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 11:17:23 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (29.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 48ms (Views: 46.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/inspections/2" for 127.0.0.1 at 2014-08-07 11:18:00 -0600
+Processing by InspectionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mInspection Load (0.5ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["id", "2"]]
+  Rendered inspections/_inspection_details.html.erb (0.2ms)
+  Rendered inspections/_rooms.html.erb (0.0ms)
+  Rendered inspections/_valuables.html.erb (0.0ms)
+  Rendered inspections/show.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-07 11:18:02 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  [1m[35mInspection Load (0.5ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 2]]
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "Inspection"]]
+  [1m[35mInspectedRoom Load (0.5ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')  [["inspection_id", 2]]
+  [1m[36mInspectedFeature Load (0.4ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (3)[0m
+  [1m[35mImage Load (0.2ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 3], ["imageable_type", "InspectedRoom"]]
+  [1m[36mInspectedRoom Load (0.3ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'[0m  [["inspection_id", 2]]
+  [1m[35mInspectedFeature Load (0.2ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (4)
+  [1m[36mImage Load (0.3ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 4], ["imageable_type", "InspectedRoom"]]
+  [1m[35mValuable Load (0.4ms)[0m  SELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1  [["inspection_id", 2]]
+  [1m[36mImage Load (0.3ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 2], ["imageable_type", "Inspection"]]
+  [1m[35mInspectionDetail Load (0.3ms)[0m  SELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1  [["inspection_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mAddress Load (0.4ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (1.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+Completed 200 OK in 27ms (Views: 18.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-07 11:18:02 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 11:18:02 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAddress Load (0.6ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+DEPRECATION WARNING: Calling #default_scope without a block is deprecated. For example instead of `default_scope where(color: 'red')`, please use `default_scope { where(color: 'red') }`. (Alternatively you can just redefine self.default_scope.). (called from <class:Inspection> at /Users/jmophoto/Sites/myinventory/app/models/inspection.rb:25)
+  [1m[36mInspection Load (1.1ms)[0m  [1mSELECT "inspections".* FROM "inspections" ORDER BY inspection_date ASC LIMIT 1[0m
+  [1m[35mAddress Load (0.7ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "Inspection"]]
+  [1m[36mInspection Load (0.6ms)[0m  [1mSELECT "inspections".* FROM "inspections" ORDER BY inspection_date DESC LIMIT 1[0m
+  [1m[35mAddress Load (0.6ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "Inspection"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "addresses" SET "addressable_id" = $1, "updated_at" = $2 WHERE "addresses"."id" = 4  [["addressable_id", nil], ["updated_at", Thu, 07 Aug 2014 17:24:33 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "addresses" ("addressable_id", "addressable_type", "city", "country", "created_at", "state", "street1", "updated_at", "zip") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["addressable_id", 2], ["addressable_type", "Inspection"], ["city", "Payson"], ["country", "USA"], ["created_at", Thu, 07 Aug 2014 17:24:33 UTC +00:00], ["state", "Utah"], ["street1", "819 Norway Court"], ["updated_at", Thu, 07 Aug 2014 17:24:33 UTC +00:00], ["zip", "84651"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "inspections" ("created_at", "details", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Thu, 07 Aug 2014 17:24:55 UTC +00:00], ["details", "--- {}\n"], ["updated_at", Thu, 07 Aug 2014 17:24:55 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mAddress Load (0.7ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 3], ["addressable_type", "Inspection"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "addresses" ("addressable_id", "addressable_type", "city", "country", "created_at", "state", "street1", "updated_at", "zip") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["addressable_id", 3], ["addressable_type", "Inspection"], ["city", "Payson"], ["country", "USA"], ["created_at", Thu, 07 Aug 2014 17:25:10 UTC +00:00], ["state", "Utah"], ["street1", "819 Norway Court"], ["updated_at", Thu, 07 Aug 2014 17:25:10 UTC +00:00], ["zip", "84651"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-07 11:25:29 -0600
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (0.2ms)
+DEPRECATION WARNING: Calling #default_scope without a block is deprecated. For example instead of `default_scope where(color: 'red')`, please use `default_scope { where(color: 'red') }`. (Alternatively you can just redefine self.default_scope.). (called from <class:Inspection> at /Users/jmophoto/Sites/myinventory/app/models/inspection.rb:25)
+  [1m[36mInspection Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mInspection Load (0.3ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 2]]
+  Rendered users/_inventories.html.erb (10.1ms)
+  [1m[36mPlan Load (0.3ms)[0m  [1mSELECT "plans".* FROM "plans"[0m
+  Rendered users/_purchase_inventory.html.erb (10.7ms)
+  Rendered users/edit.html.erb within layouts/application (79.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (27.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 129ms (Views: 107.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-08-07 11:25:30 -0600
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  [1m[35mAddress Load (0.6ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+Completed 200 OK in 34ms (Views: 24.4ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-07 11:25:30 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 11:25:30 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (91.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 107ms (Views: 106.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-07 11:25:31 -0600
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  [1m[36mInspection Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mInspection Load (0.4ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 2]]
+  Rendered users/_inventories.html.erb (2.7ms)
+  [1m[36mPlan Load (0.3ms)[0m  [1mSELECT "plans".* FROM "plans"[0m
+  Rendered users/_purchase_inventory.html.erb (5.0ms)
+  Rendered users/edit.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (28.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 48ms (Views: 44.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-08-07 11:25:33 -0600
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-07 11:25:33 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 11:25:33 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (42.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 61ms (Views: 60.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/submit_transaction.2" for 127.0.0.1 at 2014-08-07 11:25:57 -0600
+Processing by BraintreeController#submit_transaction as 
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lP+lJHjocDYUGfPTJyL4n73JJjqeB43yI80abwexT1M=", "pricing"=>{"plan_id"=>"agent"}, "transaction"=>{"credit_card"=>{"cardholder_name"=>"Jason Olson", "expiration_month"=>"8", "expiration_year"=>"2014", "number"=>"$bt4|javascript_1_2_0$JSohSkqL2JXmKhFLXJ76ZsXqICMjtTj5I1Q4M1oTLNmaSArkPXOFBf/QJLZK652VFE7eDAddvHl6RSh/RgaTRL4Y0V60eKNAXmpQd1R+4RCefp5bX/u2hzRC5dFUfKo55xythZ63NpmFdSW8nRRj+MEpwHWfr2K01Qm0p2z2NmUcVSqLf65pj714YgeW7N6GiSubTCRc1XRdzZ6dK7gHDfRMqE44ePUsTvSi9Fegp4cjta6E+lsi9KD5Bl5hw/2v4WFh5dHyYUoE5f997Cm9pVUrmsGOoXbccVwUvgRI/BOCGCr18M9FUAE9dg0aRS9A8IUeWtUJeEzbH8w9WsnQpQ==$m0eS1sWhIOIHclRK5SzPHXNtua/jfbrk6fhnCw1UdXr7WcM2eKm5FdV4TadSCvbg$JL8Pu8umnJvRGf3tQnIV72qDbSGudZ+Sozx4pI7oKbs=", "cvv"=>"$bt4|javascript_1_2_0$BlVIlpbKqc0KVWYt8VNeDUFX6cdcYN6JXxkubZgxVLZ1Iv97z8QxSGo67zn2W+vZTVBVnY/SjdCc4En6bI17prM+B2Fz+7ESrKAOVSAD4XZxP95tNWFEG3i5FnLdbjr1++pFeFonB0sDKB+bXHZYS5hb6ZiiJHMCphO6/0Rw10Mkw6kfRehnf+EmerHu7CD3/xklSDmwFI5K7/yLh/erBm2VTEsoVdRoks59D7q25ewBgJEeL8/eRJRBAR1m7KVBbh3i+7cBh5xwQNX1W/5pWgivaw3pEIfFMrEnZ+xdzSQK+a+n79sCVakZHsF92ZrFjfPDsxABr7EaXCr5djiO3A==$BvT0eAfuJ2KBe/iAqkwbugsfs3aXsJV/81GDHjgELuc=$J1biUHvpKwPgJ7V4Ag0PUdMbc/v5W4kvFA5ZV1LIWNA="}, "billing"=>{"street_address"=>"123 N Main", "locality"=>"Payson", "region"=>"Utah", "postal_code"=>"84651"}}, "commit"=>"Add"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "inspections" ("completed_by", "created_at", "details", "name", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["completed_by", "agent"], ["created_at", Thu, 07 Aug 2014 17:25:58 UTC +00:00], ["details", "--- {}\n"], ["name", "My Inventory"], ["updated_at", Thu, 07 Aug 2014 17:25:58 UTC +00:00], ["user_id", 2]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "inspections" SET "status" = $1, "updated_at" = $2, "details" = $3 WHERE "inspections"."id" = 4[0m  [["status", "pending"], ["updated_at", Thu, 07 Aug 2014 17:25:58 UTC +00:00], ["details", "--- {}\n"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 4], ["addressable_type", "Inspection"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "addresses" ("addressable_id", "addressable_type", "city", "country", "created_at", "state", "street1", "updated_at", "zip") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["addressable_id", 4], ["addressable_type", "Inspection"], ["city", "Payson"], ["country", "USA"], ["created_at", Thu, 07 Aug 2014 17:25:58 UTC +00:00], ["state", "Utah"], ["street1", "819 Norway Court"], ["updated_at", Thu, 07 Aug 2014 17:25:58 UTC +00:00], ["zip", "84651"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "inspected_rooms" ("created_at", "inspection_id", "name", "room_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Thu, 07 Aug 2014 17:25:58 UTC +00:00], ["inspection_id", 4], ["name", "Living Room"], ["room_type", "living_room"], ["updated_at", Thu, 07 Aug 2014 17:25:58 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "inspected_rooms" ("created_at", "inspection_id", "name", "room_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 07 Aug 2014 17:25:58 UTC +00:00], ["inspection_id", 4], ["name", "Miscellaneous Valuables"], ["room_type", "misc"], ["updated_at", Thu, 07 Aug 2014 17:25:58 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://lvh.me:3000/profile
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 302 Found in 1562ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-07 11:25:58 -0600
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (0.2ms)
+  [1m[36mInspection Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mInspection Load (0.2ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 2]]
+  Rendered users/_inventories.html.erb (1.1ms)
+  [1m[36mPlan Load (0.2ms)[0m  [1mSELECT "plans".* FROM "plans"[0m
+  Rendered users/_purchase_inventory.html.erb (3.0ms)
+  Rendered users/edit.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (78.2ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 90ms (Views: 87.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-08-07 11:25:59 -0600
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+Completed 200 OK in 7ms (Views: 3.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-07 11:25:59 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 11:25:59 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.9ms)
+  Rendered sessions/new.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (31.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/inspections/4" for 127.0.0.1 at 2014-08-07 11:26:04 -0600
+Processing by InspectionsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mInspection Load (1.2ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["id", "4"]]
+  Rendered inspections/_inspection_details.html.erb (0.3ms)
+  Rendered inspections/_rooms.html.erb (0.1ms)
+  Rendered inspections/_valuables.html.erb (0.5ms)
+  Rendered inspections/show.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (32.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 47ms (Views: 42.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-07 11:26:05 -0600
+Processing by InspectionsController#index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  [1m[36mInspection Load (0.3ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 2]]
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "Inspection"]]
+  [1m[36mInspectedRoom Load (0.3ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')[0m  [["inspection_id", 2]]
+  [1m[35mInspectedFeature Load (0.7ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (3)
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 3], ["imageable_type", "InspectedRoom"]]
+  [1m[35mInspectedRoom Load (0.3ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'  [["inspection_id", 2]]
+  [1m[36mInspectedFeature Load (0.3ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (4)[0m
+  [1m[35mImage Load (0.2ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 4], ["imageable_type", "InspectedRoom"]]
+  [1m[36mValuable Load (0.3ms)[0m  [1mSELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1[0m  [["inspection_id", 2]]
+  [1m[35mImage Load (0.2ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 2], ["imageable_type", "Inspection"]]
+  [1m[36mInspectionDetail Load (0.4ms)[0m  [1mSELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1[0m  [["inspection_id", 2]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mAddress Load (0.6ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 2]]
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 4], ["addressable_type", "Inspection"]]
+  [1m[35mInspectedRoom Load (0.4ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')  [["inspection_id", 4]]
+  [1m[36mInspectedFeature Load (0.4ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (5)[0m
+  [1m[35mImage Load (0.2ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 5], ["imageable_type", "InspectedRoom"]]
+  [1m[36mInspectedRoom Load (0.4ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'[0m  [["inspection_id", 4]]
+  [1m[35mInspectedFeature Load (0.3ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (6)
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 6], ["imageable_type", "InspectedRoom"]]
+  [1m[35mValuable Load (0.3ms)[0m  SELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1  [["inspection_id", 4]]
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 4], ["imageable_type", "Inspection"]]
+  [1m[35mInspectionDetail Load (0.3ms)[0m  SELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1  [["inspection_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+Completed 200 OK in 133ms (Views: 118.4ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-07 11:26:05 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/inspections/4" for 127.0.0.1 at 2014-08-07 11:26:05 -0600
+Processing by InspectionsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mInspection Load (0.3ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  [1m[36mAddress Load (0.2ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 4], ["addressable_type", "Inspection"]]
+  [1m[35mInspectedRoom Load (0.2ms)[0m  SELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND ("inspected_rooms"."room_type" != 'misc')  [["inspection_id", 4]]
+  [1m[36mInspectedFeature Load (0.2ms)[0m  [1mSELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (5)[0m
+  [1m[35mImage Load (0.1ms)[0m  SELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2  [["imageable_id", 5], ["imageable_type", "InspectedRoom"]]
+  [1m[36mInspectedRoom Load (0.2ms)[0m  [1mSELECT "inspected_rooms".* FROM "inspected_rooms" WHERE "inspected_rooms"."inspection_id" = $1 AND "inspected_rooms"."room_type" = 'misc'[0m  [["inspection_id", 4]]
+  [1m[35mInspectedFeature Load (0.2ms)[0m  SELECT "inspected_features".* FROM "inspected_features" WHERE "inspected_features"."inspected_room_id" IN (6)
+  [1m[36mImage Load (0.1ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 6], ["imageable_type", "InspectedRoom"]]
+  [1m[35mValuable Load (0.1ms)[0m  SELECT "valuables".* FROM "valuables" WHERE "valuables"."inspection_id" = $1  [["inspection_id", 4]]
+  [1m[36mImage Load (0.2ms)[0m  [1mSELECT "images".* FROM "images" WHERE "images"."imageable_id" = $1 AND "images"."imageable_type" = $2[0m  [["imageable_id", 4], ["imageable_type", "Inspection"]]
+  [1m[35mInspectionDetail Load (0.1ms)[0m  SELECT "inspection_details".* FROM "inspection_details" WHERE "inspection_details"."inspection_id" = $1  [["inspection_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mAddress Load (0.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+Completed 200 OK in 12ms (Views: 8.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-07 11:26:05 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (45.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '1dfc24178aa97ebcd099e6c35ece446e0688f470' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 60ms (Views: 58.9ms | ActiveRecord: 0.3ms)

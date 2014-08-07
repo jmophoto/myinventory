@@ -27,6 +27,12 @@ class StaticPagesController < ApplicationController
   def faq
   end
   
+  def user_faq
+  end
+  
+  def servivces
+  end
+  
   def toc
   end
   

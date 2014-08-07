@@ -1,0 +1,27 @@
+@import 'colors';
+
+#service-page {
+  .service-tagline {
+    padding: 20px 100px;
+    .tagline-title {
+      text-align: center;
+      font-size: 1.8em;
+      color: black;
+      padding-bottom:20px;
+    }
+    .tagline-head {
+      font-size:1.2em;
+      text-align:center;
+      padding-bottom:10px;
+      font-weight: bold; 
+    }
+    .tagline-body {
+      font-size: 1em;
+
+    }
+    .service-well {
+      min-height:280px;
+    }
+  }
+}
+
