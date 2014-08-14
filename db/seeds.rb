@@ -8,11 +8,11 @@
 
 Plan.create([
   { plan_id: 'agent',
-    description: "MI Agent completed inventory", 
+    description: "Full Service Inventory", 
     price: 495
   },
   { plan_id: 'self',
-    description: "Self completed inspection", 
+    description: "Do It Yourself Option", 
     price: 250
   }
 ])

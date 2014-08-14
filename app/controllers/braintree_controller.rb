@@ -11,6 +11,7 @@ class BraintreeController < ApplicationController
     if transaction.errors.any?
       render transaction.errors.messages.to_json
     else
+      current_user.address.update_from_braintree(params[:transaction][:billing])
       inventory = @user.inspections.create!(name:'My Inventory',completed_by:params[:pricing][:plan_id])
       if inventory.completed_by == 'agent'
         inventory.update_attributes(status:'pending')
@@ -20,7 +21,6 @@ class BraintreeController < ApplicationController
       inventory.inspected_rooms.create(name: "Miscellaneous Valuables", room_type: "misc")
       flash[:success] = "Thank you for purchasing an inventory. To begin, <a href='#{ inspection_path(inventory) }'>click here</a> or on the 'Edit' button below. You may also want to review the FAQs.".html_safe
       redirect_to profile_path
-      current_user.address.update_from_braintree(params[:transaction][:billing])
     end
   end
   

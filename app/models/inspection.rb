@@ -12,6 +12,7 @@ class Inspection < ActiveRecord::Base
   belongs_to :agent, class_name: 'User'
   has_many :images, as: :imageable
   has_one :address, as: :addressable
+  belongs_to :area
   
   serialize :details, Hash
   

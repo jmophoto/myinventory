@@ -372,17 +372,16 @@ app.factory "Valuable", ["$resource", ($resource) ->
 
 ]
 
-@UserController = ["$scope", "User", "Company", "Address", ($scope, User, Company, Address) ->
+@UserController = ["$scope", "$timeout", "User", "Company", "Address", ($scope, $timeout, User, Company, Address) ->
   $scope.user = User.get({id: $scope.userId})
   $scope.users = User.query()
+  $scope.messages = {}
 
   $scope.editUser = (user) ->
     User.update(user)
-    Address.update(user.address)
-    Company.update(user.company)
-    Address.update(user.company.address)
-    $scope.editUserForm.$dirty=false 
-  
+    Address.update(user.address).success($scope.messages = [key: "success", value:"Your information was saved."])
+    $scope.editUserForm.$dirty=false
+    
   $scope.editCompany = (user) ->
     Company.update(user.company)
     Address.update(user.company.address)

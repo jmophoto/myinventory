@@ -7,6 +7,7 @@
         <ul class="homepage-menu nav navbar-nav">
             <li><%= link_to "home", root_path %></li>
             <li><%= link_to "faqs", faq_path %></li>
+            <li><%= link_to "services", services_path %></li>
             <% if current_user %>
                 <li><%= link_to "account", profile_path %></li>
                 <% if current_user.agent? %>
@@ -31,7 +32,7 @@
               <%= image_tag 'mi_logo_white.png', class: 'img-responsive' %>
             </div>
             <div class='homepage-image-text hidden-xs gray-background'>
-              Your Shield of Protection for Peace of Mind...
+              The Easiest Way to Document Your Personal Belongings
             </div>
           </div>
           <div class='col-sm-6'>
@@ -46,9 +47,9 @@
     <section class="green lead text-center">
       <div class="container">
         <div class='row'>
-          <div class='col-md-6 col-md-offset-3'>
-            <p>
-              Having a personal inventory can help you bounce back from a disaster, fire, flood, burglary, or anything else that might compromise your belongings.
+          <div class='col-md-8 col-md-offset-2'>
+            <h2 style="color:black;">You Shield of Protection for Peace of Mind...</h2>
+            <p>Having a personal inventory can help you bounce back from a disaster, fire, flood, burglary, or anything else that might compromise your belongings.</p>
           </div>
         </div>
       </div>

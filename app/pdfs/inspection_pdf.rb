@@ -63,27 +63,29 @@ class InspectionPdf < Prawn::Document
 
   def valuables
     move_down 30
-    text 'Valuables', size: 25, align: :center
-    @inspection.valuables.each_with_index do |v, index|
+    rooms = @inspection.misc_valuables
+    rooms.each_with_index do |room, index|
+      text room.name, size: 25, align: :center
       move_down 20
-      features = [["Serial Number", "Comments"]]
-      features += [[v.serial_number, v.comments]]
+      features = [["Feature", "Comments"]]
+      features += room.inspected_features.map{|x| [x.name, x.comment]}
       font_size(10) do
         table(features, :width => bounds.right, :row_colors => ["EEEEEE", "FFFFFF"], :header => true) do
           cells.borders = [:bottom]
           cells.padding = [10, 5, 10, 5]
           row(0).font_style = :bold
           row(0).columns(4).align = :center
+          # columns(1..3).align = :center
           columns(4).width = 200
         end
       end
-      if v.images.any?
+      if room.images.any?
         move_down 20
-        image_urls = v.images.map(&:small_url)
+        image_urls = room.images.map(&:small_url)
         y_index = cursor
         width = bounds.right/3
-        height = bounds.right/5
-        v.images.in_groups_of(3).map do |image_row|
+        height = bounds.right/3
+        room.images.in_groups_of(3).map do |image_row|
           image_row.each_with_index do |image_file, index|
             bounding_box([bounds.left + (width*index), y_index], width: width, height: height) do
               if image_file && image_file.asset
@@ -95,8 +97,8 @@ class InspectionPdf < Prawn::Document
           y_index -= height + 50
         end
       end
+      start_new_page if (index+2) <= rooms.length
     end
-    start_new_page
   end
   
   def rooms

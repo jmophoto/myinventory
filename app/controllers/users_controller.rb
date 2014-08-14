@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   before_action :signed_in_user, except: [:new, :create, :new_agent]
   before_action :admin_user?, only: [:index,:agent_index]
-  wrap_parameters include: [:agent, :agent_status, :admin]
+  wrap_parameters include: [:agent, :agent_status, :admin, :first_name, :last_name, :email]
   
   def index
     @users = User.all
@@ -53,7 +53,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      # sign_in @user
       render json: @user, root: false
     else
       render 'edit'

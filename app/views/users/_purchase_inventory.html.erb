@@ -10,7 +10,12 @@
       <%= form_for :transaction, :url => submit_transaction_path(@user), html: { id: "braintree-form" } do |f| %>
         <div class="form-group">
     			<%= fields_for :pricing do |sub| %>
-    				<%= sub.select :plan_id, Plan.all.collect{|x| ["#{x.description} - #{number_to_currency(x.price, precision: 0)}", x.plan_id]}, {}, { class: "form-control" }  %>
+    				<%= sub.select :plan_id, Plan.all.collect{|x| ["#{x.description} - #{number_to_currency(x.price, precision: 0)}", x.plan_id]}, {}, { id: "plan-select", class: "form-control" }  %>
+    			<% end %>
+        </div>
+        <div id="area-select" class="form-group">
+    			<%= fields_for :area do |area| %>
+    				<%= area.select :area_id, Area.all.collect{|x| [x.name, x.id]}, { include_blank: "-- Select Coverage Area --" }, { class: "form-control" }  %>
     			<% end %>
         </div>
         <%= f.fields_for :credit_card do |cc| %>
@@ -57,8 +62,33 @@
 						</div>
 					</div>
 				<% end %>
-        <%= f.submit "Add", class: "btn btn-sm btn-success pull-right" %>
+        <%= check_box_tag :accept_terms %> Accept <%= link_to "Terms & Conditions", toc_path %>
+        <%= f.submit "Purchase", class: "btn btn-sm btn-success pull-right btn-purchase", disabled: true %>
       <% end %>
     </div>
   </div>
 </div>
+
+<script>
+$( "#plan-select" ).change(function() {
+  if ($("#plan-select").val() == "self") {
+    $("#area-select").hide();
+  } else {
+    $("#area-select").show();
+  }
+});
+
+$( "#accept_terms" ).change(function() {
+  if (this.checked) {
+    $(".btn-purchase").removeAttr("disabled");
+  } else {
+    $(".btn-purchase").attr("disabled", "disabled");
+  }
+  // if ($("#plan-select").val() == "self") {
+  //   $("#area-select").hide();
+  // } else {
+  //   $("#area-select").show();
+  // }
+});
+
+</script>
