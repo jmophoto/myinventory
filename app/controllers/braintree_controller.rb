@@ -16,6 +16,11 @@ class BraintreeController < ApplicationController
       if inventory.completed_by == 'agent'
         inventory.update_attributes(status:'pending')
       end
+      if params[:area]
+        if area = Area.find(params[:area][:area_id])
+          inventory.update_attributes(area_id: area.id)
+        end
+      end
       inventory.address = @user.address.dup
       inventory.inspected_rooms.create(name: "Living Room", room_type: "living_room")
       inventory.inspected_rooms.create(name: "Miscellaneous Valuables", room_type: "misc")
