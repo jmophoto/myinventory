@@ -16,7 +16,7 @@ class BraintreeController < ApplicationController
       if inventory.completed_by == 'agent'
         inventory.update_attributes(status:'pending')
       end
-      if params[:area]
+      if params[:area] && params[:area][:area_id] && !params[:area][:area_id].blank?
         if area = Area.find(params[:area][:area_id])
           inventory.update_attributes(area_id: area.id)
         end
