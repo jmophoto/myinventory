@@ -382,6 +382,12 @@ app.factory "Valuable", ["$resource", ($resource) ->
     Address.update(user.address).success($scope.messages = [key: "success", value:"Your information was saved."])
     $scope.editUserForm.$dirty=false
     
+  $scope.changePassword = (user) ->
+    if $scope.newPass
+        user.password = $scope.newPass
+        user.password_confirmation = $scope.newConfirm
+        User.update(user).success($scope.messages = [key: "success", value:"Your password was changed."])
+  
   $scope.editCompany = (user) ->
     Company.update(user.company)
     Address.update(user.company.address)
