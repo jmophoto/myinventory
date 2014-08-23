@@ -7,7 +7,11 @@ class InspectionsController < ApplicationController
   # GET /inspections
   # GET /inspections.json
   def index
-    @inspections = current_user.inspections
+    if current_user.admin?
+      @inspections = Inspection.all
+    else
+      @inspections = current_user.inspections
+    end
     respond_to do |format|
       format.html
       format.json { render json: @inspections, root: false }
