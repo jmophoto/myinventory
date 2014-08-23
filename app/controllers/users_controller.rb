@@ -11,6 +11,14 @@ class UsersController < ApplicationController
       format.json { render json: @users, root: false }
     end
   end
+  
+  def agent_index
+    @users = User.agent
+    respond_to do |format|
+      format.html
+      format.json { render json: @users, root: false }
+    end
+  end
     
   def show
     respond_to do |format|
