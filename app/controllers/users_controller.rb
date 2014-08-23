@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
   
   def agent_index
-    @users = User.agent
+    @users = User.active_agents
     respond_to do |format|
       format.html
       format.json { render json: @users, root: false }

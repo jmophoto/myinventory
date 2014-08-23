@@ -47,6 +47,10 @@ class User < ActiveRecord::Base
     where(agent:true)
   end
   
+  def self.active_agents
+    where(agent:true, agent_status:"approved")
+  end
+  
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
