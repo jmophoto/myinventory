@@ -1,0 +1,2017 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 08:37:23 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (1.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.6ms)
+  Rendered layouts/_google_analytics.html.erb (0.4ms)
+  Rendered layouts/_head_tags.html.erb (1613.3ms)
+  [1m[35mUser Load (4.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1
+  Rendered layouts/_footer.html.erb (53.0ms)
+Completed 200 OK in 1749ms (Views: 1738.2ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 08:41:58 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (43.3ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-23 08:42:01 -0600
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (0.6ms)
+DEPRECATION WARNING: Calling #default_scope without a block is deprecated. For example instead of `default_scope where(color: 'red')`, please use `default_scope { where(color: 'red') }`. (Alternatively you can just redefine self.default_scope.). (called from <class:Inspection> at /Users/jmophoto/Sites/myinventory/app/models/inspection.rb:26)
+  [1m[36mInspection Exists (6.5ms)[0m  [1mSELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mInspection Load (0.9ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 4]]
+  Rendered users/_inventories.html.erb (15.2ms)
+  [1m[36mPlan Load (2.1ms)[0m  [1mSELECT "plans".* FROM "plans"[0m
+  [1m[35mArea Load (0.8ms)[0m  SELECT "areas".* FROM "areas"
+  Rendered users/_purchase_inventory.html.erb (105.0ms)
+  Rendered users/edit.html.erb within layouts/application (174.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.3ms)
+  Rendered layouts/_google_analytics.html.erb (0.3ms)
+  Rendered layouts/_head_tags.html.erb (42.8ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 350ms (Views: 207.5ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2014-08-23 08:42:01 -0600
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1
+  [1m[36mAddress Load (2.4ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 4], ["addressable_type", "User"]]
+  [1m[35mCompany Load (1.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 4]]
+Completed 200 OK in 60ms (Views: 44.0ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 08:42:01 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 08:42:01 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (1.0ms)
+  Rendered sessions/new.html.erb within layouts/application (18.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.4ms)
+  Rendered layouts/_google_analytics.html.erb (0.4ms)
+  Rendered layouts/_head_tags.html.erb (54.9ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 97ms (Views: 95.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-23 08:52:22 -0600
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1[0m
+  Rendered shared/_flash_messages.html.erb (0.6ms)
+  [1m[35mInspection Exists (0.5ms)[0m  SELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["user_id", 4]]
+  [1m[36mInspection Load (0.6ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 4]]
+  Rendered users/_inventories.html.erb (4.0ms)
+  [1m[35mPlan Load (0.4ms)[0m  SELECT "plans".* FROM "plans"
+  [1m[36mArea Load (0.3ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+  Rendered users/_purchase_inventory.html.erb (6.6ms)
+  Rendered users/edit.html.erb within layouts/application (16.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.0ms)
+  Rendered layouts/_user_links.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 64ms (Views: 58.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2014-08-23 08:52:24 -0600
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "4"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1[0m
+  [1m[35mAddress Load (1.2ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 4], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 4]]
+Completed 200 OK in 9ms (Views: 4.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 08:52:24 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 08:52:24 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (46.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1[0m
+  Rendered layouts/_user_links.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (7.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 77ms (Views: 76.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-23 08:57:47 -0600
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (0.6ms)
+  [1m[36mInspection Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["user_id", 4]]
+  [1m[35mInspection Load (0.5ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 4]]
+  Rendered users/_inventories.html.erb (2.5ms)
+  [1m[36mPlan Load (0.3ms)[0m  [1mSELECT "plans".* FROM "plans"[0m
+  [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas"
+  Rendered users/_purchase_inventory.html.erb (5.1ms)
+  Rendered users/edit.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (86.6ms)
+  Rendered layouts/_user_links.html.erb (1.1ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 111ms (Views: 105.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2014-08-23 08:57:48 -0600
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1
+  [1m[36mAddress Load (0.7ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 4], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 4]]
+Completed 200 OK in 11ms (Views: 5.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 08:57:48 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 08:57:48 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (42.6ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '544ab4afe669e4cbdc2e654460e255e88a9fa865' LIMIT 1
+  Rendered layouts/_user_links.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (8.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 74ms (Views: 72.8ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2014-08-23 08:58:03 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ="}
+Redirected to http://lvh.me:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 08:58:03 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (111.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 119ms (Views: 118.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 08:58:05 -0600
+Processing by SessionsController#new as HTML
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (37.7ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_public_links.html.erb (0.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (6.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 53ms (Views: 51.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 08:58:07 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"jmophoto@me.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jmophoto@me.com' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (74.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_public_links.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 213ms (Views: 118.3ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (15.0ms)[0m  CREATE TABLE "accounts" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (8.5ms)[0m  [1mCREATE TABLE "addresses" ("id" serial primary key, "street1" character varying(255), "street2" character varying(255), "suite" character varying(255), "city" character varying(255), "state" character varying(255), "zip" character varying(255), "addressable_id" integer, "addressable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp, "country" character varying(255)) [0m
+  [1m[35m (2.5ms)[0m  CREATE INDEX "index_addresses_on_addressable_id_and_addressable_type" ON "addresses" USING btree ("addressable_id", "addressable_type")
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "areas" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (7.4ms)[0m  CREATE TABLE "companies" ("id" serial primary key, "title" character varying(255), "created_at" timestamp, "updated_at" timestamp, "user_id" integer, "email" character varying(255), "phone_number" character varying(255)) 
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "images" ("id" serial primary key, "inspection_id" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp, "asset" text, "imageable_id" integer, "imageable_type" character varying(255), "comment" text, "company_id" integer) [0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_images_on_inspection_id" ON "images" USING btree ("inspection_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE INDEX "index_images_on_user_id" ON "images" USING btree ("user_id")[0m
+  [1m[35m (8.1ms)[0m  CREATE TABLE "inspected_features" ("id" serial primary key, "name" character varying(255), "condition" character varying(255), "clean" boolean, "marks" boolean, "damage" boolean, "comment" text, "inspected_room_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.6ms)[0m  [1mCREATE INDEX "index_inspected_features_on_inspected_room_id" ON "inspected_features" USING btree ("inspected_room_id")[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "inspected_rooms" ("id" serial primary key, "name" character varying(255), "inspection_id" integer, "created_at" timestamp, "updated_at" timestamp, "room_type" character varying(255)) 
+  [1m[36m (1.6ms)[0m  [1mCREATE INDEX "index_inspected_rooms_on_inspection_id" ON "inspected_rooms" USING btree ("inspection_id")[0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "inspection_details" ("id" serial primary key, "name" character varying(255), "status" character varying(255), "inspection_id" integer, "created_at" timestamp, "updated_at" timestamp, "comment" text) 
+  [1m[36m (2.1ms)[0m  [1mCREATE INDEX "index_inspection_details_on_inspection_id" ON "inspection_details" USING btree ("inspection_id")[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "inspections" ("id" serial primary key, "inspection_type" character varying(255), "unit" character varying(255), "tenant" character varying(255), "inspected_by" character varying(255), "inspection_date" date, "created_at" timestamp, "updated_at" timestamp, "property_id" integer, "user_id" integer, "inspection_date_string" character varying(255), "report_date" date, "details" text, "name" character varying(255), "agent_id" integer, "status" character varying(255), "completed_by" character varying(255), "area_id" integer) 
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "payment_methods" ("id" serial primary key, "user_id" integer, "last_four" character varying(255), "token" character varying(255), "expiration_date" timestamp, "created_at" timestamp, "updated_at" timestamp, "cardholder_name" character varying(255), "default" boolean, "masked_number" character varying(255), "is_default" boolean) [0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "index_payment_methods_on_user_id" ON "payment_methods" USING btree ("user_id")
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "plans" ("id" serial primary key, "title" character varying(255), "price" decimal(8,2), "inspections_per_month" integer, "created_at" timestamp, "updated_at" timestamp, "description" character varying(255), "plan_id" character varying(255)) [0m
+  [1m[35m (4.7ms)[0m  CREATE TABLE "properties" ("id" serial primary key, "user_id" integer, "created_at" timestamp, "updated_at" timestamp, "name" character varying(255), "details" text, "legacy_id" integer, "description" character varying(255)) 
+  [1m[36m (2.0ms)[0m  [1mCREATE INDEX "index_properties_on_user_id" ON "properties" USING btree ("user_id")[0m
+  [1m[35m (7.6ms)[0m  CREATE TABLE "rooms" ("id" serial primary key, "name" character varying(255), "property_id" integer, "created_at" timestamp, "updated_at" timestamp, "room_type" character varying(255), "features" text) 
+  [1m[36m (1.7ms)[0m  [1mCREATE INDEX "index_rooms_on_property_id" ON "rooms" USING btree ("property_id")[0m
+  [1m[35m (7.3ms)[0m  CREATE TABLE "subscriptions" ("id" serial primary key, "user_id" integer, "start_date" timestamp, "end_date" timestamp, "subscription_id" character varying(255), "subscription_type" character varying(255), "created_at" timestamp, "updated_at" timestamp, "status" character varying(255), "next_billing_date" timestamp, "next_billing_period_amount" decimal, "payment_method_token" character varying(255), "plan_id" integer) 
+  [1m[36m (1.9ms)[0m  [1mCREATE INDEX "index_subscriptions_on_user_id" ON "subscriptions" USING btree ("user_id")[0m
+  [1m[35m (7.7ms)[0m  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_token" character varying(255), "account_id" integer, "legacy_id" integer, "customer_id" character varying(255), "phone_number" character varying(255), "company_id" integer, "admin" boolean, "agent" boolean, "agent_status" character varying(255)) 
+  [1m[36m (2.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.8ms)[0m  CREATE INDEX "index_users_on_remember_token" ON "users" USING btree ("remember_token")
+  [1m[36m (9.7ms)[0m  [1mCREATE TABLE "valuables" ("id" serial primary key, "name" character varying(255), "serial_number" character varying(255), "value" integer, "inspection_id" integer, "created_at" timestamp, "updated_at" timestamp, "comments" character varying(255), "inspected_room_id" integer) [0m
+  [1m[35m (1.9ms)[0m  CREATE INDEX "index_valuables_on_inspection_id" ON "valuables" USING btree ("inspection_id")
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140814133153')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130829142313')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130829144036')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130829163310')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130829193550')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130902022103')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130904232629')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130905015723')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130905022444')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130905135413')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130909023634')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130914173905')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130914175942')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130914181043')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130914193059')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130916214428')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131002134001')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131002140712')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131007183809')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131007195101')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131016175828')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131017164239')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131017180923')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131018045026')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131022184955')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131023142106')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131023160803')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131023163410')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131030215046')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131030220728')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131104001011')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131104002038')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131113040821')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131113154838')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131113183847')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131113194146')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131114181034')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131114210112')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131115180141')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131115192754')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131116233258')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131116234953')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131117025119')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131117191437')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131117204408')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131117205612')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131117213853')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131117220423')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131221233858')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221234549')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131222000308')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131222002731')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229224339')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140104203439')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140118173942')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140414042510')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140506144159')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140506233754')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140508155303')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140515200110')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140517151644')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140517183712')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140518035108')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140519062439')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140520193916')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140718041043')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140814132835')
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (7.6ms)[0m  [1mINSERT INTO "plans" ("created_at", "description", "plan_id", "price", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Sat, 23 Aug 2014 14:59:21 UTC +00:00], ["description", "Full Service Inventory"], ["plan_id", "agent"], ["price", #<BigDecimal:7f8f5f1303f8,'0.495E3',9(36)>], ["updated_at", Sat, 23 Aug 2014 14:59:21 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "plans" ("created_at", "description", "plan_id", "price", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Sat, 23 Aug 2014 14:59:21 UTC +00:00], ["description", "Do It Yourself Option"], ["plan_id", "self"], ["price", #<BigDecimal:7f8f5f16b098,'0.25E3',9(36)>], ["updated_at", Sat, 23 Aug 2014 14:59:21 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 08:59:56 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (1.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.3ms)
+  Rendered layouts/_google_analytics.html.erb (0.3ms)
+  Rendered layouts/_head_tags.html.erb (1441.2ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 1487ms (Views: 1482.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 08:59:58 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 45ms (Views: 44.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-08-23 09:00:04 -0600
+Processing by UsersController#new as HTML
+  Rendered static_pages/toc.html.erb (1.1ms)
+  Rendered users/new.html.erb within layouts/application (25.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.3ms)
+  Rendered layouts/_google_analytics.html.erb (0.3ms)
+  Rendered layouts/_head_tags.html.erb (40.2ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_public_links.html.erb (0.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (5.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 166ms (Views: 78.2ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-08-23 09:00:16 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "user"=>{"first_name"=>"Jason", "last_name"=>"Olson", "email"=>"jason@jmophoto.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create My Account"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (1.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jason@jmophoto.com') LIMIT 1[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "remember_token", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Sat, 23 Aug 2014 15:00:16 UTC +00:00], ["email", "jason@jmophoto.com"], ["first_name", "Jason"], ["last_name", "Olson"], ["password_digest", "$2a$10$/r08ItSF7hBaBEiEWowYkedwEE5cB9Mtq3/uVjzR4fnCoHmsLjR8K"], ["remember_token", "d071b073903e877af0ccc19470e0760cb1cc1528"], ["updated_at", Sat, 23 Aug 2014 15:00:16 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "addresses" ("addressable_id", "addressable_type", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["addressable_id", 1], ["addressable_type", "User"], ["country", "USA"], ["created_at", Sat, 23 Aug 2014 15:00:16 UTC +00:00], ["updated_at", Sat, 23 Aug 2014 15:00:16 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mAddress Load (1.9ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["remember_token", "08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca"], ["updated_at", Sat, 23 Aug 2014 15:00:16 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://lvh.me:3000/profile
+Completed 302 Found in 178ms (ActiveRecord: 13.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-23 09:00:16 -0600
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1[0m
+  Rendered shared/_flash_messages.html.erb (0.5ms)
+DEPRECATION WARNING: Calling #default_scope without a block is deprecated. For example instead of `default_scope where(color: 'red')`, please use `default_scope { where(color: 'red') }`. (Alternatively you can just redefine self.default_scope.). (called from <class:Inspection> at /Users/jmophoto/Sites/myinventory/app/models/inspection.rb:26)
+  [1m[35mInspection Exists (1.5ms)[0m  SELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["user_id", 1]]
+  [1m[36mPlan Load (0.6ms)[0m  [1mSELECT "plans".* FROM "plans"[0m
+  [1m[35mArea Load (0.5ms)[0m  SELECT "areas".* FROM "areas"
+  Rendered users/_purchase_inventory.html.erb (25.6ms)
+  Rendered users/edit.html.erb within layouts/application (115.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.3ms)
+  Rendered layouts/_user_links.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 195ms (Views: 152.1ms | ActiveRecord: 8.1ms)
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (8.1ms)[0m  [1mUPDATE "users" SET "admin" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["admin", true], ["updated_at", Sat, 23 Aug 2014 15:00:59 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  COMMIT
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-23 09:01:02 -0600
+Processing by UsersController#edit as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1[0m
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  [1m[35mInspection Exists (0.6ms)[0m  SELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1  [["user_id", 1]]
+  [1m[36mPlan Load (0.5ms)[0m  [1mSELECT "plans".* FROM "plans"[0m
+  [1m[35mArea Load (0.3ms)[0m  SELECT "areas".* FROM "areas"
+  Rendered users/_purchase_inventory.html.erb (6.3ms)
+  Rendered users/edit.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (53.9ms)
+  Rendered layouts/_admin_links.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 145ms (Views: 140.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin_inspections" for 127.0.0.1 at 2014-08-23 09:01:06 -0600
+Processing by InspectionsController#admin_index as HTML
+  Rendered inspections/admin_index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1[0m
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 49ms (Views: 47.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 09:01:06 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1
+  Rendered users/agent_index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.3ms)
+  Rendered layouts/_google_analytics.html.erb (0.3ms)
+  Rendered layouts/_head_tags.html.erb (52.2ms)
+  Rendered layouts/_admin_links.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (5.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 76ms (Views: 73.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 09:01:06 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1[0m
+  [1m[35mInspection Load (0.7ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 1]]
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 09:01:07 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.1ms)
+  Rendered layouts/_admin_links.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 09:01:07 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAddress Load (0.7ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.9ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 91ms (Views: 82.1ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 09:01:08 -0600
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1
+  Rendered users/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (38.8ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 48ms (Views: 46.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 09:01:09 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAddress Load (0.8ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 10ms (Views: 4.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 09:01:12 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (38.9ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 44.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 09:01:12 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAddress Load (0.7ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 8ms (Views: 4.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin_inspections" for 127.0.0.1 at 2014-08-23 09:01:13 -0600
+Processing by InspectionsController#admin_index as HTML
+  Rendered inspections/admin_index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.8ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 47ms (Views: 45.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 09:01:13 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (41.3ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 59ms (Views: 57.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 09:01:13 -0600
+Processing by InspectionsController#index as JSON
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '08d33766cbc7c5b59c1f9ac2c3bd44f0bc00bbca' LIMIT 1
+  [1m[36mInspection Load (0.5ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 1]]
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2014-08-23 09:01:16 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ="}
+Redirected to http://lvh.me:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 09:01:16 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/new_agent" for 127.0.0.1 at 2014-08-23 09:01:21 -0600
+Processing by UsersController#new_agent as HTML
+  Rendered static_pages/toc.html.erb (0.1ms)
+  Rendered users/new_agent.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_public_links.html.erb (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (4.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 58ms (Views: 55.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-08-23 09:01:35 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "user"=>{"first_name"=>"Grandin", "last_name"=>"Olson", "email"=>"grandin@jmophoto.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "address_attributes"=>{"city"=>"", "state"=>"Alaska"}, "phone_number"=>""}, "agent_request"=>"Send Request"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('grandin@jmophoto.com') LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("agent", "agent_status", "created_at", "email", "first_name", "last_name", "password_digest", "phone_number", "remember_token", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["agent", true], ["agent_status", "pending"], ["created_at", Sat, 23 Aug 2014 15:01:35 UTC +00:00], ["email", "grandin@jmophoto.com"], ["first_name", "Grandin"], ["last_name", "Olson"], ["password_digest", "$2a$10$mtuDKcKhOMMJfFU/mFnqy.3294bXWsyPKwnkZ1w.z6e62kJXW5Wnu"], ["phone_number", ""], ["remember_token", "7173e93c4e6a050ff10186a453341bfbb79317d6"], ["updated_at", Sat, 23 Aug 2014 15:01:35 UTC +00:00]]
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "addresses" ("addressable_id", "addressable_type", "city", "country", "created_at", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["addressable_id", 2], ["addressable_type", "User"], ["city", ""], ["country", "USA"], ["created_at", Sat, 23 Aug 2014 15:01:35 UTC +00:00], ["state", "Alaska"], ["updated_at", Sat, 23 Aug 2014 15:01:35 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "addresses" ("addressable_type", "country", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["addressable_type", "User"], ["country", "USA"], ["created_at", Sat, 23 Aug 2014 15:01:35 UTC +00:00], ["updated_at", Sat, 23 Aug 2014 15:01:35 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "addresses" SET "addressable_id" = $1, "updated_at" = $2 WHERE "addresses"."id" = 2  [["addressable_id", nil], ["updated_at", Sat, 23 Aug 2014 15:01:35 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 2[0m  [["remember_token", "52d8aaecbcaed8012b2f90685216b3c39e29f0a0"], ["updated_at", Sat, 23 Aug 2014 15:01:35 UTC +00:00]]
+  [1m[35mSQL (0.6ms)[0m  UPDATE "addresses" SET "addressable_id" = $1, "updated_at" = $2 WHERE "addresses"."id" = 3  [["addressable_id", 2], ["updated_at", Sat, 23 Aug 2014 15:01:35 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://lvh.me:3000/profile
+Completed 302 Found in 101ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-08-23 09:01:35 -0600
+Processing by UsersController#edit as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '52d8aaecbcaed8012b2f90685216b3c39e29f0a0' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (0.2ms)
+  [1m[36mInspection Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mPlan Load (0.4ms)[0m  SELECT "plans".* FROM "plans"
+  [1m[36mArea Load (0.2ms)[0m  [1mSELECT "areas".* FROM "areas"[0m
+  Rendered users/_purchase_inventory.html.erb (5.4ms)
+  Rendered users/edit.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.7ms)
+  Rendered layouts/_user_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2014-08-23 09:01:43 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ="}
+Redirected to http://lvh.me:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 09:01:43 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (92.1ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 98ms (Views: 97.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 09:01:46 -0600
+Processing by SessionsController#new as HTML
+  Rendered shared/_flash_messages.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_public_links.html.erb (0.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (4.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 102ms (Views: 100.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 09:01:54 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"jason@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jason@jmophoto.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["remember_token", "0485e6e681ca1042377eaa045842b48286f6d939"], ["updated_at", Sat, 23 Aug 2014 15:01:54 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://lvh.me:3000/admin
+Completed 302 Found in 96ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-08-23 09:01:54 -0600
+Processing by StaticPagesController#admin as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  Rendered static_pages/admin.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (112.4ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 120ms (Views: 118.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin_inspections" for 127.0.0.1 at 2014-08-23 09:02:03 -0600
+Processing by InspectionsController#admin_index as HTML
+  Rendered inspections/admin_index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (111.9ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 119ms (Views: 118.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 09:02:04 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  [1m[35mInspection Load (0.6ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 1]]
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 09:02:04 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (44.9ms)
+  Rendered layouts/_admin_links.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 65ms (Views: 63.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 09:02:05 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (41.9ms)
+  Rendered layouts/_admin_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 49ms (Views: 47.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 09:02:05 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAddress Load (0.9ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.6ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 2]]
+  [1m[36mAddress Load (0.8ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.6ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 16ms (Views: 9.3ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 09:02:07 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.7ms)
+  Rendered layouts/_admin_links.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 09:02:07 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAddress Load (1.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mAddress Load (0.4ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 14ms (Views: 7.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 09:02:08 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (94.5ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 173ms (Views: 170.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 09:02:08 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAddress Load (0.5ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 2]]
+  [1m[36mAddress Load (0.4ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 13ms (Views: 7.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/admin_inspections" for 127.0.0.1 at 2014-08-23 09:02:15 -0600
+Processing by InspectionsController#admin_index as HTML
+  Rendered inspections/admin_index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 47ms (Views: 45.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 09:02:15 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.5ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 61ms (Views: 59.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 09:02:15 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  [1m[35mInspection Load (0.5ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 09:02:20 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.9ms)
+  Rendered layouts/_admin_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 09:02:20 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAddress Load (0.5ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 12ms (Views: 6.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/admin_inspections" for 127.0.0.1 at 2014-08-23 10:42:41 -0600
+Processing by InspectionsController#admin_index as HTML
+  Rendered inspections/admin_index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (91.8ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1
+  Rendered layouts/_admin_links.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 170ms (Views: 168.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 10:42:41 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  [1m[35mInspection Load (0.8ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 1]]
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:42:41 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '0485e6e681ca1042377eaa045842b48286f6d939' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (37.7ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 55ms (Views: 52.2ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2014-08-23 10:42:46 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ="}
+Redirected to http://lvh.me:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 10:42:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (41.2ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 47ms (Views: 45.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 10:42:49 -0600
+Processing by SessionsController#new as HTML
+  Rendered shared/_flash_messages.html.erb (0.2ms)
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (39.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_public_links.html.erb (0.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 10:42:59 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"jason@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jason@jmophoto.com' LIMIT 1[0m
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (52.7ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_public_links.html.erb (1.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (6.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 155ms (Views: 66.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 10:43:09 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"jason@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jason@jmophoto.com' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (90.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_public_links.html.erb (0.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 190ms (Views: 100.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 10:43:25 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"jason@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jason@jmophoto.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["remember_token", "f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438"], ["updated_at", Sat, 23 Aug 2014 16:43:25 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://lvh.me:3000/admin
+Completed 302 Found in 93ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-08-23 10:43:26 -0600
+Processing by StaticPagesController#admin as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1[0m
+  Rendered static_pages/admin.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (37.5ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:44:27 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.8ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 42.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:44:27 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAddress Load (0.6ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 2]]
+  [1m[36mAddress Load (0.8ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 15ms (Views: 9.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/admin_inspections" for 127.0.0.1 at 2014-08-23 10:44:28 -0600
+Processing by InspectionsController#admin_index as HTML
+  Rendered inspections/admin_index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (105.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1[0m
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 113ms (Views: 111.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 10:44:28 -0600
+Processing by InspectionsController#index as JSON
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1
+  [1m[36mInspection Load (0.5ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:44:28 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (38.5ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 54ms (Views: 52.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:44:29 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.0ms)
+  Rendered layouts/_admin_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 44.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:44:30 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAddress Load (0.4ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 11ms (Views: 6.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:44:30 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.0ms)
+  Rendered layouts/_admin_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 43ms (Views: 41.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:44:30 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAddress Load (0.4ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 2]]
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/admin_inspections" for 127.0.0.1 at 2014-08-23 10:44:31 -0600
+Processing by InspectionsController#admin_index as HTML
+  Rendered inspections/admin_index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (154.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1[0m
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 161ms (Views: 160.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 10:44:32 -0600
+Processing by InspectionsController#index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1
+  [1m[36mInspection Load (0.3ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:44:32 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (37.9ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 54ms (Views: 52.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:44:32 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.2ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 47ms (Views: 45.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:44:32 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAddress Load (0.4ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mAddress Load (0.4ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 2.4ms)
+
+
+Started PUT "/users/2" for 127.0.0.1 at 2014-08-23 10:44:49 -0600
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"2", "first_name"=>"Grandin", "last_name"=>"Olson", "email"=>"grandin@jmophoto.com", "account_id"=>nil, "phone_number"=>"", "full_name"=>"Grandin Olson", "agent_status"=>"approved", "agent"=>true, "admin"=>nil, "user_type"=>"Agent", "display_agent_status"=>"Pending", "account"=>nil, "address"=>{"id"=>3, "street1"=>nil, "street2"=>nil, "city"=>nil, "state"=>nil, "zip"=>nil, "country"=>"USA", "full_address"=>"", "street_address"=>"", "city_state"=>""}, "company"=>nil, "user"=>{"agent"=>true, "agent_status"=>"approved", "admin"=>nil, "first_name"=>"Grandin", "last_name"=>"Olson", "email"=>"grandin@jmophoto.com"}}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'f4a3ad147654473fdd4aa2d30b9dfe5d8e7ac438' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('grandin@jmophoto.com') AND "users"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "agent_status" = $1, "updated_at" = $2 WHERE "users"."id" = 2  [["agent_status", "approved"], ["updated_at", Sat, 23 Aug 2014 16:44:49 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mAddress Load (0.4ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+Completed 200 OK in 14ms (Views: 3.5ms | ActiveRecord: 4.1ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2014-08-23 10:44:52 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ="}
+Redirected to http://lvh.me:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 10:44:52 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 41ms (Views: 40.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 10:44:55 -0600
+Processing by SessionsController#new as HTML
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (43.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_public_links.html.erb (0.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 55ms (Views: 53.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 10:45:02 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"grandin@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'grandin@jmophoto.com' LIMIT 1[0m
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (72.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_public_links.html.erb (0.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 206ms (Views: 115.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 10:45:10 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"grandin@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'grandin@jmophoto.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 2  [["remember_token", "b19c59936a6a1f5b3eb1526c4a6cf871af949d6d"], ["updated_at", Sat, 23 Aug 2014 16:45:10 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://lvh.me:3000/agent_inspections
+Completed 302 Found in 89ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/agent_inspections" for 127.0.0.1 at 2014-08-23 10:45:11 -0600
+Processing by InspectionsController#agent_index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1
+  Rendered inspections/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.3ms)
+  Rendered layouts/_user_links.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 47ms (Views: 44.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 10:45:12 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1[0m
+  [1m[35mInspection Load (0.5ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 2]]
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:45:12 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 10:45:12 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (39.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1
+  Rendered layouts/_user_links.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (6.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 65ms (Views: 63.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/agent_inspections" for 127.0.0.1 at 2014-08-23 10:50:26 -0600
+Processing by InspectionsController#agent_index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1[0m
+  Rendered inspections/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (53.6ms)
+ERROR: compiling _app_views_layouts__header_html_erb__1700918746583569392_70365958858820 RAISED /Users/jmophoto/Sites/myinventory/app/views/layouts/_header.html.erb:54: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/jmophoto/Sites/myinventory/app/views/layouts/_header.html.erb:56: syntax error, unexpected end-of-input, expecting keyword_end
+Function body:           def _app_views_layouts__header_html_erb__1700918746583569392_70365958858820(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "layouts/_header";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<header>
+  <div class="container">
+    <div class=\'row\'>
+      <div class=\'col-md-10\'>
+        <ul class="menu">
+';           if current_user && current_user.admin? 
+@output_buffer.safe_append='            ';@output_buffer.append=( render :partial => 'layouts/admin_links' );@output_buffer.safe_append='
+';           if current_user && current_user.agent? 
+@output_buffer.safe_append='            ';@output_buffer.append=( render :partial => 'layouts/agent_links' );@output_buffer.safe_append='
+';           elsif current_user 
+@output_buffer.safe_append='            ';@output_buffer.append=( render :partial => 'layouts/user_links' );@output_buffer.safe_append='
+';           else 
+@output_buffer.safe_append='            ';@output_buffer.append=( render :partial => 'layouts/public_links' );@output_buffer.safe_append='
+';           end 
+@output_buffer.safe_append='        </ul>
+        
+        
+        <!-- <ul class="menu">
+            <li>';@output_buffer.append=( link_to "home", root_path );@output_buffer.safe_append='</li>
+';             if current_user 
+@output_buffer.safe_append='              <li>';@output_buffer.append=( link_to "user faqs", user_faq_path );@output_buffer.safe_append='</li>
+';             else 
+@output_buffer.safe_append='              <li>';@output_buffer.append=( link_to "faqs", faq_path );@output_buffer.safe_append='</li>
+';             end 
+@output_buffer.safe_append='
+';             if current_user 
+@output_buffer.safe_append='                <li>';@output_buffer.append=( link_to "account", profile_path );@output_buffer.safe_append='</li>
+';                 if current_user.agent? 
+@output_buffer.safe_append='                  <li>';@output_buffer.append=( link_to "inventories", agent_inspections_path );@output_buffer.safe_append='</li>
+';                 elsif current_user.admin? 
+@output_buffer.safe_append='                  <li>';@output_buffer.append=( link_to "inventories", admin_inspections_path );@output_buffer.safe_append='</li>
+                  <li>';@output_buffer.append=( link_to "agents", agents_path );@output_buffer.safe_append='</li>
+                  <li>';@output_buffer.append=( link_to 'users', users_path  );@output_buffer.safe_append='</li>
+';                 else 
+@output_buffer.safe_append='                  <li>';@output_buffer.append=( link_to "my inventories", inspections_path );@output_buffer.safe_append='</li>
+';                 end 
+@output_buffer.safe_append='                <li>';@output_buffer.append=( link_to 'sign out', signout_path, method: "delete" );@output_buffer.safe_append='</li>
+';             else 
+@output_buffer.safe_append='            <li>';@output_buffer.append=( link_to "services", services_path );@output_buffer.safe_append='</li>
+            <li>';@output_buffer.append=( link_to "get started", signup_path );@output_buffer.safe_append='</li>
+            <li>';@output_buffer.append=( link_to "sign in", signin_path );@output_buffer.safe_append='</li>
+';           end 
+@output_buffer.safe_append='        </ul> -->
+      </div>
+      <div class=\'col-md-2\'>
+        <div class=\'mi-logo\'>
+          ';@output_buffer.append=( link_to image_tag('mi_logo_white.png', class: 'img-responsive'), root_path );@output_buffer.safe_append='
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `module_eval'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `compile'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/template.rb:248:in `block in compile!'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `synchronize'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `compile!'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/template.rb:142:in `block in render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/notifications.rb:161:in `instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/template.rb:141:in `render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/partial_renderer.rb:306:in `render_partial'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/partial_renderer.rb:279:in `block in render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/partial_renderer.rb:278:in `render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:47:in `render_partial'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:21:in `render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/helpers/rendering_helper.rb:24:in `render'
+/Users/jmophoto/Sites/myinventory/app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__253946959757829336_70365970102620'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/template.rb:143:in `block in render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/notifications.rb:161:in `instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/template.rb:141:in `render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:97:in `render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/jmophoto/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Users/jmophoto/Sites/myinventory/app/controllers/inspections_controller.rb:28:in `block (2 levels) in agent_index'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/mime_responds.rb:191:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/mime_responds.rb:191:in `respond_to'
+/Users/jmophoto/Sites/myinventory/app/controllers/inspections_controller.rb:27:in `agent_index'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:189:in `process_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:413:in `_run__3600269644759068078__process_action__callbacks'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:136:in `process'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:44:in `process'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal.rb:195:in `dispatch'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_controller/metal.rb:231:in `block in action'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `each'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/query_cache.rb:36:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activerecord-4.0.2/lib/active_record/migration.rb:369:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:373:in `_run__913295699708162757__call__callbacks'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/rack/logger.rb:38:in `call_app'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `block in call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:25:in `tagged'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `tagged'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/quiet_assets-1.0.2/lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/activesupport-4.0.2/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/static.rb:64:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/engine.rb:511:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.2/lib/rails/application.rb:97:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/Users/jmophoto/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/Users/jmophoto/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/Users/jmophoto/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered layouts/_header.html.erb (5.4ms)
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (/Users/jmophoto/Sites/myinventory/app/views/layouts/_header.html.erb:54: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/jmophoto/Sites/myinventory/app/views/layouts/_header.html.erb:56: syntax error, unexpected end-of-input, expecting keyword_end):
+    51:   </div>
+    52: </header>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__253946959757829336_70365970102620'
+  app/controllers/inspections_controller.rb:28:in `block (2 levels) in agent_index'
+  app/controllers/inspections_controller.rb:27:in `agent_index'
+
+
+  Rendered /Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/jmophoto/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.9ms)
+
+
+Started GET "/agent_inspections" for 127.0.0.1 at 2014-08-23 10:51:14 -0600
+Processing by InspectionsController#agent_index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1
+  Rendered inspections/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.2ms)
+  Rendered layouts/_agent_links.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 45ms (Views: 42.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 10:51:16 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1[0m
+  [1m[35mInspection Load (0.5ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 2]]
+Completed 200 OK in 8ms (Views: 1.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:51:16 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 10:51:16 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.2ms)
+  Rendered sessions/new.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (121.8ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1
+  Rendered layouts/_agent_links.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (8.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 148ms (Views: 146.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/agent_inspections" for 127.0.0.1 at 2014-08-23 10:51:20 -0600
+Processing by InspectionsController#agent_index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1[0m
+  Rendered inspections/index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (39.4ms)
+  Rendered layouts/_agent_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 47ms (Views: 44.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 10:51:20 -0600
+Processing by InspectionsController#index as JSON
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1
+  [1m[36mInspection Load (0.4ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 2]]
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:51:20 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 10:51:20 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.2ms)
+  Rendered sessions/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b19c59936a6a1f5b3eb1526c4a6cf871af949d6d' LIMIT 1[0m
+  Rendered layouts/_agent_links.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 55ms (Views: 54.6ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2014-08-23 10:52:04 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ="}
+Redirected to http://lvh.me:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 10:52:04 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (38.0ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 10:52:07 -0600
+Processing by SessionsController#new as HTML
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (41.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_public_links.html.erb (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (6.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 10:52:15 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"jason@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jason@jmophoto.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["remember_token", "9b0e7e36b561e52a941c976bd2fa87927bd36cc0"], ["updated_at", Sat, 23 Aug 2014 16:52:15 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://lvh.me:3000/admin
+Completed 302 Found in 96ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-08-23 10:52:15 -0600
+Processing by StaticPagesController#admin as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  Rendered static_pages/admin.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (106.6ms)
+  Rendered layouts/_admin_links.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 115ms (Views: 113.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin_inspections" for 127.0.0.1 at 2014-08-23 10:52:19 -0600
+Processing by InspectionsController#admin_index as HTML
+  Rendered inspections/admin_index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (109.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  Rendered layouts/_admin_links.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 119ms (Views: 117.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 10:52:20 -0600
+Processing by InspectionsController#index as JSON
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  [1m[36mInspection Load (0.5ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 1]]
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:52:20 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (40.4ms)
+  Rendered layouts/_admin_links.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 58ms (Views: 56.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:52:21 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (44.5ms)
+  Rendered layouts/_admin_links.html.erb (1.1ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 54ms (Views: 51.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:52:21 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAddress Load (0.5ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 12ms (Views: 7.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:52:26 -0600
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (38.7ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 43.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:52:26 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAddress Load (0.4ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 2]]
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-08-23 10:52:30 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  [1m[36mInspection Load (0.4ms)[0m  [1mSELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC[0m  [["user_id", 2]]
+  Rendered users/_inventories.html.erb (2.0ms)
+  Rendered users/show.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (158.9ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 173ms (Views: 169.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:52:30 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAddress Load (0.9ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2014-08-23 10:52:30 -0600
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  [1m[35mAddress Load (0.5ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+Completed 200 OK in 9ms (Views: 4.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:52:36 -0600
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  Rendered users/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (38.5ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:52:36 -0600
+Processing by UsersController#index as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mAddress Load (0.4ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 2]]
+  [1m[36mAddress Load (0.3ms)[0m  [1mSELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1[0m  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["user_id", 1]]
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:52:37 -0600
+Processing by UsersController#agent_index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (42.3ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-08-23 10:52:37 -0600
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAddress Load (0.4ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 2], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mAddress Load (0.3ms)[0m  SELECT "addresses".* FROM "addresses" WHERE "addresses"."addressable_id" = $1 AND "addresses"."addressable_type" = $2 ORDER BY "addresses"."id" ASC LIMIT 1  [["addressable_id", 1], ["addressable_type", "User"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."user_id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin_inspections" for 127.0.0.1 at 2014-08-23 10:52:38 -0600
+Processing by InspectionsController#admin_index as HTML
+  Rendered inspections/admin_index.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (43.3ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  Rendered layouts/_admin_links.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 52ms (Views: 50.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 10:52:38 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  [1m[35mInspection Load (0.3ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:52:38 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  Rendered users/agent_index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (37.4ms)
+  Rendered layouts/_admin_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 53ms (Views: 51.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-08-23 10:52:43 -0600
+Processing by StaticPagesController#admin as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  Rendered static_pages/admin.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (33.6ms)
+  Rendered layouts/_admin_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-08-23 10:52:44 -0600
+Processing by StaticPagesController#admin as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  Rendered static_pages/admin.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.1ms)
+  Rendered layouts/_admin_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-08-23 10:53:21 -0600
+Processing by StaticPagesController#admin as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1
+  Rendered static_pages/admin.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.1ms)
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 10:53:23 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.5ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '9b0e7e36b561e52a941c976bd2fa87927bd36cc0' LIMIT 1[0m
+  Rendered layouts/_admin_links.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 44.9ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2014-08-23 10:53:28 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ="}
+Redirected to http://lvh.me:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 10:53:28 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (36.5ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_public_links.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 43ms (Views: 42.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 10:53:32 -0600
+Processing by SessionsController#new as HTML
+  Rendered shared/_flash_messages.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_ie_shim.html.erb (0.1ms)
+  Rendered layouts/_google_analytics.html.erb (0.1ms)
+  Rendered layouts/_head_tags.html.erb (46.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_public_links.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 62ms (Views: 60.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 10:53:37 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"grandin@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'grandin@jmophoto.com' LIMIT 1
+  Rendered shared/_flash_messages.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (34.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_public_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 208ms (Views: 114.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-23 10:53:52 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ=", "session"=>{"email"=>"grandin@jmophoto.com", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'grandin@jmophoto.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 2  [["remember_token", "006aa5c89eabec807e623ca0c1728b4c9882f8dc"], ["updated_at", Sat, 23 Aug 2014 16:53:52 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://lvh.me:3000/agent_inspections
+Completed 302 Found in 90ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/agent_inspections" for 127.0.0.1 at 2014-08-23 10:53:52 -0600
+Processing by InspectionsController#agent_index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '006aa5c89eabec807e623ca0c1728b4c9882f8dc' LIMIT 1
+  Rendered inspections/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.9ms)
+  Rendered layouts/_agent_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/inspections" for 127.0.0.1 at 2014-08-23 10:53:54 -0600
+Processing by InspectionsController#index as JSON
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '006aa5c89eabec807e623ca0c1728b4c9882f8dc' LIMIT 1[0m
+  [1m[35mInspection Load (0.5ms)[0m  SELECT "inspections".* FROM "inspections" WHERE "inspections"."user_id" = $1 ORDER BY inspection_date DESC  [["user_id", 2]]
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/agents" for 127.0.0.1 at 2014-08-23 10:53:54 -0600
+Processing by UsersController#agent_index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '006aa5c89eabec807e623ca0c1728b4c9882f8dc' LIMIT 1[0m
+Redirected to http://lvh.me:3000/signin
+Filter chain halted as :admin_user? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-08-23 10:53:54 -0600
+Processing by SessionsController#new as JSON
+  Rendered shared/_flash_messages.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (38.8ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '006aa5c89eabec807e623ca0c1728b4c9882f8dc' LIMIT 1
+  Rendered layouts/_agent_links.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 60ms (Views: 58.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 10:53:55 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '006aa5c89eabec807e623ca0c1728b4c9882f8dc' LIMIT 1[0m
+  Rendered layouts/_agent_links.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 43ms (Views: 41.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2014-08-23 10:53:57 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S2A5qQS1RZhS8sT87/14VK1wFQ59whAzKAGac868OJQ="}
+Redirected to http://lvh.me:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-23 10:53:57 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/homepage (0.1ms)
+  Rendered layouts/_ie_shim.html.erb (0.0ms)
+  Rendered layouts/_google_analytics.html.erb (0.0ms)
+  Rendered layouts/_head_tags.html.erb (35.4ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_public_links.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.6ms)
