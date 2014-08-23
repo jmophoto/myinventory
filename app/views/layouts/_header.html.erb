@@ -3,29 +3,14 @@
     <div class='row'>
       <div class='col-md-10'>
         <ul class="menu">
-            <li><%= link_to "home", root_path %></li>
-            <% if current_user %>
-              <li><%= link_to "user faqs", user_faq_path %></li>
-            <% else %>
-              <li><%= link_to "faqs", faq_path %></li>
-            <% end %>
-            
-            <% if current_user %>
-                <li><%= link_to "account", profile_path %></li>
-                <% if current_user.agent? %>
-                  <li><%= link_to "inventories", agent_inspections_path %></li>
-                <% elsif current_user.admin? %>
-                  <li><%= link_to "inventories", admin_inspections_path %></li>
-                  <li><%= link_to "agents", agents_path %></li>
-                  <li><%= link_to 'users', users_path  %></li>
-                <% else %>
-                  <li><%= link_to "my inventories", inspections_path %></li>
-                <% end %>
-                <li><%= link_to 'sign out', signout_path, method: "delete" %></li>
-            <% else %>
-            <li><%= link_to "services", services_path %></li>
-            <li><%= link_to "get started", signup_path %></li>
-            <li><%= link_to "sign in", signin_path %></li>
+          <% if current_user && current_user.admin? %>
+            <%= render :partial => 'layouts/admin_links' %>
+          <% elsif current_user && current_user.agent? %>
+            <%= render :partial => 'layouts/agent_links' %>
+          <% elsif current_user %>
+            <%= render :partial => 'layouts/user_links' %>
+          <% else %>
+            <%= render :partial => 'layouts/public_links' %>
           <% end %>
         </ul>
       </div>
