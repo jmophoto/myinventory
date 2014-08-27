@@ -39,6 +39,7 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       sudo "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
       sudo "ln -nfs #{shared_path}/config/authorize_net.yml #{release_path}/config/authorize_net.yml"
+      sudo "ln -nfs #{shared_path}/config/initializers/braintree.rb #{release_path}/config/initializers/braintree.rb"
       sudo "ln -nfs #{shared_path}/public/images #{release_path}/public/images"
     end
   end
