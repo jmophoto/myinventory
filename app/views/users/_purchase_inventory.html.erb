@@ -25,10 +25,10 @@
   				<div class="form-group row">
   					<div class="col-md-8">
   				  	<input type="text" autocomplete="off" data-encrypted-name="transaction[credit_card][number]" 
-  							class="form-control"/>
+  							class="form-control" value="5581588282593938"/>
   					</div>
   					<div class="col-md-4">
-  						<input type="text" autocomplete="off" data-encrypted-name="transaction[credit_card][cvv]" class="form-control" value="123"/>
+  						<input type="text" autocomplete="off" data-encrypted-name="transaction[credit_card][cvv]" class="form-control" value="575"/>
   					</div>
   				</div>
   				<div class="form-group row">
@@ -45,12 +45,12 @@
 				<%= f.fields_for :billing do |ba| %>
 					<div class="form-group row">
             <div class="col-md-12">
-					     <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address" %>
+					     <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address", value: "395 Ridge Lane"%>
             </div>
 					</div>
           <div class="form-group row">
             <div class="col-md-12">
-              <%= ba.text_field :locality, class: "form-control", placeholder: "City" %>
+              <%= ba.text_field :locality, class: "form-control", placeholder: "City", value: "Payson" %>
             </div>
           </div>
 					<div class="form-group row">
@@ -58,7 +58,7 @@
 							<%= ba.select :region, states, {}, { class: "form-control" } %>
 						</div>
 						<div class="col-md-6">
-							<%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip" %>
+							<%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip", value: "84651" %>
 						</div>
 					</div>
 				<% end %>
@@ -69,7 +69,15 @@
   </div>
 </div>
 
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    var braintree = Braintree.create("MIIBCgKCAQEAzo1W52R4aS7GYLOXr2fcZ1YDQ3tt0Ld8k1SJ5U+7nQXoS6npwRt4fe85WPQBBbkQvhUgmm5hNkrH0mea/ZQAxDLPJAkqMK8P66TxRHMmvPf8xEvzxkAwgK/nyeNrLec3guAMAV904z01CrLsiLYz0RrJnxB30liQ13UJk0z8xLESPVoKipL4RvcRldbm40fQNb/Jd5VqeqtqJ6T2pVuSjhLqpqCE+SXmiYn8xZiWe6JQUuSgks9oBYv7vECiFSmPHiQttvDJM7x/CPLii8jvIrVTZ0dL6St4pA9Sc0rTNYALcPxPAja1hrL9xv9uUorT1ecgy1V3YHgp8IJ1SE5QbwIDAQAB")
+    braintree.onSubmitEncryptForm('braintree-form');
+  </script>
+<% end %>
+
 <script>
+
 $( "#plan-select" ).change(function() {
   if ($("#plan-select").val() == "self") {
     $("#area-select").hide();

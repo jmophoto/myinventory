@@ -50,10 +50,3 @@
 	<% end %>
 	<%= f.submit "Save", class: "btn btn-sm btn-success pull-right" %>
 <% end %>
-
-<% content_for :javascript do %> 
-  <script type="text/javascript">
-		var braintree = Braintree.create("MIIBCgKCAQEAzo1W52R4aS7GYLOXr2fcZ1YDQ3tt0Ld8k1SJ5U+7nQXoS6npwRt4fe85WPQBBbkQvhUgmm5hNkrH0mea/ZQAxDLPJAkqMK8P66TxRHMmvPf8xEvzxkAwgK/nyeNrLec3guAMAV904z01CrLsiLYz0RrJnxB30liQ13UJk0z8xLESPVoKipL4RvcRldbm40fQNb/Jd5VqeqtqJ6T2pVuSjhLqpqCE+SXmiYn8xZiWe6JQUuSgks9oBYv7vECiFSmPHiQttvDJM7x/CPLii8jvIrVTZ0dL6St4pA9Sc0rTNYALcPxPAja1hrL9xv9uUorT1ecgy1V3YHgp8IJ1SE5QbwIDAQAB")
-		braintree.onSubmitEncryptForm('braintree-form');
-	</script>
-<% end %>
