@@ -25,10 +25,10 @@
   				<div class="form-group row">
   					<div class="col-md-8">
   				  	<input type="text" autocomplete="off" data-encrypted-name="transaction[credit_card][number]" 
-  							class="form-control" value="5581588282593938"/>
+  							class="form-control" placeholder="Card Number"/>
   					</div>
   					<div class="col-md-4">
-  						<input type="text" autocomplete="off" data-encrypted-name="transaction[credit_card][cvv]" class="form-control" value="575"/>
+  						<input type="text" autocomplete="off" data-encrypted-name="transaction[credit_card][cvv]" class="form-control" placeholder="CVV"/>
   					</div>
   				</div>
   				<div class="form-group row">
@@ -45,12 +45,12 @@
 				<%= f.fields_for :billing do |ba| %>
 					<div class="form-group row">
             <div class="col-md-12">
-					     <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address", value: "395 Ridge Lane"%>
+					     <%= ba.text_field :street_address, class: "form-control", placeholder: "Billing Address" %>
             </div>
 					</div>
           <div class="form-group row">
             <div class="col-md-12">
-              <%= ba.text_field :locality, class: "form-control", placeholder: "City", value: "Payson" %>
+              <%= ba.text_field :locality, class: "form-control", placeholder: "City" %>
             </div>
           </div>
 					<div class="form-group row">
@@ -58,7 +58,7 @@
 							<%= ba.select :region, states, {}, { class: "form-control" } %>
 						</div>
 						<div class="col-md-6">
-							<%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip", value: "84651" %>
+							<%= ba.text_field :postal_code, class: "form-control", placeholder: "Zip" %>
 						</div>
 					</div>
 				<% end %>
