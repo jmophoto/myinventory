@@ -3,9 +3,9 @@ class BraintreeController < ApplicationController
   
   def submit_transaction
     if params[:pricing][:plan_id] == 'self'
-      params[:transaction][:amount] = 0.1
+      params[:transaction][:amount] = 250
     else
-      params[:transaction][:amount] = 0.2
+      params[:transaction][:amount] = 495
     end
     transaction = BraintreeRails::Transaction.create(params[:transaction])
     if transaction.errors.any?
