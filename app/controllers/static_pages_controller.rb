@@ -40,6 +40,7 @@ class StaticPagesController < ApplicationController
   end
   
   def admin
-    @monthly_agent_inventories = Inspection.current_month
+    @monthly_inventories = Inspection.current_month
+    @yearly_inventories = Inspection.current_year
   end
 end

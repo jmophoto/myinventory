@@ -29,6 +29,10 @@ class Inspection < ActiveRecord::Base
     where('created_at >= ?', Date.today.at_beginning_of_month)
   end
   
+  def self.current_year
+    where('created_at >= ?', Date.today.at_beginning_of_year)
+  end
+  
   def self.agent
     where(completed_by: 'agent')
   end
