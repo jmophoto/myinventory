@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if params[:status]
       @users = User.by_agent_status(params[:status])
     else
-      @users = User.agent
+      @users = User.active_agents
     end
     respond_to do |format|
       format.html
