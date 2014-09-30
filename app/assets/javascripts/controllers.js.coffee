@@ -41,7 +41,7 @@ app.factory "User", ["$resource", ($resource) ->
 ]
 
 app.factory "Agent", ["$resource", ($resource) ->
-  $resource("/agents")
+  $resource("/agents/:status", {status: "@status"}, {update: {mehtod: "PUT"}})
 ]
 
 app.factory "Address", ["$resource", ($resource) -> 
@@ -372,11 +372,13 @@ app.factory "Valuable", ["$resource", ($resource) ->
 
 ]
 
-@UserController = ["$scope", "$timeout", "User", "Company", "Address", ($scope, $timeout, User, Company, Address) ->
+@UserController = ["$scope", "$timeout", "User", "Agent", "Company", "Address", ($scope, $timeout, User, Agent, Company, Address) ->
   $scope.user = User.get({id: $scope.userId})
   $scope.users = User.query()
+  $scope.agents = Agent.query()
+  $scope.pending_agents = Agent.query({status:"pending"})
   $scope.messages = {}
-
+  
   $scope.editUser = (user) ->
     User.update(user)
     Address.update(user.address).success($scope.messages = [key: "success", value:"Your information was saved."])
@@ -398,6 +400,8 @@ app.factory "Valuable", ["$resource", ($resource) ->
     user.agent = isAgent
     user.agent_status = status
     User.update(user)
+    $scope.pending_agents = Agent.query({status:"pending"})
+
     
   $scope.updateAdminStatus = (user,isAdmin) ->
     user.admin = isAdmin

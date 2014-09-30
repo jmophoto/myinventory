@@ -13,7 +13,11 @@ class UsersController < ApplicationController
   end
   
   def agent_index
-    @users = User.active_agents
+    if params[:status]
+      @users = User.by_agent_status(params[:status])
+    else
+      @users = User.agent
+    end
     respond_to do |format|
       format.html
       format.json { render json: @users, root: false }

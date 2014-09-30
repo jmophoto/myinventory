@@ -16,3 +16,8 @@ Plan.create([
     price: 250
   }
 ])
+
+Area.create([
+  { name: 'Las Vegas',
+  }
+])

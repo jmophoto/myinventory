@@ -47,6 +47,10 @@ class User < ActiveRecord::Base
     where(agent:true)
   end
   
+  def self.by_agent_status(status)
+    where(agent:true, agent_status:status)
+  end
+  
   def self.active_agents
     where(agent:true, agent_status:"approved")
   end

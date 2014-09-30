@@ -42,6 +42,7 @@ Inspeckd::Application.routes.draw do
   get '/admin_inspections', to: 'inspections#admin_index'
   get '/agent_inspections', to: 'inspections#agent_index'
   get '/agents', to: 'users#agent_index'
+  get '/agents/:status', to: 'users#agent_index'
   
   # admin access
   get 'admin', to: 'static_pages#admin'
