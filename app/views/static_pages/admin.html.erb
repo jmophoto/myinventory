@@ -56,3 +56,29 @@
     </div>
   </div>
 </div>
+
+<div class="col-md-12">
+  <div class="panel-group">
+    <div class="panel panel-default user-panel panel-success">
+			<div class="panel-heading">
+				<h4 class="panel-title">Inventory stats for <%= Date.today.strftime("%B") %></h4>
+			</div>
+      <div class="panel-body">
+        <table class="table table-bordered">
+            <tr>
+              <td>Agent-assigned inventories</td>
+              <td class="text-center"><%= @monthly_agent_inventories.agent.count %></td>
+            </tr>
+            <tr>
+              <td>Self-completed inventories</td>
+              <td class="text-center"><%= @monthly_agent_inventories.self.count %></td>
+            </tr>
+            <tr>
+              <td class=""><strong>Total inventories</strong></td>
+              <td class="text-center"><strong><%= @monthly_agent_inventories.count %></strong></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

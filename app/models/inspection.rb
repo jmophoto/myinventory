@@ -25,8 +25,16 @@ class Inspection < ActiveRecord::Base
   
   default_scope order('inspection_date DESC')
   
+  def self.current_month
+    where('created_at >= ?', Date.today.at_beginning_of_month)
+  end
+  
   def self.agent
     where(completed_by: 'agent')
+  end
+  
+  def self.self
+    where(completed_by: 'self')
   end
   
   def self.unassigned
