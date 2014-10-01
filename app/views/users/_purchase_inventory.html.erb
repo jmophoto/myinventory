@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4" ng-controller="PurchaseController">
 	<div class="panel panel-default">
 	  <div class="panel-heading">
 			<div class="panel-title">Purchase Inventory</div>
@@ -9,14 +9,22 @@
       </div>
       <%= form_for :transaction, :url => submit_transaction_path(@user), html: { id: "braintree-form" } do |f| %>
         <div class="form-group">
-    			<%= fields_for :pricing do |sub| %>
-    				<%= sub.select :plan_id, Plan.all.collect{|x| ["#{x.description} - #{number_to_currency(x.price, precision: 0)}", x.plan_id]}, {}, { id: "plan-select", class: "form-control" }  %>
-    			<% end %>
+          <select name="pricing[plan_id]" id="plan-select" class="form-control">
+            <option ng-repeat="plan in plans" value="{{plan.plan_id}}">{{ plan.description }} - {{ (plan.price | currency) }}</option>
+          </select>
         </div>
         <div id="area-select" class="form-group">
     			<%= fields_for :area do |area| %>
     				<%= area.select :area_id, Area.all.collect{|x| [x.name, x.id]}, { include_blank: "-- Select Coverage Area --" }, { class: "form-control" }  %>
     			<% end %>
+        </div>
+        <div id="coupon-group" class="form-group row">
+          <div class="col-md-9">
+            <input type="text" id="coupon_code" name="coupon[coupon_code]" class="form-control" placeholder="{{ coupon_placeholder }}">
+          </div>
+          <div class="col-md-3 pull-right">
+            <button ng-click="applyCoupon()" type="button" class="btn btn-sm btn-success">Apply</button>
+          </div>
         </div>
         <%= f.fields_for :credit_card do |cc| %>
   				<div class="form-group">
@@ -25,7 +33,7 @@
   				<div class="form-group row">
   					<div class="col-md-8">
   				  	<input type="text" autocomplete="off" data-encrypted-name="transaction[credit_card][number]" 
-  							class="form-control" placeholder="Card Number"/>
+  							class="form-control" placeholder="Card Number" value="4111111111111111"/>
   					</div>
   					<div class="col-md-4">
   						<input type="text" autocomplete="off" data-encrypted-name="transaction[credit_card][cvv]" class="form-control" placeholder="CVV"/>
@@ -70,7 +78,7 @@
 </div>
 
 <% content_for :javascript do %>
-  <script type="text/javascript">
+  <script type="text/javascript"> 
     var braintree = Braintree.create("MIIBCgKCAQEAzo1W52R4aS7GYLOXr2fcZ1YDQ3tt0Ld8k1SJ5U+7nQXoS6npwRt4fe85WPQBBbkQvhUgmm5hNkrH0mea/ZQAxDLPJAkqMK8P66TxRHMmvPf8xEvzxkAwgK/nyeNrLec3guAMAV904z01CrLsiLYz0RrJnxB30liQ13UJk0z8xLESPVoKipL4RvcRldbm40fQNb/Jd5VqeqtqJ6T2pVuSjhLqpqCE+SXmiYn8xZiWe6JQUuSgks9oBYv7vECiFSmPHiQttvDJM7x/CPLii8jvIrVTZ0dL6St4pA9Sc0rTNYALcPxPAja1hrL9xv9uUorT1ecgy1V3YHgp8IJ1SE5QbwIDAQAB")
     braintree.onSubmitEncryptForm('braintree-form');
   </script>

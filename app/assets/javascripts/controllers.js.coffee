@@ -64,6 +64,14 @@ app.factory "Valuable", ["$resource", ($resource) ->
   $resource("/inspections/:inspection_id/valuables/:id", {inspection_id: "@inspection_id", id: "@id"}, {update: {method: "PUT"}})
 ]
 
+app.factory "Plan", ["$resource", ($resource) ->
+  $resource("/plans/:code", {code: "@code"}, {update: {method: "PUT"}})
+]
+
+app.factory "Coupon", ["$resource", ($resource) ->
+  $resource("/coupons/:code", {code: "@code"}, {update: {method: "PUT"}})
+]
+
 @InspectionController = ["$scope", "InspectedRoom", "Inspection", "Image", "Detail", "Valuable", "Address", "Agent", ($scope, InspectedRoom, Inspection, Image, Detail, Valuable, Address, Agent) ->
   $scope.inspections = Inspection.query()
   $scope.inspection = Inspection.get({id: $scope.inspection_id})
@@ -498,7 +506,34 @@ app.factory "Valuable", ["$resource", ($resource) ->
     $scope.user.company.logo = content
 ]
 
-app.value "$strapConfig",
-  datepicker:
-    format: "yyyy-mm-dd"
+@PurchaseController = ["$scope", "Plan", "Coupon", ($scope, Plan, Coupon) ->
+  # $scope.plans = Plan.query()
+  $scope.plans = [{description:"Full Service Inventory", plan_id:"agent", price: 495},{description:"Do It Yourself Option", plan_id:"self", price: 250}]
+  $scope.coupon_placeholder = "Coupon Code"
+  
+  $scope.applyCoupon = () ->
+    input_code = $("#coupon_code").val()
+    coupon = Coupon.get({code:input_code})
+    coupon.$promise.then ((data) ->
+      $("#coupon-group").removeClass("has-error")
+      if (data.full_price)
+        full_price = data.full_price
+      else
+        full_price = 495
+      if (data.self_price)
+        self_price = data.self_price
+      else
+        self_price = 250
+      $scope.plans = [{description:"Full Service Inventory", plan_id:"agent", price: full_price},{description:"Do It Yourself Option", plan_id:"self", price: self_price}]
+    ), ((data) ->
+      $("#coupon_code").val("")
+      $("#coupon-group").addClass("has-error")
+      $scope.coupon_placeholder = "Invalid Coupon Code"
+      $scope.plans = [{description:"Full Service Inventory", plan_id:"agent", price: 495},{description:"Do It Yourself Option",plan_id:"self", price: 250}]
+    )
+]
+#
+# app.value "$strapConfig",
+#   datepicker:
+#     format: "yyyy-mm-dd"
 

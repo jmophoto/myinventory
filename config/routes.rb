@@ -1,5 +1,6 @@
 Inspeckd::Application.routes.draw do
   resources :images
+  resources :plans
   resources :users do
     resources :accounts
     resource :customer do
@@ -43,6 +44,8 @@ Inspeckd::Application.routes.draw do
   get '/agent_inspections', to: 'inspections#agent_index'
   get '/agents', to: 'users#agent_index'
   get '/agents/:status', to: 'users#agent_index'
+  get '/coupons', to: 'coupons#index'
+  get 'coupons/:code', to: 'coupons#show'
   
   # admin access
   get 'admin', to: 'static_pages#admin'

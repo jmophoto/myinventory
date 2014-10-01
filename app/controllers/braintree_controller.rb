@@ -2,10 +2,21 @@ class BraintreeController < ApplicationController
   before_action :set_user
   
   def submit_transaction
+    if params[:coupon][:coupon_code]
+      @coupon = Coupon.where(code: params[:coupon][:coupon_code]).first
+    end
     if params[:pricing][:plan_id] == 'self'
-      params[:transaction][:amount] = 250
+      if @coupon && @coupon.self_price
+        params[:transaction][:amount] = @coupon.self_price
+      else
+        params[:transaction][:amount] = 250
+      end
     else
-      params[:transaction][:amount] = 495
+      if @coupon && @coupon.full_price
+        params[:transaction][:amount] = @coupon.full_price
+      else
+        params[:transaction][:amount] = 495
+      end
     end
     transaction = BraintreeRails::Transaction.create(params[:transaction])
     if transaction.errors.any?
