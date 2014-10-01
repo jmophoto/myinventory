@@ -16,6 +16,16 @@ module SessionsHelper
     end
   end
   
+  def approved_agent?
+    unless signed_in? && current_user.approved_agent?
+      store_location
+      flash[:error] = "This page is for agents only."
+      redirect_to signin_url
+    end
+  end
+  
+  
+  
   def sign_in(user)
     remember_token = User.new_remember_token
     cookies.permanent[:remember_token] = remember_token

@@ -51,7 +51,11 @@ class UsersController < ApplicationController
     if @user.save
       @user.create_address
       sign_in(@user)
-      redirect_to profile_path
+      if @user.agent?
+        redirect_to(agent_inspections_path)
+      else
+        redirect_to profile_path
+      end
     else
       render 'new'
     end

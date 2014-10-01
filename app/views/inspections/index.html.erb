@@ -1,4 +1,11 @@
 <% provide(:title, "Inventories") %>
+<% if current_user.agent? && !current_user.approved_agent? %>
+<div class="col-md-12">
+  <div class="well">
+    Thank you for your interest in becoming a MyInventory Agent. We will be in contact with you shortly.
+  </div>
+</div>
+<% else %>
 <div class="col-md-12" ng-init="stateList=<%= states %>;provinceList=<%= provinces %>;detailList=<%= detail_list %>;">
   <div ng-controller="InspectionController">
     <div class="panel-group" id="inspectionAccordion">
@@ -19,3 +26,4 @@
     </div>
   </div>
 </div>
+<% end %>
