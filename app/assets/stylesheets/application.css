@@ -26,3 +26,19 @@
  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
    display: none !important;
  }
+ 
+.footer-text {
+  padding-top: 10px;
+} 
+
+.godaddyseal {
+  padding-top: 10px;
+}
+
+.bbbseal {
+  margin-top: -54px;
+}
+
+.godaddyseal {
+
+}
