@@ -1,6 +1,6 @@
 app = angular.module("Inspeckd", ["ngRoute", "ngResource", "ng-rails-csrf", "ngUpload", "$strap.directives"])
 
-$(document).on('ready page:load', ->
+$(document).on('ready page:load, page:change', ->
   angular.bootstrap('body', ['Inspeckd'])
 )
 
